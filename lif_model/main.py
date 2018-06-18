@@ -19,24 +19,22 @@ Sensory Neurons: PVD, PLM, AVM, ALM
 Inter Neurons: AVA, AVD, PVC, DVA, AVB
 """
 
-R_PVD = 2 # Original: 9,4 GOhm - 9400000000
-C_PVD = 20 # Original: 16 pF - 0.000000000016
+R_PVD = 10 # Original: 9,4 GOhm - 9400000000
+C_PVD = 0.2 # Original: 16 pF - 0.000000000016
 tau_PVD = R_PVD * C_PVD
 
 # Treshold
-v = 2.5
+v = 4
 
 # Some other details
 u = 0
 u_rest = 0
-I_0 = 1.5  # 35mA - Constant input current
+I_0 = 0.5  # 35mA - Constant input current
 
 # Time Constants:
 t0 = 0
-T = 200
-delta_t = 0.1
-
-N = T / delta_t
+T = 10
+delta_t = 0.001
 
 # Counter Values
 t = 0
@@ -44,10 +42,10 @@ i = 0
 
 
 def main():
-    u_PVD = lif_sim_analytical(i, t, t0, delta_t, T, N, u, u_rest, v, R_PVD, C_PVD, tau_PVD, I_0)
-    u_euler = lif_sim_euler(i, t, t0, delta_t, T, N, u, u_rest, v, R_PVD, C_PVD, tau_PVD, I_0)
-    u_rk2_PVD = lif_sim_rk2(i, t, t0, delta_t, T, N, u, u_rest, v, R_PVD, C_PVD, tau_PVD, I_0)
-    u_rk4_PVD = lif_sim_rk4(i, t, t0, delta_t, T, N, u, u_rest, v, R_PVD, C_PVD, tau_PVD, I_0)
+    u_PVD = lif_sim_analytical(i, t, t0, delta_t, T, u, u_rest, v, R_PVD, C_PVD, tau_PVD, I_0)
+    u_euler = lif_sim_euler(i, t, t0, delta_t, T, u, u_rest, v, R_PVD, C_PVD, tau_PVD, I_0)
+    u_rk2_PVD = lif_sim_rk2(i, t, t0, delta_t, T, u, u_rest, v, R_PVD, C_PVD, tau_PVD, I_0)
+    u_rk4_PVD = lif_sim_rk4(i, t, t0, delta_t, T, u, u_rest, v, R_PVD, C_PVD, tau_PVD, I_0)
 
     plt.suptitle('Simple "Leaky-Integrate-and-Fire Model"', fontsize=16)
     plt.plot(u_PVD, '-b', label='Analytisches Signal', linewidth=1.5)

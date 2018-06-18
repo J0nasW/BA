@@ -8,7 +8,7 @@ Parameters:
 from ingredients import synapse
 
 def main():
-    synapse.AddSynapse(1,1,1,1)
+    synapse.AddSynapse(1,1,1,1,1,1)
 
 
 
