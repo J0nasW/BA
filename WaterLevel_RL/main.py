@@ -17,7 +17,7 @@ u_spike - Spike Voltage, when the Treshold of -55mV is reached
 Reward - RL-Rewards
 """
 
-WaterLevel = 2 # 0-10
+WaterLevel = 4 # 0-10
 LevelHistory = np.array([])
 u_rest = -70 #mV
 u_spike = 20 #mV
@@ -35,11 +35,14 @@ def main():
     global WaterLevel
     global LevelHistory
     global u_History
+    global u_IN
     for i in range(0,10):
         new_WaterLevel, u_IN = Control(WaterLevel, u_IN, u_spike, u_th, u_rest)
         LevelHistory = np.append(LevelHistory, new_WaterLevel)
         u_History = np.append(u_History, u_IN)
         WaterLevel = new_WaterLevel - 1
+
+    print u_History
 
     plt.suptitle('Water Level over Time', fontsize=16)
     plt.plot(LevelHistory, '-b', label='Wasserlevel', linewidth=1.5)
