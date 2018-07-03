@@ -7,8 +7,15 @@ The Programming Language is Python.
 Some Libraries that I used:
 * [matplotlib](https://matplotlib.org/)
 * [numpy](http://www.numpy.org/)
+* [OpenAI Gym and Roboschool](https://gym.openai.com/)
 
 ---
+#### Update Fr. 29.06.2018
+* Some breakthroughs at modelling the formulas from the Paper "TW Neuronal Circuit" - got a very promising LIF Simulation out of variating the Constants in Project "TW-Circuit" - will continue this Idea and maybe implement a Network from there.
+
+#### Update Fr. 22.06.2018
+* Added a new Project "WaterLevel_RL" which was a first try to implement a Water Level regulator with a nerual network - still under development and not quite sure, if I continue this Idea
+
 #### Update Mo. 18.06.2018
 * Implementation of a very substantial neural network in lif_model/single_neuron_net.py
 
