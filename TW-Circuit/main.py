@@ -24,21 +24,15 @@ Inter Neurons: AVA, AVD, PVC, DVA, AVB
 v = -50 #mV
 
 # Variables
-'''
-C_m = 1 #mF - Sweep from 1mF to 1F
-G_leak = 1148.5 #mS - Sweep from 50mS to 5S
-U_leak = -90 #mV - Sweep from -90mV to 0mV
-w = 1000 #mS - Sweep from 0S to 3S
-sig = 0.05
-'''
-mu = -40 #mV
+mu = -40 #mV - Sigmoid mu
 E_ex = 0 #mV
 E_in = -90 #mV
+Default_U_leak = -70 #mV
 
 # Time Constants:
 t0 = t = 0
 T = 10
-delta_t = 1
+delta_t = 0.1
 
 # Making Contact with Neurons through Synapses----------------------------------------------
 
@@ -57,19 +51,19 @@ B_in = np.multiply(B, B_rnd)
 # Parameter Matrix--------------------------------------------------------------------------
 
 # For Synapses
-w_in_mat = np.multiply(np.ones((5,5)), 3) # w [S] Parameter for Synapses between inter Neurons - Sweep from 0S to 3S
-w_sin_mat = np.multiply(np.ones((4,5)), 3) # w [S] Parameter for Synapses between sensory and inter Neurons - Sweep from 0S to 3S
+w_in_mat = np.multiply(np.ones((5,5)), 2) # w [S] Parameter for Synapses between inter Neurons - Sweep from 0S to 3S
+w_sin_mat = np.multiply(np.ones((4,5)), 2) # w [S] Parameter for Synapses between sensory and inter Neurons - Sweep from 0S to 3S
 
-sig_in_mat = np.multiply(np.ones((5,5)), 0.05) # sigma Parameter for Synapses between inter Neurons - Sweep from 0.05 - 0.5
-sig_sin_mat = np.multiply(np.ones((4,5)), 0.05) # sigma Parameter for Synapses between sensory and inter Neurons - Sweep from 0.05 - 0.5
+sig_in_mat = np.multiply(np.ones((5,5)), 0.2) # sigma Parameter for Synapses between inter Neurons - Sweep from 0.05 - 0.5
+sig_sin_mat = np.multiply(np.ones((4,5)), 0.2) # sigma Parameter for Synapses between sensory and inter Neurons - Sweep from 0.05 - 0.5
 
 
 # For Neurons
-C_m_mat = np.multiply(np.ones((1,5)), 0.001) # C_m [F] Parameter for Neurons - Sweep from 1mF to 1F
+C_m_mat = np.multiply(np.ones((1,5)), 0.1) # C_m [F] Parameter for Neurons - Sweep from 1mF to 1F
 
 G_leak_mat = np.multiply(np.ones((1,5)), 2) # G_leak [S] Parameter for Neurons - Sweep from 50mS to 5S
 
-U_leak_mat = np.multiply(np.ones((1,5)), -90) # U_leak [mV] Parameter for Neurons - Sweep from -90mV to 0mV
+U_leak_mat = np.multiply(np.ones((1,5)), -70) # U_leak [mV] Parameter for Neurons - Sweep from -90mV to 0mV
 
 #-------------------------------------------------------------------------------------------
 
@@ -90,23 +84,6 @@ I_s_sensor = np.zeros((4,5))
 x = [0,0,0,0,0] #AVA, AVD, PVC, DVA, AVB
 u = [0,0,0,0] #PVD, PLM, AVM, ALM
 
-x_arr = ([])
-u_arr = ([])
-
-AVA = np.array([])
-AVD = np.array([])
-PVC = np.array([])
-DVA = np.array([])
-AVB = np.array([])
-
-PVD = np.array([])
-PLM = np.array([])
-AVM = np.array([])
-ALM = np.array([])
-
-AVA_spike = np.array([])
-AVB_spike = np.array([])
-
 #-------------------------------------------------------------------------------------------
 
 # State Matrix------------------------------------------------------------------------------
@@ -114,6 +91,34 @@ AVB_spike = np.array([])
 fire = [0,0,0,0,0] #AVA, AVD, PVC, DVA, AVB
 
 #-------------------------------------------------------------------------------------------
+
+# Initialization--------------------------------------------------------------------
+
+def initialize(Default_U_leak):
+    for i in range(0,4):
+        x[i] = Default_U_leak
+
+    global u, x_arr, u, u_arr, AVA, AVD, PVC, DVA, AVB, PVD, PLM, AVM, ALM, AVA_spike, AVB_spike
+
+    x_arr = ([])
+    u_arr = ([])
+
+    AVA = np.array([])
+    AVD = np.array([])
+    PVC = np.array([])
+    DVA = np.array([])
+    AVB = np.array([])
+
+    PVD = np.array([])
+    PLM = np.array([])
+    AVM = np.array([])
+    ALM = np.array([])
+
+    AVA_spike = np.array([])
+    AVB_spike = np.array([])
+
+
+#---------------------------------------------------------------------------------
 
 # Compute Function--------------------------------------------------------------------------
 
@@ -159,26 +164,8 @@ def compute(u, w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, C_m_mat, G_leak_mat
 # Main Function-----------------------------------------------------------------------------
 
 def main():
-    global x_arr, u_arr
-    global AVA, AVD, PVC, DVA, AVB
-    global PVD, PLM, AVM, ALM
-    global AVA_spike, AVB_spike
-
-    u = [0,0,0,0]
-
-    AVA = np.array([])
-    AVD = np.array([])
-    PVC = np.array([])
-    DVA = np.array([])
-    AVB = np.array([])
-
-    PVD = np.array([])
-    PLM = np.array([])
-    AVM = np.array([])
-    ALM = np.array([])
-
-    AVA_spike = np.array([])
-    AVB_spike = np.array([])
+    global u, x_arr, u, u_arr, AVA, AVD, PVC, DVA, AVB, PVD, PLM, AVM, ALM, AVA_spike, AVB_spike
+    initialize(Default_U_leak)
 
     for t in np.arange(t0,T,delta_t):
         x, u, fire = compute(u, w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, C_m_mat, G_leak_mat, U_leak_mat)
@@ -196,6 +183,9 @@ def main():
 
         AVA_spike = np.append(AVA_spike, fire[0]) # Reverse lokomotion
         AVB_spike = np.append(AVB_spike, fire[4]) # Forward lokomotion
+
+    print AVA_spike
+    print AVB_spike
 
     plt.suptitle('Leaky-Integrate-and-Fire Neuronal Network', fontsize=16)
 
