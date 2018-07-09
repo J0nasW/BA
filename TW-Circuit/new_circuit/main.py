@@ -2,6 +2,8 @@
 Neuronal Network of C. Elegans implemented in Python with the LIF-Model
 (by JW)
 
+New Circuit Edition (SIM-CE)
+
 Version: I don't know - Still in work!
 """
 
@@ -36,76 +38,51 @@ delta_t = 0.01
 
 # Making Contact with Neurons through Synapses and Gap-Junctions----------------------------
 
-# A = Connections between Interneurons through Synapses
-A = np.matrix('0 -1 -1 0 -1; 1 0 1 0 1; 1 1 0 0 1; -1 0 -1 0 -1; -1 -1 0 0 0')
-A_rnd = np.random.rand(5,5)
-A_in = np.multiply(A, A_rnd)
-
-# B = Connections between Sensory- and Interneurons through Synapses
-B = np.matrix('1 0 1 1 0; 1 1 0 1 0; 0 0 1 0 1; 0 1 1 0 0')
-B_rnd = np.random.rand(4,5)
-B_in = np.multiply(B, B_rnd)
+# A = Connections between Neurons with excitatory Nature (E = 0mV)
+A_in = np.matrix('0 0 0 1 1 0 1 0; 0 0 0 1 1 0 0 0; 0 0 0 1 0 0 0 1; 0 0 0 0 0 0 0 0; 0 0 0 0 0 0 0 0; 0 0 0 1 1 0 1 0; 0 0 0 1 1 1 0 1; 0 0 0 0 0 0 1 0')
+A_ex = np.matrix('0 0 0 0 0 0 0 0; 0 0 0 0 0 0 0 0; 0 0 0 0 0 0 0 0; 0 0 0 0 1 1 1 1; 0 0 0 1 0 1 0 0; 0 0 0 0 0 0 0 0; 0 0 0 0 0 0 0 0; 0 0 0 0 0 0 0 0')
+A_gap = np.matrix('0 0 0 1 0 1 0 0; 0 0 1 0 0 0 0 0; 0 0 0 0 1 0 0 0; 1 0 1 0 0 0 1 0; 0 0 0 0 0 0 0 0; 1 0 0 0 0 0 1 0; 0 0 0 0 0 1 0 0; 0 0 0 0 0 0 0 0')
 
 
-# A_gap = Connections between Interneurons through Gap-Junctions
-A_gap = np.matrix('0 0 0 0 0; 0 0 0 0 0; 0 0 0 1 0; 0 0 1 0 0; 0 0 0 0 0')
-A_gap_rnd = np.random.rand(5,5)
-A_gap_in = np.multiply(A_gap, A_gap_rnd)
-
-# B = Connections between Sensory- and Interneurons through Gap-Junctions
-B_gap = np.matrix('0 0 0 0 0; 0 0 1 0 0; 0 0 0 0 0; 0 1 0 0 0')
-B_gap_rnd = np.random.rand(4,5)
-B_gap_in = np.multiply(B_gap, B_gap_rnd)
 
 #-------------------------------------------------------------------------------------------
 
 # Parameter Matrix--------------------------------------------------------------------------
 
-# For Synapses
-w_in_mat = np.multiply(np.ones((5,5)), 1.7) # w [S] Parameter for Synapses between inter Neurons - Sweep from 0S to 3S
-w_sin_mat = np.multiply(np.ones((4,5)), 1.7) # w [S] Parameter for Synapses between sensory and inter Neurons - Sweep from 0S to 3S
+# Weights (or Number of same Synapses) per Synapse (n)
+w_in = np.matrix('0 0 0 25 62.5 0 50 0; 0 0 0 75 12 0 0 0; 0 0 0 100 0 0 0 125; 0 0 0 0 0 0 0 0; 0 0 0 0 0 0 0 0; 0 0 0 37.5 125 0 250 0; 0 0 0 25 50 62 0 25; 0 0 0 0 37.5 0 75 0')
+w_ex = np.matrix('0 0 0 0 0 0 0 0; 0 0 0 0 0 0 0 0; 0 0 0 0 0 0 0 0; 0 0 0 0 325 100 425 725; 0 0 0 25 0 0 1400 0; 0 0 0 0 0 0 0 0; 0 0 0 0 0 0 0 0; 0 0 0 0 0 0 0 0')
+w_gap = np.matrix('0 0 0 120 0 120 0 0; 0 0 120 0 0 0 0 0; 0 0 0 0 120 0 0 0; 120 0 120 0 0 0 600 0; 0 0 0 0 0 0 0 0; 120 0 0 0 0 0 60 0; 0 0 0 600 0 60 0 0; 0 0 0 0 0 0 0 0')
 
-sig_in_mat = np.multiply(np.ones((5,5)), 0.2) # sigma Parameter for Synapses between inter Neurons - Sweep from 0.05 - 0.5
-sig_sin_mat = np.multiply(np.ones((4,5)), 0.2) # sigma Parameter for Synapses between sensory and inter Neurons - Sweep from 0.05 - 0.5
+# For Synapses and Gap-Junctions
+G_syn = np.multiply(np.ones((8,8)), 2.3) # G_syn [mS] Parameter for Neurons - Sweep from 0.1 to 1 mS/cm^2
 
-# For Gap-Junctions
-w_gap_in_mat = np.multiply(np.ones((5,5)), 1.7) # w [S] Parameter for Gap-Junctions between inter Neurons - Sweep from 0S to 3S
-w_gap_sin_mat = np.multiply(np.ones((5,5)), 1.7) # w [S] Parameter for Gap-Junctions sensory and inter Neurons - Sweep from 0S to 3S
+V_range = np.multiply(np.ones((8,8)), 3) # V_range [mV] Parameter for Neurons - Sweep from 3 to 6 mV
 
-# For Neurons
-C_m_mat = np.multiply(np.ones((1,5)), 0.5) # C_m [F] Parameter for Neurons - Sweep from 1mF to 1F
-
-G_leak_mat = np.multiply(np.ones((1,5)), 2.3) # G_leak [S] Parameter for Neurons - Sweep from 50mS to 5S
-
-U_leak_mat = np.multiply(np.ones((1,5)), -70) # U_leak [mV] Parameter for Neurons - Sweep from -90mV to 0mV
+V_shift = np.multiply(np.ones((8,8)), -30) # V_shift [mV] Parameter for Neurons - Sweep from -10 to -40mV
 
 #-------------------------------------------------------------------------------------------
 
 
 # Current Matrix----------------------------------------------------------------------------
 
-# Current Matrix for Symapses between inter Neurons
-I_s_inter = np.zeros((5,5))
-# Current Matrix for Synapses between sensory and inter Neurons
-I_s_sensor = np.zeros((4,5))
+# Current Matrix for Symapses between Neurons
+I_syn = np.zeros((8,8))
 
-# Current Matrix for Gap-Junctions between inter Neurons
-I_g_inter = np.zeros((5,5))
-# Current Matrix for Gap-Junctions between sensory and inter Neurons
-I_g_sensor = np.zeros((4,5))
+# Current Matrix for Gap-Junctions between Neurons
+I_gap = np.zeros((8,8))
 
 #-------------------------------------------------------------------------------------------
 
 # Voltage Matrix----------------------------------------------------------------------------
 
-x = [0,0,0,0,0] #AVA, AVD, PVC, DVA, AVB
-u = [0,0,0,0] #PVD, PLM, AVM, ALM
+x = [0, 0, 0, 0, 0, 0, 0, 0] #PLM, ALM, AVM, PVC, AVD, LUA, AVA, AVB
 
 #-------------------------------------------------------------------------------------------
 
 # State Matrix------------------------------------------------------------------------------
 
-fire = [0,0,0,0,0] #AVA, AVD, PVC, DVA, AVB
+fire = [0, 0, 0, 0, 0, 0, 0, 0] #PLM, ALM, AVM, PVC, AVD, LUA, AVA, AVB
 
 #-------------------------------------------------------------------------------------------
 
@@ -114,23 +91,20 @@ fire = [0,0,0,0,0] #AVA, AVD, PVC, DVA, AVB
 def initialize(Default_U_leak):
 
     # Initializing Neurons and Sensors------------------------------------------------------
-    for i in range(0,5):
+    for i in range(0,8):
         x[i] = Default_U_leak
-    for i in range(0,4):
-        u[i] = Default_U_leak
 
-    global AVA, AVD, PVC, DVA, AVB, PVD, PLM, AVM, ALM, AVA_spike, AVB_spike
+    global PLM, ALM, AVM, PVC, AVD, LUA, AVA, AVB, AVA_spike, AVB_spike
 
-    AVA = np.array([Default_U_leak])
-    AVD = np.array([Default_U_leak])
+    PLM = np.array([Default_U_leak])
+    ALM = np.array([Default_U_leak])
+    AVM = np.array([Default_U_leak])
     PVC = np.array([Default_U_leak])
-    DVA = np.array([Default_U_leak])
-    AVB = np.array([Default_U_leak])
+    AVD = np.array([Default_U_leak])
 
-    PVD = np.array([])
-    PLM = np.array([])
-    AVM = np.array([])
-    ALM = np.array([])
+    LUA = np.array([])
+    AVA = np.array([])
+    AVB = np.array([])
 
     AVA_spike = np.array([0])
     AVB_spike = np.array([0])
@@ -149,17 +123,16 @@ def compute(u, w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, C_m_mat, G_leak_mat
 
     # Compute all Synapse Currents in this network------------------------------------------
 
-    for i in range(0,5):
-        for j in range (0,5):
+    for i in range(0,8):
+        for j in range (0,8):
             # Synapse Currents between Interneurons
-            if A[i, j] == 1:
+            if A_ex[i, j] == 1:
                 # Excitatory Synapse
-                I_s_inter[i, j] = I_syn_calc(x[i], x[j], E_ex, w_in_mat[i, j], sig_in_mat[i, j], mu)
-            elif A[i, j] == -1:
-                # Inhibitory Synapse
-                I_s_inter[i, j] = I_syn_calc(x[i], x[j], E_in, w_in_mat[i, j], sig_in_mat[i, j], mu)
-            else:
-                I_s_inter[i, j] = 0
+                I_syn[i, j] = I_syn_calc(x[i], x[j], E_ex, w_in_mat[i, j], sig_in_mat[i, j], mu)
+            elif A[i, j] == o:
+                I_syn[i, j] = 0
+
+                #HIER WEITER MACHEN !!!!!!!!
 
             # Gap-Junction Currents between Interneurons
             if A_gap[i, j] == 1:

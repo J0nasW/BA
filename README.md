@@ -10,6 +10,10 @@ Some Libraries that I used:
 * [OpenAI Gym and Roboschool](https://gym.openai.com/)
 
 ---
+
+#### Update Mo., 09.07.2018
+* TW-Circuit now takes Gap-Junction-Currents - BUT still outputs weird Plots and Results - PLEASE HELP!
+
 #### Update Fr. 29.06.2018
 * Some breakthroughs at modelling the formulas from the Paper "TW Neuronal Circuit" - got a very promising LIF Simulation out of variating the Constants in Project "TW-Circuit" - will continue this Idea and maybe implement a Network from there.
 
