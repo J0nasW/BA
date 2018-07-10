@@ -73,7 +73,7 @@ w_gap_in_mat = np.multiply(np.ones((5,5)), 1.7) # w [S] Parameter for Gap-Juncti
 w_gap_sin_mat = np.multiply(np.ones((5,5)), 1.7) # w [S] Parameter for Gap-Junctions sensory and inter Neurons - Sweep from 0S to 3S
 
 # For Neurons
-C_m_mat = np.multiply(np.ones((1,5)), 0.5) # C_m [F] Parameter for Neurons - Sweep from 1mF to 1F
+C_m_mat = np.multiply(np.ones((1,5)), 1) # C_m [F] Parameter for Neurons - Sweep from 1mF to 1F
 
 G_leak_mat = np.multiply(np.ones((1,5)), 2.3) # G_leak [S] Parameter for Neurons - Sweep from 50mS to 5S
 

@@ -9,7 +9,14 @@ Some Libraries that I used:
 * [numpy](http://www.numpy.org/)
 * [OpenAI Gym and Roboschool](https://gym.openai.com/)
 
+
+### ToDo's and Thoughts:
+* Simulation for my neural Circuit was initally to use Roboschool's inverted Pendulum. Because of the high degree of non-linerarity, a new approach is being developed: A new Simulation Environment containing a Wagon which starts some distance out of its reference point. Control Theory would suggest a PT2, the neural Network should solve this on it's own using no control Theory at all.
+
 ---
+#### Update Di., 10.07.2018
+* TW-Circuit/new_circuit_SIMCE released based on SIM-CE Simulink Simulation - New neual Network with potential!
+* TW-Circuit/new_circuit_TWCIRCUIT released based on Worm Level Control Paper with advanced Matrices and more computational power - Working on this for the next days and maybe implement some kind of simple Simulation (see ToDo's)
 
 #### Update Mo., 09.07.2018
 * TW-Circuit now takes Gap-Junction-Currents - BUT still outputs weird Plots and Results - PLEASE HELP!
