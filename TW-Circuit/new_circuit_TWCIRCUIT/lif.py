@@ -23,18 +23,18 @@ def I_gap_calc(u_pre, u_post, w_gap):
     return I_g
 
 # Neuron Voltage computation
-def U_neuron_calc(u_syn, I_syn, I_gap, C_m, G_leak, U_leak, v, delta_t):
+def U_neuron_calc(u_syn, I_syn_in, I_syn_ex, I_gap, C_m, G_leak, U_leak, v, delta_t):
 
     fire = 0
 
     if u_syn <= v:
-        k1 = ((G_leak * (U_leak - u_syn) + (I_syn + I_gap)) / C_m) * delta_t
+        k1 = ((G_leak * (U_leak - u_syn) + (I_syn_in + I_syn_ex + I_gap)) / C_m) * delta_t
 
-        k2 = ((G_leak * (U_leak - (u_syn + 1/2 * k1)) + (I_syn + I_gap)) / C_m) * delta_t
+        k2 = ((G_leak * (U_leak - (u_syn + 1/2 * k1)) + (I_syn_in + I_syn_ex + I_gap)) / C_m) * delta_t
 
-        k3 = ((G_leak * (U_leak - (u_syn + 1/2 * k2)) + (I_syn + I_gap)) / C_m) * delta_t
+        k3 = ((G_leak * (U_leak - (u_syn + 1/2 * k2)) + (I_syn_in + I_syn_ex + I_gap)) / C_m) * delta_t
 
-        k4 = ((G_leak * (U_leak - (u_syn + k3)) + (I_syn + I_gap)) / C_m) * delta_t
+        k4 = ((G_leak * (U_leak - (u_syn + k3)) + (I_syn_in + I_syn_ex + I_gap)) / C_m) * delta_t
 
         u_syn = u_syn + 1/6 * (k1 + 2 * k2 + 2 * k3 + k4)
 

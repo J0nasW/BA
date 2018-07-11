@@ -1,5 +1,5 @@
 # Bachelor Thesis
-at the Chair of Automatic Control (Faculty of Engineering - CAU Kiel)
+at the [Chair of Automatic Control](https://www.control.tf.uni-kiel.de/en) - @ACON-Kiel (Faculty of Engineering - CAU Kiel) :mortar_board:
 
 This Git-Repository holds all the Code written for my Bachelor Thesis at the Chair of Automatic Control at TF Uni Kiel.
 The Programming Language is Python.

@@ -73,9 +73,11 @@ w_gap_in_mat = np.multiply(np.ones((5,5)), 1.7) # w [S] Parameter for Gap-Juncti
 w_gap_sin_mat = np.multiply(np.ones((5,5)), 1.7) # w [S] Parameter for Gap-Junctions sensory and inter Neurons - Sweep from 0S to 3S
 
 # For Neurons
-C_m_mat = np.multiply(np.ones((1,5)), 1) # C_m [F] Parameter for Neurons - Sweep from 1mF to 1F
+#C_m_mat = np.multiply(np.ones((1,5)), 1) # C_m [F] Parameter for Neurons - Sweep from 1mF to 1F
+C_m_mat = np.matrix('0.1 1 1 1 0.1')
 
-G_leak_mat = np.multiply(np.ones((1,5)), 2.3) # G_leak [S] Parameter for Neurons - Sweep from 50mS to 5S
+#G_leak_mat = np.multiply(np.ones((1,5)), 2.3) # G_leak [S] Parameter for Neurons - Sweep from 50mS to 5S
+G_leak_mat = np.matrix('4 2.3 2.3 2.3 4')
 
 U_leak_mat = np.multiply(np.ones((1,5)), -70) # U_leak [mV] Parameter for Neurons - Sweep from -90mV to 0mV
 
@@ -119,7 +121,7 @@ def initialize(Default_U_leak):
     for i in range(0,4):
         u[i] = Default_U_leak
 
-    global AVA, AVD, PVC, DVA, AVB, PVD, PLM, AVM, ALM, AVA_spike, AVB_spike
+    global AVA, AVD, PVC, DVA, AVB, PVD, PLM, AVM, ALM, AVA_spike, AVB_spike, I_PVC, I_DVA, I_AVD, I_AVA, I_AVB
 
     AVA = np.array([Default_U_leak])
     AVD = np.array([Default_U_leak])
@@ -132,8 +134,14 @@ def initialize(Default_U_leak):
     AVM = np.array([])
     ALM = np.array([])
 
-    AVA_spike = np.array([0])
-    AVB_spike = np.array([0])
+    AVA_spike = np.array([])
+    AVB_spike = np.array([])
+
+    I_PVC = np.array([])
+    I_DVA = np.array([])
+    I_AVD = np.array([])
+    I_AVA = np.array([])
+    I_AVB = np.array([])
     #---------------------------------------------------------------------------------------
 
     # Initializing OpenAI Environments------------------------------------------------------
@@ -145,7 +153,7 @@ def initialize(Default_U_leak):
 
 # Compute Function--------------------------------------------------------------------------
 
-def compute(u, w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, C_m_mat, G_leak_mat, U_leak_mat):
+def compute(x, u):
 
     # Compute all Synapse Currents in this network------------------------------------------
 
@@ -188,22 +196,27 @@ def compute(u, w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, C_m_mat, G_leak_mat
 
     # Now compute inter Neurons Voltages----------------------------------------------------
     for i in range(0,5):
-        I_syn = I_s_inter.sum(axis = 0) # Creates a 1x5 Array with the Sum of all Columns
-        I_gap = I_g_inter.sum(axis = 0) # Creates a 1x5 Array with the Sum of all Columns
-        x[i], fire[i] = U_neuron_calc(x[i], I_syn[i], I_gap[i], C_m_mat[0,i], G_leak_mat[0,i], U_leak_mat[0,i], v, delta_t)
+        I_syn_inter = I_s_inter.sum(axis = 0) # Creates a 1x5 Array with the Sum of all Columns
+        I_gap_inter = I_g_inter.sum(axis = 0)
+        I_syn_stimuli = I_s_sensor.sum(axis = 0)
+        I_gap_stimuli = I_g_sensor.sum(axis = 0)
+        x[i], fire[i] = U_neuron_calc(x[i], I_syn_inter[i], I_gap_inter[i], I_syn_stimuli[i], I_gap_stimuli[i], C_m_mat[0,i], G_leak_mat[0,i], U_leak_mat[0,i], v, delta_t)
         #x[i], fire[i] = U_neuron_calc(x[i], I_syn[i], 0, C_m_mat[0,i], G_leak_mat[0,i], U_leak_mat[0,i], v, delta_t)
 
     #---------------------------------------------------------------------------------------
 
-    return x, u, fire
+    I_syn = np.add(I_syn_inter, I_syn_stimuli)
+    I_gap = np.add(I_gap_inter, I_gap_stimuli)
+
+    return x, u, fire, I_syn, I_gap
 
 #-------------------------------------------------------------------------------------------
 
 # Append Function---------------------------------------------------------------------------
 
-def arr(x, u, fire):
+def arr(x, u, fire, I_all):
 
-    global AVA, AVD, PVC, DVA, AVB, PVD, PLM, AVM, ALM, AVA_spike, AVB_spike
+    global AVA, AVD, PVC, DVA, AVB, PVD, PLM, AVM, ALM, AVA_spike, AVB_spike, I_PVC, I_DVA, I_AVD, I_AVA, I_AVB
 
     AVA = np.append(AVA, x[0])
     AVD = np.append(AVD, x[1])
@@ -219,11 +232,19 @@ def arr(x, u, fire):
     AVA_spike = np.append(AVA_spike, fire[0]) # Reverse lokomotion
     AVB_spike = np.append(AVB_spike, fire[4]) # Forward lokomotion
 
+    I_AVA = np.append(I_AVA, I_all[0])
+    I_AVD = np.append(I_AVD, I_all[1])
+    I_PVC = np.append(I_PVC, I_all[2])
+    I_DVA = np.append(I_DVA, I_all[3])
+    I_AVB = np.append(I_AVB, I_all[4])
+
 #-------------------------------------------------------------------------------------------
 
 # Plot Function-----------------------------------------------------------------------------
 
 def plot():
+
+    plt.figure(1)
     plt.suptitle('Leaky-Integrate-and-Fire Neuronal Network', fontsize=16)
 
     plt.subplot(121)
@@ -247,6 +268,29 @@ def plot():
     plt.ylabel('u(t) in [mV]')
     plt.legend(loc='upper left')
 
+
+    plt.figure(2)
+    plt.suptitle('Neuron Currents', fontsize=16)
+
+    plt.subplot(321)
+    plt.title('PVC', fontsize=10)
+    plt.plot(I_PVC, '-r', label='PVC', linewidth=1)
+    plt.subplot(322)
+    plt.title('DVA', fontsize=10)
+    plt.plot(I_DVA, '-r', label='DVA', linewidth=1)
+    plt.subplot(323)
+    plt.title('AVD', fontsize=10)
+    plt.plot(I_AVD, '-r', label='AVD', linewidth=1)
+    plt.subplot(324)
+    plt.title('AVA', fontsize=10)
+    plt.plot(I_AVA, '-r', label='AVA', linewidth=1)
+    plt.xlabel('t')
+    plt.ylabel('i(t) in [mA]')
+    plt.subplot(325)
+    plt.title('AVB', fontsize=10)
+    plt.plot(I_AVB, '-r', label='AVB', linewidth=1)
+
+
     plt.show()
 
 #-------------------------------------------------------------------------------------------
@@ -258,15 +302,16 @@ def plot():
 #-------------------------------------------------------------------------------------------
 
 def main():
-    global u
+    global x, u
 
     initialize(Default_U_leak) # Initializing all Interneurons with the desired leakage voltage
-
+    #u = [-20, -40, -40, -20]
     for t in np.arange(t0,T,delta_t):
-        x, u, fire = compute(u, w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, C_m_mat, G_leak_mat, U_leak_mat) # Compute the next Interneuron Voltages along with a possible "fire" Event
-        arr(x, u, fire) # Storing Information for graphical analysis
-        u[1] = u[1] + 0.05
-        u[3] = u[3] + 0.03
+        x, u, fire, I_syn, I_gap = compute(x, u) # Compute the next Interneuron Voltages along with a possible "fire" Event
+        I_all = np.add(I_syn, I_gap)
+        arr(x, u, fire, I_all) # Storing Information for graphical analysis
+        #u[1] = u[1] + 0.04
+        u[0] = u[0] + 0.05
 
     plot() # Plotting everyting using matplotlib
 
