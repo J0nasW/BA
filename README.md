@@ -1,20 +1,31 @@
 # :mortar_board: Bachelor Thesis
+## Eine Anwendung des Reinforcement Learning zur Regelung dynamischer Systeme
 at the [Chair of Automatic Control](https://www.control.tf.uni-kiel.de/en) ([Faculty of Engineering](http://www.tf.uni-kiel.de/en) - [CAU Kiel](https://www.uni-kiel.de/en/))
 
 This Git-Repository holds all the Code written for my Bachelor Thesis at the Chair of Automatic Control at TF Uni Kiel.
 The Programming Language is Python.
+
+---
+
+### My Approach
+To outperform established control-circuits and well known models in Control-Theroy, it takes more than a new Approach. But maybe this Idea is a new Way to solve problems like the Cart Pole "Inverted Pendulum" Problem. But instead of generating a neuronal Circuit from scratch like nearly every artificial Intelligence project, we use a already discovered neuronal Circuit: the touch-withdrawal neural circuit from C.Elegans []. With some modification and even more programming, we are able to simulate the well known leaky integrate and fire models and closing the loop to simulation environnments like OpenAI's GYM.
+
+This Circuit is being used here and presented by many transition-matrices and state-vectors:
+
+
+---
+
+### ToDo's and Thoughts:
+* Simulation for my neural Circuit was initally to use Roboschool's inverted Pendulum. Because of the high degree of non-linerarity, a new approach is being developed: A new Simulation Environment containing a Wagon which starts some distance out of its reference point. Control Theory would suggest a PT2, the neural Network should solve this on it's own using no control Theory at all.
+* Got the OpenAI Gym CartPole_v0 Environment up and running - now we have to develop a reliable Reward-System and some good reinforcement Learning algorithms - Maybe even getting to Epsilon-Greedy soon.. :blush:
 
 Some Libraries that I used:
 * [matplotlib](https://matplotlib.org/)
 * [numpy](http://www.numpy.org/)
 * [OpenAI Gym and Roboschool](https://gym.openai.com/)
 
-
-### ToDo's and Thoughts:
-* Simulation for my neural Circuit was initally to use Roboschool's inverted Pendulum. Because of the high degree of non-linerarity, a new approach is being developed: A new Simulation Environment containing a Wagon which starts some distance out of its reference point. Control Theory would suggest a PT2, the neural Network should solve this on it's own using no control Theory at all.
-* Got the OpenAI Gym CartPole_v0 Environment up and running - now we have to develop a reliable Reward-System and some good reinforcement Learning algorithms - Maybe even getting to Epsilon-Greedy soon.. :blush:
-
 ---
+
 #### Update Do., 12.07.2018
 * Yet another feature folder added: TW-Circuit/new_circuit_symm now with integration on OpenAI Gym CartPole_v0. Still working on tuning the Parameters and weights, still haven't got a good reward system.. but we are getting there!
 
