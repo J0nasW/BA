@@ -11,7 +11,7 @@ The Programming Language is Python.
 To outperform established control-circuits and well known models in Control-Theroy, it takes more than a new Approach. But maybe this Idea is a new Way to solve problems like the Cart Pole "Inverted Pendulum" Problem. But instead of generating a neuronal Circuit from scratch like nearly every artificial Intelligence project, we use a already discovered neuronal Circuit: the touch-withdrawal neural circuit from C.Elegans []. With some modification and even more programming, we are able to simulate the well known leaky integrate and fire models and closing the loop to simulation environnments like OpenAI's GYM.
 
 This Circuit is being used here and presented by many transition-matrices and state-vectors:
-![TW-Neural Circuit of C. Elegans with some Modifications](https://github.com/J0nasW/BA/blob/master/img/Neural_Net.png =400x400 "TW-Neural Circuit of C. Elegans with some Modifications")
+<img src="https://github.com/J0nasW/BA/blob/master/img/Neural_Net.png" alt="TW-Neural Circuit of C. Elegans with some Modifications" width="400px"/>
 
 ---
 
