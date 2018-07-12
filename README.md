@@ -1,5 +1,5 @@
-# Bachelor Thesis
-at the [Chair of Automatic Control](https://www.control.tf.uni-kiel.de/en) - @ACON-Kiel (Faculty of Engineering - CAU Kiel) :mortar_board:
+# :mortar_board: Bachelor Thesis
+at the [Chair of Automatic Control](https://www.control.tf.uni-kiel.de/en) ([Faculty of Engineering](http://www.tf.uni-kiel.de/en) - [CAU Kiel](https://www.uni-kiel.de/en/))
 
 This Git-Repository holds all the Code written for my Bachelor Thesis at the Chair of Automatic Control at TF Uni Kiel.
 The Programming Language is Python.
@@ -12,8 +12,12 @@ Some Libraries that I used:
 
 ### ToDo's and Thoughts:
 * Simulation for my neural Circuit was initally to use Roboschool's inverted Pendulum. Because of the high degree of non-linerarity, a new approach is being developed: A new Simulation Environment containing a Wagon which starts some distance out of its reference point. Control Theory would suggest a PT2, the neural Network should solve this on it's own using no control Theory at all.
+* Got the OpenAI Gym CartPole_v0 Environment up and running - now we have to develop a reliable Reward-System and some good reinforcement Learning algorithms - Maybe even getting to Epsilon-Greedy soon.. :blush:
 
 ---
+#### Update Do., 12.07.2018
+* Yet another feature folder added: TW-Circuit/new_circuit_symm now with integration on OpenAI Gym CartPole_v0. Still working on tuning the Parameters and weights, still haven't got a good reward system.. but we are getting there!
+
 #### Update Di., 10.07.2018
 * TW-Circuit/new_circuit_SIMCE released based on SIM-CE Simulink Simulation - New neual Network with potential!
 * TW-Circuit/new_circuit_TWCIRCUIT released based on Worm Level Control Paper with advanced Matrices and more computational power - Working on this for the next days and maybe implement some kind of simple Simulation (see ToDo's)
