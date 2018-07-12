@@ -307,20 +307,23 @@ def run_episode(env, fire):
     if fire[0] == 1:
         action = 0
         observation, reward, done, info = env.step(action)
-        totalreward += reward
         print 'RIGHT'
     elif fire[3] == 1:
         action = 1
         observation, reward, done, info = env.step(action)
-        totalreward += reward
         print 'LEFT'
     else:
-        print 'Im not sure :( Going ',action
+        if action == 0:
+            action_meaning = "LEFT"
+        else:
+            action_meaning = "RIGHT"
+
+        print 'Im not sure :( Going ',action_meaning
         #action = 0
         #action = np.random.randint(0,1)
         observation, reward, done, info = env.step(action)
-        totalreward += reward
 
+    totalreward += reward
 
     return observation, totalreward, done, info
 
