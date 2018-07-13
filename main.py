@@ -234,8 +234,8 @@ def arr(x, u, fire, I_all):
     ALM = np.append(ALM, u[3])
 
     AVA_spike = np.append(AVA_spike, fire[0]) # Reverse lokomotion
-    AVD_spike = np.append(AVD_spike, fire[1]) # Reverse lokomotion
-    PVC_spike = np.append(PVC_spike, fire[2]) # Reverse lokomotion
+    AVD_spike = np.append(AVD_spike, fire[1])
+    PVC_spike = np.append(PVC_spike, fire[2])
     AVB_spike = np.append(AVB_spike, fire[3]) # Forward lokomotion
 
     I_AVA = np.append(I_AVA, I_all[0])
