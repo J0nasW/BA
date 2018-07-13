@@ -2,19 +2,21 @@
 Neuronal Network of C. Elegans implemented in Python with the LIF-Model
 (by JW)
 
-Initial programming of the TW-Circuit with my own neuronal Network (see Picture in README.md). Does some basic simulation with fixed parameters and no reinforcement Learning.
-
+First Implementation of RL and Random Search Algorithms - Dosen't animate or plot -just a calculation beast!
+Stores Data of best Parameters in 'result_matrices.p'
 """
 
 # Some dependencies
 import numpy as np
 import matplotlib.pyplot as plt
 import gym
+import cPickle as pickle
 
 from lif import I_syn_calc, I_gap_calc, U_neuron_calc
 
 """
 Parameters for the neural Network
+
 Motor Neurons: FWD, REV
 Sensory Neurons: PVD, PLM, AVM, ALM
 Inter Neurons: AVA, AVD, PVC, DVA, AVB
@@ -31,37 +33,35 @@ Default_U_leak = -70 #mV
 
 # Time Constants:
 t0 = t = 0
-T = 5
+T = 2
 delta_t = 0.01
 
 # Initializing OpenAI Environments------------------------------------------------------
-env = gym.make('CartPole-v0')
-env.reset()
-env_vis = []
+
 #---------------------------------------------------------------------------------------
 
 # Making Contact with Neurons through Synapses and Gap-Junctions----------------------------
 
 # A = Connections between Interneurons through Synapses
 A = np.matrix('0 0 -1 -1; 1 0 1 1; 1 1 0 1; -1 -1 0 0')
-A_rnd = np.random.rand(4,4)
-A_in = np.multiply(A, A_rnd)
+#A_rnd = np.random.rand(4,4)
+#A_in = np.multiply(A, A_rnd)
 
 # B = Connections between Sensory- and Interneurons through Synapses
 B = np.matrix('0 1 1 0; 1 1 0 0; 0 0 1 1; 0 1 1 0')
-B_rnd = np.random.rand(4,4)
-B_in = np.multiply(B, B_rnd)
+#B_rnd = np.random.rand(4,4)
+#B_in = np.multiply(B, B_rnd)
 
 
 # A_gap = Connections between Interneurons through Gap-Junctions
 A_gap = np.matrix('0 0 0 0; 0 0 0 0; 0 0 0 0; 0 0 0 0')
-A_gap_rnd = np.random.rand(4,4)
-A_gap_in = np.multiply(A_gap, A_gap_rnd)
+#A_gap_rnd = np.random.rand(4,4)
+#A_gap_in = np.multiply(A_gap, A_gap_rnd)
 
 # B = Connections between Sensory- and Interneurons through Gap-Junctions
 B_gap = np.matrix('0 0 0 0; 0 0 1 0; 0 1 0 0; 0 0 0 0')
-B_gap_rnd = np.random.rand(4,4)
-B_gap_in = np.multiply(B_gap, B_gap_rnd)
+#B_gap_rnd = np.random.rand(4,4)
+#B_gap_in = np.multiply(B_gap, B_gap_rnd)
 
 #-------------------------------------------------------------------------------------------
 
@@ -69,20 +69,28 @@ B_gap_in = np.multiply(B_gap, B_gap_rnd)
 
 # For Synapses
 w_in_mat = np.multiply(np.ones((4,4)), 3) # w [S] Parameter for Synapses between inter Neurons - Sweep from 0S to 3S
+w_in_mat_rnd = np.random.uniform(low = 0, high = 3, size = (4,4))
 w_sin_mat = np.multiply(np.ones((4,4)), 3) # w [S] Parameter for Synapses between sensory and inter Neurons - Sweep from 0S to 3S
+w_sin_mat_rnd = np.random.uniform(low = 0, high = 3, size = (4,4))
 
 sig_in_mat = np.multiply(np.ones((4,4)), 0.2) # sigma Parameter for Synapses between inter Neurons - Sweep from 0.05 - 0.5
+sig_in_mat_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (4,4))
 sig_sin_mat = np.multiply(np.ones((4,4)), 0.2) # sigma Parameter for Synapses between sensory and inter Neurons - Sweep from 0.05 - 0.5
+sig_sin_mat_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (4,4))
 
 # For Gap-Junctions
 w_gap_in_mat = np.multiply(np.ones((4,4)), 3) # w [S] Parameter for Gap-Junctions between inter Neurons - Sweep from 0S to 3S
+w_gap_in_mat_rnd = np.random.uniform(low = 0, high = 3, size = (4,4))
 w_gap_sin_mat = np.multiply(np.ones((4,4)), 3) # w [S] Parameter for Gap-Junctions sensory and inter Neurons - Sweep from 0S to 3S
+w_gap_sin_mat_rnd = np.random.uniform(low = 0, high = 3, size = (4,4))
 
 # For Neurons
 C_m_mat = np.multiply(np.ones((1,4)), 0.05) # C_m [F] Parameter for Neurons - Sweep from 1mF to 1F
+C_m_mat_rnd = np.random.uniform(low = 0.001, high = 1, size = (1,4))
 #C_m_mat = np.matrix('0.1 1 1 1 0.1')
 
 G_leak_mat = np.multiply(np.ones((1,4)), 0.0145) # G_leak [S] Parameter for Neurons - Sweep from 50mS to 5S
+G_leak_mat_rnd = np.random.uniform(low = 0.05, high = 5, size = (1,4))
 #G_leak_mat = np.matrix('4 2.3 2.3 2.3 4')
 
 U_leak_mat = np.multiply(np.ones((1,4)), -70) # U_leak [mV] Parameter for Neurons - Sweep from -90mV to 0mV
@@ -156,9 +164,33 @@ def initialize(Default_U_leak):
 
 #-------------------------------------------------------------------------------------------
 
+# Random Function---------------------------------------------------------------------------
+
+def random_parameters():
+
+    # For Synapses
+    w_in_mat_rnd = np.random.uniform(low = 0, high = 3, size = (4,4))
+    w_sin_mat_rnd = np.random.uniform(low = 0, high = 3, size = (4,4))
+
+    sig_in_mat_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (4,4))
+    sig_sin_mat_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (4,4))
+
+    # For Gap-Junctions
+    w_gap_in_mat_rnd = np.random.uniform(low = 0, high = 3, size = (4,4))
+    w_gap_sin_mat_rnd = np.random.uniform(low = 0, high = 3, size = (4,4))
+
+    # For Neurons
+    C_m_mat_rnd = np.random.uniform(low = 0.001, high = 1, size = (1,4))
+    G_leak_mat_rnd = np.random.uniform(low = 0.05, high = 5, size = (1,4))
+    U_leak_mat_rnd = np.random.uniform(low = -80, high = -60, size = (1,4))
+
+    return w_in_mat_rnd, w_sin_mat_rnd, sig_in_mat_rnd, sig_sin_mat_rnd, w_gap_in_mat_rnd, w_gap_sin_mat_rnd, C_m_mat_rnd, G_leak_mat_rnd, U_leak_mat_rnd
+
+#-------------------------------------------------------------------------------------------
+
 # Compute Function--------------------------------------------------------------------------
 
-def compute(x, u):
+def compute(x, u, w_in_mat, w_sin_mat, w_gap_in_mat, w_gap_sin_mat, sig_in_mat, sig_sin_mat, C_m_mat, G_leak_mat, U_leak_mat):
 
     # Compute all Synapse Currents in this network------------------------------------------
 
@@ -234,8 +266,8 @@ def arr(x, u, fire, I_all):
     ALM = np.append(ALM, u[3])
 
     AVA_spike = np.append(AVA_spike, fire[0]) # Reverse lokomotion
-    AVD_spike = np.append(AVD_spike, fire[1]) # Reverse lokomotion
-    PVC_spike = np.append(PVC_spike, fire[2]) # Reverse lokomotion
+    AVD_spike = np.append(AVD_spike, fire[1])
+    PVC_spike = np.append(PVC_spike, fire[2])
     AVB_spike = np.append(AVB_spike, fire[3]) # Forward lokomotion
 
     I_AVA = np.append(I_AVA, I_all[0])
@@ -298,42 +330,93 @@ def plot():
 
 # OpenAI Gym--------------------------------------------------------------------------------
 
-def run_episode(env, fire):
+def run_episode(env, w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_in_mat, w_gap_sin_mat, C_m_mat, G_leak_mat, U_leak_mat):
 
-    global observation, reward, done, info, totalreward, env_vis, action
+    global x, u, fire, I_syn, I_gap, action
 
-    env_vis.append(env.render(mode = 'rgb_array'))
+    observation = env.reset()
+    totalreward = 0
 
-    if fire[0] == 1:
-        action = 0
-        observation, reward, done, info = env.step(action)
+    for t in np.arange(t0,T,delta_t): # RUNNING THE EPISODE - Trynig to get 200 Steps in this Episode
+        x, u, fire, I_syn, I_gap = compute(x, u, w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_in_mat, w_gap_sin_mat, C_m_mat, G_leak_mat, U_leak_mat) # Compute the next Interneuron Voltages along with a possible "fire" Event - Now new with random parameter matrices
+
+        # Storing Information for graphical analysis-------------------------
+        #I_all = np.add(I_syn, I_gap)
+        #arr(x, u, fire, I_all)
+        #--------------------------------------------------------------------
+
+
+        # Decide for an action and making a Step
+        if fire[0] == 1:
+            action = 0
+            observation, reward, done, info = env.step(action)
+            totalreward += reward
+            #print 'RIGHT'
+        elif fire[3] == 1:
+            action = 1
+            observation, reward, done, info = env.step(action)
+            totalreward += reward
+            #print 'LEFT'
+        else:
+            #print 'Im not sure :( Going ',action
+            #action = 0
+            #action = np.random.randint(0,1)
+            observation, reward, done, info = env.step(action)
+            totalreward += reward
+
+        observe(observation)
+
         totalreward += reward
-        print 'RIGHT'
-    elif fire[3] == 1:
-        action = 1
-        observation, reward, done, info = env.step(action)
-        totalreward += reward
-        print 'LEFT'
+
+        if done:
+            break
+
+    return totalreward
+
+def observe(observation):
+
+    global u
+
+    angle = (observation[2] * 360) / (2 * np.pi)
+    velocity = observation[3]
+    cart_pos = observation[0]
+
+    # Adapt, learn, overcome
+    if angle >= 0:
+        u[1] = -70 + (50/12) * angle # AVD
+        u[2] = -70
     else:
-        print 'Im not sure :( Going ',action
-        #action = 0
-        #action = np.random.randint(0,1)
-        observation, reward, done, info = env.step(action)
-        totalreward += reward
+        u[2] = -70 + (50/12) * angle # PVC
+        u[1] = -70
 
+    if cart_pos >= 0:
+        u[3] = -70 + (50/2.4) * cart_pos # ALM
+        u[0] = -70
+    else:
+        u[0] = -70 + (50/2.4) * cart_pos # PVD
+        u[3] = -70
 
-    return observation, totalreward, done, info
+    '''
+    if velocity >= 0:
+        u[3] = -70 + (50/5) * velocity
+        u[0] = -70
+    else:
+        u[0] = -70 + (50/5) * velocity
+        u[3] = -70
+    '''
+
 
 def env_render(env_vis):
     plt.figure()
-    plot  =  plt.imshow(env_vis[0])
+    plot = plt.imshow(env_vis[0])
     plt.axis('off')
 
 def animate(i):
     plot.set_data(env_vis[i])
-    anim  =  anm.FuncAnimation(plt.gcf(), animate, frames=len(env_vis), interval=20, repeat=True, repeat_delay=20)
+    anim = anm.FuncAnimation(plt.gcf(), animate, frames=len(env_vis), interval=20, repeat=True, repeat_delay=20)
     display(display_animation(anim,  default_mode='loop'))
 
+#------------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------------------
 # Main Function-----------------------------------------------------------------------------
@@ -342,73 +425,45 @@ def animate(i):
 def main():
     global x, u, env, action
 
-    observation = env.reset()
+    env_vis = []
     action = 0
     episodes = 0
+    best_reward = 0
+    env = gym.make('CartPole-v0')
 
-    initialize(Default_U_leak) # Initializing all Interneurons with the desired leakage voltage
-    #u = [-20, -40, -40, -20]
-    for t in np.arange(t0,T,delta_t):
-        x, u, fire, I_syn, I_gap = compute(x, u) # Compute the next Interneuron Voltages along with a possible "fire" Event
-        I_all = np.add(I_syn, I_gap)
-        arr(x, u, fire, I_all) # Storing Information for graphical analysis
+    for _ in xrange(10000):
 
+        initialize(Default_U_leak) # Initializing all Sensory- and Interneurons with the desired leakage voltage [-70mV]
 
-        # OpenAI GYM PART----------------------------------
+        episodes += 1 # Episode Counter
 
-        # Make a Step
+        w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_in_mat, w_gap_sin_mat, C_m_mat, G_leak_mat, U_leak_mat = random_parameters() # Make some new random parameter Matrices
+        reward = run_episode(env, w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_in_mat, w_gap_sin_mat, C_m_mat, G_leak_mat, U_leak_mat)
+        if reward > best_reward:
+            best_reward = reward
 
-        observation, totalreward, done, info = run_episode(env, fire)
-        angle = (observation[2] * 360) / (2 * np.pi)
-        velocity = observation[3]
-        cart_pos = observation[0]
+            Result = [w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_in_mat, w_gap_sin_mat, C_m_mat, G_leak_mat, U_leak_mat]
+            print Result[0]
+            pickle.dump(Result, open( "result_matrices.p", "wb"))
 
-        # Adapt, learn, overcome
-        if angle >= 0:
-            u[1] = -70 + (50/12) * angle # AVD
-            u[2] = -70
-        else:
-            u[2] = -70 + (50/12) * angle # PVC
-            u[1] = -70
+            if reward == 200:
+                break
+        #print 'Episode',episodes,'mit Reward',reward,'.'
 
-        if cart_pos >= 0:
-            u[3] = -70 + (50/2.4) * cart_pos # ALM
-            u[0] = -70
-        else:
-            u[0] = -70 + (50/2.4) * cart_pos # PVD
-            u[3] = -70
+    print 'The best Reward was:',best_reward
+    if best_reward == 200:
+        print 'I SOLVED IT!'
 
-        '''
-        if velocity >= 0:
-            u[3] = -70 + (50/5) * velocity
-            u[0] = -70
-        else:
-            u[0] = -70 + (50/5) * velocity
-            u[3] = -70
-        '''
-
-        if done:
-            env.reset()
-            episodes = episodes + 1
-
-
-
-        #u[1] = u[1] + 0.04
-        #u[0] = u[0] + 0.05
-        #u[2] = u[2] + 0.05
-    print episodes
-    env_render(env_vis)
+    #env_render(env_vis)
 
     #print AVA_spike
     #print AVB_spike
     #print PVC_spike
     #print AVD_spike
 
-    plot() # Plotting everyting using matplotlib
+    #plot() # Plotting everyting using matplotlib
 
 #-------------------------------------------------------------------------------------------
-
-
 
 
 if __name__=="__main__":

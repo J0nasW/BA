@@ -2,14 +2,14 @@
 Neuronal Network of C. Elegans implemented in Python with the LIF-Model
 (by JW)
 
-Initial programming of the TW-Circuit with my own neuronal Network (see Picture in README.md). Does some basic simulation with fixed parameters and no reinforcement Learning.
-
+This derivative of main.py can import parameter matrices, which are calculated by main_2.py and simulate them - good to examine new Results and showing them off.
 """
 
 # Some dependencies
 import numpy as np
 import matplotlib.pyplot as plt
 import gym
+import cPickle as pickle
 
 from lif import I_syn_calc, I_gap_calc, U_neuron_calc
 
@@ -158,7 +158,7 @@ def initialize(Default_U_leak):
 
 # Compute Function--------------------------------------------------------------------------
 
-def compute(x, u):
+def compute(x, u, w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_in_mat, w_gap_sin_mat, C_m_mat, G_leak_mat, U_leak_mat):
 
     # Compute all Synapse Currents in this network------------------------------------------
 
@@ -296,6 +296,22 @@ def plot():
 
 #-------------------------------------------------------------------------------------------
 
+def import_matrices():
+    result = pickle.load( open("result_matrices.p", "rb"))
+
+    w_in_mat = result[0]
+    w_sin_mat = result[1]
+    sig_in_mat = result[2]
+    sig_sin_mat = result[3]
+    w_gap_in_mat = result[4]
+    w_gap_sin_mat = result[5]
+    C_m_mat = result[6]
+    G_leak_mat = result[7]
+    U_leak_mat = result[8]
+
+    return w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_in_mat, w_gap_sin_mat, C_m_mat, G_leak_mat, U_leak_mat
+
+
 # OpenAI Gym--------------------------------------------------------------------------------
 
 def run_episode(env, fire):
@@ -348,8 +364,11 @@ def main():
 
     initialize(Default_U_leak) # Initializing all Interneurons with the desired leakage voltage
     #u = [-20, -40, -40, -20]
+
+    w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_in_mat, w_gap_sin_mat, C_m_mat, G_leak_mat, U_leak_mat = import_matrices()
+
     for t in np.arange(t0,T,delta_t):
-        x, u, fire, I_syn, I_gap = compute(x, u) # Compute the next Interneuron Voltages along with a possible "fire" Event
+        x, u, fire, I_syn, I_gap = compute(x, u, w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_in_mat, w_gap_sin_mat, C_m_mat, G_leak_mat, U_leak_mat) # Compute the next Interneuron Voltages along with a possible "fire" Event
         I_all = np.add(I_syn, I_gap)
         arr(x, u, fire, I_all) # Storing Information for graphical analysis
 

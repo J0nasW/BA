@@ -9,7 +9,7 @@ The Programming Language is Python.
 ---
 
 ### My Approach
-To outperform established control-circuits and well known models in Control-Theroy, it takes more than a new Approach. But maybe this Idea is a new Way to solve problems like the Cart Pole "Inverted Pendulum" Problem. But instead of generating a neuronal Circuit from scratch like nearly every artificial Intelligence project, we use a already discovered neuronal Circuit: the touch-withdrawal neural circuit from C.Elegans []. With some modification and even more programming, we are able to simulate the well known leaky integrate and fire models and closing the loop to simulation environnments like OpenAI's GYM.
+To outperform established control-circuits and well known models in Control-Theroy, it takes more than a new Approach. But maybe this Idea is a new Way to solve problems like the Cart Pole "Inverted Pendulum" Problem. But instead of generating a neuronal Circuit from scratch like nearly every artificial Intelligence project, we use a already discovered neuronal Circuit: the touch-withdrawal neural circuit from C.Elegans. With some modification and even more programming, we are able to simulate the well known leaky integrate and fire models and closing the loop to simulation environnments like OpenAI's GYM.
 
 This Circuit is being used here and presented by many transition-matrices and state-vectors:
 
@@ -27,6 +27,10 @@ Some Libraries that I used:
 * [OpenAI Gym and Roboschool](https://gym.openai.com/)
 
 ---
+
+#### Update Fr., 13.07.2018
+* Random Search for parameter matrices is finally working now. The OpenAI Gym Environment 'Cartpole_v0' performs well and leaves me with a reward of around 50/200 after 10.000 Simulations. It is important to know, that we are randomly simulating 6 [4x4] Matrices and 4 [4x1] vectors.
+* New Ideas for further tuning: Genetic Algorithms and Function minimizing through Cost-Function
 
 #### Update Do., 12.07.2018
 * Yet another feature folder added: TW-Circuit/new_circuit_symm now with integration on OpenAI Gym CartPole_v0. Still working on tuning the Parameters and weights, still haven't got a good reward system.. but we are getting there!
