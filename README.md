@@ -27,6 +27,13 @@ Some Libraries that I used:
 * [OpenAI Gym and Roboschool](https://gym.openai.com/)
 
 ---
+#### Update Mo., 16.07.2018
+* Completely new structures within my Repo - Splitted the Code from main.py to some modules to ensure modular building structures and better work on features.
+* Still need to increase my OpenAI Gym Score - it is still not higher than 30/200...
+
+#### Update Fr., 13.07.2018
+* Random Search for parameter matrices is finally working now. The OpenAI Gym Environment 'Cartpole_v0' performs well and leaves me with a reward of around 50/200 after 10.000 Simulations. It is important to know, that we are randomly simulating 6 [4x4] Matrices and 4 [4x1] vectors.
+* New Ideas for further tuning: Genetic Algorithms and Function minimizing through Cost-Function
 
 #### Update Do., 12.07.2018
 * Yet another feature folder added: TW-Circuit/new_circuit_symm now with integration on OpenAI Gym CartPole_v0. Still working on tuning the Parameters and weights, still haven't got a good reward system.. but we are getting there!

@@ -1,8 +1,13 @@
 from __future__ import division # Because otherwise, "/" WILL NOT WORK!
-
 """
-Leaky Integrate and Fire - Simulation implemented in Python
-(by JW)
+CALCULATION MODULE for LEAKY INTEGRATE AND FIRE
+
+CALL BY:    <lif.py>
+
+RETURN:     Desired Parameters
+
+INFO:       Contains all mathematically important calculation functions
+            Solving the differential equations by Runge Kutta 4th order
 """
 
 # Some dependencies
