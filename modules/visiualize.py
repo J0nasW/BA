@@ -191,12 +191,12 @@ def plot():
     plt.plot(I_AVD, '-r', label='AVD', linewidth=1)
     plt.subplot(223)
     plt.title('AVA', fontsize=10)
-    plt.plot(I_AVA, '-r', label='AVA', linewidth=1)
+    plt.plot(I_AVA, '-r', label='AVA', linewidth=0.5)
     plt.xlabel('t')
     plt.ylabel('i(t) in [mA]')
     plt.subplot(224)
     plt.title('AVB', fontsize=10)
-    plt.plot(I_AVB, '-r', label='AVB', linewidth=1)
+    plt.plot(I_AVB, '-r', label='AVB', linewidth=0.5)
 
 
     plt.show()

@@ -1,10 +1,10 @@
 """
-RL MODULE WITH RANDOM SEARCH
+RL MODULE WITH GENETIC ALGORITHMS
 
-CALL BY:    <random_search.py>
+CALL BY:    <genetic_algorithm.py>
 
 RETURN:     Parameter Matrices for the inverted Pendulum Problem
-            Stores Data of best Parameters in '<date>_rs_reward_<reward>.p'
+            Stores Data of best Parameters in '<date>_result_matrices_reward_<reward>.p'
 
 INFO:       -
 """
@@ -281,7 +281,7 @@ def main(simulations):
 
     date = datetime.datetime.now().strftime("%Y%m%d_%H-%M-%S")
     best_reward_s = str(int(best_reward))
-    pickle.dump(Result, open(("parameter_dumps/" + date + "_rs_" + best_reward_s + ".p"), "wb"))
+    pickle.dump(Result, open(("parameter_dumps/" + date + "_result_matrices_reward_" + best_reward_s + ".p"), "wb"))
 
     return date, best_reward_s
 
