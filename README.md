@@ -27,6 +27,11 @@ Some Libraries that I used:
 * [OpenAI Gym and Roboschool](https://gym.openai.com/)
 
 ---
+#### Update Di., 17.07.2018
+* Made a new Inspection Module to print out the parameter Matrices
+* First preperations for a genetic algorithm to learn new Parameters
+* Did a Status Slide to present my current work on Wed., 18.07.2018 to Prof. Meurer - see *docs*
+
 #### Update Mo., 16.07.2018
 * Completely new structures within my Repo - Splitted the Code from main.py to some modules to ensure modular building structures and better work on features.
 * Still need to increase my OpenAI Gym Score - it is still not higher than 30/200...
