@@ -14,7 +14,7 @@ import cPickle as pickle # Store Data into [.p] Files
 
 
 def main(load_matrices):
-    result = pickle.load( open(load_matrices, "rb"))
+    result = pickle.load( open(load_matrices, "r"))
 
     w_in_mat = result[0]
     w_sin_mat = result[1]

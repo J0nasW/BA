@@ -31,8 +31,8 @@ Default_U_leak = -70 #mV
 
 # Time Constants:
 t0 = t = 0
-T = 10
-delta_t = 0.01
+T = 5
+delta_t = 0.001
 
 # Making Contact with Neurons through Synapses and Gap-Junctions----------------------------
 
@@ -264,7 +264,7 @@ def plot():
     plt.plot(PVC, '-g', label='PVC', linewidth=1)
     plt.plot(DVA, '-r', label='DVA', linewidth=1)
     plt.plot(AVB, '-k', label='AVB', linewidth=1)
-    plt.xlabel('t (in s)')
+    plt.xlabel('t in [s]')
     plt.ylabel('u(t) in [mV]')
     plt.legend(loc='upper left')
 

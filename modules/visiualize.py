@@ -204,7 +204,7 @@ def plot():
 #-------------------------------------------------------------------------------------------
 
 def import_matrices(load_matrices):
-    result = pickle.load( open(load_matrices, "rb"))
+    result = pickle.load( open(load_matrices, "r"))
 
     w_in_mat = result[0]
     w_sin_mat = result[1]
@@ -228,12 +228,12 @@ def run_episode(env, fire):
     env_vis.append(env.render(mode = 'rgb_array'))
 
     if fire[0] == 1:
-        action = 0
+        action = 1
         observation, reward, done, info = env.step(action)
         totalreward += reward
         print 'RIGHT'
     elif fire[3] == 1:
-        action = 1
+        action = 0
         observation, reward, done, info = env.step(action)
         totalreward += reward
         print 'LEFT'

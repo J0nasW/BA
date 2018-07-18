@@ -16,7 +16,7 @@ from modules import visiualize as vs
 from modules import inspect
 
 def main():
-    #date, best_reward_s = rs.main(1000) # Calling the RANDOM SEARCH Module to calculate new matrices with x Episodes
+    #date, best_reward_s = rs.main(10000) # Calling the RANDOM SEARCH Module to calculate new matrices with x Episodes
     #best_reward_s = str(int(best_reward_s))
 
     # Calls the calculated Matrices-----------------------------------------------------------------------
@@ -29,8 +29,9 @@ def main():
 
     #-----------------------------------------------------------------------------------------------------
 
+
     # REWARD: 30
-    #call_matrices = "result_matrices.p"
+    #call_matrices = "parameter_dumps/result_matrices.p"
 
     #REWARD: 32
     call_matrices = "parameter_dumps/20180716_16-53-19_result_matrices_reward_32.p"
