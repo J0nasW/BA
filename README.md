@@ -27,6 +27,10 @@ Some Libraries that I used:
 * [OpenAI Gym and Roboschool](https://gym.openai.com/)
 
 ---
+#### Update Mi., 18.07.2018
+* Halftime-Talk with Prof. Meurer and Alexander Schaum, showing my current Work and presenting the Slide (see *docs*)
+* Got some more Simulation-Runs and I am pretty sure now, why the inverted Pendulum behaves incorrectly sometimes - implementation to be done
+
 #### Update Di., 17.07.2018
 * Made a new Inspection Module to print out the parameter Matrices
 * First preperations for a genetic algorithm to learn new Parameters
