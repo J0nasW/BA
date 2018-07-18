@@ -1,0 +1,310 @@
+% Short demo for \LaTeX beamer theme with ACON style layout
+%
+% Author: Thomas Meurer <tm@tf.uni-kiel.de>
+% Version history:
+% v0 ... 2016/12/09
+
+\documentclass[10pt,t,aspectratio=1610]{beamer}
+%\usetheme[german]{ACON} %or 
+\usetheme{ACON}
+
+% We define  a command \sfcite which enables to add citations but to
+% preserve the citation number throughout the presentation. Citations
+% are placed on the slide, where \sfcite is called. For the standard
+% behavior of citations use \footcite.
+%
+% This also requires to add the following two lines to the main LaTeX
+% source file:
+%
+\usepackage[style=numeric-comp,citetracker=true,sorting=none]{biblatex}
+\bibliography{example}
+\usepackage{abbreviations} %Provide an abbreviations file if equations
+                          %are used
+\usepackage{curve2e}
+
+% -----------------------
+% By JW
+\usepackage{subfigure}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{xcolor}
+
+\usepackage{pgf} % For .pgf Plot-Saves
+
+\usepackage{wrapfig}
+
+\usepackage{hyperref}
+
+\definecolor{light-gray}{gray}{0.95}
+\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+% -----------------------
+
+% =======================
+
+% If the title exceeds two lines then adjust the title font size 
+%\setbeamerfont{title}{series=\bfseries,size={\fontsize{18}{18}}}
+
+% =======================
+
+\title{Eine Anwendung des Reinforcement Learning zur Regelung dynamischer Systeme}
+\subtitle{Status zum 18. Juli 2018}
+\author[J. Wilinski]{Jonas Helmut Wilinski}
+\pauthoremail{stu118261@mail.uni-kiel.de}
+\institute[ACON]{Statusgespräch}
+\date{Mittwoch, 18. Juli 2018}
+\begin{document}
+
+% =======================
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+% =======================
+
+\begin{frame}
+  \frametitle{Bisherige Schritte}
+  \framesubtitle{Literaturphase}
+
+  \begin{itemize}
+  \item Mehrere Paper \& Fachliteratur gelesen und zusammengefasst
+    \begin{itemize}
+    \item \btEmph{Bücher}
+    	\begin{itemize}
+    		\item Stuart Russell, Peter Norvig - Artificial Intelligence - A Modern Approach (2010, Prentice Hall)
+    		\item Raúl Rojas (auth.) - Theorie der neuronalen Netze - Eine systematische Einführung (1993, Springer-Verlag Berlin Heidelberg)
+    		\item Steven H. Strogatz - Nonlinear Dynamics and Chaos - With Applications to Physics, Biology, Chemistry, and Engineering  (1994, Westview Press)
+    		\item \textbf{Wulfram Gerstner, Werner M. Kistler, Richard Naud, Liam Paninski - Neuronal Dynamics - From Single Neurons to Networks and Models of Cognition (2014, Cambridge University Press)
+    		}
+    	\end{itemize}
+    \item \btEmph{Fachartikel}
+    	\begin{itemize}
+    		\item Lechner (et al) - Worm-level control through search-based reinforcement learning
+    		\item Lechner (et al) - Neuronal Circuit Policies
+    		\item SIM-CE - An advanced Simulink platform for studying the brain of C. elegans
+    	\end{itemize}
+    \item \btEmph{Kurse}
+    	\begin{itemize}
+    		\item Reinforcement Learning by David Silver (Google DeepMind – UCL)
+    	\end{itemize}
+    \end{itemize}
+  \end{itemize}  
+\end{frame}
+
+% =======================
+
+\begin{frame}[fragile]
+  \frametitle{Bisherige Schritte}
+  \framesubtitle{Implementierung des \btEmph{Leaky Integrate and Fire - Modells}}
+
+  \begin{itemize}
+  	\item Programmiersprache \code{Python}
+  	\begin{itemize}
+  		\item Stuart Russell, Peter Norvig - Artificial Intelligence - A Modern Approach (2010, Prentice Hall)
+  		\item Raúl Rojas (auth.) - Theorie der neuronalen Netze - Eine systematische Einführung (1993, Springer-Verlag Berlin Heidelberg)
+  		\item Steven H. Strogatz - Nonlinear Dynamics and Chaos - With Applications to Physics, Biology, Chemistry, and Engineering  (1994, Westview Press)
+  		\item \textbf{Wulfram Gerstner, Werner M. Kistler, Richard Naud, Liam Paninski - Neuronal Dynamics - From Single Neurons to Networks and Models of Cognition (2014, Cambridge University Press)
+  		}
+  	\end{itemize}
+  	\item Zusätzliche Libraries
+  	\begin{itemize}
+  		\item Mathematische Berechnungen \& Matrizen durch die Python-Library \code{NumPy}
+  		\item Darstellung durch die Python-Library \code{Matplotlib}
+  	\end{itemize}
+  	\item Leaky Integrate and Fire - Modell
+  	\begin{itemize}
+  		\item Lösung der Differentialgleichung durch nummerische Verfahren:
+  		  \begin{itemize}
+  		  	\item Euler-Verfahren
+  		  	\item \textbf{Runge-Kutta 2. \& 4. Ordnung}
+  		  \end{itemize}
+  	\end{itemize}
+  \end{itemize}
+	
+
+\end{frame}
+
+% =======================
+
+\begin{frame}
+	\frametitle{Bisherige Schritte}
+	\framesubtitle{Plot des LIF-Modells}
+	
+	\begin{center}
+	  \scalebox{0.2}{\input{figures/plots/lif_gesamt.pgf}}
+	  \qquad
+	  \scalebox{0.2}{\input{figures/plots/lif_zoom.pgf}}
+	\end{center}
+\end{frame}
+
+% =======================
+
+
+\begin{frame}[fragile,fragile]
+  \frametitle{Bisherige Schritte}
+  \framesubtitle{Implementierung des \btEmph{Neuronalen Netzes}}
+  
+  \begin{itemize}
+  	\item Implementierung durch Nutzung von Transitionsmatrizen $A, A_{Gap}, B, B_{Gap}$ um die Verbindungen zwischen Neuronen darzustellen
+  	\item Parameter $U_{Leak}, w, \sigma, C_m, G_{Leak}$ sind ebenfalls anhand der Transitionsmatrizen angeordnet
+  	\item Das \code{compute}-Modul berechnet durch die Modellgleichungen die Ströme der Synapsen bzw. Gap-Junctions und folglich die Membranpotentiale der Neuronen
+  	\item Somit kommt es zu den fire-Ereignissen und die Motor-Neuronen werden angeregt
+  \end{itemize}
+
+  \begin{center}
+  	\centering
+  	\includegraphics[width=4.8cm]{figures/nn_lechner.png}
+  	\scalebox{0.23}{\input{figures/plots/orig_nn_lechner.pgf}}
+  \end{center}
+  
+\end{frame}
+
+% =======================
+
+\begin{frame}
+  \frametitle{Bisherige Schritte}
+  \framesubtitle{Implementierung des \btEmph{Neuronalen Netzes mit symmetrischen Komponenten}}
+  
+  \vspace{0.5cm}
+  \begin{minipage}[c]{0.55\textwidth}
+  \begin{itemize}
+  	\item Aufgrund unsymmetrischen Verhalten der Neuronen wurde das bestehende neuronale Netz leicht verändert und symmetrisch aufgestellt
+  	\item Transitionsmatrizen $A, A_{Gap}, B, B_{Gap}$ wurden entsprechend angepasst
+  	\item Parameter $U_{Leak}, w, \sigma, C_m, G_{Leak}$ werden nun via Random-Search erzeugt
+  	\item Eine Rückführung der Observation von Winkel $\phi$ des Pendels und Geschwindigkeit $v$ des Carts in die Eingangsneuronen bildet das geschlossene Simulationsmodell
+  	\item Durch 10.000 Episoden werden mittels Reinforcement Learning die besten Parametermatrizen herausgefiltert
+  \end{itemize}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c]{0.4\textwidth}
+  	\includegraphics[width=6cm]{figures/Neural_Net.png}
+  \end{minipage}
+  
+
+\end{frame}
+
+% =======================
+
+\begin{frame}
+  \frametitle{Bisherige Schritte}
+  \framesubtitle{Implementierung des \btEmph{Neuronalen Netzes mit symmetrischen Komponenten}}
+  
+  \textbf{Feste Parameter} - Simulation der CartPole-Environment\\
+  \vspace{1cm}
+  
+  \begin{figure}[htb]
+  	\centering
+  	\begin{minipage}[t]{0.48\linewidth}
+  		\centering
+  		\scalebox{0.2}{\input{figures/plots/nn_fixed_parameters.pgf}}
+  	\end{minipage}
+  	\hfill
+  	\begin{minipage}[t]{0.48\linewidth}
+  		\centering
+  		\scalebox{0.2}{\input{figures/plots/nn_fixed_parameters_i.pgf}}
+  	\end{minipage}
+  \end{figure}
+
+\end{frame}
+
+% =======================
+
+\begin{frame}
+  \frametitle{Bisherige Schritte}
+  \framesubtitle{Implementierung des \btEmph{Neuronalen Netzes mit symmetrischen Komponenten}}
+
+  \textbf{Parametersweep} - Simulation der CartPole-Environment\\
+
+  \begin{itemize}
+  	\item Der bisher beste Parametersatz hat einen Score in der OpenAI Gym Library von 31/200
+  	\item Dieser Score ist nicht sehr gut – jedoch wurde er lediglich durch Random Search herausgefunden
+  \end{itemize}
+  \vspace{0.5cm}
+
+  \begin{figure}[htb]
+  	\centering
+  	\begin{minipage}[t]{0.48\linewidth}
+  		\centering
+  		\scalebox{0.2}{\input{figures/plots/nn_rl_parameters_reward.pgf}}
+  	\end{minipage}
+  	\hfill
+  	\begin{minipage}[t]{0.48\linewidth}
+  		\centering
+  		\scalebox{0.2}{\input{figures/plots/nn_rl_parameters_reward_i.pgf}}
+  	\end{minipage}
+  \end{figure}
+
+\end{frame}
+
+% =======================
+
+\begin{frame}
+  \frametitle{Geplante Schritte}
+  \framesubtitle{Erweiterung der Lernmethode}
+
+  \vspace{0.5cm}
+  \begin{minipage}[c]{0.7\textwidth}
+  	\begin{itemize}
+  		\item Durch RandomSearch werden zufällige Werte generiert – es liegt kein tieferer Sinn hinter dieser Methode
+  		\item State of the Art Algorithmen nutzen verschiedene Methoden, um gezielter zu suchen bzw. zu lernen:
+  		\begin{itemize}
+  			\item Gradiend-Based Methoden schauen nach der Tendenz der Parameter und suchen in eine gezielte Richtung
+  			\item Genetische Algorithmen nutzen die gut verstandene Evolutionstheorie um Populationen zu bilden und diese durch Fit und Mutation in eine Richtung zu lernen
+  		\end{itemize}
+  		\item Geplant ist, den RandomSearch Score mit diesen Algorithmen zu vergleichen und einen besseren Score zu erziehlen
+  		\begin{itemize}
+  			\item Dies erfordert eine erweiterte und umfangreiche Programmierung in Python (da dieser Ansatz des Reinforcement Learning) keine Toolboxes hat
+  		\end{itemize}
+  	\end{itemize}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c]{0.25\textwidth}
+  	\includegraphics[width=4cm]{figures/python_repo.png}
+  \end{minipage}
+
+\end{frame}
+
+% =======================
+
+\begin{frame}
+  \frametitle{Ergebnisse}
+  \framesubtitle{Statusgespräch am 18. Juli 2018}
+
+  \begin{itemize}
+  	\item Review des Programmcodes und Verbesserungsvorschläge:
+  	\begin{itemize}
+  		\item Verhalten des neuronalen Netzes überprüfen (Verhalten noch unregelmäßig)
+  		\item Neue Plots zum inspizieren des Verhalten der Umgebung (bspw. Aktion zu Winkel)
+  		\item LIF-Modell: Variaton der Integrationsschrittweite zur besseren Kontrolle der Feuer-Zeiten
+  	\end{itemize}
+  	\item Neue Such-Algorithmen zur besseren Anwendung des Reinforcement Learning-Ansatzes
+  	\item Beginn der kompletten Dokumentation und sukzessives Schreiben der Bachelorarbeit
+  \end{itemize}
+
+\end{frame}
+
+% =======================
+
+\begin{frame}
+  \frametitle{Sonstiges}
+  
+  Programmcode und sonstige Informationen auf GitHub - \href{https://github.com/J0nasW/BA}{\ctEmph{J0nasW/BA}}\\
+  \vspace{1cm}
+  Environment - OpenAI Gym - \href{https://gym.openai.com/envs/CartPole-v0/}{\ctEmph{CartPole-v0}}\\
+  \vspace{1cm}
+  Programmiersprache: Python 2.7 - Atom Editor\\
+
+\end{frame}
+
+% =======================
+
+
+
+\ClosingSlide
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
