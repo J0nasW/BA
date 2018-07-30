@@ -27,6 +27,13 @@ Some Libraries that I used:
 * [OpenAI Gym and Roboschool](https://gym.openai.com/)
 
 ---
+#### Update Mo., 30.07.2018
+* Worked very hard on gathering information and writing my Thesis over the last week
+* Made some serious changes in the Ecosystem - main.py as the caller-file for modules
+* Created random_search_v2 with serious performance improvements and lightweight architecture
+* Implemented a new weight-logic and increased my average score from 20/200 to 150/200 - still working on visiualizing the good simulations
+* Still somme odd characteristics within the circuit. Maybe letting the RL-Algrithms take control over synapses...
+
 #### Update Mi., 18.07.2018
 * Halftime-Talk with Prof. Meurer and Alexander Schaum, showing my current Work and presenting the Slide (see *docs*)
 * Got some more Simulation-Runs and I am pretty sure now, why the inverted Pendulum behaves incorrectly sometimes - implementation to be done

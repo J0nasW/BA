@@ -16,6 +16,9 @@ import cPickle as pickle
 
 from lif import I_syn_calc, I_gap_calc, U_neuron_calc
 from parameters import *
+from random_search import compute as compute
+from random_search_v2 import compute as compute_v2
+from weights_nn import compute as compute_with_weights
 
 # Initializing OpenAI Environments------------------------------------------------------
 env = gym.make('CartPole-v0')
@@ -60,67 +63,6 @@ def initialize(Default_U_leak):
     totalreward = 0
     done = 0
     info = 0
-
-#-------------------------------------------------------------------------------------------
-
-# Compute Function--------------------------------------------------------------------------
-
-def compute(x, u, w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_in_mat, w_gap_sin_mat, C_m_mat, G_leak_mat, U_leak_mat):
-
-    # Compute all Synapse Currents in this network------------------------------------------
-
-    for i in range(0,4):
-        for j in range (0,4):
-            # Synapse Currents between Interneurons
-            if A[i, j] == 1:
-                # Excitatory Synapse
-                I_s_inter[i, j] = I_syn_calc(x[i], x[j], E_ex, w_in_mat[i, j], sig_in_mat[i, j], mu)
-            elif A[i, j] == -1:
-                # Inhibitory Synapse
-                I_s_inter[i, j] = I_syn_calc(x[i], x[j], E_in, w_in_mat[i, j], sig_in_mat[i, j], mu)
-            else:
-                I_s_inter[i, j] = 0
-
-            # Gap-Junction Currents between Interneurons
-            if A_gap[i, j] == 1:
-                # There is a Gap-Junctions
-                I_g_inter[i, j] = I_gap_calc(x[i], x[j], w_gap_in_mat[i, j])
-            else:
-                I_g_inter[i, j] = 0
-
-    for i in range(0,4):
-        for j in range(0,4):
-            # Synapse Currents between Sensory and Interneurons
-            if B[i, j] == 1:
-                # Inhibitory Synapse (can't be Excitatory)
-                I_s_sensor[i, j] = I_syn_calc(u[i], u[j], E_in, w_sin_mat[i, j], sig_sin_mat[i, j], mu)
-            else:
-                I_s_sensor[i, j] = 0
-
-            # Gap-Junction Currents between Sensory and Interneurons
-            if B_gap[i, j] == 1:
-                # There is a Gap-Junctions
-                I_g_sensor[i, j] = I_gap_calc(x[i], x[j], w_gap_sin_mat[i, j])
-            else:
-                I_g_sensor[i, j] = 0
-
-    #---------------------------------------------------------------------------------------
-
-    # Now compute inter Neurons Voltages----------------------------------------------------
-    for i in range(0,4):
-        I_syn_inter = I_s_inter.sum(axis = 0) # Creates a 1x5 Array with the Sum of all Columns
-        I_gap_inter = I_g_inter.sum(axis = 0)
-        I_syn_stimuli = I_s_sensor.sum(axis = 0)
-        I_gap_stimuli = I_g_sensor.sum(axis = 0)
-        x[i], fire[i] = U_neuron_calc(x[i], I_syn_inter[i], I_gap_inter[i], I_syn_stimuli[i], I_gap_stimuli[i], C_m_mat[0,i], G_leak_mat[0,i], U_leak_mat[0,i], v, delta_t)
-        #x[i], fire[i] = U_neuron_calc(x[i], I_syn[i], 0, C_m_mat[0,i], G_leak_mat[0,i], U_leak_mat[0,i], v, delta_t)
-
-    #---------------------------------------------------------------------------------------
-
-    I_syn = np.add(I_syn_inter, I_syn_stimuli)
-    I_gap = np.add(I_gap_inter, I_gap_stimuli)
-
-    return x, u, fire, I_syn, I_gap
 
 #-------------------------------------------------------------------------------------------
 
@@ -203,21 +145,29 @@ def plot():
 
 #-------------------------------------------------------------------------------------------
 
-def import_matrices(load_matrices):
-    result = pickle.load( open(load_matrices, "r"))
+def import_parameters(load_parameters):
+    result_parameters = pickle.load( open(load_parameters, "r"))
 
-    w_in_mat = result[0]
-    w_sin_mat = result[1]
-    sig_in_mat = result[2]
-    sig_sin_mat = result[3]
-    w_gap_in_mat = result[4]
-    w_gap_sin_mat = result[5]
-    C_m_mat = result[6]
-    G_leak_mat = result[7]
-    U_leak_mat = result[8]
+    w_A_rnd = result_parameters[0]
+    w_B_rnd = result_parameters[1]
+    w_B_gap_rnd = result_parameters[2]
+    sig_A_rnd = result_parameters[3]
+    sig_B_rnd = result_parameters[4]
+    C_m_rnd = result_parameters[5]
+    G_leak_rnd = result_parameters[6]
+    U_leak_rnd = result_parameters[7]
 
-    return w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_in_mat, w_gap_sin_mat, C_m_mat, G_leak_mat, U_leak_mat
+    return w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd
 
+def import_weights(load_weights):
+
+    result_weights = pickle.load( open(load_weights, "r"))
+
+    A_rnd = result_weights[0]
+    B_rnd = result_weights[1]
+    B_gap_rnd = result_weights[2]
+
+    return A_rnd, B_rnd, B_gap_rnd
 
 # OpenAI Gym--------------------------------------------------------------------------------
 
@@ -272,10 +222,10 @@ def main(load_matrices):
     initialize(Default_U_leak) # Initializing all Interneurons with the desired leakage voltage
     #u = [-20, -40, -40, -20]
 
-    w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_in_mat, w_gap_sin_mat, C_m_mat, G_leak_mat, U_leak_mat = import_matrices(load_matrices)
+    w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = import_matrices(load_matrices)
 
     for t in np.arange(t0,T,delta_t):
-        x, u, fire, I_syn, I_gap = compute(x, u, w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_in_mat, w_gap_sin_mat, C_m_mat, G_leak_mat, U_leak_mat) # Compute the next Interneuron Voltages along with a possible "fire" Event
+        x, u, fire, I_syn, I_gap = compute_v2(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd) # Compute the next Interneuron Voltages along with a possible "fire" Event
         I_all = np.add(I_syn, I_gap)
         arr(x, u, fire, I_all) # Storing Information for graphical analysis
 
@@ -323,6 +273,67 @@ def main(load_matrices):
     plot() # Plotting everyting using matplotlib
 
 #-------------------------------------------------------------------------------------------
+
+def main_with_weights(load_parameters, load_weights):
+    global x, u, env, action
+
+    observation = env.reset()
+    action = 0
+    episodes = 0
+
+    initialize(Default_U_leak) # Initializing all Interneurons with the desired leakage voltage
+    #u = [-20, -40, -40, -20]
+
+    w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = import_parameters(load_parameters)
+    A_rnd, B_rnd, B_gap_rnd = import_weights(load_weights)
+
+    for t in np.arange(t0,T,delta_t):
+        x, u, fire, I_syn, I_gap = compute_with_weights(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd, A_rnd, B_rnd, B_gap_rnd) # Compute the next Interneuron Voltages along with a possible "fire" Event
+        I_all = np.add(I_syn, I_gap)
+        arr(x, u, fire, I_all) # Storing Information for graphical analysis
+
+
+        # OpenAI GYM PART----------------------------------
+
+        # Make a Step
+
+        observation, totalreward, done, info = run_episode(env, fire)
+        angle = (observation[2] * 360) / (2 * np.pi)
+        velocity = observation[3]
+        cart_pos = observation[0]
+
+        # Adapt, learn, overcome
+        if angle >= 0:
+            u[1] = -70 + (50/12) * angle # AVD
+            u[2] = -70
+        else:
+            u[2] = -70 + (50/12) * angle # PVC
+            u[1] = -70
+
+        if cart_pos >= 0:
+            u[3] = -70 + (50/2.4) * cart_pos # ALM
+            u[0] = -70
+        else:
+            u[0] = -70 + (50/2.4) * cart_pos # PVD
+            u[3] = -70
+
+        '''
+        if velocity >= 0:
+            u[3] = -70 + (50/5) * velocity
+            u[0] = -70
+        else:
+            u[0] = -70 + (50/5) * velocity
+            u[3] = -70
+        '''
+
+        if done:
+            env.reset()
+            episodes = episodes + 1
+
+    print "Did",episodes,"Episodes!"
+    env_render(env_vis)
+
+    plot() # Plotting everyting using matplotlib
 
 
 if __name__=="__main__":

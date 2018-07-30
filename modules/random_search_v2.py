@@ -1,12 +1,12 @@
 """
 RL MODULE WITH RANDOM SEARCH
 
-CALL BY:    <random_search.py>
+CALL BY:    <random_search_v2.py>
 
 RETURN:     Parameter Matrices for the inverted Pendulum Problem
             Stores Data of best Parameters in '<date>_rs_reward_<reward>.p'
 
-INFO:       -
+INFO:       V2 with improved loading times and simulation performance
 """
 
 # Some dependencies
@@ -41,68 +41,62 @@ def initialize(Default_U_leak):
 
 def random_parameters():
 
-    # Initialize random parameters for our Neurons and Synapses
+    # Initialize random parameters for our Neurons and Synapses according to the current Network
 
     # For Synapses
-    w_in_mat_rnd = np.random.uniform(low = 0, high = 3, size = (4,4))
-    w_sin_mat_rnd = np.random.uniform(low = 0, high = 3, size = (4,4))
+    w_A_rnd = np.random.uniform(low = 0, high = 3, size = (1,8)) # 10 random Values
+    w_B_rnd = np.random.uniform(low = 0, high = 3, size = (1,8)) # 8 random Values
+    w_B_gap_rnd = np.random.uniform(low = 0, high = 3, size = (1,2)) # 2 random Values
 
-    sig_in_mat_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (4,4))
-    sig_sin_mat_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (4,4))
-
-    # For Gap-Junctions
-    #w_gap_in_mat_rnd = np.random.uniform(low = 0, high = 3, size = (4,4))
-    w_gap_sin_mat_rnd = np.random.uniform(low = 0, high = 3, size = (4,4))
+    sig_A_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,8)) # 10 random Values
+    sig_B_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,8)) # 8 random Values
 
     # For Neurons
-    C_m_mat_rnd = np.random.uniform(low = 0.001, high = 1, size = (1,4))
-    G_leak_mat_rnd = np.random.uniform(low = 0.05, high = 5, size = (1,4))
-    U_leak_mat_rnd = np.random.uniform(low = -80, high = -60, size = (1,4))
+    C_m_rnd = np.random.uniform(low = 0.001, high = 1, size = (1,4)) # 4 random Values
+    G_leak_rnd = np.random.uniform(low = 0.05, high = 5, size = (1,4)) # 4 random Values
+    U_leak_rnd = np.random.uniform(low = -70, high = -50, size = (1,4)) # 4 random Values
 
-    return w_in_mat_rnd, w_sin_mat_rnd, sig_in_mat_rnd, sig_sin_mat_rnd, w_gap_sin_mat_rnd, C_m_mat_rnd, G_leak_mat_rnd, U_leak_mat_rnd
+    return w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd
 
 #-------------------------------------------------------------------------------------------
 
 # Compute Function--------------------------------------------------------------------------
 
-def compute(x, u, w_in_mat, w_sin_mat, w_gap_sin_mat, sig_in_mat, sig_sin_mat, C_m_mat, G_leak_mat, U_leak_mat):
+def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd):
 
     # Compute all Synapse Currents in this network------------------------------------------
+    k = 0
+    l = 0
+    m = 0
 
     for i in range(0,4):
         for j in range (0,4):
             # Synapse Currents between Interneurons
             if A[i, j] == 1:
                 # Excitatory Synapse
-                I_s_inter[i, j] = I_syn_calc(x[i], x[j], E_ex, w_in_mat[i, j], sig_in_mat[i, j], mu)
+                I_s_inter[i, j] = I_syn_calc(x[i], x[j], E_ex, w_A_rnd[0, k], sig_A_rnd[0, k], mu)
+                k += 1
             elif A[i, j] == -1:
                 # Inhibitory Synapse
-                I_s_inter[i, j] = I_syn_calc(x[i], x[j], E_in, w_in_mat[i, j], sig_in_mat[i, j], mu)
+                I_s_inter[i, j] = I_syn_calc(x[i], x[j], E_in, w_A_rnd[0, k], sig_A_rnd[0, k], mu)
+                k += 1
             else:
                 I_s_inter[i, j] = 0
-            """
-            # There are no Gap Junctions between inter-neurons (for now)
-            # Gap-Junction Currents between Interneurons
-            if A_gap[i, j] == 1:
-                # There is a Gap-Junctions
-                I_g_inter[i, j] = I_gap_calc(x[i], x[j], w_gap_in_mat[i, j])
-            else:
-                I_g_inter[i, j] = 0
-            """
 
-    for i in range(0,4):
-        for j in range(0,4):
+
             # Synapse Currents between Sensory and Interneurons
             if B[i, j] == 1:
                 # Inhibitory Synapse (can't be Excitatory)
-                I_s_sensor[i, j] = I_syn_calc(u[i], u[j], E_in, w_sin_mat[i, j], sig_sin_mat[i, j], mu)
+                I_s_sensor[i, j] = I_syn_calc(u[i], u[j], E_in, w_B_rnd[0, l], sig_B_rnd[0, l], mu)
+                l += 1
             else:
                 I_s_sensor[i, j] = 0
 
             # Gap-Junction Currents between Sensory and Interneurons
             if B_gap[i, j] == 1:
                 # There is a Gap-Junctions
-                I_g_sensor[i, j] = I_gap_calc(x[i], x[j], w_gap_sin_mat[i, j])
+                I_g_sensor[i, j] = I_gap_calc(x[i], x[j], w_B_gap_rnd[0, m])
+                m += 1
             else:
                 I_g_sensor[i, j] = 0
 
@@ -114,7 +108,7 @@ def compute(x, u, w_in_mat, w_sin_mat, w_gap_sin_mat, sig_in_mat, sig_sin_mat, C
         I_gap_inter = I_g_inter.sum(axis = 0)
         I_syn_stimuli = I_s_sensor.sum(axis = 0)
         I_gap_stimuli = I_g_sensor.sum(axis = 0)
-        x[i], fire[i] = U_neuron_calc(x[i], I_syn_inter[i], I_gap_inter[i], I_syn_stimuli[i], I_gap_stimuli[i], C_m_mat[0,i], G_leak_mat[0,i], U_leak_mat[0,i], v, delta_t)
+        x[i], fire[i] = U_neuron_calc(x[i], I_syn_inter[i], I_gap_inter[i], I_syn_stimuli[i], I_gap_stimuli[i], C_m_rnd[0,i], G_leak_rnd[0,i], U_leak_rnd[0,i], v, delta_t)
 
     #---------------------------------------------------------------------------------------
 
@@ -127,7 +121,7 @@ def compute(x, u, w_in_mat, w_sin_mat, w_gap_sin_mat, sig_in_mat, sig_sin_mat, C
 
 # OpenAI Gym--------------------------------------------------------------------------------
 
-def run_episode(env, w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_sin_mat, C_m_mat, G_leak_mat, U_leak_mat):
+def run_episode(env, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd):
     global x, u, fire, I_syn, I_gap, action
 
     observation = env.reset()
@@ -136,7 +130,7 @@ def run_episode(env, w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_sin_mat
     for t in np.arange(t0,T,delta_t): # RUNNING THE EPISODE - Trynig to get 200 Steps in this Episode
 
         # Compute the next Interneuron Voltages along with a possible "fire" Event - Now new with random parameter matrices
-        x, u, fire, I_syn, I_gap = compute(x, u, w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_sin_mat, C_m_mat, G_leak_mat, U_leak_mat)
+        x, u, fire, I_syn, I_gap = compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd)
 
         # Decide for an action and making a Step
         if fire[0] == 1: # Sensory Neuron AVA is firing - resulting in a REVERSE Action (0)
@@ -221,13 +215,13 @@ def main(simulations):
 
         initialize(Default_U_leak) # Initializing all Sensory- and Interneurons with the desired leakage voltage [-70mV]
         episodes += 1 # Episode Counter
-        w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_sin_mat, C_m_mat, G_leak_mat, U_leak_mat = random_parameters() # Make some new random parameter Matrices
-        reward = run_episode(env, w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_sin_mat, C_m_mat, G_leak_mat, U_leak_mat)
+        w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = random_parameters() # Make some new random parameter Matrices
+        reward = run_episode(env, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd)
         if reward > best_reward:
             # Set current reward as new reward
             best_reward = reward
             # Save Results of the Run with the best reward
-            Result = [w_in_mat, w_sin_mat, sig_in_mat, sig_sin_mat, w_gap_sin_mat, C_m_mat, G_leak_mat, U_leak_mat]
+            Result = [w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd]
             # Solved the Simulation
             if reward == 200:
                 break
@@ -239,7 +233,7 @@ def main(simulations):
 
     date = datetime.datetime.now().strftime("%Y%m%d_%H-%M-%S")
     best_reward_s = str(int(best_reward))
-    pickle.dump(Result, open(("parameter_dumps/" + date + "_rs_" + best_reward_s + ".p"), "wb"))
+    pickle.dump(Result, open(("parameter_dumps/" + date + "_rs2_" + best_reward_s + ".p"), "wb"))
 
     return date, best_reward_s
 

@@ -27,6 +27,19 @@ def I_gap_calc(u_pre, u_post, w_gap):
 
     return I_g
 
+# Synapse Current computation with given Weights of Synapses
+def Iw_syn_calc(u_pre, u_post, E, w, sig, mu, weight):
+
+    I_s = ((w / (1 + np.exp(sig * (u_pre + mu)))) * (E - u_post)) * weight
+
+    return I_s
+
+def Iw_gap_calc(u_pre, u_post, w_gap, weight):
+
+    I_g = (w_gap * (u_post - u_pre)) * weight
+
+    return I_g
+
 # Neuron Voltage computation
 def U_neuron_calc(u_syn, I_syn_inter, I_gap_inter, I_syn_stimuli, I_gap_stimuli, C_m, G_leak, U_leak, v, delta_t):
 

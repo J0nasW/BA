@@ -6,6 +6,8 @@ CALL BY:    <visiualize.py>
 RETURN:     Environment simulation (animated) & Plots
 
 INFO:       This Module can load a specific File Dump (cPickle) and visiualize the containig matrices onto a OpenAI Gym Environment
+
+            Manual Mode with main Method included
 """
 
 # Some dependencies

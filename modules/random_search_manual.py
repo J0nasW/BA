@@ -6,7 +6,7 @@ CALL BY:    <random_search.py>
 RETURN:     Parameter Matrices for the inverted Pendulum Problem
             Stores Data of best Parameters in '<date>_result_matrices_reward_<reward>.p'
 
-INFO:       -
+INFO:       Manual Mode with main Method included
 """
 
 # Some dependencies
