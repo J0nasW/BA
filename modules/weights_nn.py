@@ -54,7 +54,7 @@ def initialize(Default_U_leak, load_matrices):
 def random_weights():
 
     # Initializing Weight matrices
-    A_rnd = np.random.rand(1,10)
+    A_rnd = np.random.rand(1,8)
     B_rnd = np.random.rand(1,8)
     B_gap_rnd = np.random.rand(1,2)
 
@@ -167,34 +167,34 @@ def observe(observation):
 
     # Setting the Angle of the Pole to Sensory Neurons PLM (Phi+) and AVM (Phi-)
     if angle > 0:
-        u[1] = -70 + (50/12) * angle # PLM
-        u[2] = -70
+        u[1] = Default_U_leak + ((v-Default_U_leak)/12) * angle # PLM
+        u[2] = Default_U_leak
     elif angle == 0:
-        u[1] = u[2] = -70
+        u[1] = u[2] = Default_U_leak
     else:
-        u[2] = -70 + (50/12) * angle # AVM
-        u[1] = -70
+        u[2] = Default_U_leak + ((v-Default_U_leak)/12) * angle # AVM
+        u[1] = Default_U_leak
 
     # Setting the Cart Position to Sensory Neurons ALM (pos. movement) and PVD (neg. movement)
     if cart_pos > 0:
-        u[3] = -70 + (50/2.4) * cart_pos # ALM
-        u[0] = -70
+        u[3] = Default_U_leak + ((v-Default_U_leak)/2.4) * cart_pos # ALM
+        u[0] = Default_U_leak
     elif cart_pos == 0:
-        u[0] = u[3] = -70
+        u[0] = u[3] = Default_U_leak
     else:
-        u[0] = -70 + (50/2.4) * cart_pos # PVD
-        u[3] = -70
+        u[0] = Default_U_leak + ((v-Default_U_leak)/2.4) * cart_pos # PVD
+        u[3] = Default_U_leak
 
     '''
     # Setting the Anglespeed of the Pole to Sensory Neurons ALM (Phi.+) and PVD (Phi.-)
     if angle_velocity >= 0:
-        u[3] = -70 + (50/5) * angle_velocity # ALM
-        u[0] = -70
+        u[3] = Default_U_leak + ((v-Default_U_leak)/5) * angle_velocity # ALM
+        u[0] = Default_U_leak
     elif cart_pos == 0:
-        u[0] = u[3] = -70
+        u[0] = u[3] = Default_U_leak
     else:
-        u[0] = -70 + (50/5) * angle_velocity # PVD
-        u[3] = -70
+        u[0] = Default_U_leak + ((v-Default_U_leak)/5) * angle_velocity # PVD
+        u[3] = Default_U_leak
     '''
 
 #------------------------------------------------------------------------------------

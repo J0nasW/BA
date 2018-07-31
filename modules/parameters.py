@@ -23,7 +23,7 @@ A = np.matrix('0 0 0 -1; 1 0 1 1; 1 1 0 1; -1 0 0 0') # AVA, AVD, PVC, AVB
 B = np.matrix('0 1 1 0; 1 1 0 0; 0 0 1 1; 0 1 1 0') # PVD, PLM, AVM, ALM
 
 # A_gap = Connections between Interneurons through Gap-Junctions
-A_gap = np.matrix('0 0 0 0; 0 0 0 0; 0 0 0 0; 0 0 0 0') # AVA, AVD, PVC, AVB
+#A_gap = np.matrix('0 0 0 0; 0 0 0 0; 0 0 0 0; 0 0 0 0') # AVA, AVD, PVC, AVB
 
 # B = Connections between Sensory- and Interneurons through Gap-Junctions
 B_gap = np.matrix('0 0 0 0; 0 0 1 0; 0 1 0 0; 0 0 0 0') # PVD, PLM, AVM, ALM

@@ -113,10 +113,10 @@ def plot():
 
     plt.subplot(122)
     plt.title('Inter Neurons', fontsize=10)
-    plt.plot(AVA, '-b', label='AVA', linewidth=1)
+    plt.plot(AVA, '-b', label='AVA', linewidth=0.3)
     plt.plot(AVD, '-y', label='AVD', linewidth=1)
-    plt.plot(PVC, '-g', label='PVC', linewidth=0.5)
-    plt.plot(AVB, '-k', label='AVB', linewidth=1)
+    plt.plot(PVC, '-g', label='PVC', linewidth=1)
+    plt.plot(AVB, '-k', label='AVB', linewidth=0.3)
     plt.xlabel('t (in s)')
     plt.ylabel('u(t) in [mV]')
     plt.legend(loc='upper left')
@@ -178,17 +178,20 @@ def run_episode(env, fire):
     env_vis.append(env.render(mode = 'rgb_array'))
 
     if fire[0] == 1:
-        action = 1
-        observation, reward, done, info = env.step(action)
-        totalreward += reward
-        print 'RIGHT'
-    elif fire[3] == 1:
         action = 0
         observation, reward, done, info = env.step(action)
         totalreward += reward
         print 'LEFT'
+    elif fire[3] == 1:
+        action = 1
+        observation, reward, done, info = env.step(action)
+        totalreward += reward
+        print 'RIGHT'
     else:
-        print 'Im not sure :( Going ',action
+        if action == 0:
+            print 'Im not sure. Going LEFT'
+        else:
+            print 'Im not sure. Going RIGHT'
         #action = 0
         #action = np.random.randint(0,1)
         observation, reward, done, info = env.step(action)
@@ -240,27 +243,35 @@ def main(load_matrices):
         cart_pos = observation[0]
 
         # Adapt, learn, overcome
-        if angle >= 0:
-            u[1] = -70 + (50/12) * angle # AVD
-            u[2] = -70
+        if angle > 0:
+            u[1] = Default_U_leak + ((v-Default_U_leak)/12) * angle # PLM
+            u[2] = Default_U_leak
+        elif angle == 0:
+            u[1] = u[2] = Default_U_leak
         else:
-            u[2] = -70 + (50/12) * angle # PVC
-            u[1] = -70
+            u[2] = Default_U_leak + ((v-Default_U_leak)/12) * angle # AVM
+            u[1] = Default_U_leak
 
-        if cart_pos >= 0:
-            u[3] = -70 + (50/2.4) * cart_pos # ALM
-            u[0] = -70
+        # Setting the Cart Position to Sensory Neurons ALM (pos. movement) and PVD (neg. movement)
+        if cart_pos > 0:
+            u[3] = Default_U_leak + ((v-Default_U_leak)/2.4) * cart_pos # ALM
+            u[0] = Default_U_leak
+        elif cart_pos == 0:
+            u[0] = u[3] = Default_U_leak
         else:
-            u[0] = -70 + (50/2.4) * cart_pos # PVD
-            u[3] = -70
+            u[0] = Default_U_leak + ((v-Default_U_leak)/2.4) * cart_pos # PVD
+            u[3] = Default_U_leak
 
         '''
-        if velocity >= 0:
-            u[3] = -70 + (50/5) * velocity
-            u[0] = -70
+        # Setting the Anglespeed of the Pole to Sensory Neurons ALM (Phi.+) and PVD (Phi.-)
+        if angle_velocity >= 0:
+            u[3] = Default_U_leak + ((v-Default_U_leak)/5) * angle_velocity # ALM
+            u[0] = Default_U_leak
+        elif cart_pos == 0:
+            u[0] = u[3] = Default_U_leak
         else:
-            u[0] = -70 + (50/5) * velocity
-            u[3] = -70
+            u[0] = Default_U_leak + ((v-Default_U_leak)/5) * angle_velocity # PVD
+            u[3] = Default_U_leak
         '''
 
         if done:
