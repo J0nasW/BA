@@ -16,8 +16,8 @@ import cPickle as pickle
 
 from lif import I_syn_calc, I_gap_calc, U_neuron_calc
 from parameters import *
-from random_search import compute as compute
 from random_search_v2 import compute as compute_v2
+from random_search_v2 import observe
 from weights_nn import compute as compute_with_weights
 
 # Initializing OpenAI Environments------------------------------------------------------
@@ -37,7 +37,7 @@ def initialize(Default_U_leak):
     for i in range(0,4):
         u[i] = Default_U_leak
 
-    global AVA, AVD, PVC, AVB, PVD, PLM, AVM, ALM, AVA_spike, AVD_spike, PVC_spike, AVB_spike, I_PVC, I_AVD, I_AVA, I_AVB, totalreward, done, info
+    global AVA, AVD, PVC, AVB, PVD, PLM, AVM, ALM, AVA_spike, AVD_spike, PVC_spike, AVB_spike, I_PVC, I_AVD, I_AVA, I_AVB, actions_arr, angles_arr, totalreward, done, info
 
     AVA = np.array([Default_U_leak])
     AVD = np.array([Default_U_leak])
@@ -58,6 +58,9 @@ def initialize(Default_U_leak):
     I_AVD = np.array([])
     I_AVA = np.array([])
     I_AVB = np.array([])
+
+    actions_arr = np.array([])
+    angles_arr = np.array([])
     #---------------------------------------------------------------------------------------
 
     totalreward = 0
@@ -71,7 +74,6 @@ def initialize(Default_U_leak):
 def arr(x, u, fire, I_all):
 
     global AVA, AVD, PVC, DVA, AVB, PVD, PLM, AVM, ALM, AVA_spike, AVD_spike, PVC_spike, AVB_spike, I_PVC, I_AVD, I_AVA, I_AVB
-
     AVA = np.append(AVA, x[0])
     AVD = np.append(AVD, x[1])
     PVC = np.append(PVC, x[2])
@@ -140,6 +142,14 @@ def plot():
     plt.title('AVB', fontsize=10)
     plt.plot(I_AVB, '-r', label='AVB', linewidth=0.5)
 
+    plt.figure(3)
+    plt.suptitle('Action and Angle of this Simulation', fontsize=16)
+    plt.plot(actions_arr, '-r', label='Actions [LEFT/RIGHT]', linewidth=1)
+    plt.plot(angles_arr, '-b', label='Angles [deg]', linewidth=1)
+    plt.xlabel('t')
+    plt.ylabel('Action / Angle in Deg')
+    plt.legend(loc='upper left')
+
 
     plt.show()
 
@@ -165,40 +175,47 @@ def import_weights(load_weights):
 
     A_rnd = result_weights[0]
     B_rnd = result_weights[1]
-    B_gap_rnd = result_weights[2]
 
-    return A_rnd, B_rnd, B_gap_rnd
+    return A_rnd, B_rnd
 
 # OpenAI Gym--------------------------------------------------------------------------------
 
 def run_episode(env, fire):
 
-    global observation, reward, done, info, totalreward, env_vis, action
+    global observation, reward, done, info, totalreward, action, actions, env_vis, uncertain, actions_arr, angles_arr
 
     env_vis.append(env.render(mode = 'rgb_array'))
 
-    if fire[0] == 1:
+    # - action = 0 LEFT  - action = 1 RIGHT
+
+    if fire[0] == 1: # AVA (REV) is firing
         action = 0
+        actions -= 1
         observation, reward, done, info = env.step(action)
-        totalreward += reward
-        print 'LEFT'
-    elif fire[3] == 1:
+        #print 'LEFT'
+    elif fire[3] == 1: # AVB (FWD) is firing
         action = 1
+        actions += 1
         observation, reward, done, info = env.step(action)
-        totalreward += reward
-        print 'RIGHT'
+        #print 'RIGHT'
     else:
+        uncertain +=1
         if action == 0:
-            print 'Im not sure. Going LEFT'
-        else:
-            print 'Im not sure. Going RIGHT'
-        #action = 0
-        #action = np.random.randint(0,1)
+            actions -= 1
+        elif action == 1:
+            actions += 1
         observation, reward, done, info = env.step(action)
-        totalreward += reward
 
+    totalreward += reward
+    angle = observe(observation)
 
-    return observation, totalreward, done, info
+    if done:
+        actions = 0
+
+    actions_arr = np.append(actions_arr, actions)
+    angles_arr = np.append(angles_arr, angle)
+
+    return totalreward, done, uncertain
 
 def env_render(env_vis):
     plt.figure()
@@ -216,11 +233,13 @@ def animate(i):
 #-------------------------------------------------------------------------------------------
 
 def main(parameter_matrices):
-    global x, u, env, action
+    global x, u, env, action, actions, uncertain
 
     observation = env.reset()
     action = 0
+    actions = 0
     episodes = 0
+    uncertain = 0
 
     initialize(Default_U_leak) # Initializing all Interneurons with the desired leakage voltage
     #u = [-20, -40, -40, -20]
@@ -235,113 +254,49 @@ def main(parameter_matrices):
 
         # OpenAI GYM PART----------------------------------
 
-        # Make a Step
-
-        observation, totalreward, done, info = run_episode(env, fire)
-        angle = (observation[2] * 360) / (2 * np.pi)
-        velocity = observation[3]
-        cart_pos = observation[0]
-
-        # Adapt, learn, overcome
-        if angle > 0:
-            u[1] = Default_U_leak + ((v-Default_U_leak)/12) * angle # PLM
-            u[2] = Default_U_leak
-        elif angle == 0:
-            u[1] = u[2] = Default_U_leak
-        else:
-            u[2] = Default_U_leak + ((v-Default_U_leak)/12) * angle # AVM
-            u[1] = Default_U_leak
-
-        # Setting the Cart Position to Sensory Neurons ALM (pos. movement) and PVD (neg. movement)
-        if cart_pos > 0:
-            u[3] = Default_U_leak + ((v-Default_U_leak)/2.4) * cart_pos # ALM
-            u[0] = Default_U_leak
-        elif cart_pos == 0:
-            u[0] = u[3] = Default_U_leak
-        else:
-            u[0] = Default_U_leak + ((v-Default_U_leak)/2.4) * cart_pos # PVD
-            u[3] = Default_U_leak
-
-        '''
-        # Setting the Anglespeed of the Pole to Sensory Neurons ALM (Phi.+) and PVD (Phi.-)
-        if angle_velocity >= 0:
-            u[3] = Default_U_leak + ((v-Default_U_leak)/5) * angle_velocity # ALM
-            u[0] = Default_U_leak
-        elif cart_pos == 0:
-            u[0] = u[3] = Default_U_leak
-        else:
-            u[0] = Default_U_leak + ((v-Default_U_leak)/5) * angle_velocity # PVD
-            u[3] = Default_U_leak
-        '''
+        totalreward, done, uncertain = run_episode(env, fire)
 
         if done:
             env.reset()
             episodes = episodes + 1
 
-    print "Did",episodes,"Episodes!"
+    print "Did",episodes,"Episodes and was",uncertain,"times uncertain!"
     env_render(env_vis)
 
     plot() # Plotting everyting using matplotlib
 
 #-------------------------------------------------------------------------------------------
 
-def main_with_weights(load_parameters, load_weights):
-    global x, u, env, action
+def main_with_weights(load_parameters, load_weights, runtime):
+    global x, u, env, action, actions, uncertain
 
     observation = env.reset()
     action = 0
+    actions = 0
     episodes = 0
+    uncertain = 0
 
     initialize(Default_U_leak) # Initializing all Interneurons with the desired leakage voltage
     #u = [-20, -40, -40, -20]
 
     w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = import_parameters(load_parameters)
-    A_rnd, B_rnd, B_gap_rnd = import_weights(load_weights)
+    A_rnd, B_rnd = import_weights(load_weights)
 
-    for t in np.arange(t0,T,delta_t):
-        x, u, fire, I_syn, I_gap = compute_with_weights(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd, A_rnd, B_rnd, B_gap_rnd) # Compute the next Interneuron Voltages along with a possible "fire" Event
+    for t in np.arange(t0,runtime,delta_t):
+        x, u, fire, I_syn, I_gap = compute_with_weights(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd, A_rnd, B_rnd) # Compute the next Interneuron Voltages along with a possible "fire" Event
         I_all = np.add(I_syn, I_gap)
         arr(x, u, fire, I_all) # Storing Information for graphical analysis
 
 
         # OpenAI GYM PART----------------------------------
 
-        # Make a Step
-
-        observation, totalreward, done, info = run_episode(env, fire)
-        angle = (observation[2] * 360) / (2 * np.pi)
-        velocity = observation[3]
-        cart_pos = observation[0]
-
-        # Adapt, learn, overcome
-        if angle >= 0:
-            u[1] = -70 + (50/12) * angle # AVD
-            u[2] = -70
-        else:
-            u[2] = -70 + (50/12) * angle # PVC
-            u[1] = -70
-
-        if cart_pos >= 0:
-            u[3] = -70 + (50/2.4) * cart_pos # ALM
-            u[0] = -70
-        else:
-            u[0] = -70 + (50/2.4) * cart_pos # PVD
-            u[3] = -70
-
-        '''
-        if velocity >= 0:
-            u[3] = -70 + (50/5) * velocity
-            u[0] = -70
-        else:
-            u[0] = -70 + (50/5) * velocity
-            u[3] = -70
-        '''
+        totalreward, done, uncertain = run_episode(env, fire)
 
         if done:
             env.reset()
             episodes = episodes + 1
 
-    print "Did",episodes,"Episodes!"
+    print "Did",episodes,"Episodes and was",uncertain,"times uncertain!"
     env_render(env_vis)
 
     plot() # Plotting everyting using matplotlib

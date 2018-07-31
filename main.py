@@ -19,24 +19,25 @@ from modules import visiualize as vs
 from modules import inspect
 
 def main():
+
+    runtime = 5 # in sec.
+
     # RANDOM SEARCH
     #date, best_reward_s = rs.main(10000) # Calling the RANDOM SEARCH Module to calculate new matrices with x Episodes
     #parameter_matrices = "parameter_dumps/" + date + "_rs_" + best_reward_s + ".p"
     #vs.main(parameter_matrices) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
     # RANDOM SEARCH V2
-    date, best_reward_s = rs2.main(10000)
-    parameter_matrices = "parameter_dumps/" + date + "_rs2_v2_" + best_reward_s + ".p"
-    vs.main(parameter_matrices) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
+    #date, best_reward_s = rs2.main(10000)
+    #parameter_matrices = "parameter_dumps/" + date + "_rs2_v2_" + best_reward_s + ".p"
+    parameter_matrices = "parameter_dumps/20180731_16-29-19_rs2_v2_78.p" # GUTER SATZ
+    #vs.main(parameter_matrices) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
     # WEIGHT APPLICATION (RandomSearch)
-    #parameter_matrices = "parameter_dumps/20180730_14-29-29_rs2_69.p"
-    #parameter_matrices = "parameter_dumps/20180731_09-32-23_rs2_34.p"
-    #date, best_reward_s = w.main(100000, load_parameters)
+    #date, best_reward_s = w.main(100000, parameter_matrices)
     #weight_matrices = "weight_dumps/" + date + "_" + best_reward_s + ".p"
-    #weight_matrices = "weight_dumps/20180731_10-05-45_120.p"
-    #weight_matrices = "weight_dumps/20180731_10-16-46_141.p"
-    #vs.main_with_weights(parameter_matrices, weight_matrices) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
+    weight_matrices = "weight_dumps/20180731_17-32-58_168.p" # GUTER SATZ
+    vs.main_with_weights(parameter_matrices, weight_matrices, runtime) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
     # GENETIC ALGORITHMS
     #...

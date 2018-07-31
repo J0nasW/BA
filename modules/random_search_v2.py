@@ -13,6 +13,7 @@ INFO:       V2 with improved loading times and simulation performance
 import numpy as np # Maths and stuff
 import gym.spaces # Simulating the Environments
 import cPickle as pickle # Store Data into [.p] Files
+import time # For Runtime Evaluations
 import datetime # For Datestamp on stored files
 
 from lif import I_syn_calc, I_gap_calc, U_neuron_calc
@@ -44,17 +45,17 @@ def random_parameters():
     # Initialize random parameters for our Neurons and Synapses according to the current Network
 
     # For Synapses
-    w_A_rnd = np.random.uniform(low = 0, high = 3, size = (1,4)) # 4 random Values
-    w_B_rnd = np.random.uniform(low = 0, high = 3, size = (1,6)) # 6 random Values
-    w_B_gap_rnd = np.random.uniform(low = 0, high = 3, size = (1,4)) # 4 random Values
+    w_A_rnd = np.random.uniform(low = 0, high = 3, size = (1,nbr_of_inter_synapses)) # 6 random Values
+    w_B_rnd = np.random.uniform(low = 0, high = 3, size = (1,nbr_of_sensor_synapses)) # 8 random Values
+    w_B_gap_rnd = np.random.uniform(low = 0, high = 3, size = (1,nbr_of_gap_junctions)) # 2 random Values
 
-    sig_A_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,4)) # 10 random Values
-    sig_B_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,6)) # 8 random Values
+    sig_A_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,nbr_of_inter_synapses)) # 6 random Values
+    sig_B_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,nbr_of_sensor_synapses)) # 8 random Values
 
     # For Neurons
-    C_m_rnd = np.random.uniform(low = 0.001, high = 1, size = (1,4)) # 4 random Values
-    G_leak_rnd = np.random.uniform(low = 0.05, high = 5, size = (1,4)) # 4 random Values
-    U_leak_rnd = np.random.uniform(low = -70, high = -50, size = (1,4)) # 4 random Values
+    C_m_rnd = np.random.uniform(low = 0.001, high = 1, size = (1,nbr_of_inter_neurons)) # 4 random Values
+    G_leak_rnd = np.random.uniform(low = 0.05, high = 5, size = (1,nbr_of_inter_neurons)) # 4 random Values
+    U_leak_rnd = np.random.uniform(low = -70, high = -50, size = (1,nbr_of_inter_neurons)) # 4 random Values
 
     return w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd
 
@@ -74,11 +75,11 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
             # Synapse Currents between Interneurons
             if A[i, j] == 1:
                 # Excitatory Synapse
-                I_s_inter[i, j] = I_syn_calc(x[i], x[j], E_ex, w_A_rnd[0, k], sig_A_rnd[0, k], mu)
-                k += 1
-            elif A[i, j] == -1:
-                # Inhibitory Synapse
                 I_s_inter[i, j] = I_syn_calc(x[i], x[j], E_in, w_A_rnd[0, k], sig_A_rnd[0, k], mu)
+                k += 1
+            elif A[i, j] == 2:
+                # Inhibitory Synapse
+                I_s_inter[i, j] = I_syn_calc(x[i], x[j], E_ex, w_A_rnd[0, k], sig_A_rnd[0, k], mu)
                 k += 1
             else:
                 I_s_inter[i, j] = 0
@@ -90,11 +91,10 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
                 I_s_sensor[i, j] = I_syn_calc(u[i], u[j], E_in, w_B_rnd[0, l], sig_B_rnd[0, l], mu)
                 l += 1
             elif B[i, j] == 2:
-                # Inhibitory Synapse (can't be Excitatory)
                 I_s_sensor[i, j] = I_syn_calc(u[i], u[j], E_ex, w_B_rnd[0, l], sig_B_rnd[0, l], mu)
                 l += 1
             elif B[i, j] == 3:
-                # Inhibitory Synapse
+                # Gap Junction
                 I_g_sensor[i, j] = I_gap_calc(x[i], x[j], w_B_gap_rnd[0, m])
                 m += 1
             else:
@@ -115,8 +115,6 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
 
     I_syn = np.add(I_syn_inter, I_syn_stimuli)
     I_gap = np.add(I_gap_inter, I_gap_stimuli)
-
-    print k, l, m
 
     return x, u, fire, I_syn, I_gap
 
@@ -139,14 +137,13 @@ def run_episode(env, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rn
         if fire[0] == 1: # Sensory Neuron AVA is firing - resulting in a REVERSE Action (0 - LEFT)
             action = 0
             observation, reward, done, info = env.step(action)
-            totalreward += reward
         elif fire[3] == 1: # Sensory Neuron AVB is firing - resulting in a FORWARD Action (1 - RIGHT)
             action = 1
             observation, reward, done, info = env.step(action)
-            totalreward += reward
         else:
             observation, reward, done, info = env.step(action) # Have to use the action from the past time step - OpenAI Gym does not provide a "Do nothing"-Action
-            totalreward += reward
+
+        totalreward += reward
         observe(observation)
         if done:
             break
@@ -172,7 +169,7 @@ def observe(observation):
     else:
         u[2] = Default_U_leak + ((v-Default_U_leak)/12) * angle # AVM
         u[1] = Default_U_leak
-    '''
+
     # Setting the Cart Position to Sensory Neurons ALM (pos. movement) and PVD (neg. movement)
     if cart_pos > 0:
         u[3] = Default_U_leak + ((v-Default_U_leak)/2.4) * cart_pos # ALM
@@ -192,6 +189,9 @@ def observe(observation):
     else:
         u[0] = Default_U_leak + ((v-Default_U_leak)/5) * angle_velocity # PVD
         u[3] = Default_U_leak
+    '''
+
+    return angle
 
 
 #------------------------------------------------------------------------------------
@@ -203,7 +203,8 @@ def observe(observation):
 def main(simulations):
     global x, u, env, action
 
-    env_vis = []
+    start_time = time.time()
+
     action = 0
     episodes = 0
     best_reward = 0
@@ -225,13 +226,15 @@ def main(simulations):
                 break
         #print 'Episode',episodes,'mit Reward',reward,'.'
 
+    date = datetime.datetime.now().strftime("%Y%m%d_%H-%M-%S")
+    best_reward_s = str(int(best_reward))
+    pickle.dump(Result, open(("parameter_dumps/" + date + "_rs2_v2_" + best_reward_s + ".p"), "wb"))
+
     print 'The best Reward was:',best_reward
     if best_reward == 200:
         print 'I SOLVED IT!'
 
-    date = datetime.datetime.now().strftime("%Y%m%d_%H-%M-%S")
-    best_reward_s = str(int(best_reward))
-    pickle.dump(Result, open(("parameter_dumps/" + date + "_rs2_v2_" + best_reward_s + ".p"), "wb"))
+    print("--- %s seconds ---" % (time.time() - start_time))
 
     return date, best_reward_s
 

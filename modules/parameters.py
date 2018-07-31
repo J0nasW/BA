@@ -16,25 +16,35 @@ import numpy as np
 # Neural Network----------------------------------------------------------------------------
 # Making Contact with Neurons through Synapses and Gap-Junctions----------------------------
 
+# -  1 = Inhibitory  -  2 = Excitatory  -  3 = Gap-Junction  -
+
 # A = Connections between Interneurons through Synapses
-A = np.matrix('0 0 0 -1; 1 0 0 0; 0 0 0 1; -1 0 0 0') # AVA, AVD, PVC, AVB - 4 Synapses (1 = Ex., -1 = Inh.)
+A = np.matrix('0 0 0 1; 2 0 2 0; 0 2 0 2; 1 0 0 0') # AVA, AVD, PVC, AVB
+nbr_of_inter_synapses = 6
+A_all = nbr_of_inter_synapses
 
 # B = Connections between Sensory- and Interneurons through Synapses
-B = np.matrix('0 1 3 0; 1 1 3 2; 2 3 1 1; 0 3 1 0') # PVD, PLM, AVM, ALM (1 = Inh., 2 = Ex., 3 = Gap)
+B = np.matrix('0 1 1 0; 1 1 3 0; 0 3 1 1; 0 1 1 0') # PVD, PLM, AVM, ALM
+nbr_of_sensor_synapses = 8
+nbr_of_gap_junctions = 2
+B_all = nbr_of_sensor_synapses + nbr_of_gap_junctions
+
+nbr_of_sensor_neurons = 4
+nbr_of_inter_neurons = 4
 
 #-------------------------------------------------------------------------------------------
 
 # Current Matrix----------------------------------------------------------------------------
 
 # Current Matrix for Symapses between inter Neurons
-I_s_inter = np.zeros((4,4))
+I_s_inter = np.zeros((nbr_of_inter_neurons,nbr_of_inter_neurons))
 # Current Matrix for Synapses between sensory and inter Neurons
-I_s_sensor = np.zeros((4,4))
+I_s_sensor = np.zeros((nbr_of_sensor_neurons,nbr_of_inter_neurons))
 
 # Current Matrix for Gap-Junctions between inter Neurons
-I_g_inter = np.zeros((4,4))
+I_g_inter = np.zeros((nbr_of_inter_neurons,nbr_of_inter_neurons))
 # Current Matrix for Gap-Junctions between sensory and inter Neurons
-I_g_sensor = np.zeros((4,4))
+I_g_sensor = np.zeros((nbr_of_sensor_neurons,nbr_of_inter_neurons))
 
 #-------------------------------------------------------------------------------------------
 
@@ -50,8 +60,6 @@ u = [0,0,0,0] #PVD, PLM, AVM, ALM
 fire = [0,0,0,0] #AVA, AVD, PVC, AVB
 
 #-------------------------------------------------------------------------------------------
-
-
 
 # Substantial Parameters/Constants----------------------------------------------------------
 
