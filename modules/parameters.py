@@ -17,16 +17,10 @@ import numpy as np
 # Making Contact with Neurons through Synapses and Gap-Junctions----------------------------
 
 # A = Connections between Interneurons through Synapses
-A = np.matrix('0 0 0 -1; 1 0 1 1; 1 1 0 1; -1 0 0 0') # AVA, AVD, PVC, AVB
+A = np.matrix('0 0 0 -1; 1 0 0 0; 0 0 0 1; -1 0 0 0') # AVA, AVD, PVC, AVB - 4 Synapses (1 = Ex., -1 = Inh.)
 
 # B = Connections between Sensory- and Interneurons through Synapses
-B = np.matrix('0 1 1 0; 1 1 0 0; 0 0 1 1; 0 1 1 0') # PVD, PLM, AVM, ALM
-
-# A_gap = Connections between Interneurons through Gap-Junctions
-#A_gap = np.matrix('0 0 0 0; 0 0 0 0; 0 0 0 0; 0 0 0 0') # AVA, AVD, PVC, AVB
-
-# B = Connections between Sensory- and Interneurons through Gap-Junctions
-B_gap = np.matrix('0 0 0 0; 0 0 1 0; 0 1 0 0; 0 0 0 0') # PVD, PLM, AVM, ALM
+B = np.matrix('0 1 3 0; 1 1 3 2; 2 3 1 1; 0 3 1 0') # PVD, PLM, AVM, ALM (1 = Inh., 2 = Ex., 3 = Gap)
 
 #-------------------------------------------------------------------------------------------
 

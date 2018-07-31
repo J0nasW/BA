@@ -44,12 +44,12 @@ def random_parameters():
     # Initialize random parameters for our Neurons and Synapses according to the current Network
 
     # For Synapses
-    w_A_rnd = np.random.uniform(low = 0, high = 3, size = (1,8)) # 10 random Values
-    w_B_rnd = np.random.uniform(low = 0, high = 3, size = (1,8)) # 8 random Values
-    w_B_gap_rnd = np.random.uniform(low = 0, high = 3, size = (1,2)) # 2 random Values
+    w_A_rnd = np.random.uniform(low = 0, high = 3, size = (1,4)) # 4 random Values
+    w_B_rnd = np.random.uniform(low = 0, high = 3, size = (1,6)) # 6 random Values
+    w_B_gap_rnd = np.random.uniform(low = 0, high = 3, size = (1,4)) # 4 random Values
 
-    sig_A_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,8)) # 10 random Values
-    sig_B_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,8)) # 8 random Values
+    sig_A_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,4)) # 10 random Values
+    sig_B_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,6)) # 8 random Values
 
     # For Neurons
     C_m_rnd = np.random.uniform(low = 0.001, high = 1, size = (1,4)) # 4 random Values
@@ -89,15 +89,16 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
                 # Inhibitory Synapse (can't be Excitatory)
                 I_s_sensor[i, j] = I_syn_calc(u[i], u[j], E_in, w_B_rnd[0, l], sig_B_rnd[0, l], mu)
                 l += 1
-            else:
-                I_s_sensor[i, j] = 0
-
-            # Gap-Junction Currents between Sensory and Interneurons
-            if B_gap[i, j] == 1:
-                # There is a Gap-Junctions
+            elif B[i, j] == 2:
+                # Inhibitory Synapse (can't be Excitatory)
+                I_s_sensor[i, j] = I_syn_calc(u[i], u[j], E_ex, w_B_rnd[0, l], sig_B_rnd[0, l], mu)
+                l += 1
+            elif B[i, j] == 3:
+                # Inhibitory Synapse
                 I_g_sensor[i, j] = I_gap_calc(x[i], x[j], w_B_gap_rnd[0, m])
                 m += 1
             else:
+                I_s_sensor[i, j] = 0
                 I_g_sensor[i, j] = 0
 
     #---------------------------------------------------------------------------------------
@@ -114,6 +115,8 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
 
     I_syn = np.add(I_syn_inter, I_syn_stimuli)
     I_gap = np.add(I_gap_inter, I_gap_stimuli)
+
+    print k, l, m
 
     return x, u, fire, I_syn, I_gap
 
@@ -133,19 +136,15 @@ def run_episode(env, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rn
         x, u, fire, I_syn, I_gap = compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd)
 
         # Decide for an action and making a Step
-        if fire[0] == 1: # Sensory Neuron AVA is firing - resulting in a REVERSE Action (0)
+        if fire[0] == 1: # Sensory Neuron AVA is firing - resulting in a REVERSE Action (0 - LEFT)
             action = 0
             observation, reward, done, info = env.step(action)
             totalreward += reward
-            #print 'RIGHT'
-        elif fire[3] == 1: # Sensory Neuron AVB is firing - resulting in a FORWARD Action (1)
+        elif fire[3] == 1: # Sensory Neuron AVB is firing - resulting in a FORWARD Action (1 - RIGHT)
             action = 1
             observation, reward, done, info = env.step(action)
             totalreward += reward
-            #print 'LEFT'
         else:
-            #print 'Im not sure :( Going ',action
-            #action = np.random.randint(0,1) # Tried a random approach - didn't seem to work
             observation, reward, done, info = env.step(action) # Have to use the action from the past time step - OpenAI Gym does not provide a "Do nothing"-Action
             totalreward += reward
         observe(observation)
@@ -158,43 +157,42 @@ def observe(observation):
     global u
 
     cart_pos = observation[0] # [-2.4 2.4]
-    #cart_vel = observation[1]
+    cart_vel = observation[1]
     angle = (observation[2] * 360) / (2 * np.pi) # in degrees [-12deg 12deg] (for Simulations)
-    #angle_velocity = observation[3]
+    angle_velocity = observation[3]
 
     # Adapt, learn, overcome-----------------------------------------------------------------------------------------
 
     # Setting the Angle of the Pole to Sensory Neurons PLM (Phi+) and AVM (Phi-)
     if angle > 0:
-        u[1] = -70 + (50/12) * angle # PLM
-        u[2] = -70
+        u[1] = Default_U_leak + ((v-Default_U_leak)/12) * angle # PLM
+        u[2] = Default_U_leak
     elif angle == 0:
-        u[1] = u[2] = -70
+        u[1] = u[2] = Default_U_leak
     else:
-        u[2] = -70 + (50/12) * angle # AVM
-        u[1] = -70
-
+        u[2] = Default_U_leak + ((v-Default_U_leak)/12) * angle # AVM
+        u[1] = Default_U_leak
+    '''
     # Setting the Cart Position to Sensory Neurons ALM (pos. movement) and PVD (neg. movement)
     if cart_pos > 0:
-        u[3] = -70 + (50/2.4) * cart_pos # ALM
-        u[0] = -70
+        u[3] = Default_U_leak + ((v-Default_U_leak)/2.4) * cart_pos # ALM
+        u[0] = Default_U_leak
     elif cart_pos == 0:
-        u[0] = u[3] = -70
+        u[0] = u[3] = Default_U_leak
     else:
-        u[0] = -70 + (50/2.4) * cart_pos # PVD
-        u[3] = -70
-
+        u[0] = Default_U_leak + ((v-Default_U_leak)/2.4) * cart_pos # PVD
+        u[3] = Default_U_leak
     '''
     # Setting the Anglespeed of the Pole to Sensory Neurons ALM (Phi.+) and PVD (Phi.-)
     if angle_velocity >= 0:
-        u[3] = -70 + (50/5) * angle_velocity # ALM
-        u[0] = -70
+        u[3] = Default_U_leak + ((v-Default_U_leak)/5) * angle_velocity # ALM
+        u[0] = Default_U_leak
     elif cart_pos == 0:
-        u[0] = u[3] = -70
+        u[0] = u[3] = Default_U_leak
     else:
-        u[0] = -70 + (50/5) * angle_velocity # PVD
-        u[3] = -70
-    '''
+        u[0] = Default_U_leak + ((v-Default_U_leak)/5) * angle_velocity # PVD
+        u[3] = Default_U_leak
+
 
 #------------------------------------------------------------------------------------
 
@@ -233,7 +231,7 @@ def main(simulations):
 
     date = datetime.datetime.now().strftime("%Y%m%d_%H-%M-%S")
     best_reward_s = str(int(best_reward))
-    pickle.dump(Result, open(("parameter_dumps/" + date + "_rs2_" + best_reward_s + ".p"), "wb"))
+    pickle.dump(Result, open(("parameter_dumps/" + date + "_rs2_v2_" + best_reward_s + ".p"), "wb"))
 
     return date, best_reward_s
 
