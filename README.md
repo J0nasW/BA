@@ -27,6 +27,10 @@ Some Libraries that I used:
 * [OpenAI Gym and Roboschool](https://gym.openai.com/)
 
 ---
+#### Update Di. 31.07.2018
+* Created a new Feature-Branch "NeuralCircuit_v2" - rather a Version 2 of my original neural Circuit with many improvements - still trying to figure out this odd "LEFT, RIGHT, LEFT, ..." - Behaviour
+* Added Runtimes to calculate how long the trainings will take - need to get some kind of cloud support :)
+
 #### Update Mo., 30.07.2018
 * Worked very hard on gathering information and writing my Thesis over the last week
 * Made some serious changes in the Ecosystem - main.py as the caller-file for modules
