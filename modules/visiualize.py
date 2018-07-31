@@ -114,8 +114,8 @@ def plot():
     plt.subplot(122)
     plt.title('Inter Neurons', fontsize=10)
     plt.plot(AVA, '-b', label='AVA', linewidth=0.3)
-    plt.plot(AVD, '-y', label='AVD', linewidth=1)
-    plt.plot(PVC, '-g', label='PVC', linewidth=1)
+    plt.plot(AVD, '-g', label='AVD', linewidth=1)
+    plt.plot(PVC, '-y', label='PVC', linewidth=1)
     plt.plot(AVB, '-k', label='AVB', linewidth=0.3)
     plt.xlabel('t (in s)')
     plt.ylabel('u(t) in [mV]')
@@ -145,7 +145,7 @@ def plot():
 
 #-------------------------------------------------------------------------------------------
 
-def import_parameters(load_parameters):
+def import_matrices(load_parameters):
     result_parameters = pickle.load( open(load_parameters, "r"))
 
     w_A_rnd = result_parameters[0]

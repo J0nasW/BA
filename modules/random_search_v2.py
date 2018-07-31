@@ -148,6 +148,7 @@ def run_episode(env, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rn
             #action = np.random.randint(0,1) # Tried a random approach - didn't seem to work
             observation, reward, done, info = env.step(action) # Have to use the action from the past time step - OpenAI Gym does not provide a "Do nothing"-Action
             totalreward += reward
+
         observe(observation)
         if done:
             break
@@ -205,7 +206,6 @@ def observe(observation):
 def main(simulations):
     global x, u, env, action
 
-    env_vis = []
     action = 0
     episodes = 0
     best_reward = 0

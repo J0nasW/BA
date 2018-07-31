@@ -28,18 +28,19 @@ def main():
     #vs.main(call_matrices) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
     # RANDOM SEARCH V2
-    #date, best_reward_s = rs2.main(10000)
-    #load_parameters = "parameter_dumps/" + date + "_rs2_" + best_reward_s + ".p"
-    #vs.main(call_matrices) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
+    load_parameters = "parameter_dumps/20180731_09-32-23_rs2_34.p"
+    #date, best_reward_s = rs2.main(1000)
+    #call_matrices = "parameter_dumps/" + date + "_rs2_" + best_reward_s + ".p"
+    vs.main(load_parameters) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
     # WEIGHT APPLICATION (RandomSearch)
     #load_parameters = "parameter_dumps/20180730_14-29-29_rs2_69.p"
-    load_parameters = "parameter_dumps/20180731_09-32-23_rs2_34.p"
+
     #date, best_reward_s = w.main(100000, load_parameters)
     #weight_matrices = "weight_dumps/" + date + "_" + best_reward_s + ".p"
     #weight_matrices = "weight_dumps/20180731_10-05-45_120.p"
-    weight_matrices = "weight_dumps/20180731_10-16-46_141.p"
-    vs.main_with_weights(load_parameters, weight_matrices) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
+    #weight_matrices = "weight_dumps/20180731_10-16-46_141.p"
+    #vs.main_with_weights(load_parameters, weight_matrices) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
     # GENETIC ALGORITHMS
     #...
