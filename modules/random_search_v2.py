@@ -53,8 +53,8 @@ def random_parameters():
     sig_B_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,nbr_of_sensor_synapses)) # 8 random Values
 
     # For Neurons
-    C_m_rnd = np.random.uniform(low = 0.001, high = 1, size = (1,nbr_of_inter_neurons)) # 4 random Values
-    G_leak_rnd = np.random.uniform(low = 0.05, high = 5, size = (1,nbr_of_inter_neurons)) # 4 random Values
+    C_m_rnd = np.random.uniform(low = 0.001, high = 0.77, size = (1,nbr_of_inter_neurons)) # 4 random Values
+    G_leak_rnd = np.random.uniform(low = 0.2, high = 2.3, size = (1,nbr_of_inter_neurons)) # 4 random Values
     U_leak_rnd = np.random.uniform(low = -70, high = -50, size = (1,nbr_of_inter_neurons)) # 4 random Values
 
     return w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd
@@ -162,23 +162,24 @@ def observe(observation):
 
     # Setting the Angle of the Pole to Sensory Neurons PLM (Phi+) and AVM (Phi-)
     if angle > 0:
-        u[1] = Default_U_leak + ((v-Default_U_leak)/12) * angle # PLM
+        u[1] = Default_U_leak + ((v-Default_U_leak)/12) * np.absolute(angle) # PLM
         u[2] = Default_U_leak
     elif angle == 0:
         u[1] = u[2] = Default_U_leak
     else:
-        u[2] = Default_U_leak + ((v-Default_U_leak)/12) * angle # AVM
+        u[2] = Default_U_leak + ((v-Default_U_leak)/12) * np.absolute(angle) # AVM
         u[1] = Default_U_leak
 
     # Setting the Cart Position to Sensory Neurons ALM (pos. movement) and PVD (neg. movement)
     if cart_pos > 0:
-        u[3] = Default_U_leak + ((v-Default_U_leak)/2.4) * cart_pos # ALM
+        u[3] = Default_U_leak + ((v-Default_U_leak)/0.4) * np.absolute(cart_pos) # ALM
         u[0] = Default_U_leak
     elif cart_pos == 0:
         u[0] = u[3] = Default_U_leak
     else:
-        u[0] = Default_U_leak + ((v-Default_U_leak)/2.4) * cart_pos # PVD
+        u[0] = Default_U_leak + ((v-Default_U_leak)/0.4) * np.absolute(cart_pos) # PVD
         u[3] = Default_U_leak
+
     '''
     # Setting the Anglespeed of the Pole to Sensory Neurons ALM (Phi.+) and PVD (Phi.-)
     if angle_velocity >= 0:

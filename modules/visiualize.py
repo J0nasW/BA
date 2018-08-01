@@ -105,20 +105,20 @@ def plot():
 
     plt.subplot(121)
     plt.title('Sensory Neurons', fontsize=10)
-    plt.plot(PVD, '-b', label='PVD', linewidth=1)
-    plt.plot(PLM, '-y', label='PLM', linewidth=1)
-    plt.plot(AVM, '-g', label='AVM', linewidth=1)
-    plt.plot(ALM, '-r', label='ALM', linewidth=1)
+    plt.plot(PLM, '-y', label='PLM (Phi)', linewidth=1)
+    plt.plot(AVM, '-g', label='AVM (-Phi)', linewidth=1)
+    plt.plot(ALM, '-r', label='ALM (x)', linewidth=1)
+    plt.plot(PVD, '-b', label='PVD (-x)', linewidth=1)
     plt.xlabel('t (in s)')
     plt.ylabel('u(t) in [mV]')
     plt.legend(loc='upper left')
 
     plt.subplot(122)
     plt.title('Inter Neurons', fontsize=10)
-    plt.plot(AVA, '-b', label='AVA', linewidth=0.3)
-    plt.plot(AVD, '-y', label='AVD', linewidth=1)
-    plt.plot(PVC, '-g', label='PVC', linewidth=1)
-    plt.plot(AVB, '-k', label='AVB', linewidth=0.3)
+    plt.plot(AVA, '-b', label='AVA (REV)', linewidth=0.3)
+    plt.plot(AVD, '-y', label='AVD (REV)', linewidth=1)
+    plt.plot(PVC, '-g', label='PVC (FWD)', linewidth=1)
+    plt.plot(AVB, '-k', label='AVB (FWD)', linewidth=0.3)
     plt.xlabel('t (in s)')
     plt.ylabel('u(t) in [mV]')
     plt.legend(loc='upper left')
@@ -182,7 +182,7 @@ def import_weights(load_weights):
 
 def run_episode(env, fire):
 
-    global observation, reward, done, info, totalreward, action, actions, env_vis, uncertain, actions_arr, angles_arr
+    global observation, reward, done, info, totalreward, action, env_vis, uncertain, actions_arr, angles_arr
 
     env_vis.append(env.render(mode = 'rgb_array'))
 
@@ -190,29 +190,23 @@ def run_episode(env, fire):
 
     if fire[0] == 1: # AVA (REV) is firing
         action = 0
-        actions -= 1
         observation, reward, done, info = env.step(action)
         #print 'LEFT'
     elif fire[3] == 1: # AVB (FWD) is firing
         action = 1
-        actions += 1
         observation, reward, done, info = env.step(action)
         #print 'RIGHT'
     else:
         uncertain +=1
-        if action == 0:
-            actions -= 1
-        elif action == 1:
-            actions += 1
         observation, reward, done, info = env.step(action)
 
     totalreward += reward
     angle = observe(observation)
 
     if done:
-        actions = 0
+        action = 0
 
-    actions_arr = np.append(actions_arr, actions)
+    actions_arr = np.append(actions_arr, action)
     angles_arr = np.append(angles_arr, angle)
 
     return totalreward, done, uncertain
@@ -233,7 +227,7 @@ def animate(i):
 #-------------------------------------------------------------------------------------------
 
 def main(parameter_matrices):
-    global x, u, env, action, actions, uncertain
+    global x, u, env, action, uncertain
 
     observation = env.reset()
     action = 0
@@ -260,7 +254,7 @@ def main(parameter_matrices):
             env.reset()
             episodes = episodes + 1
 
-    print "Did",episodes,"Episodes and was",uncertain,"times uncertain!"
+    print "Did",episodes,"Episodes and was",uncertain,"out of",len(actions_arr),"times uncertain!"
     env_render(env_vis)
 
     plot() # Plotting everyting using matplotlib
@@ -268,7 +262,7 @@ def main(parameter_matrices):
 #-------------------------------------------------------------------------------------------
 
 def main_with_weights(load_parameters, load_weights, runtime):
-    global x, u, env, action, actions, uncertain
+    global x, u, env, action, uncertain
 
     observation = env.reset()
     action = 0
@@ -296,7 +290,7 @@ def main_with_weights(load_parameters, load_weights, runtime):
             env.reset()
             episodes = episodes + 1
 
-    print "Did",episodes,"Episodes and was",uncertain,"times uncertain!"
+    print "Did",episodes,"Episodes and was",uncertain,"out of",len(actions_arr),"times uncertain!"
     env_render(env_vis)
 
     plot() # Plotting everyting using matplotlib

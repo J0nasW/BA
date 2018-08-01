@@ -20,7 +20,7 @@ from modules import inspect
 
 def main():
 
-    runtime = 5 # in sec.
+    runtime = 8 # in sec.
 
     # RANDOM SEARCH
     #date, best_reward_s = rs.main(10000) # Calling the RANDOM SEARCH Module to calculate new matrices with x Episodes
@@ -34,7 +34,7 @@ def main():
     #vs.main(parameter_matrices) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
     # WEIGHT APPLICATION (RandomSearch)
-    #date, best_reward_s = w.main(100000, parameter_matrices)
+    #date, best_reward_s = w.main(10000, parameter_matrices)
     #weight_matrices = "weight_dumps/" + date + "_" + best_reward_s + ".p"
     weight_matrices = "weight_dumps/20180731_17-32-58_168.p" # GUTER SATZ
     vs.main_with_weights(parameter_matrices, weight_matrices, runtime) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
