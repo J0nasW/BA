@@ -5,6 +5,7 @@ at the [Chair of Automatic Control](https://www.control.tf.uni-kiel.de/en) ([Fac
 
 This Git-Repository holds all the Code written for my Bachelor Thesis at the Chair of Automatic Control at TF Uni Kiel.
 The Programming Language is Python.
+NOW IN PYTHON 3!
 
 ---
 
@@ -27,6 +28,11 @@ Some Libraries that I used:
 * [OpenAI Gym and Roboschool](https://gym.openai.com/)
 
 ---
+#### Update Mi., 01.08.2018
+* Merged NeuralCircuit_v2 into master-Branch and did some Debugging
+* Finally switched to Python3 in order to use tensorflow for my next projects
+* More Error-Debugging and logically thinking about the odd behaviour. Maybe I figure it out in the next days.
+
 #### Update Di. 31.07.2018
 * Created a new Feature-Branch "NeuralCircuit_v2" - rather a Version 2 of my original neural Circuit with many improvements - still trying to figure out this odd "LEFT, RIGHT, LEFT, ..." - Behaviour
 * Added Runtimes to calculate how long the trainings will take - need to get some kind of cloud support :)

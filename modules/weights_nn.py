@@ -12,13 +12,13 @@ INFO:       -
 import numpy as np # Maths and stuff
 import matplotlib.pyplot as plt
 import gym.spaces # Simulating the Environments
-import cPickle as pickle # Store Data into [.p] Files
+import pickle
 import time # For Runtime Evaluations
 import datetime # For Datestamp on stored files
 
-from lif import Iw_syn_calc, Iw_gap_calc, U_neuron_calc
-from parameters import *
-from random_search_v2 import observe
+from .lif import Iw_syn_calc, Iw_gap_calc, U_neuron_calc
+from .parameters import *
+from .random_search_v2 import observe
 
 # Initialization----------------------------------------------------------------------------
 
@@ -36,7 +36,7 @@ def initialize(Default_U_leak, load_matrices):
     done = 0
     info = 0
 
-    parameters = pickle.load( open(load_matrices, "r"))
+    parameters = pickle.load( open(load_matrices, "rb"))
 
     w_A_rnd = parameters[0]
     w_B_rnd = parameters[1]
@@ -171,7 +171,7 @@ def main(simulations, load_parameters):
     best_reward = 0
     env = gym.make('CartPole-v0')
 
-    for _ in xrange(simulations):
+    for _ in range(simulations):
 
         w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = initialize(Default_U_leak, load_parameters) # Initializing all Sensory- and Interneurons with the desired leakage voltage [-70mV]
         episodes += 1 # Episode Counter
@@ -191,9 +191,9 @@ def main(simulations, load_parameters):
     best_reward_s = str(int(best_reward))
     pickle.dump(Weights, open(("weight_dumps/" + date + "_" + best_reward_s + ".p"), "wb"))
 
-    print 'The best Reward was:',best_reward
+    print ('The best Reward was:',best_reward)
     if best_reward == 200:
-        print 'I SOLVED IT!'
+        print ('I SOLVED IT!')
 
     print("--- %s seconds ---" % (time.time() - start_time))
 

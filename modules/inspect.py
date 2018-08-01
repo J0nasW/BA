@@ -10,7 +10,7 @@ INFO:       -
 
 # Some dependencies
 import numpy as np # Maths and stuff
-import cPickle as pickle # Store Data into [.p] Files
+import pickle
 
 
 def main(load_matrices):
@@ -26,15 +26,15 @@ def main(load_matrices):
     G_leak_mat = result[7]
     U_leak_mat = result[8]
 
-    print "w_A =", w_in_mat
-    print "w_A_gap =", w_gap_in_mat
-    print "w_B =", w_sin_mat
-    print "w_B_gap = ", w_gap_sin_mat
-    print "sigma_A =", sig_in_mat
-    print "sigma_B =", sig_sin_mat
-    print "C_m = ", C_m_mat
-    print "G_leak = ", G_leak_mat
-    print "U_leak = ", U_leak_mat
+    print ("w_A =", w_in_mat)
+    print ("w_A_gap =", w_gap_in_mat)
+    print ("w_B =", w_sin_mat)
+    print ("w_B_gap = ", w_gap_sin_mat)
+    print ("sigma_A =", sig_in_mat)
+    print ("sigma_B =", sig_sin_mat)
+    print ("C_m = ", C_m_mat)
+    print ("G_leak = ", G_leak_mat)
+    print ("U_leak = ", U_leak_mat)
 
 def weights(load_matrices):
     result = pickle.load( open(load_matrices, "r"))
@@ -43,6 +43,6 @@ def weights(load_matrices):
     B_rnd = result[1]
     B_gap_rnd = result[2]
 
-    print "Weights of A =", A_rnd
-    print "Weights of B =", B_rnd
-    print "Weights of B (Gap-Junctions) =", B_gap_rnd
+    print ("Weights of A =", A_rnd)
+    print ("Weights of B =", B_rnd)
+    print ("Weights of B (Gap-Junctions) =", B_gap_rnd)

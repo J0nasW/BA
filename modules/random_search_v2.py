@@ -12,12 +12,12 @@ INFO:       V2 with improved loading times and simulation performance
 # Some dependencies
 import numpy as np # Maths and stuff
 import gym.spaces # Simulating the Environments
-import cPickle as pickle # Store Data into [.p] Files
+import pickle
 import time # For Runtime Evaluations
 import datetime # For Datestamp on stored files
 
-from lif import I_syn_calc, I_gap_calc, U_neuron_calc
-from parameters import *
+from .lif import I_syn_calc, I_gap_calc, U_neuron_calc
+from .parameters import *
 
 # Initialization----------------------------------------------------------------------------
 
@@ -142,13 +142,8 @@ def run_episode(env, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rn
             observation, reward, done, info = env.step(action)
         else:
             observation, reward, done, info = env.step(action) # Have to use the action from the past time step - OpenAI Gym does not provide a "Do nothing"-Action
-<<<<<<< HEAD
-            totalreward += reward
-
-=======
 
         totalreward += reward
->>>>>>> NeuralCircuit_v2
         observe(observation)
         if done:
             break
@@ -209,17 +204,14 @@ def observe(observation):
 def main(simulations):
     global x, u, env, action
 
-<<<<<<< HEAD
-=======
     start_time = time.time()
 
->>>>>>> NeuralCircuit_v2
     action = 0
     episodes = 0
     best_reward = 0
     env = gym.make('CartPole-v0')
 
-    for _ in xrange(simulations):
+    for _ in range(simulations):
 
         initialize(Default_U_leak) # Initializing all Sensory- and Interneurons with the desired leakage voltage [-70mV]
         episodes += 1 # Episode Counter
@@ -239,9 +231,9 @@ def main(simulations):
     best_reward_s = str(int(best_reward))
     pickle.dump(Result, open(("parameter_dumps/" + date + "_rs2_v2_" + best_reward_s + ".p"), "wb"))
 
-    print 'The best Reward was:',best_reward
+    print ('The best Reward was:',best_reward)
     if best_reward == 200:
-        print 'I SOLVED IT!'
+        print ('I SOLVED IT!')
 
     print("--- %s seconds ---" % (time.time() - start_time))
 

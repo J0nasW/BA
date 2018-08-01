@@ -11,14 +11,14 @@ INFO:       This Module can load a specific File Dump (cPickle) and visiualize t
 # Some dependencies
 import numpy as np
 import matplotlib.pyplot as plt
+import pickle
 import gym
-import cPickle as pickle
 
-from lif import I_syn_calc, I_gap_calc, U_neuron_calc
-from parameters import *
-from random_search_v2 import compute as compute_v2
-from random_search_v2 import observe
-from weights_nn import compute as compute_with_weights
+from .lif import I_syn_calc, I_gap_calc, U_neuron_calc
+from .parameters import *
+from .random_search_v2 import compute as compute_v2
+from .random_search_v2 import observe
+from .weights_nn import compute as compute_with_weights
 
 # Initializing OpenAI Environments------------------------------------------------------
 env = gym.make('CartPole-v0')
@@ -115,17 +115,10 @@ def plot():
 
     plt.subplot(122)
     plt.title('Inter Neurons', fontsize=10)
-<<<<<<< HEAD
-    plt.plot(AVA, '-b', label='AVA', linewidth=0.3)
-    plt.plot(AVD, '-g', label='AVD', linewidth=1)
-    plt.plot(PVC, '-y', label='PVC', linewidth=1)
-    plt.plot(AVB, '-k', label='AVB', linewidth=0.3)
-=======
     plt.plot(AVA, '-b', label='AVA (REV)', linewidth=0.3)
     plt.plot(AVD, '-y', label='AVD (REV)', linewidth=1)
     plt.plot(PVC, '-g', label='PVC (FWD)', linewidth=1)
     plt.plot(AVB, '-k', label='AVB (FWD)', linewidth=0.3)
->>>>>>> NeuralCircuit_v2
     plt.xlabel('t (in s)')
     plt.ylabel('u(t) in [mV]')
     plt.legend(loc='upper left')
@@ -162,13 +155,9 @@ def plot():
 
 #-------------------------------------------------------------------------------------------
 
-<<<<<<< HEAD
-def import_matrices(load_parameters):
-    result_parameters = pickle.load( open(load_parameters, "r"))
-=======
 def import_parameters(parameter_matrices):
-    result_parameters = pickle.load( open(parameter_matrices, "r"))
->>>>>>> NeuralCircuit_v2
+    result_parameters = np.array([])
+    result_parameters = pickle.load( open(parameter_matrices, "rb"))
 
     w_A_rnd = result_parameters[0]
     w_B_rnd = result_parameters[1]
@@ -183,7 +172,7 @@ def import_parameters(parameter_matrices):
 
 def import_weights(load_weights):
 
-    result_weights = pickle.load( open(load_weights, "r"))
+    result_weights = pickle.load( open(load_weights, "rb"))
 
     A_rnd = result_weights[0]
     B_rnd = result_weights[1]
@@ -266,7 +255,7 @@ def main(parameter_matrices):
             env.reset()
             episodes = episodes + 1
 
-    print "Did",episodes,"Episodes and was",uncertain,"out of",len(actions_arr),"times uncertain!"
+    print ("Did",episodes,"Episodes and was",uncertain,"out of",len(actions_arr),"times uncertain!")
     env_render(env_vis)
 
     plot() # Plotting everyting using matplotlib
@@ -302,7 +291,7 @@ def main_with_weights(load_parameters, load_weights, runtime):
             env.reset()
             episodes = episodes + 1
 
-    print "Did",episodes,"Episodes and was",uncertain,"out of",len(actions_arr),"times uncertain!"
+    print ("Did",episodes,"Episodes and was",uncertain,"out of",len(actions_arr),"times uncertain!")
     env_render(env_vis)
 
     plot() # Plotting everyting using matplotlib

@@ -12,11 +12,11 @@ INFO:       -
 # Some dependencies
 import numpy as np # Maths and stuff
 import gym.spaces # Simulating the Environments
-import cPickle as pickle # Store Data into [.p] Files
+import pickle
 import datetime # For Datestamp on stored files
 
-from lif import I_syn_calc, I_gap_calc, U_neuron_calc
-from parameters import *
+from .lif import I_syn_calc, I_gap_calc, U_neuron_calc
+from .parameters import *
 
 # Initialization----------------------------------------------------------------------------
 
@@ -217,7 +217,7 @@ def main(simulations):
     best_reward = 0
     env = gym.make('CartPole-v0')
 
-    for _ in xrange(simulations):
+    for _ in range(simulations):
 
         initialize(Default_U_leak) # Initializing all Sensory- and Interneurons with the desired leakage voltage [-70mV]
         episodes += 1 # Episode Counter
@@ -233,9 +233,9 @@ def main(simulations):
                 break
         #print 'Episode',episodes,'mit Reward',reward,'.'
 
-    print 'The best Reward was:',best_reward
+    print ("The best Reward was:",best_reward)
     if best_reward == 200:
-        print 'I SOLVED IT!'
+        print ('I SOLVED IT!')
 
     date = datetime.datetime.now().strftime("%Y%m%d_%H-%M-%S")
     best_reward_s = str(int(best_reward))
