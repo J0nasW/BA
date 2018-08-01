@@ -10,11 +10,11 @@ INFO:       -
 
 # Some dependencies
 import numpy as np # Maths and stuff
-import pickle
+import hickle as hkl
 
 
 def main(load_matrices):
-    result = pickle.load( open(load_matrices, "r"))
+    result = hkl.load(load_matrices)
 
     w_in_mat = result[0]
     w_sin_mat = result[1]
@@ -37,7 +37,7 @@ def main(load_matrices):
     print ("U_leak = ", U_leak_mat)
 
 def weights(load_matrices):
-    result = pickle.load( open(load_matrices, "r"))
+    result = hkl.load(load_matrices)
 
     A_rnd = result[0]
     B_rnd = result[1]

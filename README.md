@@ -32,6 +32,8 @@ Some Libraries that I used:
 * Merged NeuralCircuit_v2 into master-Branch and did some Debugging
 * Finally switched to Python3 in order to use tensorflow for my next projects
 * More Error-Debugging and logically thinking about the odd behaviour. Maybe I figure it out in the next days.
+* New FileSaver "Hickle" for improved Performance and cross-version Compatibility.
+* Got the Google Cloud Plattform Up and Running for training my Network - faster, efficient and free.
 
 #### Update Di. 31.07.2018
 * Created a new Feature-Branch "NeuralCircuit_v2" - rather a Version 2 of my original neural Circuit with many improvements - still trying to figure out this odd "LEFT, RIGHT, LEFT, ..." - Behaviour

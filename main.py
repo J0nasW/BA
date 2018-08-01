@@ -29,14 +29,14 @@ def main():
 
     # RANDOM SEARCH V2
     date, best_reward_s = rs2.main(100000)
-    parameter_matrices = "parameter_dumps/" + date + "_rs2_v2_" + best_reward_s + ".p"
-    #parameter_matrices = "parameter_dumps/20180731_16-29-19_rs2_v2_78.p" # GUTER SATZ
+    parameter_matrices = "parameter_dumps/" + date + "_rs2_v2_" + best_reward_s + ".hkl"
+    #parameter_matrices = "parameter_dumps/20180801_14-29-26_rs2_v2_40.p" # GUTER SATZ
     #vs.main(parameter_matrices) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
     # WEIGHT APPLICATION (RandomSearch)
     date, best_reward_s = w.main(100000, parameter_matrices)
-    weight_matrices = "weight_dumps/" + date + "_" + best_reward_s + ".p"
-    #weight_matrices = "weight_dumps/20180731_17-32-58_168.p" # GUTER SATZ
+    weight_matrices = "weight_dumps/" + date + "_" + best_reward_s + ".hkl"
+    #weight_matrices = "weight_dumps/20180801_14-34-34_127.p" # GUTER SATZ
     #vs.main_with_weights(parameter_matrices, weight_matrices, runtime) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
     # GENETIC ALGORITHMS

@@ -13,6 +13,7 @@ INFO:       V2 with improved loading times and simulation performance
 import numpy as np # Maths and stuff
 import gym.spaces # Simulating the Environments
 import pickle
+import hickle as hkl
 import time # For Runtime Evaluations
 import datetime # For Datestamp on stored files
 
@@ -229,7 +230,7 @@ def main(simulations):
 
     date = datetime.datetime.now().strftime("%Y%m%d_%H-%M-%S")
     best_reward_s = str(int(best_reward))
-    pickle.dump(Result, open(("parameter_dumps/" + date + "_rs2_v2_" + best_reward_s + ".p"), "wb"))
+    hkl.dump(Result, ("parameter_dumps/" + date + "_rs2_v2_" + best_reward_s + ".hkl"), mode='w')
 
     print ('The best Reward was:',best_reward)
     if best_reward == 200:

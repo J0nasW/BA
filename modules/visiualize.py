@@ -12,6 +12,7 @@ INFO:       This Module can load a specific File Dump (cPickle) and visiualize t
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
+import hickle as hkl
 import gym
 
 from .lif import I_syn_calc, I_gap_calc, U_neuron_calc
@@ -156,8 +157,7 @@ def plot():
 #-------------------------------------------------------------------------------------------
 
 def import_parameters(parameter_matrices):
-    result_parameters = np.array([])
-    result_parameters = pickle.load( open(parameter_matrices, "rb"))
+    result_parameters = hkl.load(parameter_matrices)
 
     w_A_rnd = result_parameters[0]
     w_B_rnd = result_parameters[1]
@@ -171,8 +171,8 @@ def import_parameters(parameter_matrices):
     return w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd
 
 def import_weights(load_weights):
+    result_weights = hkl.load(load_weights)
 
-    result_weights = pickle.load( open(load_weights, "rb"))
 
     A_rnd = result_weights[0]
     B_rnd = result_weights[1]

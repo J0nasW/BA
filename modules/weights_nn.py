@@ -10,9 +10,9 @@ INFO:       -
 
 # Some dependencies
 import numpy as np # Maths and stuff
-import matplotlib.pyplot as plt
 import gym.spaces # Simulating the Environments
 import pickle
+import hickle as hkl
 import time # For Runtime Evaluations
 import datetime # For Datestamp on stored files
 
@@ -36,7 +36,7 @@ def initialize(Default_U_leak, load_matrices):
     done = 0
     info = 0
 
-    parameters = pickle.load( open(load_matrices, "rb"))
+    parameters = hkl.load(load_matrices)
 
     w_A_rnd = parameters[0]
     w_B_rnd = parameters[1]
@@ -189,7 +189,7 @@ def main(simulations, load_parameters):
 
     date = datetime.datetime.now().strftime("%Y%m%d_%H-%M-%S")
     best_reward_s = str(int(best_reward))
-    pickle.dump(Weights, open(("weight_dumps/" + date + "_" + best_reward_s + ".p"), "wb"))
+    hkl.dump(Weights, ("weight_dumps/" + date + "_" + best_reward_s + ".hkl"), mode='w')
 
     print ('The best Reward was:',best_reward)
     if best_reward == 200:
