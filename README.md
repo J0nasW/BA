@@ -27,6 +27,8 @@ Some Libraries that I used:
 * [numpy](http://www.numpy.org/)
 * [OpenAI Gym and Roboschool](https://gym.openai.com/)
 
+Computing is getting more and more complex and takes a huge amount of resources. I'll be using the Google Cloud Plattform from now on to train parameters and weights of my neural Network.
+
 ---
 #### Update Mi., 01.08.2018
 * Merged NeuralCircuit_v2 into master-Branch and did some Debugging
@@ -34,6 +36,7 @@ Some Libraries that I used:
 * More Error-Debugging and logically thinking about the odd behaviour. Maybe I figure it out in the next days.
 * New FileSaver "Hickle" for improved Performance and cross-version Compatibility.
 * Got the Google Cloud Plattform Up and Running for training my Network - faster, efficient and free.
+* Opened my first GitHub Project Kanban Board to keep track of my tasks
 
 #### Update Di. 31.07.2018
 * Created a new Feature-Branch "NeuralCircuit_v2" - rather a Version 2 of my original neural Circuit with many improvements - still trying to figure out this odd "LEFT, RIGHT, LEFT, ..." - Behaviour
