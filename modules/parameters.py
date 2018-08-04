@@ -19,8 +19,8 @@ import numpy as np
 # -  1 = Inhibitory  -  2 = Excitatory  -  3 = Gap-Junction  -
 
 # A = Connections between Interneurons through Synapses
-A = np.matrix('0 0 0 1; 2 0 2 0; 0 2 0 2; 1 0 0 0') # AVA, AVD, PVC, AVB
-nbr_of_inter_synapses = 6
+A = np.matrix('0 0 1 1; 2 0 2 0; 0 2 0 2; 1 1 0 0') # AVA, AVD, PVC, AVB
+nbr_of_inter_synapses = 8
 A_all = nbr_of_inter_synapses
 
 # B = Connections between Sensory- and Interneurons through Synapses

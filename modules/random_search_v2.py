@@ -10,6 +10,8 @@ INFO:       V2 with improved loading times and simulation performance
 """
 
 # Some dependencies
+import os
+
 import numpy as np # Maths and stuff
 import gym.spaces # Simulating the Environments
 import hickle as hkl
@@ -201,7 +203,7 @@ def observe(observation):
 # Main Function-----------------------------------------------------------------------------
 #-------------------------------------------------------------------------------------------
 
-def main(simulations):
+def main(sim_time):
     global x, u, env, action
 
     start_time = time.time()
@@ -211,8 +213,7 @@ def main(simulations):
     best_reward = 0
     env = gym.make('CartPole-v0')
 
-    for _ in range(simulations):
-
+    while True:
         initialize(Default_U_leak) # Initializing all Sensory- and Interneurons with the desired leakage voltage [-70mV]
         episodes += 1 # Episode Counter
         w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = random_parameters() # Make some new random parameter Matrices
@@ -226,17 +227,24 @@ def main(simulations):
             if reward == 200:
                 break
         #print 'Episode',episodes,'mit Reward',reward,'.'
+        if (time.time() - start_time) >= sim_time:
+            break
 
     date = datetime.datetime.now().strftime("%Y%m%d_%H-%M-%S")
     best_reward_s = str(int(best_reward))
+    episodes = str(int(episodes))
     hkl.dump(Result, ("parameter_dumps/" + date + "_rs2_v2_" + best_reward_s + ".hkl"), mode='w')
 
     print ('The best Reward was:',best_reward)
     if best_reward == 200:
         print ('I SOLVED IT!')
 
-    print("--- %s seconds ---" % (time.time() - start_time))
+    # Information Text File
+    file = open(("information/" + date + "_parameter_run_" + best_reward_s + ".txt"), "w")
+    file.write(("Parameter run from " + date + " with Reward " + best_reward_s + " and " + episodes + " Episodes. NeuronalCircuit_v3"))
+    file.close()
 
+    print("--- %s seconds ---" % (time.time() - start_time))
     return date, best_reward_s
 
 #-------------------------------------------------------------------------------------------
