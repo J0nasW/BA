@@ -13,6 +13,7 @@ INFO:       All Parameters can be changed only here and spread over the whole Pr
 
 from hyperopt import fmin, tpe, hp
 
+
 best = fmin(fn=lambda x: x ** 2,
     space=hp.uniform('x', -10, 10),
     algo=tpe.suggest,

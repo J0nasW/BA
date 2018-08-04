@@ -1,12 +1,12 @@
 """
-RL MODULE WITH RANDOM SEARCH
+RL MODULE WITH GRADIENT BASED SEARCH
 
-CALL BY:    <random_search_v2.py>
+CALL BY:    <gradient_policy.py>
 
 RETURN:     Parameter Matrices for the inverted Pendulum Problem
-            Stores Data of best Parameters in '<date>_rs_reward_<reward>.p'
+            Stores Data of best Parameters in '...'
 
-INFO:       V2 with improved loading times and simulation performance
+INFO:       -
 """
 
 # Some dependencies
@@ -45,17 +45,17 @@ def random_parameters():
     # Initialize random parameters for our Neurons and Synapses according to the current Network
 
     # For Synapses
-    w_A_rnd = np.random.uniform(low = 0.5, high = 3, size = (1,nbr_of_inter_synapses))
-    w_B_rnd = np.random.uniform(low = 0.5, high = 3, size = (1,nbr_of_sensor_synapses))
-    w_B_gap_rnd = np.random.uniform(low = 0, high = 3, size = (1,nbr_of_gap_junctions))
+    w_A_rnd = np.random.uniform(low = 0, high = 3, size = (1,nbr_of_inter_synapses)) # 6 random Values
+    w_B_rnd = np.random.uniform(low = 0, high = 3, size = (1,nbr_of_sensor_synapses)) # 8 random Values
+    w_B_gap_rnd = np.random.uniform(low = 0, high = 3, size = (1,nbr_of_gap_junctions)) # 2 random Values
 
-    sig_A_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,nbr_of_inter_synapses))
-    sig_B_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,nbr_of_sensor_synapses))
+    sig_A_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,nbr_of_inter_synapses)) # 6 random Values
+    sig_B_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,nbr_of_sensor_synapses)) # 8 random Values
 
     # For Neurons
-    C_m_rnd = np.random.uniform(low = 0.01, high = 0.77, size = (1,nbr_of_inter_neurons))
-    G_leak_rnd = np.random.uniform(low = 0.1, high = 2.5, size = (1,nbr_of_inter_neurons))
-    U_leak_rnd = np.random.uniform(low = -70, high = -60, size = (1,nbr_of_inter_neurons))
+    C_m_rnd = np.random.uniform(low = 0.001, high = 0.77, size = (1,nbr_of_inter_neurons)) # 4 random Values
+    G_leak_rnd = np.random.uniform(low = 0.2, high = 2.3, size = (1,nbr_of_inter_neurons)) # 4 random Values
+    U_leak_rnd = np.random.uniform(low = -70, high = -50, size = (1,nbr_of_inter_neurons)) # 4 random Values
 
     return w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd
 
@@ -209,14 +209,43 @@ def main(simulations):
     action = 0
     episodes = 0
     best_reward = 0
+    gradient = []
     env = gym.make('CartPole-v0')
 
-    for _ in range(simulations):
+    # FIRST Episode ------------------------------------------------------------------------
+    initialize(Default_U_leak)
+    episode = 1
+    w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = random_parameters()
+    compare_parameters = [w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd]
+    reward = run_episode(env, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd)
+    compare_reward = reward
+    if reward > best_reward:
+        # Set current reward as new reward
+        best_reward = reward
+        # Save Results of the Run with the best reward
+        Result = [w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd]
+        # Solved the Simulation
+        if reward == 200:
+            break
 
-        initialize(Default_U_leak) # Initializing all Sensory- and Interneurons with the desired leakage voltage [-70mV]
+    # All other Episodes
+    for _ in range(simulations-1):
+        initialize(Default_U_leak)
         episodes += 1 # Episode Counter
         w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = random_parameters() # Make some new random parameter Matrices
+        parameters = [w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd]
         reward = run_episode(env, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd)
+
+        #NEW
+        for i in range(7):
+            gradient[i] = np.greater(parameters[i], compare_parameters[i])
+
+
+
+        compare_parameters = [w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd]
+        compare_reward = reward
+
+
         if reward > best_reward:
             # Set current reward as new reward
             best_reward = reward
