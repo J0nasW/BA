@@ -22,10 +22,16 @@ def main():
 
     runtime = 5 # in sec. - FOR VISIUALIZATION
 
-    sim_time_parameters = 4 # in h - FOR SIMULATION of Parameters
-    sim_time_weights = 2 # in h - FOR SIMULATION of additional Weights
-    sim_time_parameters = sim_time_parameters * 60 * 60
-    sim_time_weights = sim_time_weights * 60 * 60
+    sim_time_parameters = 10 # FOR SIMULATION of Parameters
+    sim_time_weights = 10 # FOR SIMULATION of additional Weights
+    # Simulation time in HOURS ----------------------------
+    #sim_time_parameters = sim_time_parameters * 60 * 60
+    #sim_time_weights = sim_time_weights * 60 * 60
+    #------------------------------------------------------
+    # Simulation time in MINUTES ----------------------------
+    sim_time_parameters = sim_time_parameters * 60
+    sim_time_weights = sim_time_weights * 60
+    #------------------------------------------------------
 
     # RANDOM SEARCH
     #date, best_reward_s = rs.main(10000) # Calling the RANDOM SEARCH Module to calculate new matrices with x Episodes

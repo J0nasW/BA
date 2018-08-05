@@ -1,0 +1,1 @@
+Parameter run from 20180805_19-59-32 with Reward 42 and 112263 Episodes. NeuronalCircuit_v3

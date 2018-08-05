@@ -23,7 +23,7 @@ def I_syn_calc(u_pre, u_post, E, w, sig, mu):
 
 def I_gap_calc(u_pre, u_post, w_gap):
 
-    I_g = w_gap * (u_post - u_pre)
+    I_g = w_gap * (u_pre - u_post)
 
     return I_g
 
@@ -36,7 +36,7 @@ def Iw_syn_calc(u_pre, u_post, E, w, sig, mu, weight):
 
 def Iw_gap_calc(u_pre, u_post, w_gap, weight):
 
-    I_g = (w_gap * (u_post - u_pre)) * weight
+    I_g = (w_gap * (u_pre - u_post)) * weight
 
     return I_g
 

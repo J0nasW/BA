@@ -1,0 +1,2 @@
+Corresponding Parameter Set: parameter_dumps/20180805_19-59-32_rs2_v2_42.hkl
+Weight run from 20180805_20-09-32 with Reward 81 and 38914 Episodes. NeuronalCircuit_v3
