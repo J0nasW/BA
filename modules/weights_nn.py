@@ -161,7 +161,7 @@ def run_episode(env, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rn
 # Main Function-----------------------------------------------------------------------------
 #-------------------------------------------------------------------------------------------
 
-def main(simulations, load_parameters):
+def main(sim_time, load_parameters, best_reward_p):
     global x, u, env, action
 
     start_time = time.time()
@@ -171,8 +171,7 @@ def main(simulations, load_parameters):
     best_reward = 0
     env = gym.make('CartPole-v0')
 
-    for _ in range(simulations):
-
+    while True:
         w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = initialize(Default_U_leak, load_parameters) # Initializing all Sensory- and Interneurons with the desired leakage voltage [-70mV]
         episodes += 1 # Episode Counter
         A_rnd, B_rnd = random_weights() # Make some new random Weights
@@ -186,16 +185,32 @@ def main(simulations, load_parameters):
             if reward == 200:
                 break
         #print 'Episode',episodes,'mit Reward',reward,'.'
+        if (time.time() - start_time) >= sim_time:
+            break
 
-    date = datetime.datetime.now().strftime("%Y%m%d_%H-%M-%S")
+    best_reward_p = int(best_reward_p)
     best_reward_s = str(int(best_reward))
-    hkl.dump(Weights, ("weight_dumps/" + date + "_" + best_reward_s + ".hkl"), mode='w')
+    date = datetime.datetime.now().strftime("%Y%m%d_%H-%M-%S")
 
-    print ('The best Reward was:',best_reward)
-    if best_reward == 200:
-        print ('I SOLVED IT!')
+    if best_reward_p >= best_reward:
+        # Information Text File
+        file = open(("information/" + date + "_weight_run_FAILED.txt"), "w")
+        file.write(("Corresponding Parameter Set: " + load_parameters + "\nWeight run from " + date + " with Reward " + best_reward_s + " did FAIL! NeuronalCircuit_v3"))
+        file.close()
+    else:
+        episodes = str(int(episodes))
+        hkl.dump(Weights, ("weight_dumps/" + date + "_" + best_reward_s + ".hkl"), mode='w')
 
-    print("--- %s seconds ---" % (time.time() - start_time))
+        print ('The best Reward was:',best_reward)
+        if best_reward == 200:
+            print ('I SOLVED IT!')
+
+        # Information Text File
+        file = open(("information/" + date + "_weight_run_" + best_reward_s + ".txt"), "w")
+        file.write(("Corresponding Parameter Set: " + load_parameters + "\nWeight run from " + date + " with Reward " + best_reward_s + " and " + episodes + " Episodes. NeuronalCircuit_v3"))
+        file.close()
+
+        print("--- %s seconds ---" % (time.time() - start_time))
 
     return date, best_reward_s
 

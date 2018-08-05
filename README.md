@@ -30,6 +30,10 @@ Some Libraries that I used:
 Computing is getting more and more complex and takes a huge amount of resources. I'll be using the Google Cloud Plattform from now on to train parameters and weights of my neural Network.
 
 ---
+#### Update Fr., 05.08.2018
+* Made my Code ready for Google Cloud Plattform to get some serious simulation done
+* Try merging to master-branch
+
 #### Update Mi., 01.08.2018
 * Merged NeuralCircuit_v2 into master-Branch and did some Debugging
 * Finally switched to Python3 in order to use tensorflow for my next projects

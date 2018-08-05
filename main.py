@@ -20,7 +20,12 @@ from modules import inspect_nn as inspect
 
 def main():
 
-    runtime = 5 # in sec.
+    runtime = 5 # in sec. - FOR VISIUALIZATION
+
+    sim_time_parameters = 4 # in h - FOR SIMULATION of Parameters
+    sim_time_weights = 2 # in h - FOR SIMULATION of additional Weights
+    sim_time_parameters = sim_time_parameters * 60 * 60
+    sim_time_weights = sim_time_weights * 60 * 60
 
     # RANDOM SEARCH
     #date, best_reward_s = rs.main(10000) # Calling the RANDOM SEARCH Module to calculate new matrices with x Episodes
@@ -28,15 +33,14 @@ def main():
     #vs.main(parameter_matrices) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
     # RANDOM SEARCH V2
-    #date, best_reward_s = rs2.main(2000)
-    #parameter_matrices = "parameter_dumps/" + date + "_rs2_v2_" + best_reward_s + ".hkl"
-    parameter_matrices = "parameter_dumps/20180801_15-04-54_rs2_v2_47.hkl" # GUTER SATZ
+    date, best_reward_p = rs2.main(sim_time_parameters)
+    parameter_matrices = "parameter_dumps/" + date + "_rs2_v2_" + best_reward_p + ".hkl"
     #vs.main(parameter_matrices) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
     # WEIGHT APPLICATION (RandomSearch)
-    #date, best_reward_s = w.main(2000, parameter_matrices)
-    #weight_matrices = "weight_dumps/" + date + "_" + best_reward_s + ".hkl"
-    weight_matrices = "weight_dumps/20180801_15-19-16_134.hkl" # GUTER SATZ
+    date, best_reward_w = w.main(sim_time_weights, parameter_matrices, best_reward_p)
+    if best_reward_p <= best_reward_w:
+        weight_matrices = "weight_dumps/" + date + "_" + best_reward_w + ".hkl"
     #vs.main_with_weights(parameter_matrices, weight_matrices, runtime) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
     # GENETIC ALGORITHMS
@@ -45,10 +49,10 @@ def main():
 
     # INSPECT FUNCTION------------------------------------------------------------------------------------
     # Parameters of RandomSearch Module:
-    inspect.main(parameter_matrices)
+    #inspect.main(parameter_matrices)
 
     # Parameters of Weight Module:
-    inspect.weights(weight_matrices)
+    #inspect.weights(weight_matrices)
 
 
 if __name__=="__main__":
