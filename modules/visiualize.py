@@ -13,6 +13,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pickle
 import hickle as hkl
+import time # For Runtime Evaluations
 import gym
 
 from .lif import I_syn_calc, I_gap_calc, U_neuron_calc
@@ -20,13 +21,6 @@ from .parameters import *
 from .random_search_v2 import compute as compute_v2
 from .random_search_v2 import observe
 from .weights_nn import compute as compute_with_weights
-
-# Initializing OpenAI Environments------------------------------------------------------
-env = gym.make('CartPole-v0')
-env.reset()
-env_vis = []
-#---------------------------------------------------------------------------------------
-
 
 # Initialization----------------------------------------------------------------------------
 
@@ -181,31 +175,40 @@ def import_weights(load_weights):
 
 # OpenAI Gym--------------------------------------------------------------------------------
 
-def run_episode(env, fire):
+def run_episode(env, fire, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd, A_rnd, B_rnd):
 
-    global observation, reward, done, info, totalreward, action, env_vis, uncertain, actions_arr, angles_arr
+    global observation, reward, done, info, totalreward, action, env_vis, uncertain, actions_arr, angles_arr, x, u
 
-    env_vis.append(env.render(mode = 'rgb_array'))
+    observation = env.reset()
+    totalreward = 0
+
+
 
     # - action = 0 LEFT  - action = 1 RIGHT
 
-    if fire[0] == 1: # AVA (REV) is firing
-        action = 0
-        observation, reward, done, info = env.step(action)
-        #print 'LEFT'
-    elif fire[3] == 1: # AVB (FWD) is firing
-        action = 1
-        observation, reward, done, info = env.step(action)
-        #print 'RIGHT'
-    else:
-        uncertain +=1
-        observation, reward, done, info = env.step(action)
+    for t in np.arange(t0,T,delta_t): # RUNNING THE EPISODE - Trynig to get 200 Steps in this Episode
 
-    totalreward += reward
-    angle = observe(observation)
+        # Compute the next Interneuron Voltages along with a possible "fire" Event - Now new with random parameter matrices
+        x, u, fire, I_syn, I_gap = compute_with_weights(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd, A_rnd, B_rnd)
+        I_all = np.add(I_syn, I_gap)
+        arr(x, u, fire, I_all) # Storing Information for graphical analysis
+        # Decide for an action and making a Step
+        if fire[0] == 1: # Sensory Neuron AVA is firing - resulting in a REVERSE Action (0 - LEFT)
+            action = 0
+            observation, reward, done, info = env.step(action)
+        elif fire[3] == 1: # Sensory Neuron AVB is firing - resulting in a FORWARD Action (1 - RIGHT)
+            action = 1
+            observation, reward, done, info = env.step(action)
+        else:
+            observation, reward, done, info = env.step(action) # Have to use the action from the past time step - OpenAI Gym does not provide a "Do nothing"-Action
 
-    if done:
-        action = 0
+        totalreward += reward
+        angle = observe(observation)
+
+        env_vis.append(env.render(mode = 'rgb_array'))
+
+        if done:
+            break
 
     actions_arr = np.append(actions_arr, action)
     angles_arr = np.append(angles_arr, angle)
@@ -215,7 +218,7 @@ def run_episode(env, fire):
 def env_render(env_vis):
     plt.figure()
     plot  =  plt.imshow(env_vis[0])
-    plt.axis('off')
+    plt.axis('on')
 
 def animate(i):
     plot.set_data(env_vis[i])
@@ -228,7 +231,9 @@ def animate(i):
 #-------------------------------------------------------------------------------------------
 
 def main(parameter_matrices):
-    global x, u, env, action, uncertain
+    global x, u, env, action, uncertain, env_vis
+
+    env = gym.make('CartPole-v0')
 
     observation = env.reset()
     action = 0
@@ -246,7 +251,6 @@ def main(parameter_matrices):
         I_all = np.add(I_syn, I_gap)
         arr(x, u, fire, I_all) # Storing Information for graphical analysis
 
-
         # OpenAI GYM PART----------------------------------
 
         totalreward, done, uncertain = run_episode(env, fire)
@@ -263,13 +267,17 @@ def main(parameter_matrices):
 #-------------------------------------------------------------------------------------------
 
 def main_with_weights(load_parameters, load_weights, runtime):
-    global x, u, env, action, uncertain
+    global x, u, env, action, uncertain, env_vis
+
+    env = gym.make('CartPole-v0')
 
     observation = env.reset()
     action = 0
     actions = 0
     episodes = 0
     uncertain = 0
+
+
 
     initialize(Default_U_leak) # Initializing all Interneurons with the desired leakage voltage
     #u = [-20, -40, -40, -20]
@@ -297,6 +305,42 @@ def main_with_weights(load_parameters, load_weights, runtime):
 
     plot() # Plotting everyting using matplotlib
 
+def good_runs(load_parameters, load_weights, max_episodes):
+    # This Function saves good CartPole Runs with Reward > 100 into .gif or .mp4-Files
+    global x, u, env, action, uncertain, env_vis
+
+    start_time = time.time()
+
+    action = 0
+    episodes = 0
+    uncertain = 0
+    env_vis = []
+    env = gym.make('CartPole-v0')
+
+    while True:
+        initialize(Default_U_leak) # Initializing all Interneurons with the desired leakage voltage
+
+        w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = import_parameters(load_parameters)
+        A_rnd, B_rnd = import_weights(load_weights)
+        totalreward, done, uncertain = run_episode(env, fire, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd, A_rnd, B_rnd)
+
+        print (totalreward)
+
+
+
+        # OpenAI GYM PART----------------------------------
+        if totalreward >= 50:
+            episodes += 1
+            plot() # Plotting everyting using matplotlib
+
+
+        if episodes >= max_episodes:
+            break
+
+    #env_render(env_vis)
+
+    #print ("Did",episodes,"Episodes and was",uncertain,"out of",len(actions_arr),"times uncertain!")
+    print("--- %s seconds ---" % (time.time() - start_time))
 
 if __name__=="__main__":
     main()
