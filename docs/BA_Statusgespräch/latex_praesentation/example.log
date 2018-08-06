@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.7.17)  18 JUL 2018 23:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.7.28)  6 AUG 2018 11:33
 entering extended mode
 **./example.tex
 (example.tex
@@ -644,7 +644,7 @@ Package: amsthm 2017/10/31 v2.20.4
 \beamer@dimb=\dimen189
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerouterthemedefault.sty")))
-(C:/Users/Jonas/Documents/MikTeX/localtexmf\tex\latex\beamerthemeACON.sty
+(C:/Users/Jonas/Documents/miktex/localtexmf\tex\latex\beamerthemeACON.sty
 Package: beamerthemeACON 2016/12/09 ACON beamer theme
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
@@ -769,9 +769,9 @@ File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
 librarytopaths.code.tex"
 File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 )))
-(C:/Users/Jonas/Documents/MikTeX/localtexmf\tex\latex\beamercolorthemeACON.sty
+(C:/Users/Jonas/Documents/miktex/localtexmf\tex\latex\beamercolorthemeACON.sty
 Package: beamercolorthemeACON 2016/12/09 ACON beamer theme
-) (C:/Users/Jonas/Documents/MikTeX/localtexmf\tex\latex\beamerfontthemeACON.sty
+) (C:/Users/Jonas/Documents/miktex/localtexmf\tex\latex\beamerfontthemeACON.sty
 Package: beamerfontthemeACON 2016/12/09 ACON beamer theme
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\cmbright\cmbright.sty"
@@ -859,11 +859,11 @@ LaTeX Font Info:    Try loading font information for T1+cmbr on input line 105.
 File: t1cmbr.fd 2005/04/13 v8.1 (WaS)
 )))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\beamerfontthemeserif.sty")
-(C:/Users/Jonas/Documents/MikTeX/localtexmf\tex\latex\beamerinnerthemeACONboxes
+(C:/Users/Jonas/Documents/miktex/localtexmf\tex\latex\beamerinnerthemeACONboxes
 .sty
 Package: beamerinnerthemeACONboxes 2016/12/09 ACON beamer theme
 )
-(C:/Users/Jonas/Documents/MikTeX/localtexmf\tex\latex\beamerinnerthemeACONbulle
+(C:/Users/Jonas/Documents/miktex/localtexmf\tex\latex\beamerinnerthemeACONbulle
 ts.sty
 Package: beamerinnerthemeACONbullets 2016/12/09 ACON beamer theme
 ) ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
@@ -1448,8 +1448,8 @@ Overfull \vbox (5.69046pt too high) detected at line 61
 [1
 
 {C:/Users/Jonas/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/Jo
-nas/Documents/MikTeX/localtexmf/tex/latex/figures/tf_siegel.png> <C:/Users/Jona
-s/Documents/MikTeX/localtexmf/tex/latex/figures/cau_hochhaus_opacity.png>]
+nas/Documents/miktex/localtexmf/tex/latex/figures/tf_siegel.png> <C:/Users/Jona
+s/Documents/miktex/localtexmf/tex/latex/figures/cau_hochhaus_opacity.png>]
 
 LaTeX Font Warning: Font shape `T1/cmbr/bx/n' in size <8> not available
 (Font)              Font shape `T1/cmbr/sb/n' tried instead on input line 92.
@@ -2341,7 +2341,7 @@ Package logreq Info: Writing requests to 'example.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  28379 strings out of 492973
- 540875 string characters out of 3135932
+ 541175 string characters out of 3135932
  1087243 words of memory out of 3000000
  31584 multiletter control sequences out of 15000+200000
  21103 words of font info for 50 fonts, out of 3000000 for 9000

@@ -21,6 +21,7 @@ from modules import inspect_nn as inspect
 def main():
 
     runtime = 5 # in sec. - FOR VISIUALIZATION
+    max_episodes = 5 # FOR VISIUALIZATION
 
     sim_time_parameters = 10 # FOR SIMULATION of Parameters
     sim_time_weights = 10 # FOR SIMULATION of additional Weights
@@ -39,23 +40,22 @@ def main():
     #vs.main(parameter_matrices) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
     # RANDOM SEARCH V2
-    date, best_reward_p = rs2.main(sim_time_parameters)
-    parameter_matrices = "parameter_dumps/" + date + "_rs2_v2_" + best_reward_p + ".hkl"
+    #date, best_reward_p = rs2.main(sim_time_parameters)
+    #parameter_matrices = "parameter_dumps/" + date + "_rs2_v2_" + best_reward_p + ".hkl"
+    parameter_matrices = "parameter_dumps/20180806_03-25-01_rs2_v2_95.hkl"
     #vs.main(parameter_matrices) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
     # WEIGHT APPLICATION (RandomSearch)
-    date, best_reward_w = w.main(sim_time_weights, parameter_matrices, best_reward_p)
-    if best_reward_p <= best_reward_w:
-        weight_matrices = "weight_dumps/" + date + "_" + best_reward_w + ".hkl"
-    #vs.main_with_weights(parameter_matrices, weight_matrices, runtime) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
-
-    # GENETIC ALGORITHMS
-    #...
-    #-----------------------------------------------------------------------------------------------------
+    #date, best_reward_w = w.main(sim_time_weights, parameter_matrices, best_reward_p)
+    #if best_reward_p <= best_reward_w:
+    #    weight_matrices = "weight_dumps/" + date + "_" + best_reward_w + ".hkl"
+    weight_matrices = "weight_dumps/20180806_09-25-01_163.hkl"
+    vs.main_with_weights(parameter_matrices, weight_matrices, runtime) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
+    #vs.good_runs(parameter_matrices, weight_matrices, max_episodes)
 
     # INSPECT FUNCTION------------------------------------------------------------------------------------
     # Parameters of RandomSearch Module:
-    #inspect.main(parameter_matrices)
+    #inspect.parameters(parameter_matrices)
 
     # Parameters of Weight Module:
     #inspect.weights(weight_matrices)

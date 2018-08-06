@@ -1,28 +1,16 @@
 \frametitle{Bisherige Schritte}
-  \framesubtitle{Implementierung des \btEmph{Leaky Integrate and Fire - Modells}}
+  \framesubtitle{Implementierung des \btEmph{Neuronalen Netzes}}
 
   \begin{itemize}
-  	\item Programmiersprache \code{Python}
-  	\begin{itemize}
-  		\item Stuart Russell, Peter Norvig - Artificial Intelligence - A Modern Approach (2010, Prentice Hall)
-  		\item Raúl Rojas (auth.) - Theorie der neuronalen Netze - Eine systematische Einführung (1993, Springer-Verlag Berlin Heidelberg)
-  		\item Steven H. Strogatz - Nonlinear Dynamics and Chaos - With Applications to Physics, Biology, Chemistry, and Engineering  (1994, Westview Press)
-  		\item \textbf{Wulfram Gerstner, Werner M. Kistler, Richard Naud, Liam Paninski - Neuronal Dynamics - From Single Neurons to Networks and Models of Cognition (2014, Cambridge University Press)
-  		}
-  	\end{itemize}
-  	\item Zusätzliche Libraries
-  	\begin{itemize}
-  		\item Mathematische Berechnungen \& Matrizen durch die Python-Library \code{NumPy}
-  		\item Darstellung durch die Python-Library \code{Matplotlib}
-  	\end{itemize}
-  	\item Leaky Integrate and Fire - Modell
-  	\begin{itemize}
-  		\item Lösung der Differentialgleichung durch nummerische Verfahren:
-  		  \begin{itemize}
-  		  	\item Euler-Verfahren
-  		  	\item \textbf{Runge-Kutta 2. \& 4. Ordnung}
-  		  \end{itemize}
-  	\end{itemize}
+  	\item Implementierung durch Nutzung von Transitionsmatrizen $A, A_{Gap}, B, B_{Gap}$ um die Verbindungen zwischen Neuronen darzustellen
+  	\item Parameter $U_{Leak}, w, \sigma, C_m, G_{Leak}$ sind ebenfalls anhand der Transitionsmatrizen angeordnet
+  	\item Das \code{compute}-Modul berechnet durch die Modellgleichungen die Ströme der Synapsen bzw. Gap-Junctions und folglich die Membranpotentiale der Neuronen
+  	\item Somit kommt es zu den fire-Ereignissen und die Motor-Neuronen werden angeregt
   \end{itemize}
-	
+
+  \begin{center}
+  	\centering
+  	\includegraphics[width=4.8cm]{figures/nn_lechner.png}
+  	\scalebox{0.23}{\input{figures/plots/orig_nn_lechner.pgf}}
+  \end{center}
 

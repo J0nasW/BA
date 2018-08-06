@@ -279,6 +279,7 @@ def main_with_weights(load_parameters, load_weights, runtime):
 
     for t in np.arange(t0,runtime,delta_t):
         x, u, fire, I_syn, I_gap = compute_with_weights(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd, A_rnd, B_rnd) # Compute the next Interneuron Voltages along with a possible "fire" Event
+        #x, u, fire, I_syn, I_gap = compute_with_weights(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd, A_rnd, B_rnd) # Compute the next Interneuron Voltages along with a possible "fire" Event
         I_all = np.add(I_syn, I_gap)
         arr(x, u, fire, I_all) # Storing Information for graphical analysis
 
