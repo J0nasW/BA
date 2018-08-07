@@ -20,7 +20,7 @@ from modules import inspect_nn as inspect
 
 def main():
 
-    runtime = 5 # in sec. - FOR VISIUALIZATION
+    runtime = 10 # in sec. - FOR VISIUALIZATION
     max_episodes = 5 # FOR VISIUALIZATION
 
     sim_time_parameters = 10 # FOR SIMULATION of Parameters
@@ -29,7 +29,7 @@ def main():
     #sim_time_parameters = sim_time_parameters * 60 * 60
     #sim_time_weights = sim_time_weights * 60 * 60
     #------------------------------------------------------
-    # Simulation time in MINUTES ----------------------------
+    # Simulation time in 0INUTES ----------------------------
     sim_time_parameters = sim_time_parameters * 60
     sim_time_weights = sim_time_weights * 60
     #------------------------------------------------------
@@ -42,14 +42,16 @@ def main():
     # RANDOM SEARCH V2
     #date, best_reward_p = rs2.main(sim_time_parameters)
     #parameter_matrices = "parameter_dumps/" + date + "_rs2_v2_" + best_reward_p + ".hkl"
-    parameter_matrices = "parameter_dumps/20180806_03-25-01_rs2_v2_95.hkl"
+    #parameter_matrices = "parameter_dumps/20180806_03-25-01_rs2_v2_95.hkl"
+    parameter_matrices = "parameter_dumps/20180806_12-15-01_rs2_v2_48.hkl" #DOUBLE COMPUTE!
     #vs.main(parameter_matrices) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
     # WEIGHT APPLICATION (RandomSearch)
     #date, best_reward_w = w.main(sim_time_weights, parameter_matrices, best_reward_p)
     #if best_reward_p <= best_reward_w:
     #    weight_matrices = "weight_dumps/" + date + "_" + best_reward_w + ".hkl"
-    weight_matrices = "weight_dumps/20180806_09-25-01_163.hkl"
+    #weight_matrices = "weight_dumps/20180806_09-25-01_163.hkl"
+    weight_matrices = "weight_dumps/20180806_15-15-01_167.hkl" #DOUBLE COMPUTE!
     vs.main_with_weights(parameter_matrices, weight_matrices, runtime) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
     #vs.good_runs(parameter_matrices, weight_matrices, max_episodes)
 

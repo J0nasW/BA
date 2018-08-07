@@ -164,36 +164,35 @@ def observe(observation):
 
     # Setting the Angle of the Pole to Sensory Neurons PLM (Phi+) and AVM (Phi-)
     if angle > 0:
-        u[1] = Default_U_leak + ((v-Default_U_leak)/12) * np.absolute(angle) # PLM
+        u[1] = Default_U_leak + ((v-Default_U_leak)/15) * (np.sqrt(np.absolute(angle))*5) # PLM
         u[2] = Default_U_leak
     elif angle == 0:
         u[1] = u[2] = Default_U_leak
     else:
-        u[2] = Default_U_leak + ((v-Default_U_leak)/12) * np.absolute(angle) # AVM
+        u[2] = Default_U_leak + ((v-Default_U_leak)/15) * (np.sqrt(np.absolute(angle))*5) # AVM
         u[1] = Default_U_leak
-
+    '''
     # Setting the Cart Position to Sensory Neurons ALM (pos. movement) and PVD (neg. movement)
     if cart_pos > 0:
-        u[3] = Default_U_leak + ((v-Default_U_leak)/0.4) * np.absolute(cart_pos) # ALM
+        u[3] = Default_U_leak + ((v-Default_U_leak)/0.8) * (np.absolute(cart_pos)*7) # ALM
         u[0] = Default_U_leak
     elif cart_pos == 0:
         u[0] = u[3] = Default_U_leak
     else:
-        u[0] = Default_U_leak + ((v-Default_U_leak)/0.4) * np.absolute(cart_pos) # PVD
+        u[0] = Default_U_leak + ((v-Default_U_leak)/0.8) * (np.absolute(cart_pos)*7) # PVD
         u[3] = Default_U_leak
 
     '''
     # Setting the Anglespeed of the Pole to Sensory Neurons ALM (Phi.+) and PVD (Phi.-)
     if angle_velocity >= 0:
-        u[3] = Default_U_leak + ((v-Default_U_leak)/5) * angle_velocity # ALM
-        u[0] = Default_U_leak
+        u[0] = Default_U_leak + ((v-Default_U_leak)/1.05) * (np.absolute(angle_velocity)) # ALM
+        u[3] = Default_U_leak
     elif cart_pos == 0:
         u[0] = u[3] = Default_U_leak
     else:
-        u[0] = Default_U_leak + ((v-Default_U_leak)/5) * angle_velocity # PVD
-        u[3] = Default_U_leak
-    '''
-
+        u[3] = Default_U_leak + ((v-Default_U_leak)/1.05) * (np.absolute(angle_velocity)) # PVD
+        u[0] = Default_U_leak
+    
     return angle
 
 
