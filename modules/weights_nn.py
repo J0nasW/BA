@@ -100,7 +100,7 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
                 m += 1
             elif B[i, j] == 3:
                 # Gap Junction
-                I_g_sensor[i, j] = Iw_gap_calc(x[i], x[j], w_B_gap_rnd[0, n], B_rnd[0, l])
+                I_g_sensor[i, j] = Iw_gap_calc(u[i], x[j], w_B_gap_rnd[0, n], B_rnd[0, l])
                 l += 1
                 n += 1
             else:
@@ -134,7 +134,7 @@ def run_episode(env, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rn
     observation = env.reset()
     totalreward = 0
 
-    for t in np.arange(t0,T,delta_t): # RUNNING THE EPISODE - Trynig to get 200 Steps in this Episode
+    for t in np.arange(t0,T,delta_t): # RUNNING THE EPISODE
 
         # Compute the next Interneuron Voltages along with a possible "fire" Event - Now new with random parameter matrices
         x, u, fire, I_syn, I_gap = compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd, A_rnd, B_rnd)
@@ -181,9 +181,6 @@ def main(sim_time, load_parameters, best_reward_p):
             best_reward = reward
             # Save Results of the Run with the best reward
             Weights = [A_rnd, B_rnd]
-            # Solved the Simulation
-            if reward == 200:
-                break
         #print 'Episode',episodes,'mit Reward',reward,'.'
         if (time.time() - start_time) >= sim_time:
             break
@@ -194,19 +191,17 @@ def main(sim_time, load_parameters, best_reward_p):
 
     if best_reward_p >= best_reward:
         # Information Text File
-        file = open(("information/" + date + "_weight_run_FAILED.txt"), "w")
+        file = open((current_dir + "/information/" + date + "_weight_run_FAILED.txt"), "w")
         file.write(("Corresponding Parameter Set: " + load_parameters + "\nWeight run from " + date + " with Reward " + best_reward_s + " did FAIL! NeuronalCircuit_v3"))
         file.close()
     else:
         episodes = str(int(episodes))
-        hkl.dump(Weights, ("weight_dumps/" + date + "_" + best_reward_s + ".hkl"), mode='w')
+        hkl.dump(Weights, (current_dir + "/weight_dumps/" + date + "_" + best_reward_s + ".hkl"), mode='w')
 
         print ('The best Reward was:',best_reward)
-        if best_reward == 200:
-            print ('I SOLVED IT!')
 
         # Information Text File
-        file = open(("information/" + date + "_weight_run_" + best_reward_s + ".txt"), "w")
+        file = open((current_dir + "/information/" + date + "_weight_run_" + best_reward_s + ".txt"), "w")
         file.write(("Corresponding Parameter Set: " + load_parameters + "\nWeight run from " + date + " with Reward " + best_reward_s + " and " + episodes + " Episodes. NeuronalCircuit_v3"))
         file.close()
 

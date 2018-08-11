@@ -1,0 +1,19 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
+The style file: lrt_thesis.bst
+Database file #1: main.bib
+Too many commas in name 1 of "Wulfram Gerstner, Werner M. Kistler, Richard Naud, Liam Paninski" for entry NeuronalDynamics
+while executing---line 1571 of file lrt_thesis.bst
+Too many commas in name 1 of "Wulfram Gerstner, Werner M. Kistler, Richard Naud, Liam Paninski" for entry NeuronalDynamics
+while executing---line 1571 of file lrt_thesis.bst
+Warning--empty year in SimCE; set to ????
+`journal' is a missing field, not a string, for entry SimCE
+while executing---line 1650 of file lrt_thesis.bst
+Warning--empty journal in SimCE
+`journal' is a missing field, not a string, for entry WormLevelRL
+while executing---line 1650 of file lrt_thesis.bst
+Warning--empty journal in WormLevelRL
+Too many commas in name 1 of "Wulfram Gerstner, Werner M. Kistler, Richard Naud, Liam Paninski" for entry NeuronalDynamics
+while executing---line 1650 of file lrt_thesis.bst
+Too many commas in name 1 of "Wulfram Gerstner, Werner M. Kistler, Richard Naud, Liam Paninski" for entry NeuronalDynamics
+while executing---line 1650 of file lrt_thesis.bst
+(There were 6 error messages)

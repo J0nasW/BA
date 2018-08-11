@@ -5,12 +5,16 @@ IMPORT BY:  <parameters.py>
 
 RETURN:     Several Parameters
 
-INFO:       All Parameters can be changed only here and spread over the whole Project
+INFO:       All Parameters can be changed only here and spread over the whole Project.
+            Only the Dimensions and Connections of Matrices A and B
+            as well as some substantial Parameters can be changed.
+            Everything else will be calculated.
             Motor Neurons: FWD, REV
             Sensory Neurons: PVD, PLM, AVM, ALM
             Inter Neurons: AVA, AVD, PVC, AVB
 """
 
+import os
 import numpy as np
 
 # Neural Network----------------------------------------------------------------------------
@@ -18,19 +22,58 @@ import numpy as np
 
 # -  1 = Inhibitory  -  2 = Excitatory  -  3 = Gap-Junction  -
 
+# Interneuron Matrix A:
+#
+#   ->  AVA  AVD  PVC  AVB
+# AVA |  0    0    1    1  |
+# AVD |  2    0    2    0  |
+# PVC |  0    2    0    2  |
+# AVB |  1    1    0    0  |
+
 # A = Connections between Interneurons through Synapses
 A = np.matrix('0 0 1 1; 2 0 2 0; 0 2 0 2; 1 1 0 0') # AVA, AVD, PVC, AVB
-nbr_of_inter_synapses = 8
-A_all = nbr_of_inter_synapses
+
+# Sensorneuron Matrix B:
+#
+#   ->  AVA  AVD  PVC  AVB
+# PVD |  0    1    1    0  |
+# PLM |  1    1    3    0  |
+# AVM |  0    3    1    1  |
+# ALM |  0    1    1    0  |
 
 # B = Connections between Sensory- and Interneurons through Synapses
 B = np.matrix('0 1 1 0; 1 1 3 0; 0 3 1 1; 0 1 1 0') # PVD, PLM, AVM, ALM
-nbr_of_sensor_synapses = 8
-nbr_of_gap_junctions = 2
-B_all = nbr_of_sensor_synapses + nbr_of_gap_junctions
 
-nbr_of_sensor_neurons = 4
-nbr_of_inter_neurons = 4
+#-------------------------------------------------------------------------------------------
+
+# Substantial Parameters/Constants----------------------------------------------------------
+
+# Treshold
+v = -20 #mV
+
+# Variables
+mu = -40 #mV - Sigmoid mu
+E_ex = 0 #mV
+E_in = -70 #mV
+Default_U_leak = -70 #mV
+
+# Time Constants:
+t0 = t = 0
+T = 2
+delta_t = 0.01
+
+#-------------------------------------------------------------------------------------------
+
+# Sone Calculations based on A and B -------------------------------------------------------
+
+nbr_of_inter_synapses = np.count_nonzero(A)
+nbr_of_sensor_synapses = (B == 1).sum()
+nbr_of_gap_junctions = (B == 3).sum()
+A_all = np.count_nonzero(A)
+B_all = np.count_nonzero(B)
+
+nbr_of_sensor_neurons = np.shape(B)[1]
+nbr_of_inter_neurons = np.shape(A)[1]
 
 #-------------------------------------------------------------------------------------------
 
@@ -61,20 +104,8 @@ fire = [0,0,0,0] #AVA, AVD, PVC, AVB
 
 #-------------------------------------------------------------------------------------------
 
-# Substantial Parameters/Constants----------------------------------------------------------
+# Misc------------------------------------------------------------------------------
 
-# Treshold
-v = -20 #mV
+current_dir = os.getcwd()
 
-# Variables
-mu = -40 #mV - Sigmoid mu
-E_ex = 0 #mV
-E_in = -70 #mV
-Default_U_leak = -70 #mV
-
-# Time Constants:
-t0 = t = 0
-T = 2
-delta_t = 0.01
-
-#--------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------

@@ -1,0 +1,164 @@
+%
+% ****
+\chapter{Implementierung des TW-Netzes}
+\label{chap:imp}
+% ****
+%
+
+	Die Implementierung des gesamten neuronalen Netzes inklusive der Simulationsumgebung erfolgt in der Programmiersprache \texttt{Python}. Als Module werden zum einen das bereits vorgestellte Leaky Integrate and Fire - Modell implementiert, zum anderen diverse Algorithmen zur Suche von individuellen Parametern des neuronalen Netzes. Die Module sowie diverse Dokumentationen und Informationen sind auf meiner GitHub-Repository\footnote{https://github.com/J0nasW/BA} \cite{BA} zu finden.\\
+		
+
+% ***
+\section{Aufbau des Programms}
+\label{sec:imp_module}
+% ***
+	Das Paket TW Circuit beinhaltet folgende Module:\\
+	\begin{minipage}{0.35\textwidth}
+		\vspace{0.3cm}
+		\begin{forest}
+			pic dir tree,
+			where level=0{}{% folder icons by default; override using file for file icons
+				directory,
+			},
+			[TW Circuit
+				[docs]
+				[information]
+				[modules
+					[inspect.py, file]
+					[lif.py, file]
+					[parameters.py, file]
+					[random\_search\_v2.py, file]
+					[visiualize.py, file]
+					[weights.py, file]]
+				[parameter\_dumps]
+				[weight\_dumps]
+				[main.py, file]]
+		\end{forest}
+	\end{minipage}
+	\begin{minipage}{0.65\textwidth}
+		\begin{itemize}
+			\item Der Ordner \texttt{docs} beinhaltet wichtige Dokumentationen bezüglich des Codes und dem Umgang mit diversen Befehlen innerhalb der \texttt{main.py}. Darüber hinaus wird hier ebenfalls diese Arbeit inklusive des \LaTeX-Codes abgelegt.
+			\item Aufgrund vieler komplexer Simulationen mit verschiedenen Parametersätzen wurde die Berechnung von Heim- und Unirechnern auf Rechenzentren ausgelagert. Der Ordner \texttt{information} wird genutzt, um Informationen über jede Simulation (Ergebnisse, Zeitstempel, Zugehörigkeit, ...) im Form einer TXT-Datei zu speichern.
+			\item Alle nötigen Module zur Simulation und Visualisierung finden sich in dem Ordner \texttt{modules} wieder. Genauere Informationen zu den einzelnen Skripten werden in den nächsten Sektionen aufgeführt.
+			\item parameter\_dumps und weight\_dumps sind die Resultate der Simulationsläufe. In diesen Ordnern werden Parameter und Gewichte des neuronalen Netzes nach erfolgreichen Simulationsläufen abgespeichert. Die Dateien werden durch das Skript \texttt{hickle} in ein HDF-5 Dateiformat gespeichert.
+		\end{itemize}		
+	\end{minipage}
+	
+	
+		
+% ***
+\section{Implementierung der Suchalgorithmen}
+\label{sec:imp_search}
+% ***
+	\subsection{Suchalgorithmus RandomSearch}
+		Der Suchalgorithmus RandomSearch wurde direkt in die Simulation eingebunden. Es werden die Parameter $C_m, G_{Leak}, U_{Leak}, \sigma, w, \hat{w}$ durch eine Gleichverteilung in den bereits genannten Grenzen zufällig erzeugt. Um gleichverteilte, zufällige Werte zu erzeugen, wird das bekannte Paket \texttt{numpy} verwendet.
+		\begin{algorithm}
+			\SetKwInOut{Input}{Input}
+			\SetKwInOut{Output}{Output}
+			
+			\Input{Anz. Nervenzellen, Anz. Synapsen, Anz. Gap-Junctions}
+			\Output{Arrays $C_m, G_{Leak}, U_{Leak}, \sigma, w, \hat{w}$}
+				\tcp{Generieren von Zufallsvariablen durch Gleichverteilung.}
+				\tcp{Für Nervenzellen:}
+				$C_m$ = np.random.uniform(low = 0.01, high = 1, size = (1,Anz. Nervenzellen))\\
+				$G_{leak}$ = np.random.uniform(low = 0.05, high = 5, size = (1,Anz. Nervenzellen))\\
+				$U_{leak}$ = np.random.uniform(low = -70, high = 0, size = (1,Anz. Nervenzellen))\\
+				\tcp{Für Synapsen:}
+				$\sigma$ = np.random.uniform(low = 0.05, high = 0.5, size = (1,Anz. Synapsen))\\
+				$w$ = np.random.uniform(low = 0, high = 3, size = (1,Anz. Synapsen))\\
+				$\hat{w}$ = np.random.uniform(low = 0, high = 03, size = (1,Anz. Gap-Junctions))
+				\KwRet{$C_m, G_{Leak}, U_{Leak}, \sigma, w, \hat{w}$}	
+			\caption{random\_parameters}
+		\end{algorithm}
+		Nach Aufruf des Algorithmus \texttt{random\_parameters} wird eine Simulation mit den erzeugten Parametern und maximal 200 Zeitschritten durchgeführt. Der Reward dieser Simulation wird mit vergangenen Rewards verglichen. Wenn die Simulation einen Reward größer oder gleich 200 erreicht, gilt die Simulation als erfolgreich, andernfalls wird nach Ablauf der Simulationszeit der Algorithmus unterbrochen.\\
+		Der gesamte Programmablauf gestaltet sich vereinfacht wie folgt:
+		\begin{algorithm}
+			\SetKwInOut{Input}{Input}
+			\SetKwInOut{Output}{Output}
+			
+			\Input{Simulationszeit}
+			\Output{Simulationsinformation (information.txt), Parameter-Dump als .hkl Datei}
+			
+			action = episodes = best\_reward = 0\\
+			env = gym.make('CartPole-v0')\\
+			\While{True}{
+				initialize(Default\_U\_leak)\\
+				episodes $\leftarrow$ episodes + 1\\
+				$C_m, G_{Leak}, U_{Leak}, \sigma, w, \hat{w}$ = random\_parameters()\\
+				reward = run\_episode($C_m, G_{Leak}, U_{Leak}, \sigma, w, \hat{w}$) \tcp*{Simulation mit neuen Parametern - Siehe Sec. \ref{sec:imp_sim}}
+				\If{reward $\geq$ best\_reward}{
+					Set best\_reward $\leftarrow$ reward
+					Result = [$C_m, G_{Leak}, U_{Leak}, \sigma, w, \hat{w}$] \tcp*{Für Parameter-Dump}
+					\If{reward $\geq$ 200}{
+						\textbf{break}\tcp*{Exit-Argument, wenn Reward von 200 erreicht wurde}
+					}
+				}
+				\If{elapsed\_time $>$ simulation\_time}{
+					\textbf{break} \tcp*{Exit-Argument, um genaue Laufzeiten zu erzielen}
+				}
+			}
+			\KwRet{information.txt, parameter\_dump.hkl, date, best\_reward}
+			\caption{random\_search\_v2}
+		\end{algorithm}
+		Die gesamte Berechnung der Synapsenströme sowie Membranpotentiale und die Simulation findet in der Methode \texttt{run\_episode} statt und wird in Sektion \ref{sec:imp_sim} präziser erläutert.
+	\subsection{Suchalgorithmus Weights}
+		
+	\subsection{Simulation in der Google Cloud Platform\textsuperscript{\textregistered}}
+	
+
+% ***
+\section{Simulationsumgebung: OpenAI Gym}
+\label{sec:imp_sim}
+% ***
+	main.py
+	OpenAI Gym
+
+% ***
+\section{Visualisierung und Auswertung}
+\label{sec:imp_vis}
+% ***
+	visiualize.py
+	\begin{algorithm}
+		\SetKwInOut{Input}{Input}
+		\SetKwInOut{Output}{Output}
+		
+		\Input{$u, u_{rest}, t, \vartheta, R, C, I_0$}
+		\Output{Array $u(t)$ mit $t=1,2,3,...$}
+		
+		\For{$i\leftarrow 0$ \KwTo $t_{max}$}{
+		\emph{$i$ als Zähl-Variable}\\
+			\eIf{$u \leq \vartheta$}{
+				\tcc{Aufaddieren, bis der Threshold $\vartheta$ erreicht ist}
+				Berechne momentane Spannung $u$ bei $t=i$\\
+				Erweitere das Array $u_{array}$ um aktuelle Spannung $u$
+				i hochzählen $i += 1$
+			}{
+				\tcc{Treshold $\vartheta$ ist erreicht, setze $u$ auf $0$ zurück}
+				$i = 0$
+				Berechne momentane Spannung $u$ bei $t=0$\\
+				Erweitere das Array $u_{array}$ um aktuelle Spannung $u$
+				i hochzählen $i += 1$
+			}	
+		}
+		\KwRet{$u_{array}$}
+		
+		\caption{Das LIF-Modell}
+	\end{algorithm}
+
+% ***
+\section{Sonstige Implementierung}
+\label{sec:imp_vis}
+% ***
+	inspect.py
+	parameters.py
+	parameter und weight dumps + hickle
+
+% ***
+\section{Steuerung und Zusammenfassung}
+\label{sec:imp_zusammenfassung}
+% ***
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End: 

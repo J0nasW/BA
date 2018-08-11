@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="105.63132mm"
+   height="100.24516mm"
+   viewBox="0 0 105.63132 100.24516"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="RL_circles_is.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="158.45754"
+     inkscape:cy="131.10467"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1025"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-50.560825,-18.816028)">
+    <ellipse
+       style="opacity:0.997;fill:#0050de;fill-opacity:0.11969114;stroke:#000000;stroke-width:0.37799999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.67953671"
+       id="path10"
+       cx="102.86623"
+       cy="51.976929"
+       rx="33.727852"
+       ry="32.971901" />
+    <ellipse
+       style="opacity:0.997;fill:none;stroke:#000000;stroke-width:0.37799999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.67953671"
+       id="path10-3"
+       cx="84.477676"
+       cy="85.900291"
+       rx="33.727852"
+       ry="32.971901" />
+    <ellipse
+       style="opacity:0.997;fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.37799999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.67953671"
+       id="path10-6"
+       cx="122.27529"
+       cy="85.484528"
+       rx="33.727852"
+       ry="32.971901" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:0.60714239;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="137.70329"
+       y="90.058037"
+       id="text4547"><tspan
+         sodipodi:role="line"
+         x="137.70329"
+         y="90.058037"
+         style="font-size:4.93888903px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan4549"><tspan
+           dy="0"
+           id="tspan4551"
+           style="font-size:4.93888903px;text-align:center;text-anchor:middle;stroke-width:0.26458332">Supervised</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="137.70329"
+         y="96.483627"
+         style="font-size:4.93888903px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan4553">Learning</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:0.60714239;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="70.176079"
+       y="90.286652"
+       id="text4547-6"><tspan
+         sodipodi:role="line"
+         x="70.176079"
+         y="90.286652"
+         style="font-size:4.93888903px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan4549-7"><tspan
+           id="tspan4551-5"
+           style="font-size:4.93888903px;text-align:center;text-anchor:middle;stroke-width:0.26458332">Unsupervised</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="70.176079"
+         y="96.712242"
+         style="font-size:4.93888903px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan4553-6">Learning</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:0.60714239;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="102.25221"
+       y="39.070866"
+       id="text4547-6-9"><tspan
+         sodipodi:role="line"
+         x="102.25221"
+         y="39.070866"
+         style="font-size:4.93888903px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan4549-7-8">Reinforcement<tspan
+   id="tspan4551-5-7"
+   style="font-size:4.93888903px;text-align:center;text-anchor:middle;stroke-width:0.26458332" /></tspan><tspan
+         sodipodi:role="line"
+         x="102.25221"
+         y="45.496456"
+         style="font-size:4.93888903px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan4553-6-2">Learning</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:0.50001687;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="103.38341"
+       y="73.655693"
+       id="text4547-6-9-8"><tspan
+         sodipodi:role="line"
+         x="103.38341"
+         y="73.655693"
+         style="font-size:4.23333311px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan4549-7-8-2">Maschine</tspan><tspan
+         sodipodi:role="line"
+         x="103.38341"
+         y="79.009499"
+         style="font-size:4.23333311px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan4553-6-2-9">Learning</tspan></text>
+  </g>
+</svg>

@@ -30,6 +30,11 @@ Some Libraries that I used:
 Computing is getting more and more complex and takes a huge amount of resources. I'll be using the Google Cloud Plattform from now on to train parameters and weights of my neural Network.
 
 ---
+#### Update, Sa., 11.08.2018
+* Have been writing a lot this week and tewaking a little bit on my Observe-Method.
+* Did some Commentarys on my code as well as some very important little changes
+* Added LATEX Files containing my Bachelor Thesis. 4 Weeks until deadline.
+
 #### Update Fr., 05.08.2018
 * Made my Code ready for Google Cloud Plattform to get some serious simulation done
 * Try merging to master-branch

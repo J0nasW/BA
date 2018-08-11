@@ -1,0 +1,106 @@
+%
+% ****
+\chapter{Reinforcement Learning - Lernen mit Belohnung}
+\label{chap:rl}
+% ****
+%
+
+	Reinforcement Learning (kurz: RL) kann als einer der drei großen Bereiche des Maschine Learning interpretiert werden. Neben den Bereichen ``Supervised-'' und ``Unsupervised Learning'' deckt es ein weites Spektrum an Anwendungsfeldern ab.\\
+	Die grundsätzliche Vorgehensweise im Reinforcement Learning ist simpel: Ein Agent ist in der Lage, eine Simulation oder ein Spiel zu bedienen. Der Lernprozess erfolgt, indem der Agent eine Aktion tätigt, welche er dann durch die resultierenden Ergebnisse einschätzt und basierend auf dieser immer größer werdenden Datenbasis neue Aktionen tätigt.
+	
+
+% ***
+\section{Reinforcement Learning - eine Abwandlung des Deep Learning}
+\label{sec:rl_dl}
+% ***
+	Deep Learning hat in den letzten Jahren immer mehr an Relevanz gewonnen. Obwohl der Grundstein dieser Algorithmen und Vorgehensweisen bereits Ende des 19. Jahrhunderts gelegt wurde, fehlte es damals an Rechenleistung sowie hoch parallelen Rechenstrukturen. In der Theorie ist das Konstrukt des Deep Learning in der Lage, bei gegebenen Berechnungsmodellen mit multiplen verbundenen Ebenen Strukturen in großen Datenmengen zu erkennen. Durch heutige Rechenleistungen können Strukturen ein beliebig hohes Abstraktionslevel aufweisen. Anwendungsbereiche für Deep Learning bewegen sich meist im Bereich der Bild- oder Spracherkennung und -klassifizierung, breiten sich jedoch auch auf weitere Bereiche wie Medizin (Pharmazie, Genom-Entschlüsselung) oder Wirtschaft (Kunden-Kaufverhalten, Logistik) aus. Dabei zeichnet einen guten Deep Learning Algorithmus die Fähigkeit aus, s.g. Raw-Files (unbearbeitete Signale wie bspw. Audio-Dateien oder Bilder) ohne Vorwissen auf die gewünschten Daten zu untersuchen und zu klassifizieren, ohne aufwändige Filter, Feature-Vektoren oder andere Mittel zur Vorklassifikation.\\	
+	\textit{Supervised Learning} (zu Deutsch: Überwachtes Lernen) bildet die Grundlage und wurde in den Anfängen der künstlichen Intelligenz eingesetzt. Ein Algorithmus lernt aus gegebenen Paaren von Ein- und Ausgängen eine Funktion, welche nach mehrmaligen Trainingsläufen Assoziationen herstellen soll und auf neue Eingaben passende Ausgaben liefert.\\
+	\textit{Unsupervised Learning} (zu Deutsch: unüberwachtes Lernen) bietet entgegen der Methode des supervised Learning die Möglichkeit, ein Modell ohne im Voraus bekannte Zielwerte oder Behlohnungssysteme durch die Umwelt zu trainieren. Entsprechend benötigen diese Algorithmen mehr Rechenleistung (je nach Aufgabenstellung). Sie versuchen, in einer Anhäufung von Daten Strukturen zu erkennen, welche von stochastischem Rauschen abweichen. Neuronale Netze orientieren sich hier oft an den bekannten Eingängen. Diese Methode wird oft in Bereichen der automatischen Klassifizierung oder Dateikomprimierung genutzt, da hier das Ergebnis im Vorhinein meist unbekannt ist.\\
+	\textit{Reinforcement Learning} bietet, wie bereits in der Einleitung erwähnt, den Vorteil eines Reward-Systems (zu Deutsch: Belohnungssystem).
+	\begin{figure}[!h] %[!t] ...
+		\centering
+		\def\svgwidth{12cm}
+		\input{figures/chap_rl/RL_Chart.pdf_tex}
+		\caption{Graphische Darstellung des Reinforcement Learning Algorithmus}
+		\label{fig:rl_chart}
+	\end{figure}\\
+	Der Agent beginnt mit einer anfangs willkürlich gewählten Aktion und beeinflusst damit die Umwelt bzw. die Simulation. Durch einen Interpreter ist es möglich, wichtige Messgrößen (inverses Pendel: Winkel $\varphi$ oder Winkelgeschwindigkeit $\dot{\varphi}$) zu messen und in einen Observationsvektor $\textbf{o}$ zu schreiben. Dieser kann ausgelesen werden und den aktuellen State $x_i$ nach der erfolgten Aktion liefern. Dazu wird durch ein anfangs definiertes Reward-System ein vereinbarter Reward geliefert, welcher die Performance der Simulation widerspiegelt. Der Agent besitzt nun diese Informationen und entscheidet aufgrund des gegebenen States sowie des Rewards, welche Aktion als nächstes getätigt werden soll. In der Theorie wird so der Reward mit jeder Episode höher und der Agent ist in der Lage gewisse Parameter der Simulation entsprechend des jeweiligen Observationsparameters anzupassen.
+	
+% ***
+\section{Anwendung auf Modelle neuronaler Netze}
+\label{sec:rl_neuro}
+% ***
+	Die klassische Anwendung von Deep Learning Algorithmen auf künstlich erstellte neuronale Netze mit vielen s.g. '"Hidden Layers'" (Ebenen zwischen Ein- und Ausgang mit hoher Anzahl an Neuronen) findet im Rahmen dieser Bachelorarbeit nicht statt. Jedoch können viele Methoden und Algorithmen abgewandelt werden, um ein bereits bestehendes, neuronales Netz aus der Natur zu nutzen und auf Probleme der Regelungstechnik anzuwenden. Folglich befassen wir uns mit einem neuronalen Netz, welches ein Layer (zu Deutsch: Ebene) mit vier Neuronen aufweist. Diese Neuronen arbeiten wie bereits in Kapitel \ref{chap:neuro} und \ref{chap:lif} beschrieben ebenfalls anders als in den üblichen Modellen künstlicher neuronaler Netze.\\
+	Die Schwierigkeit dieser Aufgabenstellung besteht darin, geeignete Parameter für jede Nervenzelle sowie für jede Synapse zu finden, sodass das Netz korrekt und zuverlässig auf interpretierte Signale aus der Umwelt reagiert und entsprechend durch den Agenten eine Aktion wählt, welche einen möglichst hohen Reward nach sich zieht. Bezogen auf Abb. \ref{fig:rl_chart} stellt die Umwelt unsere Simulationsumgebung des inversen Pendels (\code{OpenAI Gym - CartPolev0}) dar. Diese nimmt eine Aktion (FWD oder REV) pro Simulationsschritt an und gibt entsprechend einen Observationsvektor $\textbf{o}$ aus, welcher durch den Interpreter übersetzt wird. Der aktuelle State $s$ wird durch die vier Sensorneuronen \textit{PVD, PLM, AVM und ALM} entsprechend interpretiert und in das neuronale Netz eingegeben. Durch den gegebenen Reward haben wir die Information, wie gut das Netzwerk in der entsprechenden Episode mit den entsprechenden Parametern abschneidet.
+
+% ***
+\section{Verschiedene Suchalgorithmen}
+\label{sec:rl_alt}
+% ***
+	Die Wahl des geeigneten Suchalgorithmus ist immer von der Beschaffenheit der Problemstellung abhängig. Klassische Probleme mit Anwendung des Reinforcement Learning auf künstliche neuronale Netze nutzen Algorithmen wie Q-Learning, Policies (Epsilon-Greedy, Gradient-Decend/Acend) oder genetische Algorithmen. Diese sind hoch spezialisiert und suchen nach Maxima/Minima der gegebenen Funktion, um den Fehler zu reduzieren. Bei einer großen Zahl an Parametern, welche untereinander noch korreliert sein können, kommt oft der einfache, jedoch gleichzeitig sehr effektive Random Search Algorithmus zum Einsatz.\\
+	Grundsätzlich sei noch zu erwähnen, dass konventionelle Such- bzw. Optimierungsalgorithmen innerhalb des Reinforcement Learning ein Markov-Entscheidungsproblem voraussetzen. 
+	\subsection{Q-Learning}
+		
+	\subsection{Gradient Policies}
+	\subsection{Genetische Algorithmen}
+	\subsection{Random Search}
+	
+	Wie in der vorherigen Sektion \ref{sec:rl_neuro} bereits kurz beschrieben, werden die jeweiligen Parameter der Synapsen und Nervenzellen gesucht. Dies sind die folgenden:
+	\begin{center}
+		\begin{tabular}{l@{\hskip 0.5cm}c@{\hskip 0.5cm}c@{\hskip 0.5cm}r}    \toprule
+			\setlength{\tabcolsep}{50pt}
+			\renewcommand{\arraystretch}{1.5}
+			\emph{Parameter-Typ} 	& \emph{Parameter}  & \emph{Beschreibung} 				& \emph{Grenzen} 					 \\\midrule
+			Membranpotential		& $C_m$				& Kapazität der Zellmembran			& $[1mF, 1F]$						 \\ 
+			Membranpotential	 	& $G_{Leak}$		& Leitwert der Zellmembran			& $[50mS, 5S]$						 \\
+			Membranpotential	 	& $U_{Leak}$		& Ruhepotential der Zellmembran		& $[-90mV, 0mV]$						 \\
+			Synapsenstrom			& $E_{Excitatory}$	& Weiterleiten des Synapsenstroms	& $[0mV]$							 \\
+			Synapsenstrom			& $E_{Inhibitory}$	& Negieren des Synapsenstroms		& $[-90mV]$							 \\ 
+			Synapsenstrom			& $\mu$				& ...								& $[-40mV]$							 \\
+			Synapsenstrom			& $\sigma$			& Standardabweichung (Modell)		& $[0.05, 0.5]$						 \\ 
+			Synapsenstrom		 	& $w$				& ...								& $[0S, 3S]$							 \\
+			Synapsenstrom				& $\hat{w}$			& ...								& $[0S, 3S]$							 \\\bottomrule
+			\hline
+		\end{tabular}
+	\end{center}
+	Die gegebenen Grenzen folgen aus \cite{WormLevelRL} und \cite{SimCE} und sind durch Calcium und Potassiummengen im Nervensystem des C. Elegans verbunden.\\
+	
+	
+	
+	Bei dem in Abb. x gezeigten neuronalen Netz handelt es sich um vier interne Nervenzellen, sowie x inhibitorische Synapsen, x excitatorische Synapsen und x Gap-Junctions.
+
+% ***
+\section{Implementierung}
+\label{sec:rl_imp}
+% ***
+	\begin{algorithm}
+		\SetKwInOut{Input}{Input}
+		\SetKwInOut{Output}{Output}
+		
+		\Input{$u, u_{rest}, t, \vartheta, R, C, I_0$}
+		\Output{Array $u(t)$ mit $t=1,2,3,...$}
+		
+		\For{$i\leftarrow 0$ \KwTo $t_{max}$}{
+		\emph{$i$ als Zähl-Variable}\\
+			\eIf{$u \leq \vartheta$}{
+				\tcc{Aufaddieren, bis der Threshold $\vartheta$ erreicht ist}
+				Berechne momentane Spannung $u$ bei $t=i$\\
+				Erweitere das Array $u_{array}$ um aktuelle Spannung $u$
+				i hochzählen $i += 1$
+			}{
+				\tcc{Treshold $\vartheta$ ist erreicht, setze $u$ auf $0$ zurück}
+				$i = 0$
+				Berechne momentane Spannung $u$ bei $t=0$\\
+				Erweitere das Array $u_{array}$ um aktuelle Spannung $u$
+				i hochzählen $i += 1$
+			}	
+		}
+		\KwRet{hhh}
+		
+		\caption{Das LIF-Modell}
+	\end{algorithm}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End: 

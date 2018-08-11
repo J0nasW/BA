@@ -4,9 +4,9 @@ RL MODULE WITH RANDOM SEARCH
 CALL BY:    <random_search_v2.py>
 
 RETURN:     Parameter Matrices for the inverted Pendulum Problem
-            Stores Data of best Parameters in '<date>_rs_reward_<reward>.p'
+            Stores Data of best Parameters in '<date>_rs2_v2_<reward>.hkl'
 
-INFO:       V2 with improved loading times and simulation performance
+INFO:       V2 with improved loading times and better simulation performance
 """
 
 # Some dependencies
@@ -14,7 +14,7 @@ import os
 
 import numpy as np # Maths and stuff
 import gym.spaces # Simulating the Environments
-import hickle as hkl
+import hickle as hkl # Performance Dumping in HDF5 Format <.hkl>
 import time # For Runtime Evaluations
 import datetime # For Datestamp on stored files
 
@@ -67,11 +67,12 @@ def random_parameters():
 
 def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd):
 
-    # Compute all Synapse Currents in this network------------------------------------------
+    # Some helpint Counter-Variables
     k = 0
     l = 0
     m = 0
 
+    # Compute all Synapse Currents in this network------------------------------------------
     for i in range(0,4):
         for j in range (0,4):
             # Synapse Currents between Interneurons
@@ -84,6 +85,7 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
                 I_s_inter[i, j] = I_syn_calc(x[i], x[j], E_ex, w_A_rnd[0, k], sig_A_rnd[0, k], mu)
                 k += 1
             else:
+                # No Connection here.
                 I_s_inter[i, j] = 0
 
 
@@ -97,15 +99,16 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
                 l += 1
             elif B[i, j] == 3:
                 # Gap Junction
-                I_g_sensor[i, j] = I_gap_calc(x[i], x[j], w_B_gap_rnd[0, m])
+                I_g_sensor[i, j] = I_gap_calc(u[i], x[j], w_B_gap_rnd[0, m])
                 m += 1
             else:
+                # No Connection here.
                 I_s_sensor[i, j] = 0
                 I_g_sensor[i, j] = 0
 
     #---------------------------------------------------------------------------------------
 
-    # Now compute inter Neurons Voltages----------------------------------------------------
+    # Compute inter Neurons Voltages----------------------------------------------------
     for i in range(0,4):
         I_syn_inter = I_s_inter.sum(axis = 0) # Creates a 1x5 Array with the Sum of all Columns
         I_gap_inter = I_g_inter.sum(axis = 0)
@@ -143,11 +146,13 @@ def run_episode(env, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rn
             action = 1
             observation, reward, done, info = env.step(action)
         else:
+            # If computing twice in a Simulation, this step is obsolete (No uncertainty)
             observation, reward, done, info = env.step(action) # Have to use the action from the past time step - OpenAI Gym does not provide a "Do nothing"-Action
 
-        totalreward += reward
-        observe(observation)
+        totalreward += reward # Counting the total reward.
+        observe(observation) # Trace the observation from our simulation back into the sensory neurons
         if done:
+            # If reached a total Reward of 200
             break
 
     return totalreward
@@ -155,12 +160,13 @@ def run_episode(env, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rn
 def observe(observation):
     global u
 
+    # Interpreter: Calculating some of the observation values into valid data
     cart_pos = observation[0] # [-2.4 2.4]
-    cart_vel = observation[1]
-    angle = (observation[2] * 360) / (2 * np.pi) # in degrees [-12deg 12deg] (for Simulations)
-    angle_velocity = observation[3]
+    cart_vel = observation[1] # [-inf, inf]
+    angle = (observation[2] * 360) / (2 * np.pi) # in degrees [-12deg, 12deg] (for Simulations)
+    angle_velocity = observation[3] # [-inf, inf]
 
-    # Adapt, learn, overcome-----------------------------------------------------------------------------------------
+    # Adapt, learn, overcome---------------------------------------------------------------------------
 
     # Setting the Angle of the Pole to Sensory Neurons PLM (Phi+) and AVM (Phi-)
     if angle > 0:
@@ -181,7 +187,6 @@ def observe(observation):
     else:
         u[0] = Default_U_leak + ((v-Default_U_leak)/0.8) * (np.absolute(cart_pos)*7) # PVD
         u[3] = Default_U_leak
-
     '''
     # Setting the Anglespeed of the Pole to Sensory Neurons ALM (Phi.+) and PVD (Phi.-)
     if angle_velocity >= 0:
@@ -192,7 +197,7 @@ def observe(observation):
     else:
         u[3] = Default_U_leak + ((v-Default_U_leak)/1.05) * (np.absolute(angle_velocity)) # PVD
         u[0] = Default_U_leak
-    
+
     return angle
 
 
@@ -205,8 +210,9 @@ def observe(observation):
 def main(sim_time):
     global x, u, env, action
 
-    start_time = time.time()
+    start_time = time.time() # for Runtime reasons
 
+    # Initialize the Environment and some vital Parameters
     action = 0
     episodes = 0
     best_reward = 0
@@ -222,26 +228,25 @@ def main(sim_time):
             best_reward = reward
             # Save Results of the Run with the best reward
             Result = [w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd]
-            # Solved the Simulation
-            if reward == 200:
-                break
         #print 'Episode',episodes,'mit Reward',reward,'.'
         if (time.time() - start_time) >= sim_time:
+            # End Simulation-Run, if given Simulation time is elapsed.
             break
 
+    # Prepare some Information to dump..
     date = datetime.datetime.now().strftime("%Y%m%d_%H-%M-%S")
     best_reward_s = str(int(best_reward))
     episodes = str(int(episodes))
-    hkl.dump(Result, ("parameter_dumps/" + date + "_rs2_v2_" + best_reward_s + ".hkl"), mode='w')
+    elapsed_time = str((time.time() - start_time))
 
-    print ('The best Reward was:',best_reward)
-    if best_reward == 200:
-        print ('I SOLVED IT!')
-
+    hkl.dump(Result, (current_dir + "/parameter_dumps/" + date + "_rs2_v2_" + best_reward_s + ".hkl"), mode='w')
     # Information Text File
-    file = open(("information/" + date + "_parameter_run_" + best_reward_s + ".txt"), "w")
-    file.write(("Parameter run from " + date + " with Reward " + best_reward_s + " and " + episodes + " Episodes. NeuronalCircuit_v3"))
+    file = open((current_dir + "/information/" + date + "_parameter_run_" + best_reward_s + ".txt"), "w")
+    file.write(("Parameter run from " + date + " with Reward " + best_reward_s + " and " + episodes + " Episodes.\nSimulation Runtime was " + elapsed_time + "."))
     file.close()
+
+    # Console Prints
+    print ('The best Reward was:',best_reward)
 
     print("--- %s seconds ---" % (time.time() - start_time))
     return date, best_reward_s

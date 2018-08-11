@@ -1,0 +1,63 @@
+%
+% ****
+\chapter{Performance \& Auswertung}
+\label{chap:erg}
+% ****
+%
+
+	Reinforcement Learning (kurz: RL) kann als einer der drei großen Bereiche des Maschine Learning interpretiert werden. Neben den Bereichen ``Supervised'' und ``Unsupervised Learning'' deckt es ein weites Spektrum an Anwendungsfeldern ab.\\
+	\textit{Supervised Learning} (zu Deutsch: Überwachtes Lernen) bildet die Grundlage und wurde in den Anfängen der künstlichen Intelligenz eingesetzt. Ein Algorithmus lernt aus gegebenen Paaren von Ein- und Ausgängen eine Funktion, welche nach mehrmaligen Trainingsläufen Assoziationen herstellen soll und auf neue Eingaben passende Ausgaben liefert. 
+		
+
+% ***
+\section{Performance implementierter Algorithmen}
+\label{sec:erg_performance}
+% ***
+	
+	
+	
+% ***
+\section{Limitationen und Alternativen von Algorithmen}
+\label{sec:erg_lim}
+% ***
+
+% ***
+\section{Vergleich zu bestehenden Systemen}
+\label{sec:erg_vgl}
+% ***
+
+% ***
+\section{Zusammenfassung}
+\label{sec:erg_zsm}
+% ***
+	\begin{algorithm}
+		\SetKwInOut{Input}{Input}
+		\SetKwInOut{Output}{Output}
+		
+		\Input{$u, u_{rest}, t, \vartheta, R, C, I_0$}
+		\Output{Array $u(t)$ mit $t=1,2,3,...$}
+		
+		\For{$i\leftarrow 0$ \KwTo $t_{max}$}{
+		\emph{$i$ als Zähl-Variable}\\
+			\eIf{$u \leq \vartheta$}{
+				\tcc{Aufaddieren, bis der Threshold $\vartheta$ erreicht ist}
+				Berechne momentane Spannung $u$ bei $t=i$\\
+				Erweitere das Array $u_{array}$ um aktuelle Spannung $u$
+				i hochzählen $i += 1$
+			}{
+				\tcc{Treshold $\vartheta$ ist erreicht, setze $u$ auf $0$ zurück}
+				$i = 0$
+				Berechne momentane Spannung $u$ bei $t=0$\\
+				Erweitere das Array $u_{array}$ um aktuelle Spannung $u$
+				i hochzählen $i += 1$
+			}	
+		}
+		\KwRet{$u_{array}$}
+		
+		\caption{Das LIF-Modell}
+	\end{algorithm}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End: 
