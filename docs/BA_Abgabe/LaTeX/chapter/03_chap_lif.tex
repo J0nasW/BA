@@ -11,8 +11,9 @@
 \section{Das Leaky Integrate and Fire - Modell}
 \label{sec:lif_model}
 % ***
-	Grundsätzlich wird in der Natur beobachtet, dass die neuronale Dynamik als Summationsprozess gefolgt von einer kurzfristigen Entladung des Aktionspotentials beschrieben werden kann. Die Entladung erfolgt hierbei immer ab einem gewissen Wert, welcher als 'Treshold' $\theta$ beschrieben wird. Bei Überschreitung 'feuert' die Nervenzelle und die Informationen gelangen über Synapsen zu nahegelegenen Neuronen.\\
-	Technisch lässt sich dieses Verhalten als ein Schaltbild wie in Abb. \ref{cic:lif} darstellen. Die Zellmembran wird durch den Kondensator repräsentiert, welcher durch eingehende Stimuli-, Synapsen- und Gap-Junction-Ströme geladen wird und bei einem gewissen Treshold augenblicklich entlädt. Da die Zellmembran jedoch als Isolator nicht perfekt ist, wird ein Widerstand in Reihe mit der Ruhespannung $u_{rest}$ geschaltet (siehe \cite{NeuronalDynamics} Kap. 1.3.1).
+	Grundsätzlich wird in der Natur beobachtet, dass die neuronale Dynamik als Summationsprozess gefolgt von einer kurzfristigen Entladung des Aktionspotentials beschrieben werden kann. Die Entladung erfolgt hierbei immer ab einem gewissen Wert, welcher als 'Treshold' $\vartheta$ beschrieben wird. Bei Überschreitung 'feuert' die Nervenzelle und Informationen gelangen über Synapsen und Gap-Junctions zu nahegelegenen Neuronen.\\
+	Um dieses Verhalten zu modellieren, wird der Zellkern genauer betrachtet. Dieser ist mit einer Zellmembran umgeben, welche als guter Isolator dient. Bei anliegenden Strömen $I_{Stimuli}$, $I_{Syn}$ oder $I_{Gap}$ wird die elektrische Ladung $q = \int I(t')dt'$ die Membran aufladen. Die Zellmembran handelt entsprechend einem Kondensator mit Kapazität $C_m$. Da jedoch in der Natur kein perfekter Kondensator existiert, verliert die Zellmembran über Zeit minimal elektrische Ladung. Daher wird dem Kondensator ein Leckwiderstand $R$ parallel geschaltet. Um das beobachtete Ruhepotential $U_{Leak}$ nach einem Feuer-Event oder bei keinem Input wiederherzustellen, wird eine Batterie in Reihe mit dem Widerstand $R$ geschaltet.
+	Technisch lässt sich dieses Verhalten als ein elektrisches Ersatzschaltbild wie in Abb. \ref{cic:lif} darstellen (siehe \cite{NeuronalDynamics} Kap. 1.3.1).
 	\begin{figure}
 		\centering
 		\begin{circuitikz}
@@ -20,7 +21,7 @@
 			%(0,0) to [short, *-*] (5,0)
 			(0,4) to [short, o-*] (1,4)
 			to [generic, l=$R$] (1,2)
-			to [battery1, l=$u_{rest}$] (1,0)
+			to [battery1, l=$U_{Leak}$] (1,0)
 			to [short, -*] (1,0)
 			to [short, -o] (0,0)
 			
@@ -37,15 +38,41 @@
 		\caption{Ersatzschaltbild der Zellmembran}
 		\label{cic:lif}
 	\end{figure}
-	Um nun den Spannungsverlauf der Zellmembran innerhalb der Nervenzelle zu berechnen, ist durch das Modell folgende lineare Differentialgleichung erster Ordnung gegeben:
-	\begin{align}
-		\label{eq:lif}
-		\frac{du_i(t)}{dt} = \frac{G_{Leak}(U_{Leak} - u_i(t)) + \sum_{i = 1}^{n}{I_{in}^{(1)}}}{C_m}
-	\end{align}
-	In dieser Gleichung stehen die Variablen $G_{Leak}$, $U_{Leak}$ und $C_m$ für Parameter der betrachteten Nervenzelle, während $I_{in}^{(1)}$ stellvertretend für alle eingehenden Ströme aus Stimuli, chemischen Synapsen und Gap-Junctions steht.
+	Um nun eine geeignete Differentialgleichung herzuleiten, wird zuerst das erste Kirchhoffsche Gesetz angewendet
 	\begin{align}
 		\label{eq:lif_current}
-		I_{in} = I_{Stimuli} + I_{Syn} + I_{Gap}
+		I(t) = I_R + I_C\text{.}
+	\end{align}
+	Der erste Strom $I_R$ ist einfach durch das ohmsche Gesetz wie folgt zu berechnen
+	\begin{align}
+		\label{eq:lif_IR}
+		I_R = \frac{U_R}{R} = \frac{U - U_{Leak}}{R}\text{.}
+	\end{align}
+	Der Strom $I_C$ wird durch die Definition eines Kondensators $C = \tfrac{q}{U}$ zum kapazitiven Strom 
+	\begin{align}
+		\label{eq:lif_IC}
+		I_C = \frac{dq}{dt} = C_m \frac{dU}{dt}\text{.}
+	\end{align}
+	Hierbei steht $q$ für die elektrische Ladung und $U$ für die anliegende Spannung.\\
+	Gleichungen \ref{eq:lif_IR} und \ref{eq:lif_IC} eingesetzt in Gleichung \ref{eq:lif_current} ergibt
+	\begin{align}
+		\label{eq:lif_I}
+		I(t) = \frac{u(t) - U_{Leak}}{R} + C\frac{du}{dt}\text{.}
+	\end{align}
+	Wird diese Gleichung mit $R$ multipliziert und etwas umgestellt, bildet sich die folgende lineare Differentialgleichung erster Ordnung:
+	\begin{align}
+		\label{eq:lif_nd}
+		R C \frac{du(t)}{dt} = (U_{Leak} - u(t)) + R I(t)\text{.}
+	\end{align}
+	Nach Division durch $RC$ und Einführung des Leitwerts $G_{Leak} = \tfrac{1}{R}$ entsteht unsere gewollte Form:
+	\begin{align}
+		\label{eq:lif}
+		\frac{du(t)}{dt} = \frac{G_{Leak}(U_{Leak} - u(t)) + \sum_{i = 1}^{n}{I_{in}}}{C_m}\text{.}
+	\end{align}
+	In dieser Gleichung stehen die Variablen $G_{Leak}$, $U_{Leak}$ und $C_m$ für Parameter der betrachteten Nervenzelle, während $I(t) = \sum_{i = 1}^{n}{I_{in}}$ stellvertretend für alle eingehenden Ströme aus Stimuli, chemischen Synapsen und Gap-Junctions steht
+	\begin{align}
+		\label{eq:lif_current}
+		I_{in} = I_{Stimuli} + I_{Syn} + I_{Gap}\text{.}
 	\end{align}
 	Die Implementierung dieser Gleichungen und den entsprechenden nummerischen Lösungsverfahren findet sich in \ref{sec:neuroimp}. Ein beispielhafter Spannungsverlauf bei einem konstanten, positiv einfließendem Strom $I_{in}$ sieht wie folgt aus:
 	\begin{figure}[!h]
@@ -57,13 +84,13 @@
 	Die anliegenden Synapsenströme sind durch folgenden formularen Zusammenhang zu berechnen:
 	\begin{align}
 		\label{eq:chem_syn_current}
-		I_{Syn} = \frac{w}{1 + \e^{\sigma(u_{pre}(t) + \mu)}}(E - u_{post}(t))
+		I_{Syn} = \frac{w}{1 + \e^{\sigma(u_{pre}(t) + \mu)}}(E - u_{post}(t))\text{.}
 	\end{align}
 	Synapsenströme sind grundsätzlich von den pre- und postsynaptischen Potentialen der jeweiligen Nervenzellen $u_{pre}$ und $u_{post}$ abhängig. Weiterhin können diese chemischen Synapsen exzitatorisch oder inhibitorisch wirken. Diese Eigenschaft wird durch das s.g. Nernstpotential $E\in[0mV, -90mV]$ beschrieben. Weitere Größen dieser Gleichung bilden $w$, die Standardabweichung $\sigma$ und $\mu$.\\
 	Gap-Junctions bilden die Ausnahme, denn sie dienen als Ausgleichsglied und wirken bidirektional. Ihr Strom wird wie folgt berechnet:
 	\begin{align}
 		\label{eq:gap_syn_current}
-		I_{Gap} = \hat{w}(u_{post}(t) - u_{pre}(t))
+		I_{Gap} = \hat{w}(u_{post}(t) - u_{pre}(t))\text{.}
 	\end{align}
 	Für die Berechnung des Gap-Junction Stroms benötigt es ebenfalls das pre und postsynaptische Potential der jeweiligen Nervenzellen $u_{pre}$ und $u_{post}$, sowie $\hat{w}$.\\	
 	Durch diese formularen Zusammenhänge kann ein ganzheitliches neuronales Netz simuliert werden.

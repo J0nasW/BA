@@ -1,0 +1,926 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 1000 1000"
+   style="enable-background:new 0 0 1000 1000;"
+   xml:space="preserve"
+   id="svg357"
+   sodipodi:docname="Neural_Net_v3.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"><metadata
+   id="metadata363"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs361" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1920"
+   inkscape:window-height="1017"
+   id="namedview359"
+   showgrid="false"
+   inkscape:zoom="0.6675088"
+   inkscape:cx="528.21407"
+   inkscape:cy="488.80998"
+   inkscape:window-x="-8"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="svg357" />
+<style
+   type="text/css"
+   id="style2">
+	.st0{fill:none;stroke:#C1272D;stroke-width:2;stroke-miterlimit:10;}
+	.st1{fill:#C1272D;}
+	.st2{fill:none;stroke:#006837;stroke-width:2;stroke-miterlimit:10;}
+	.st3{fill:#006837;}
+	.st4{fill:#FFFFFF;}
+	.st5{fill:none;stroke:#0071BC;stroke-width:2;stroke-miterlimit:10;}
+	.st6{fill:#0071BC;}
+	.st7{fill:none;stroke:#2E3192;stroke-width:5;stroke-miterlimit:10;}
+	.st8{fill:none;stroke:#2E3192;stroke-width:5;stroke-miterlimit:10;stroke-dasharray:13.2857,13.2857;}
+	.st9{fill:#FF0000;stroke:#000000;stroke-width:4;stroke-miterlimit:10;}
+	.st10{font-family:'MyriadPro-Regular';}
+	.st11{font-size:19.0659px;}
+	.st12{fill:#009245;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	.st13{fill:#C1272D;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	.st14{fill:#2E3192;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+	.st15{fill:none;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
+	.st16{fill:#2E3192;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	.st17{fill:#009245;}
+	.st18{fill:none;}
+	.st19{font-size:12px;}
+</style>
+<g
+   id="Ebene_2">
+	<g
+   id="g12">
+		<g
+   id="g10">
+			<path
+   class="st0"
+   d="M519,365c0,0,52.8,131,0.3,275.1"
+   id="path4" />
+			<g
+   id="g8">
+				
+					<rect
+   x="518.3"
+   y="633.6"
+   transform="matrix(0.3264 -0.9452 0.9452 0.3264 -255.1871 922.0103)"
+   class="st1"
+   width="2"
+   height="13"
+   id="rect6" />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g22">
+		<g
+   id="g20">
+			<path
+   class="st0"
+   d="M480.6,649c0,0-52.8-131-0.3-275.1"
+   id="path14" />
+			<g
+   id="g18">
+				
+					<rect
+   x="479.2"
+   y="367.4"
+   transform="matrix(0.3264 -0.9452 0.9452 0.3264 -29.9888 705.8078)"
+   class="st1"
+   width="2"
+   height="13"
+   id="rect16" />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g32">
+		<g
+   id="g30">
+			<path
+   class="st2"
+   d="M220.5,653.5c0,0,264.6-221.6,534.5-300.9"
+   id="path24" />
+			<g
+   id="g28">
+				<polygon
+   class="st3"
+   points="755.1,359.4 764,350 751.4,347     "
+   id="polygon26" />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g42">
+		<g
+   id="g40">
+			<path
+   class="st2"
+   d="M776,359c0,0-264.6,221.6-534.5,300.9"
+   id="path34" />
+			<g
+   id="g38">
+				<polygon
+   class="st3"
+   points="241.4,653.1 232.5,662.5 245.1,665.5     "
+   id="polygon36" />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g52">
+		<g
+   id="g50">
+			<path
+   class="st2"
+   d="M775,325.8c0,0-105-31.7-231.9-2.2"
+   id="path44" />
+			<g
+   id="g48">
+				<polygon
+   class="st3"
+   points="543.4,316.9 534,325.8 546.4,329.5     "
+   id="polygon46" />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g62">
+		<g
+   id="g60">
+			<path
+   class="st2"
+   d="M225,685c0,0,105,31.7,231.9,2.2"
+   id="path54" />
+			<g
+   id="g58">
+				<polygon
+   class="st3"
+   points="456.6,693.9 466,685 453.6,681.3     "
+   id="polygon56" />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g74">
+		<line
+   class="st4"
+   x1="304"
+   y1="340.5"
+   x2="457"
+   y2="340.5"
+   id="line64" />
+		<g
+   id="g72">
+			<line
+   class="st0"
+   x1="304"
+   y1="340.5"
+   x2="456"
+   y2="340.5"
+   id="line66" />
+			<g
+   id="g70">
+				<rect
+   x="455"
+   y="334"
+   class="st1"
+   width="2"
+   height="13"
+   id="rect68" />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g86">
+		<line
+   class="st4"
+   x1="696"
+   y1="676.7"
+   x2="543"
+   y2="676.7"
+   id="line76" />
+		<g
+   id="g84">
+			<line
+   class="st0"
+   x1="696"
+   y1="676.7"
+   x2="544"
+   y2="676.7"
+   id="line78" />
+			<g
+   id="g82">
+				<rect
+   x="543"
+   y="670.2"
+   class="st1"
+   width="2"
+   height="13"
+   id="rect80" />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g96">
+		<g
+   id="g94">
+			<path
+   class="st0"
+   d="M320,313c0,0,235-53.8,450-0.2"
+   id="path88" />
+			<g
+   id="g92">
+				
+					<rect
+   x="763.5"
+   y="311.8"
+   transform="matrix(0.2286 -0.9735 0.9735 0.2286 289.4928 990.8968)"
+   class="st1"
+   width="13"
+   height="2"
+   id="rect90" />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g106">
+		<g
+   id="g104">
+			<path
+   class="st0"
+   d="M711,700c0,0-251.2,60.6-481,0.3"
+   id="path98" />
+			<g
+   id="g102">
+				<rect
+   x="223.5"
+   y="699.2"
+   transform="matrix(0.24 -0.9708 0.9708 0.24 -504.994 755.4631)"
+   class="st1"
+   width="13"
+   height="2"
+   id="rect100" />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g116">
+		<g
+   id="g114">
+			<path
+   class="st0"
+   d="M136,313c0,0,573-123.4,652.4-12.8"
+   id="path108" />
+			<g
+   id="g112">
+				
+					<rect
+   x="781.9"
+   y="299.2"
+   transform="matrix(0.8055 -0.5927 0.5927 0.8055 -24.5321 525.655)"
+   class="st1"
+   width="13"
+   height="2"
+   id="rect110" />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g126">
+		<g
+   id="g124">
+			<path
+   class="st0"
+   d="M890,700.2c0,0-590.6,123.4-672.4,12.8"
+   id="path118" />
+			<g
+   id="g122">
+				
+					<rect
+   x="211.1"
+   y="712"
+   transform="matrix(0.7968 -0.6042 0.6042 0.7968 -386.5789 276.3583)"
+   class="st1"
+   width="13"
+   height="2"
+   id="rect120" />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g136">
+		<g
+   id="g134">
+			<path
+   class="st0"
+   d="M107,367c0,0-8,160.2,59.5,273.1"
+   id="path128" />
+			<g
+   id="g132">
+				
+					<rect
+   x="160"
+   y="639.1"
+   transform="matrix(0.8674 -0.4976 0.4976 0.8674 -296.4685 167.7442)"
+   class="st1"
+   width="13"
+   height="2"
+   id="rect130" />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g146">
+		<g
+   id="g144">
+			<path
+   class="st0"
+   d="M889.7,648c0,0,8-160.2-59.5-273.1"
+   id="path138" />
+			<g
+   id="g142">
+				
+					<rect
+   x="823.7"
+   y="373.9"
+   transform="matrix(0.8674 -0.4976 0.4976 0.8674 -76.4516 462.8409)"
+   class="st1"
+   width="13"
+   height="2"
+   id="rect140" />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g168">
+		<g
+   id="g166">
+			<path
+   class="st5"
+   d="M263.4,348.5c-15.7,12.1-77.7,73.4-72.6,281.2"
+   id="path148" />
+			<g
+   id="g156">
+				<g
+   id="g154">
+					
+						<rect
+   x="259.3"
+   y="344.7"
+   transform="matrix(0.8185 -0.5746 0.5746 0.8185 -152.511 214.5517)"
+   class="st4"
+   width="7.9"
+   height="7.9"
+   id="rect150" />
+					<path
+   class="st6"
+   d="M264.4,342.3l-7.5,5.2l5.2,7.5l7.5-5.2L264.4,342.3z M258.6,347.8l5.5-3.9l3.9,5.5l-5.5,3.9L258.6,347.8z"
+   id="path152" />
+				</g>
+			</g>
+			<g
+   id="g164">
+				<g
+   id="g162">
+					
+						<rect
+   x="187"
+   y="625.5"
+   transform="matrix(0.9998 -1.802117e-02 1.802117e-02 0.9998 -11.3122 3.5428)"
+   class="st4"
+   width="7.9"
+   height="7.9"
+   id="rect158" />
+					<path
+   class="st6"
+   d="M186.4,634.1l-0.2-9.1l9.1-0.2l0.2,9.1L186.4,634.1z M187.5,626.1l0.1,6.7l6.7-0.1l-0.1-6.7L187.5,626.1z"
+   id="path160" />
+				</g>
+			</g>
+		</g>
+	</g>
+	<g
+   id="g190">
+		<g
+   id="g188">
+			<path
+   class="st5"
+   d="M750.4,638.3c13.5-12.1,62.4-69.4,58.4-258"
+   id="path170" />
+			<g
+   id="g178">
+				<g
+   id="g176">
+					
+						<rect
+   x="746.6"
+   y="634.2"
+   transform="matrix(0.7739 -0.6334 0.6334 0.7739 -234.4274 619.6568)"
+   class="st4"
+   width="7.9"
+   height="7.9"
+   id="rect172" />
+					<path
+   class="st6"
+   d="M749.9,644.5l7.1-5.8l-5.8-7.1l-7.1,5.8L749.9,644.5z M755.3,638.6l-5.2,4.3l-4.3-5.2l5.2-4.3L755.3,638.6       z"
+   id="path174" />
+				</g>
+			</g>
+			<g
+   id="g186">
+				<g
+   id="g184">
+					
+						<rect
+   x="804.8"
+   y="376.6"
+   transform="matrix(0.9999 -1.589076e-02 1.589076e-02 0.9999 -5.9453 12.8994)"
+   class="st4"
+   width="7.9"
+   height="7.9"
+   id="rect180" />
+					<path
+   class="st6"
+   d="M813.2,375.9l0.1,9.1l-9.1,0.1l-0.1-9.1L813.2,375.9z M812.1,383.9l-0.1-6.7l-6.7,0.1l0.1,6.7L812.1,383.9       z"
+   id="path182" />
+				</g>
+			</g>
+		</g>
+	</g>
+	<g
+   id="g200">
+		<g
+   id="g198">
+			<line
+   class="st7"
+   x1="499"
+   y1="703"
+   x2="499"
+   y2="709"
+   id="line192" />
+			<line
+   class="st8"
+   x1="499"
+   y1="722.3"
+   x2="499"
+   y2="795.4"
+   id="line194" />
+			<line
+   class="st7"
+   x1="499"
+   y1="802"
+   x2="499"
+   y2="808"
+   id="line196" />
+		</g>
+	</g>
+	<g
+   id="g210">
+		<g
+   id="g208">
+			<line
+   class="st7"
+   x1="498.5"
+   y1="205"
+   x2="498.5"
+   y2="211"
+   id="line202" />
+			<line
+   class="st8"
+   x1="498.5"
+   y1="224.3"
+   x2="498.5"
+   y2="297.4"
+   id="line204" />
+			<line
+   class="st7"
+   x1="498.5"
+   y1="304"
+   x2="498.5"
+   y2="310"
+   id="line206" />
+		</g>
+	</g>
+	<g
+   id="g220">
+		<g
+   id="g218">
+			<path
+   class="st0"
+   d="M463,361c0,0-129.3,96.7-246.4,272.2"
+   id="path212" />
+			<g
+   id="g216">
+				
+					<rect
+   x="215.6"
+   y="626.7"
+   transform="matrix(0.5676 -0.8233 0.8233 0.5676 -427.6549 452.0921)"
+   class="st1"
+   width="2"
+   height="13"
+   id="rect214" />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g230">
+		<g
+   id="g228">
+			<path
+   class="st0"
+   d="M537,653c0,0,131-98.1,250.2-275.3"
+   id="path222" />
+			<g
+   id="g226">
+				
+					<rect
+   x="786.2"
+   y="371.2"
+   transform="matrix(0.5705 -0.8213 0.8213 0.5705 27.8832 808.7637)"
+   class="st1"
+   width="2"
+   height="13"
+   id="rect224" />
+			</g>
+		</g>
+	</g>
+</g>
+<g
+   id="Ebene_1">
+	<circle
+   class="st9"
+   cx="499.5"
+   cy="340.5"
+   r="30.5"
+   id="circle233" />
+	<text
+   class="st4 st10 st11"
+   id="text235"
+   x="483.16345"
+   y="345.89749"
+   style="font-size:19.0659008px;font-family:MyriadPro-Regular;fill:#ffffff"><tspan
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+     id="tspan4875">AVA</tspan></text>
+
+	<g
+   id="g241">
+		<circle
+   class="st9"
+   cx="499.5"
+   cy="672.5"
+   r="30.5"
+   id="circle237" />
+		<text
+   class="st4 st10 st11"
+   id="text239"
+   x="483.36063"
+   y="678.42719"
+   style="font-size:19.0659008px;font-family:MyriadPro-Regular;fill:#ffffff"><tspan
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+     id="tspan4885">AVB</tspan></text>
+
+	</g>
+	<g
+   id="g247">
+		<circle
+   class="st12"
+   cx="801.5"
+   cy="340.5"
+   r="30.5"
+   id="circle243" />
+		<text
+   class="st4 st10 st11"
+   id="text245"
+   x="785.42993"
+   y="346.64658"
+   style="font-size:19.0659008px;font-family:MyriadPro-Regular;fill:#ffffff"><tspan
+     style="font-size:16px;-inkscape-font-specification:sans-serif;font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+     id="tspan4873">AVD</tspan></text>
+
+	</g>
+	<g
+   id="g253">
+		<circle
+   class="st12"
+   cx="197.5"
+   cy="673.5"
+   r="30.5"
+   id="circle249" />
+		<text
+   class="st4 st10 st11"
+   id="text251"
+   x="180.64238"
+   y="680.48651"
+   style="font-size:19.0659008px;font-family:MyriadPro-Regular;fill:#ffffff"><tspan
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+     id="tspan4883">PVC</tspan></text>
+
+	</g>
+	<polygon
+   class="st13"
+   points="107.2,368 138.9,313 75.4,313  "
+   id="polygon255" />
+	<text
+   class="st4 st10 st11"
+   id="text257"
+   x="90.941124"
+   y="334.89749"
+   style="font-size:19.0659008px;font-family:MyriadPro-Regular;fill:#ffffff"><tspan
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+     id="tspan4879">PVD</tspan></text>
+
+	<polygon
+   class="st13"
+   points="288.2,368 319.9,313 256.4,313  "
+   id="polygon259" />
+	<text
+   class="st4 st10 st11"
+   id="text261"
+   x="272.50485"
+   y="334.89749"
+   style="font-size:19.0659008px;font-family:MyriadPro-Regular;fill:#ffffff"><tspan
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+     id="tspan4877">PLM</tspan></text>
+
+	<polygon
+   class="st13"
+   points="711.2,700 742.9,645 679.4,645  "
+   id="polygon263" />
+	<text
+   class="st4 st10 st11"
+   id="text265"
+   x="694.98169"
+   y="666.42719"
+   style="font-size:19.0659008px;font-family:MyriadPro-Regular;fill:#ffffff"><tspan
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+     id="tspan4887">AVM</tspan></text>
+
+	<polygon
+   class="st13"
+   points="890.2,700 921.9,645 858.4,645  "
+   id="polygon267" />
+	<text
+   class="st4 st10 st11"
+   id="text269"
+   x="874.99426"
+   y="666.27203"
+   style="font-size:19.0659008px;font-family:MyriadPro-Regular;fill:#ffffff"><tspan
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+     id="tspan4891">ALM</tspan></text>
+
+	<polygon
+   class="st14"
+   points="498.5,129.2 454.4,205.5 542.5,205.5  "
+   id="polygon271" />
+	<text
+   class="st4 st10 st11"
+   id="text273"
+   x="482.42407"
+   y="192.19411"
+   style="font-size:19.0659008px;font-family:MyriadPro-Regular;fill:#ffffff"><tspan
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+     id="tspan4881">REV</tspan></text>
+
+	<polygon
+   class="st14"
+   points="499.5,805.2 455.4,881.5 543.5,881.5  "
+   id="polygon275" />
+	<text
+   class="st4 st10 st11"
+   id="text277"
+   x="481.5654"
+   y="865.01617"
+   style="font-size:19.0659008px;font-family:MyriadPro-Regular;fill:#ffffff"><tspan
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+     id="tspan4889">FWD</tspan></text>
+
+</g>
+<g
+   id="Ebene_3">
+	<rect
+   x="651.5"
+   y="811.5"
+   class="st15"
+   width="300"
+   height="136"
+   id="rect280" />
+	<g
+   id="g286">
+		<path
+   class="st13"
+   d="M690.5,846.6c-2.8,3.3-6.9,5.4-11.5,5.4c-8.3,0-15-6.7-15-15c0-4.4,1.9-8.3,4.9-11.1"
+   id="path282" />
+		<path
+   class="st12"
+   d="M668.9,825.9c2.7-2.4,6.2-3.9,10.1-3.9c8.3,0,15,6.7,15,15c0,3.7-1.3,7-3.5,9.6"
+   id="path284" />
+	</g>
+	<polygon
+   class="st13"
+   points="678.8,894 693.3,869 664.4,869  "
+   id="polygon288" />
+	<polygon
+   class="st16"
+   points="679.2,910.4 664.4,936 694,936  "
+   id="polygon290" />
+	<g
+   id="g302">
+		<line
+   class="st17"
+   x1="800"
+   y1="837"
+   x2="826"
+   y2="837"
+   id="line292" />
+		<g
+   id="g300">
+			<line
+   class="st0"
+   x1="800"
+   y1="837"
+   x2="825"
+   y2="837"
+   id="line294" />
+			<g
+   id="g298">
+				<rect
+   x="824"
+   y="830.5"
+   class="st1"
+   width="2"
+   height="13"
+   id="rect296" />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g314">
+		<line
+   class="st17"
+   x1="800"
+   y1="880"
+   x2="826"
+   y2="880"
+   id="line304" />
+		<g
+   id="g312">
+			<line
+   class="st2"
+   x1="800"
+   y1="880"
+   x2="816.7"
+   y2="880"
+   id="line306" />
+			<g
+   id="g310">
+				<polygon
+   class="st3"
+   points="814.8,886.5 826,880 814.8,873.5     "
+   id="polygon308" />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g330">
+		<line
+   class="st17"
+   x1="800"
+   y1="923"
+   x2="826"
+   y2="923"
+   id="line316" />
+		<g
+   id="g328">
+			<line
+   class="st5"
+   x1="800"
+   y1="923"
+   x2="821.7"
+   y2="923"
+   id="line318" />
+			<g
+   id="g326">
+				<g
+   id="g324">
+					<rect
+   x="817.5"
+   y="919"
+   class="st4"
+   width="7.9"
+   height="7.9"
+   id="rect320" />
+					<path
+   class="st6"
+   d="M826,927.6h-9.1v-9.1h9.1V927.6z M818.1,926.4h6.7v-6.7h-6.7V926.4z"
+   id="path322" />
+				</g>
+			</g>
+		</g>
+	</g>
+	<rect
+   x="704"
+   y="831"
+   class="st18"
+   width="91"
+   height="14.3"
+   id="rect332" />
+	<text
+   transform="matrix(1 0 0 1 704 839.5195)"
+   class="st10 st19"
+   id="text334"><tspan
+     style="-inkscape-font-specification:sans-serif;font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:10.66666667px"
+     id="tspan4893">Inter neuron</tspan></text>
+
+	<rect
+   x="704"
+   y="875"
+   class="st18"
+   width="91"
+   height="14.3"
+   id="rect336" />
+	<text
+   transform="matrix(1 0 0 1 704 883.5195)"
+   class="st10 st19"
+   id="text338"><tspan
+     style="-inkscape-font-specification:sans-serif;font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:10.66666667px"
+     id="tspan4895">Sensory neuron</tspan></text>
+
+	<rect
+   x="704"
+   y="918"
+   class="st18"
+   width="91"
+   height="14.3"
+   id="rect340" />
+	<text
+   transform="matrix(1 0 0 1 704 926.5195)"
+   class="st10 st19"
+   id="text342"><tspan
+     style="-inkscape-font-specification:sans-serif;font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:10.66666667px"
+     id="tspan4897">Motor neuron</tspan></text>
+
+	<rect
+   x="838"
+   y="831"
+   class="st18"
+   width="100"
+   height="14.3"
+   id="rect344" />
+	<text
+   transform="matrix(1 0 0 1 838 839.5195)"
+   class="st10 st19"
+   id="text346"><tspan
+     style="font-size:10.66666667px;-inkscape-font-specification:sans-serif;font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+     id="tspan4899">Inhibitory Synapse</tspan></text>
+
+	<rect
+   x="838"
+   y="874"
+   class="st18"
+   width="100"
+   height="14.3"
+   id="rect348" />
+	<text
+   transform="matrix(1 0 0 1 838 882.5195)"
+   class="st10 st19"
+   id="text350"><tspan
+     style="font-size:10.66666667px;-inkscape-font-specification:sans-serif;font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+     id="tspan4901">Excitatory Synapse</tspan></text>
+
+	<rect
+   x="838"
+   y="917"
+   class="st18"
+   width="100"
+   height="14.3"
+   id="rect352" />
+	<text
+   transform="translate(838,925.5195)"
+   class="st10 st19"
+   id="text354"
+   style="font-size:12px;font-family:MyriadPro-Regular"><tspan
+     style="font-size:10.66666667px;-inkscape-font-specification:sans-serif;font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+     id="tspan4903">Gap-Junction</tspan></text>
+
+</g>
+</svg>
