@@ -82,6 +82,18 @@
 	Interneuronen, wie PVC, AVD, DVA, AVA und AVB sind direkt mit Sensor-Neuronen sowie untereinander durch Synapsen und Gap-Junctions verbunden. In jeder internen Nervenzelle findet ein Integrationsprozess der jeweiligen anliegenden Ströme aus Stimulus ($I_{Stimuli}$), anderen chemikalischen Synapsen ($I_{Syn}$) und Gap-Junctions ($I_{Gap}$) statt. Durch das Leaky Integrate and Fire - Modell kann das Membranpotential durch anliegende Ströme zum nächstgelegenen Zeitpunkt bestimmt und ein mögliches Feuer-Event vorhergesagt werden. Eine Nervenzelle feuert ein Signal, wenn das Membranpotential einen Treshold $\theta = -20mV$ erreicht hat. Neurotransmitter werden freigelassen und ein Informationsfluss findet statt.\\
 	Um nun den Reflex des Wurms C. Elegans umzusetzen benötigt es noch zwei \textit{Motor-Neuronen}. Diese sind dafür zuständig, ein Befehl in Form eines Feuer-Signals an gewisse Muskelgruppen zu übersetzen, damit diese bewegt werden. In dem behandelten Experiment bedient die Inter-Neurone AVA die Motor-Neurone REV, welche für eine Rückwärtsbewegung steht, analog die Inter-Neurone AVB die Motor-Neurone FWD, welche eine Vorwärtsbewegung initiiert.\\
 	Dieser Kreislauf bildet nun ein in sich geschlossenes System mit vier Eingängen und zwei Ausgängen (man achte auf das Mapping mit positiven und negativen Werten) und bildet ein lernfähiges neuronales Netz.
+% ***
+\section{Das symmetrische neuronale Netz}
+\label{sec:my_net}
+% ***
+	Wie in \cite{Wicks1996} bereits thematisiert, wird in Abb. \ref{fig:01_TW-Circuit} lediglich eine Hälfte des symmetrischen neuronalen Netzes des Wurms C. Elegans beschrieben. Wie im menschlichen Gehirn besteht das Netzwerk aus zwei Hälften, welche zusammenwirken und bei gegebenen Sensor-Input eine Aktion wählen. Eine erweiterte Analyse des Netzwerks besonders mit den berechneten Gewichten der einzelnen Synapsen ergibt, dass das gegebene Netz von Lechner et al. \ref{fig:01_TW-Circuit} unsymmetrisch scheint. Die Nervenzelle \textit{DVA}, welche als Synchronisationszelle zwischen beiden Netzwerkhälften dienen soll, taucht im gegebenen Netz als unsymmetrische Komponente auf und scheint gewisse Sensor-Inputs ungleichmäßig zu gewichten. Im Zuge dessen wird ein neues, symmetrisches neuronales Netz entwickelt, welches zum Einen symmetrischer Natur ist, zum Anderen manche Synapsen und Gap-Junctions misst, da diese nicht zielführend für das gegebene Problem erschienen. Spätere Simulationen bestätigten diese Annahmen, indem durch Gewichtung der Synapsen und Gap-Junctions manche Verbindungen ein verschwindend geringes Gewicht erhielten.
+	\begin{figure}[!h] %[!t] ...
+		\centering
+		\includegraphics[width=10cm]{figures/chap_neuron/Neural_Net_v3_plain.pdf}
+		\caption{Symmetrisches neuronales Netz des TW-Circuits}
+		\label{fig:nn_new}
+	\end{figure}\\
+	Das in Abb. \ref{fig:nn_new} dargestellte, symmetrische neuronale Netz des TW-Circuit wird für alle weiteren Analysen und Simulationsläufe verwendet. Die genaue Umsetzung wird in Kapitel \ref{chap:imp} weiter erläutert.
 	
 
 %%% Local Variables: 

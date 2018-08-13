@@ -1,4 +1,4 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{8}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -32,6 +32,12 @@ Strogatz SH (1994) Nonlinear Dynamics And Chaos: With Applications To Physics,
   Biology, Chemistry And Engineering (Studies in Nonlinearity). Studies in
   nonlinearity, Perseus Books,
   \urlprefix\url{https://books.google.de/books?id=PHmED2xxrE8C}
+
+\bibitem[{Wicks et~al(1996)Wicks, Roehrig, and Rankin}]{Wicks1996}
+Wicks SR, Roehrig CJ, Rankin CH (1996) A dynamic network simulation of the
+  nematode tap withdrawal circuit: Predictions concerning synaptic function
+  using behavioral criteria. J Neurosci 16(12):4017,
+  \urlprefix\url{http://www.jneurosci.org/content/16/12/4017.abstract}
 
 \bibitem[{Wilinski(2018)}]{BA}
 Wilinski J (2018) Bachelorarbeit repository. Online,

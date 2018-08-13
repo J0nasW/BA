@@ -12,7 +12,7 @@
 \label{sec:lif_model}
 % ***
 	Grundsätzlich wird in der Natur beobachtet, dass die neuronale Dynamik als Summationsprozess gefolgt von einer kurzfristigen Entladung des Aktionspotentials beschrieben werden kann. Die Entladung erfolgt hierbei immer ab einem gewissen Wert, welcher als 'Treshold' $\vartheta$ beschrieben wird. Bei Überschreitung 'feuert' die Nervenzelle und Informationen gelangen über Synapsen und Gap-Junctions zu nahegelegenen Neuronen.\\
-	Um dieses Verhalten zu modellieren, wird der Zellkern genauer betrachtet. Dieser ist mit einer Zellmembran umgeben, welche als guter Isolator dient. Bei anliegenden Strömen $I_{Stimuli}$, $I_{Syn}$ oder $I_{Gap}$ wird die elektrische Ladung $q = \int I(t')dt'$ die Membran aufladen. Die Zellmembran handelt entsprechend einem Kondensator mit Kapazität $C_m$. Da jedoch in der Natur kein perfekter Kondensator existiert, verliert die Zellmembran über Zeit minimal elektrische Ladung. Daher wird dem Kondensator ein Leckwiderstand $R$ parallel geschaltet. Um das beobachtete Ruhepotential $U_{Leak}$ nach einem Feuer-Event oder bei keinem Input wiederherzustellen, wird eine Batterie in Reihe mit dem Widerstand $R$ geschaltet.
+	Um dieses Verhalten zu modellieren, wird der Zellkern genauer betrachtet. Dieser ist mit einer Zellmembran umgeben, welche als guter Isolator dient. Bei anliegenden Strömen $I_{Stimuli}$, $I_{Syn}$ oder $I_{Gap}$ wird die elektrische Ladung $q = \int I(t')dt'$ die Membran aufladen. Die Zellmembran handelt entsprechend einem Kondensator mit Kapazität $C_m$. Da jedoch in der Natur kein perfekter Kondensator existiert, verliert die Zellmembran über Zeit minimal elektrische Ladung. Daher wird dem Kondensator ein Leckwiderstand $R$ parallel geschaltet. Um das beobachtete Ruhepotential $U_{Leak}$ nach einem Feuer-Event oder bei keinem Input wiederherzustellen, wird eine Batterie in Reihe mit dem Widerstand $R$ geschaltet.\\
 	Technisch lässt sich dieses Verhalten als ein elektrisches Ersatzschaltbild wie in Abb. \ref{cic:lif} darstellen (siehe \cite{NeuronalDynamics} Kap. 1.3.1).
 	\begin{figure}
 		\centering
@@ -174,25 +174,82 @@
 		\label{eq:runkgekutta_erg}
 		u_{i+1}(t) &= u_i(t) + \tfrac{1}{6} (k_1 + 2 k_2 + 2 k_3 + k_4)
 	\end{align}
-	Um diese Funktion im Gesamtcode später mühelos aufrufen zu können, wird ein Python-Script (\texttt{modules/lif.py}) erstellt. Dieses enthält neben der Funktion zur Berechnung des Membranpotentials auch die der Berechnung von Synapsen- und Gap-Junction-Strömen. Das gesamte Modul zur Berechnung von Strömen und Spannungen pro Zeiteinheit wird wie folgt implementiert:
+	Um diese Funktion im Gesamtcode später mühelos aufrufen zu können, wird ein Python-Script (\texttt{modules/lif.py}) erstellt. Dieses enthält neben der Funktion zur Berechnung des Membranpotentials auch die der Berechnung von Synapsen- und Gap-Junction-Strömen.\\
+	In diversen Such-Algorithmen wird eine Funktion \texttt{compute} implementiert, welche das Modul \texttt{lif.py} aufruft. Um eine effiziente Berechnung der Membranpotentiale und Synapsen- bzw. Gap-Junction Ströme zu gewährleisten, wird die Funktion wie folgt aufgebaut:
 	\begin{algorithm}
 		\SetKwInOut{Input}{Input}
 		\SetKwInOut{Output}{Output}
 		
 		\Input{$\boldsymbol{x}, \boldsymbol{u}, \boldsymbol{A}, \boldsymbol{B}, \boldsymbol{C_m}, \boldsymbol{G_{Leak}}, \boldsymbol{U_{Leak}}, \boldsymbol{\sigma}, \boldsymbol{w}, \boldsymbol{\hat{w}}$}
-		\Output{Simulationsinformation (information.txt), Parameter-Dump als .hkl Datei}
+		\Output{$\boldsymbol{x}, \boldsymbol{u}, \boldsymbol{fire}, \boldsymbol{I_{Syn}}, \boldsymbol{I_{Gap}}$}
 		
 		\For{i $\leftarrow$ 1 \textbf{to} 4}{
 			\For{j $\leftarrow$ 1 \textbf{to} 4}{
-				$I_inter{i,j}$ = I\_syn\_calc($x[i], x[j], E, w[k], \sigma[k], \mu$)\\
-				$I_sensor{i,j}$ = I\_syn\_calc($u[i], u[j], E, w[k], \sigma[k], \mu$)\\
-				k $\leftarrow$ k + 1
-				$I_gap{i,j}$ = I\_gap\_calc($x[i], x[j], \hat{w[k]}$)\\
+				\uIf{$\boldsymbol{A_{i,j}} == 1$}{
+					$I_{inter}{i,j}$ = I\_syn\_calc($x[i], x[j], E_{in}, w[k], \sigma[k], \mu$)\\
+					k $\leftarrow$ k + 1
+				}
+				\uElseIf{$\boldsymbol{A_{i,j}} == 2$}{
+					$I_{inter}{i,j}$ = I\_syn\_calc($x[i], x[j], E_{ex}, w[k], \sigma[k], \mu$)\\
+					k $\leftarrow$ k + 1
+				}
+				\uElse{}{
+					$I_{inter}{i,j}$ = 0
+				}
+			
+				\uIf{$\boldsymbol{B_{i,j}} == 1$}{
+					
+				}
+				
+				$I_{inter}{i,j}$ = I\_syn\_calc($x[i], x[j], E, w[k], \sigma[k], \mu$)\\
+				$I_{sensor}{i,j}$ = I\_syn\_calc($u[i], u[j], E, w[k], \sigma[k], \mu$)\\
+				k $\leftarrow$ k + 1\\
+				$I_{gap}{i,j}$ = I\_gap\_calc($x[i], x[j], \hat{w[l]}$)\\
+				k $\leftarrow$ l + 1\\
 			}
 		}
-		\KwRet{information.txt, parameter\_dump.hkl, date, best\_reward}
+		\KwRet{$\boldsymbol{x}, \boldsymbol{u}, \boldsymbol{fire}, \boldsymbol{I_{Syn}}, \boldsymbol{I_{Gap}}$}
 		\caption{compute}
-	\end{algorithm}
+	\end{algorithm}\\
+	Die Vektoren $\boldsymbol{x}$ und $\boldsymbol{u}$ spiegeln die aktuellen Membranpotentiale der jeweiligen Nervenzellen wieder
+	\begin{align}
+		\boldsymbol{x} &= \begin{pmatrix}AVA & AVD & PVC & AVB\end{pmatrix}\text{ und}\\
+		\boldsymbol{u} &= \begin{pmatrix}PVD & PLM & AVM & ALM\end{pmatrix}\text{.}
+		\label{eq:xu}
+	\end{align}
+	Vektor $\boldsymbol{x}$ beschreibt das Membranpotential interner Nervenzellen, Feuer-Events der Neuronen \textit{AVA} und \textit{AVB} sind später von Interesse. $\boldsymbol{u}$ stellt das Potential für die Eingangsneuronen dar, welche durch die Berechnungsvorschriften \ref{eq:sensor_translation_p} und \ref{eq:sensor_translation_n} je nach Sensordaten gesetzt werden.\\
+	Matrizen $\boldsymbol{A}$ und $\boldsymbol{B}$ werden als Transitionsmatrizen genutzt, um die Verbindungen der Neuronen im neuronalen Netz zu beschreiben.
+	\begin{align}
+		\boldsymbol{A} &= \bordermatrix{
+		\quad\Rsh& AVA & AVD & PVC & AVB \cr
+			AVA &  0  &  0  &  1  &  1  \cr
+			AVD &  2  &  0  &  2  &  0  \cr
+			PVC &  0  &  2  &  0  &  2  \cr
+			AVB &  1  &  1  &  0  &  0  \cr
+		}
+	\end{align}
+	beschreibt Verbindungen innerhalb der internen Nervenzellen. Dabei stehen die Ziffern $[0,1,2]$ für folgende Verbindungen:
+	\begin{align*}
+		0 &: \text{Keine Verbindung zwischen Neuronen }\boldsymbol{A_i}\text{ und } \boldsymbol{A_j}\\
+		1 &: \text{Inhibitorische Verbindung zwischen Neuronen }\boldsymbol{A_i}\text{ und }\boldsymbol{A_j}\\
+		2 &: \text{Exzitatorische Verbindung zwischen Neuronen }\boldsymbol{A_i}\text{ und }\boldsymbol{A_j}.
+	\end{align*}
+	Die Matrix
+	\begin{align}
+	\boldsymbol{B} &= \bordermatrix{
+		\quad\Rsh& AVA & AVD & PVC & AVB \cr
+			PVD &  0  &  1  &  1  &  0  \cr
+			PLM &  1  &  1  &  3  &  0  \cr
+			AVM &  0  &  3  &  1  &  1  \cr
+			ALM &  0  &  1  &  1  &  0  \cr
+		}\text{.}
+	\end{align}
+	beschreibt analog die Verbindungen der Sensor-Neuronen mit den internen Nervenzellen. Verbindungen werden zwischen diesen Typen von Nervenzellen nur durch inhibitorische Synapsen und Gap-Junctions gemacht.
+	\begin{align*}
+		0 &: \text{Keine Verbindung zwischen Neuronen }\boldsymbol{B_i}\text{ und } \boldsymbol{B_j}\\
+		1 &: \text{Inhibitorische Verbindung zwischen Neuronen }\boldsymbol{B_i}\text{ und }\boldsymbol{B_j}\\
+		3 &: \text{Verbindung durch Gap-Junction zwischen Neuronen }\boldsymbol{B_i}\text{ und }\boldsymbol{B_j}.
+	\end{align*}
 
 %%% Local Variables: 
 %%% mode: latex

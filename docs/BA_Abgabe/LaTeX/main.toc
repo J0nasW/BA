@@ -5,36 +5,37 @@
 \contentsline {section}{\numberline {1.1}Grundlegende Berechenbarkeitsmodelle}{3}{section.1.1}
 \contentsline {section}{\numberline {1.2}Die biologische Nervenzelle}{4}{section.1.2}
 \contentsline {section}{\numberline {1.3}Das biologische neuronale Netz}{6}{section.1.3}
+\contentsline {section}{\numberline {1.4}Das symmetrische neuronale Netz}{7}{section.1.4}
 \contentsline {chapter}{\numberline {2}Leaky Integrate and Fire und simulative Modelle neuronaler Netze}{9}{chapter.2}
 \contentsline {section}{\numberline {2.1}Das Leaky Integrate and Fire - Modell}{9}{section.2.1}
 \contentsline {section}{\numberline {2.2}Anwendung auf Modelle neuronaler Netze}{11}{section.2.2}
 \contentsline {section}{\numberline {2.3}Zuverl\IeC {\"a}ssigkeit und Limitationen}{12}{section.2.3}
 \contentsline {section}{\numberline {2.4}Implementierung}{12}{section.2.4}
-\contentsline {chapter}{\numberline {3}Reinforcement Learning - Lernen mit Belohnung}{15}{chapter.3}
-\contentsline {section}{\numberline {3.1}Reinforcement Learning - eine Abwandlung des Deep Learning}{15}{section.3.1}
-\contentsline {section}{\numberline {3.2}Anwendung auf Modelle neuronaler Netze}{16}{section.3.2}
-\contentsline {section}{\numberline {3.3}Verschiedene Suchalgorithmen}{17}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Q-Learning}{17}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Gradient Policies}{17}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Genetische Algorithmen}{17}{subsection.3.3.3}
-\contentsline {subsection}{\numberline {3.3.4}Random Search}{17}{subsection.3.3.4}
-\contentsline {section}{\numberline {3.4}Implementierung}{18}{section.3.4}
-\contentsline {chapter}{\numberline {4}Implementierung des TW-Netzes}{19}{chapter.4}
-\contentsline {section}{\numberline {4.1}Aufbau des Programms}{19}{section.4.1}
-\contentsline {section}{\numberline {4.2}Implementierung der Suchalgorithmen}{20}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Suchalgorithmus RandomSearch}{20}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Suchalgorithmus Weights}{21}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Simulation in der Google Cloud Platform\textsuperscript {\textregistered }}{21}{subsection.4.2.3}
-\contentsline {section}{\numberline {4.3}Simulationsumgebung: OpenAI Gym}{21}{section.4.3}
-\contentsline {section}{\numberline {4.4}Visualisierung und Auswertung}{21}{section.4.4}
-\contentsline {section}{\numberline {4.5}Sonstige Implementierung}{21}{section.4.5}
-\contentsline {section}{\numberline {4.6}Steuerung und Zusammenfassung}{21}{section.4.6}
-\contentsline {chapter}{\numberline {5}Performance \& Auswertung}{23}{chapter.5}
-\contentsline {section}{\numberline {5.1}Performance implementierter Algorithmen}{23}{section.5.1}
-\contentsline {section}{\numberline {5.2}Limitationen und Alternativen von Algorithmen}{23}{section.5.2}
-\contentsline {section}{\numberline {5.3}Vergleich zu bestehenden Systemen}{23}{section.5.3}
-\contentsline {section}{\numberline {5.4}Zusammenfassung}{23}{section.5.4}
-\contentsline {chapter}{\numberline {A}Programmcode Python}{25}{appendix.A}
-\contentsline {section}{\numberline {A.1}LIF-Modell}{25}{section.A.1}
-\contentsline {chapter}{\numberline {B}Aufbau Modul}{27}{appendix.B}
-\contentsline {chapter}{Literaturverzeichnis}{29}{appendix*.17}
+\contentsline {chapter}{\numberline {3}Reinforcement Learning - Lernen mit Belohnung}{17}{chapter.3}
+\contentsline {section}{\numberline {3.1}Reinforcement Learning - eine Abwandlung des Deep Learning}{17}{section.3.1}
+\contentsline {section}{\numberline {3.2}Anwendung auf Modelle neuronaler Netze}{18}{section.3.2}
+\contentsline {section}{\numberline {3.3}Verschiedene Suchalgorithmen}{19}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Q-Learning}{19}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Gradient Policies}{19}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Genetische Algorithmen}{19}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Random Search}{19}{subsection.3.3.4}
+\contentsline {section}{\numberline {3.4}Implementierung}{20}{section.3.4}
+\contentsline {chapter}{\numberline {4}Implementierung des TW-Netzes}{21}{chapter.4}
+\contentsline {section}{\numberline {4.1}Aufbau des Programms}{21}{section.4.1}
+\contentsline {section}{\numberline {4.2}Implementierung der Suchalgorithmen}{22}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Suchalgorithmus RandomSearch}{22}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Suchalgorithmus Weights}{23}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Simulation in der Google Cloud Platform\textsuperscript {\textregistered }}{23}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Simulationsumgebung: OpenAI Gym}{23}{section.4.3}
+\contentsline {section}{\numberline {4.4}Visualisierung und Auswertung}{23}{section.4.4}
+\contentsline {section}{\numberline {4.5}Sonstige Implementierung}{23}{section.4.5}
+\contentsline {section}{\numberline {4.6}Steuerung und Zusammenfassung}{23}{section.4.6}
+\contentsline {chapter}{\numberline {5}Performance \& Auswertung}{25}{chapter.5}
+\contentsline {section}{\numberline {5.1}Performance implementierter Algorithmen}{25}{section.5.1}
+\contentsline {section}{\numberline {5.2}Limitationen und Alternativen von Algorithmen}{25}{section.5.2}
+\contentsline {section}{\numberline {5.3}Vergleich zu bestehenden Systemen}{25}{section.5.3}
+\contentsline {section}{\numberline {5.4}Zusammenfassung}{25}{section.5.4}
+\contentsline {chapter}{\numberline {A}Programmcode Python}{27}{appendix.A}
+\contentsline {section}{\numberline {A.1}LIF-Modell}{27}{section.A.1}
+\contentsline {chapter}{\numberline {B}Aufbau Modul}{29}{appendix.B}
+\contentsline {chapter}{Literaturverzeichnis}{31}{appendix*.18}
