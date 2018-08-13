@@ -186,32 +186,40 @@
 		\For{i $\leftarrow$ 1 \textbf{to} 4}{
 			\For{j $\leftarrow$ 1 \textbf{to} 4}{
 				\uIf{$\boldsymbol{A_{i,j}} == 1$}{
-					$I_{inter}{i,j}$ = I\_syn\_calc($x[i], x[j], E_{in}, w[k], \sigma[k], \mu$)\\
+					I\_inter$_{i,j}$ = I\_syn\_calc($x[i], x[j], E_{in}, w[k], \sigma[k], \mu$)\\
 					k $\leftarrow$ k + 1
 				}
 				\uElseIf{$\boldsymbol{A_{i,j}} == 2$}{
-					$I_{inter}{i,j}$ = I\_syn\_calc($x[i], x[j], E_{ex}, w[k], \sigma[k], \mu$)\\
+					I\_inter$_{i,j}$ = I\_syn\_calc($x[i], x[j], E_{ex}, w[k], \sigma[k], \mu$)\\
 					k $\leftarrow$ k + 1
 				}
-				\uElse{}{
-					$I_{inter}{i,j}$ = 0
+				\Else{
+					I\_inter$_{i,j}$ = 0
 				}
 			
 				\uIf{$\boldsymbol{B_{i,j}} == 1$}{
-					
+					I\_sensor$_{i,j}$ = I\_syn\_calc($u[i], u[j], E_{in}, w[k], \sigma[k], \mu$)\\
+					l $\leftarrow$ l + 1
 				}
-				
-				$I_{inter}{i,j}$ = I\_syn\_calc($x[i], x[j], E, w[k], \sigma[k], \mu$)\\
-				$I_{sensor}{i,j}$ = I\_syn\_calc($u[i], u[j], E, w[k], \sigma[k], \mu$)\\
-				k $\leftarrow$ k + 1\\
-				$I_{gap}{i,j}$ = I\_gap\_calc($x[i], x[j], \hat{w[l]}$)\\
-				k $\leftarrow$ l + 1\\
+				\uElseIf{$\boldsymbol{B_{i,j}} == 3$}{
+					I\_sensor$_{i,j}$ = I\_gap\_calc($u[i], x[j], \hat{w}[k]$)\\
+					m $\leftarrow$ m + 1
+				}
+				\Else{
+					I\_sensor$_{i,j}$ = 0
+				}
 			}
+		}
+		\For{i $\leftarrow$ 0 \textbf{to} 4}{
+			I\_inter = I\_inter.sum(axis = 0)\\
+			I\_sensor = I\_sensor.sum(axis = 0)\\
+			x[i], fire[i] = U\_neuron\_calc($x[i], I\_inter[i], I\_sensor[i], C_m[0,i], G_{Leak}[0,i], U_{Leak}[0,i], v, \Delta t$)
+			
 		}
 		\KwRet{$\boldsymbol{x}, \boldsymbol{u}, \boldsymbol{fire}, \boldsymbol{I_{Syn}}, \boldsymbol{I_{Gap}}$}
 		\caption{compute}
-	\end{algorithm}\\
-	Die Vektoren $\boldsymbol{x}$ und $\boldsymbol{u}$ spiegeln die aktuellen Membranpotentiale der jeweiligen Nervenzellen wieder
+	\end{algorithm}
+	Die Vektoren $\boldsymbol{x}$ und $\boldsymbol{u}$ spiegeln die aktuellen Membranpotentiale der jeweiligen Nervenzellen wieder:
 	\begin{align}
 		\boldsymbol{x} &= \begin{pmatrix}AVA & AVD & PVC & AVB\end{pmatrix}\text{ und}\\
 		\boldsymbol{u} &= \begin{pmatrix}PVD & PLM & AVM & ALM\end{pmatrix}\text{.}
@@ -244,7 +252,7 @@
 			ALM &  0  &  1  &  1  &  0  \cr
 		}\text{.}
 	\end{align}
-	beschreibt analog die Verbindungen der Sensor-Neuronen mit den internen Nervenzellen. Verbindungen werden zwischen diesen Typen von Nervenzellen nur durch inhibitorische Synapsen und Gap-Junctions gemacht.
+	beschreibt analog die Verbindungen der Sensor-Neuronen mit den internen Nervenzellen. Verbindungen werden zwischen diesen Typen von Nervenzellen nur durch inhibitorische Synapsen und Gap-Junctions gemacht. Die Ziffern $[0,1,3]$ haben folgende Bedeutung:
 	\begin{align*}
 		0 &: \text{Keine Verbindung zwischen Neuronen }\boldsymbol{B_i}\text{ und } \boldsymbol{B_j}\\
 		1 &: \text{Inhibitorische Verbindung zwischen Neuronen }\boldsymbol{B_i}\text{ und }\boldsymbol{B_j}\\

@@ -177,7 +177,7 @@ def observe(observation):
     else:
         u[2] = Default_U_leak + ((v-Default_U_leak)/15) * (np.sqrt(np.absolute(angle))*5) # AVM
         u[1] = Default_U_leak
-    
+    '''
     # Setting the Cart Position to Sensory Neurons ALM (pos. movement) and PVD (neg. movement)
     if cart_pos > 0:
         u[3] = Default_U_leak + ((v-Default_U_leak)/0.8) * (np.absolute(cart_pos)*7) # ALM
@@ -197,7 +197,7 @@ def observe(observation):
     else:
         u[3] = Default_U_leak + ((v-Default_U_leak)/1.05) * (np.absolute(angle_velocity)) # PVD
         u[0] = Default_U_leak
-    '''
+    
     return angle
 
 

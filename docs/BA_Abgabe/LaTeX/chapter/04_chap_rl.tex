@@ -5,8 +5,8 @@
 % ****
 %
 
-	Reinforcement Learning (kurz: RL) kann als einer der drei großen Bereiche des Maschine Learning interpretiert werden. Neben den Bereichen ``Supervised-'' und ``Unsupervised Learning'' deckt es ein weites Spektrum an Anwendungsfeldern ab.\\
-	Die grundsätzliche Vorgehensweise im Reinforcement Learning ist simpel: Ein Agent ist in der Lage, eine Simulation oder ein Spiel zu bedienen. Der Lernprozess erfolgt, indem der Agent eine Aktion tätigt, welche er dann durch die resultierenden Ergebnisse einschätzt und basierend auf dieser immer größer werdenden Datenbasis neue Aktionen tätigt.
+	Reinforcement Learning (kurz: RL) kann als einer der drei großen Bereiche des Maschine Learning interpretiert werden. Neben den Bereichen \glqq Supervised-\grqq{} und \glqq Unsupervised Learning\grqq{} deckt es ein weites Spektrum an Anwendungsfeldern ab.\\
+	Die grundsätzliche Vorgehensweise im Reinforcement Learning ist simpel: Ein Agent ist in der Lage, eine Simulation oder ein Spiel zu bedienen. Seine Aktion beeinflusst eine gut bekannte Umwelt bzw. Simulationsumgebung. Die Ergebnisse dieser Aktion werden durch das Beobachten der Umwelt bzw. der Simulation interpretiert und eingeschätzt. Der Lernprozess erfolgt, indem der Agent durch die Interpretierung der Observation und einer Belohnung eine Aktion tätigt, welche die Belohnung maximieren soll. Durch die immer größer werdende Datenbasis fällt es dem Agenten mit fortgeschrittener Simulation immer einfacher, die \glqq richtigen\grqq{} Aktionen zu treffen, um die maximale Belohnung zu erhalten.
 	
 
 % ***
@@ -14,8 +14,8 @@
 \label{sec:rl_dl}
 % ***
 	Deep Learning hat in den letzten Jahren immer mehr an Relevanz gewonnen. Obwohl der Grundstein dieser Algorithmen und Vorgehensweisen bereits Ende des 19. Jahrhunderts gelegt wurde, fehlte es damals an Rechenleistung sowie hoch parallelen Rechenstrukturen. In der Theorie ist das Konstrukt des Deep Learning in der Lage, bei gegebenen Berechnungsmodellen mit multiplen verbundenen Ebenen Strukturen in großen Datenmengen zu erkennen. Durch heutige Rechenleistungen können Strukturen ein beliebig hohes Abstraktionslevel aufweisen. Anwendungsbereiche für Deep Learning bewegen sich meist im Bereich der Bild- oder Spracherkennung und -klassifizierung, breiten sich jedoch auch auf weitere Bereiche wie Medizin (Pharmazie, Genom-Entschlüsselung) oder Wirtschaft (Kunden-Kaufverhalten, Logistik) aus. Dabei zeichnet einen guten Deep Learning Algorithmus die Fähigkeit aus, s.g. Raw-Files (unbearbeitete Signale wie bspw. Audio-Dateien oder Bilder) ohne Vorwissen auf die gewünschten Daten zu untersuchen und zu klassifizieren, ohne aufwändige Filter, Feature-Vektoren oder andere Mittel zur Vorklassifikation.\\	
-	\textit{Supervised Learning} (zu Deutsch: Überwachtes Lernen) bildet die Grundlage und wurde in den Anfängen der künstlichen Intelligenz eingesetzt. Ein Algorithmus lernt aus gegebenen Paaren von Ein- und Ausgängen eine Funktion, welche nach mehrmaligen Trainingsläufen Assoziationen herstellen soll und auf neue Eingaben passende Ausgaben liefert.\\
-	\textit{Unsupervised Learning} (zu Deutsch: unüberwachtes Lernen) bietet entgegen der Methode des supervised Learning die Möglichkeit, ein Modell ohne im Voraus bekannte Zielwerte oder Behlohnungssysteme durch die Umwelt zu trainieren. Entsprechend benötigen diese Algorithmen mehr Rechenleistung (je nach Aufgabenstellung). Sie versuchen, in einer Anhäufung von Daten Strukturen zu erkennen, welche von stochastischem Rauschen abweichen. Neuronale Netze orientieren sich hier oft an den bekannten Eingängen. Diese Methode wird oft in Bereichen der automatischen Klassifizierung oder Dateikomprimierung genutzt, da hier das Ergebnis im Vorhinein meist unbekannt ist.\\
+	\textit{Supervised Learning} (zu Deutsch: überwachtes Lernen) bildet die Grundlage und wurde in den Anfängen der künstlichen Intelligenz eingesetzt. Ein Algorithmus lernt aus gegebenen Paaren von Ein- und Ausgängen eine Funktion, welche nach mehrmaligen Trainingsläufen Assoziationen herstellen soll und auf neue Eingaben passende Ausgaben liefert.\\
+	\textit{Unsupervised Learning} (zu Deutsch: unüberwachtes Lernen) bietet entgegen der Methode des supervised Learning die Möglichkeit, ein Modell ohne im Voraus bekannte Zielwerte oder Behlohnungssysteme durch die Umwelt zu trainieren. Entsprechend benötigen diese Algorithmen mehr Rechenleistung (bei gleichbleibender Aufgabenstellung). Sie versuchen, in einer Anhäufung von Daten Strukturen zu erkennen, welche von stochastischem Rauschen abweichen. Neuronale Netze orientieren sich hier oft an den bekannten Eingängen. Diese Methode wird oft in Bereichen der automatischen Klassifizierung oder Dateikomprimierung genutzt, da hier das Ergebnis im Vorhinein meist unbekannt ist.\\
 	\textit{Reinforcement Learning} bietet, wie bereits in der Einleitung erwähnt, den Vorteil eines Reward-Systems (zu Deutsch: Belohnungssystem).
 	\begin{figure}[!h] %[!t] ...
 		\centering
@@ -24,26 +24,42 @@
 		\caption{Graphische Darstellung des Reinforcement Learning Algorithmus}
 		\label{fig:rl_chart}
 	\end{figure}\\
-	Der Agent beginnt mit einer anfangs willkürlich gewählten Aktion und beeinflusst damit die Umwelt bzw. die Simulation. Durch einen Interpreter ist es möglich, wichtige Messgrößen (inverses Pendel: Winkel $\varphi$ oder Winkelgeschwindigkeit $\dot{\varphi}$) zu messen und in einen Observationsvektor $\textbf{o}$ zu schreiben. Dieser kann ausgelesen werden und den aktuellen State $x_i$ nach der erfolgten Aktion liefern. Dazu wird durch ein anfangs definiertes Reward-System ein vereinbarter Reward geliefert, welcher die Performance der Simulation widerspiegelt. Der Agent besitzt nun diese Informationen und entscheidet aufgrund des gegebenen States sowie des Rewards, welche Aktion als nächstes getätigt werden soll. In der Theorie wird so der Reward mit jeder Episode höher und der Agent ist in der Lage gewisse Parameter der Simulation entsprechend des jeweiligen Observationsparameters anzupassen.
+	Der Agent beginnt mit einer anfangs willkürlich gewählten Aktion und beeinflusst damit die Umwelt bzw. die Simulation. Durch einen Interpreter ist es möglich, wichtige Messgrößen (inverses Pendel: Winkel $\varphi$ oder Winkelgeschwindigkeit $\dot{\varphi}$) zu messen und in einen Observationsvektor $\textbf{o}$ zu schreiben. Dieser kann ausgelesen werden und den aktuellen State $x_i$ nach der erfolgten Aktion liefern. Dazu wird durch ein anfangs definiertes Reward-System ein vereinbarter Reward geliefert, welcher die Performance der Simulation widerspiegelt. Der Agent besitzt nun diese Informationen und entscheidet aufgrund des gegebenen States sowie des Rewards, welche Aktion als nächstes getätigt werden soll. In der Theorie wird so der Reward mit jeder erfolgreichen Episode höher und der Agent ist in der Lage gewisse Parameter der Simulation entsprechend des jeweiligen Observationsparameters anzupassen.\\
+	Bei dieser Methode ist die Grundlage aller Algorithmen und Optimierungsverfahren der Gesamtreward
+	\begin{align}
+		G_t = \sum_{k=0}^{T}R_{t+k+1}
+	\end{align}
+	Des weiteren ist es geläufig, einen s.g. \glqq Discount-Faktor\grqq{} $\gamma$ einzuführen. Rewards in frühen Schritten der Simulation sind wahrscheinlicher und gut vorherzusehen, wohingegen in fortgeschrittenen Simulationen die Aktionen meist schwer vorhersehbar sind und somit einen höheren Reward verdienen.
+	\begin{align}
+		G_{t\gamma} = \sum_{k=0}^{\infty}\gamma^k R_{t+k+1}\text{ mit }\gamma\in[0,1)
+	\end{align}
+	Von der Benutzung eines solchen Discount-Faktors wird jedoch zuerst abgesehen, da das Finden der perfekten Parameter für die vorgestellte Simulation im Vordergrund steht. In weiteren Anwendungen kann dieser Faktor eingeführt werden.
+	
 	
 % ***
 \section{Anwendung auf Modelle neuronaler Netze}
 \label{sec:rl_neuro}
 % ***
-	Die klassische Anwendung von Deep Learning Algorithmen auf künstlich erstellte neuronale Netze mit vielen s.g. '"Hidden Layers'" (Ebenen zwischen Ein- und Ausgang mit hoher Anzahl an Neuronen) findet im Rahmen dieser Bachelorarbeit nicht statt. Jedoch können viele Methoden und Algorithmen abgewandelt werden, um ein bereits bestehendes, neuronales Netz aus der Natur zu nutzen und auf Probleme der Regelungstechnik anzuwenden. Folglich befassen wir uns mit einem neuronalen Netz, welches ein Layer (zu Deutsch: Ebene) mit vier Neuronen aufweist. Diese Neuronen arbeiten wie bereits in Kapitel \ref{chap:neuro} und \ref{chap:lif} beschrieben ebenfalls anders als in den üblichen Modellen künstlicher neuronaler Netze.\\
+	Reinforcement Learning findet klassischerweise Anwendung durch Deep Learning Algorithmen auf künstlich erstellte neuronale Netze mit vielen s.g. \grqq Hidden Layers\glqq{} (Ebenen zwischen Ein- und Ausgang mit hoher Anzahl an Neuronen) statt. Variiert werden in einem solchen Netz lediglich die jeweiligen Gewichte der Synapsen zwischen den Neuronen. Synapsen sind darüber hinaus einfache Mittel zur Informationsübertragung und haben keine weiteren Eigenschaften oder zeigen kein eigenes Verhalten.\\
+	Das hier vorliegende neuronale Netzwerk ist jedoch gänzlich anders aufgebaut. Nervenzellen werden durch Potentiale beschrieben und integrieren anliegende Informationen auf. Synapsen können verschiedenen Typs sein und hemmend sowie erregend wirken. Sowohl Nervenzellen als auch Synapsen (und Gap-Junctions) haben verschiedene Parameter, welche gewisse Aktionen im neuronalen Netz verursachen können.\\
+	Daher wird in dieser Arbeit die Methode des Reinforcement Learning auf biologische neuronale Netze abgewandelt, um dieses auf Probleme der Regelungstechnik anzuwenden. Folglich befassen wir uns mit einem neuronalen Netz, welches eine Ebene mit vier Neuronen aufweist. Diese Neuronen arbeiten wie bereits in Kapitel \ref{chap:neuro} und \ref{chap:lif} beschrieben ebenfalls anders als in den üblichen Modellen künstlicher neuronaler Netze.\\
 	Die Schwierigkeit dieser Aufgabenstellung besteht darin, geeignete Parameter für jede Nervenzelle sowie für jede Synapse zu finden, sodass das Netz korrekt und zuverlässig auf interpretierte Signale aus der Umwelt reagiert und entsprechend durch den Agenten eine Aktion wählt, welche einen möglichst hohen Reward nach sich zieht. Bezogen auf Abb. \ref{fig:rl_chart} stellt die Umwelt unsere Simulationsumgebung des inversen Pendels (\code{OpenAI Gym - CartPolev0}) dar. Diese nimmt eine Aktion (FWD oder REV) pro Simulationsschritt an und gibt entsprechend einen Observationsvektor $\textbf{o}$ aus, welcher durch den Interpreter übersetzt wird. Der aktuelle State $s$ wird durch die vier Sensorneuronen \textit{PVD, PLM, AVM und ALM} entsprechend interpretiert und in das neuronale Netz eingegeben. Durch den gegebenen Reward haben wir die Information, wie gut das Netzwerk in der entsprechenden Episode mit den entsprechenden Parametern abschneidet.
 
 % ***
 \section{Verschiedene Suchalgorithmen}
 \label{sec:rl_alt}
 % ***
-	Die Wahl des geeigneten Suchalgorithmus ist immer von der Beschaffenheit der Problemstellung abhängig. Klassische Probleme mit Anwendung des Reinforcement Learning auf künstliche neuronale Netze nutzen Algorithmen wie Q-Learning, Policies (Epsilon-Greedy, Gradient-Decend/Acend) oder genetische Algorithmen. Diese sind hoch spezialisiert und suchen nach Maxima/Minima der gegebenen Funktion, um den Fehler zu reduzieren. Bei einer großen Zahl an Parametern, welche untereinander noch korreliert sein können, kommt oft der einfache, jedoch gleichzeitig sehr effektive Random Search Algorithmus zum Einsatz.\\
+	Die Wahl des geeigneten Suchalgorithmus ist immer von der Beschaffenheit der Problemstellung abhängig. Klassische Probleme mit Anwendung des Reinforcement Learning auf künstliche neuronale Netze nutzen Algorithmen wie Q-Learning, Policies (Epsilon-Greedy, Gradient-Decend/Acend) oder genetische Algorithmen. Diese sind hoch spezialisiert und suchen nach Maxima/Minima der gegebenen Funktion, um den Fehler zu reduzieren. Bei einer großen Zahl an Parametern, welche untereinander noch korreliert sein können, kommt oft der einfache, jedoch gleichzeitig sehr effektive \glqq RandomSearch\grqq{} Algorithmus zum Einsatz.\\
 	Grundsätzlich sei noch zu erwähnen, dass konventionelle Such- bzw. Optimierungsalgorithmen innerhalb des Reinforcement Learning ein Markov-Entscheidungsproblem voraussetzen. 
 	\subsection{Q-Learning}
-		
+		Beschreibung und Grundlagen zu Q-Learning
 	\subsection{Gradient Policies}
+		Beschreibung und Grundlagen zu Gradient Policies
 	\subsection{Genetische Algorithmen}
+		Beschreibung und Grundlagen zu genetischen Algorithmen
 	\subsection{Random Search}
+		Beschreibung und Grundlagen zu Random Search + Anwendung
+		
 	
 	Wie in der vorherigen Sektion \ref{sec:rl_neuro} bereits kurz beschrieben, werden die jeweiligen Parameter der Synapsen und Nervenzellen gesucht. Dies sind die folgenden:
 	\begin{center}
@@ -67,38 +83,7 @@
 	
 	
 	
-	Bei dem in Abb. x gezeigten neuronalen Netz handelt es sich um vier interne Nervenzellen, sowie x inhibitorische Synapsen, x excitatorische Synapsen und x Gap-Junctions.
-
-% ***
-\section{Implementierung}
-\label{sec:rl_imp}
-% ***
-	\begin{algorithm}
-		\SetKwInOut{Input}{Input}
-		\SetKwInOut{Output}{Output}
-		
-		\Input{$u, u_{rest}, t, \vartheta, R, C, I_0$}
-		\Output{Array $u(t)$ mit $t=1,2,3,...$}
-		
-		\For{$i\leftarrow 0$ \KwTo $t_{max}$}{
-		\emph{$i$ als Zähl-Variable}\\
-			\eIf{$u \leq \vartheta$}{
-				\tcc{Aufaddieren, bis der Threshold $\vartheta$ erreicht ist}
-				Berechne momentane Spannung $u$ bei $t=i$\\
-				Erweitere das Array $u_{array}$ um aktuelle Spannung $u$
-				i hochzählen $i += 1$
-			}{
-				\tcc{Treshold $\vartheta$ ist erreicht, setze $u$ auf $0$ zurück}
-				$i = 0$
-				Berechne momentane Spannung $u$ bei $t=0$\\
-				Erweitere das Array $u_{array}$ um aktuelle Spannung $u$
-				i hochzählen $i += 1$
-			}	
-		}
-		\KwRet{hhh}
-		
-		\caption{Das LIF-Modell}
-	\end{algorithm}
+	Bei dem in Abb. x gezeigten neuronalen Netz handelt es sich um vier interne Nervenzellen, sowie x inhibitorische Synapsen, x exzitatorische Synapsen und x Gap-Junctions.
 
 %%% Local Variables: 
 %%% mode: latex

@@ -13,29 +13,28 @@
 \contentsline {section}{\numberline {2.4}Implementierung}{12}{section.2.4}
 \contentsline {chapter}{\numberline {3}Reinforcement Learning - Lernen mit Belohnung}{17}{chapter.3}
 \contentsline {section}{\numberline {3.1}Reinforcement Learning - eine Abwandlung des Deep Learning}{17}{section.3.1}
-\contentsline {section}{\numberline {3.2}Anwendung auf Modelle neuronaler Netze}{18}{section.3.2}
+\contentsline {section}{\numberline {3.2}Anwendung auf Modelle neuronaler Netze}{19}{section.3.2}
 \contentsline {section}{\numberline {3.3}Verschiedene Suchalgorithmen}{19}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Q-Learning}{19}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Gradient Policies}{19}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Genetische Algorithmen}{19}{subsection.3.3.3}
-\contentsline {subsection}{\numberline {3.3.4}Random Search}{19}{subsection.3.3.4}
-\contentsline {section}{\numberline {3.4}Implementierung}{20}{section.3.4}
+\contentsline {subsection}{\numberline {3.3.1}Q-Learning}{20}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Gradient Policies}{20}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Genetische Algorithmen}{20}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Random Search}{20}{subsection.3.3.4}
 \contentsline {chapter}{\numberline {4}Implementierung des TW-Netzes}{21}{chapter.4}
 \contentsline {section}{\numberline {4.1}Aufbau des Programms}{21}{section.4.1}
 \contentsline {section}{\numberline {4.2}Implementierung der Suchalgorithmen}{22}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Suchalgorithmus RandomSearch}{22}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Suchalgorithmus Weights}{23}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Simulation in der Google Cloud Platform\textsuperscript {\textregistered }}{23}{subsection.4.2.3}
-\contentsline {section}{\numberline {4.3}Simulationsumgebung: OpenAI Gym}{23}{section.4.3}
-\contentsline {section}{\numberline {4.4}Visualisierung und Auswertung}{23}{section.4.4}
-\contentsline {section}{\numberline {4.5}Sonstige Implementierung}{23}{section.4.5}
-\contentsline {section}{\numberline {4.6}Steuerung und Zusammenfassung}{23}{section.4.6}
-\contentsline {chapter}{\numberline {5}Performance \& Auswertung}{25}{chapter.5}
-\contentsline {section}{\numberline {5.1}Performance implementierter Algorithmen}{25}{section.5.1}
-\contentsline {section}{\numberline {5.2}Limitationen und Alternativen von Algorithmen}{25}{section.5.2}
-\contentsline {section}{\numberline {5.3}Vergleich zu bestehenden Systemen}{25}{section.5.3}
-\contentsline {section}{\numberline {5.4}Zusammenfassung}{25}{section.5.4}
-\contentsline {chapter}{\numberline {A}Programmcode Python}{27}{appendix.A}
-\contentsline {section}{\numberline {A.1}LIF-Modell}{27}{section.A.1}
-\contentsline {chapter}{\numberline {B}Aufbau Modul}{29}{appendix.B}
-\contentsline {chapter}{Literaturverzeichnis}{31}{appendix*.18}
+\contentsline {subsection}{\numberline {4.2.3}Simulation in der Google Cloud Platform\textsuperscript {\textregistered }}{24}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Simulationsumgebung: OpenAI Gym}{25}{section.4.3}
+\contentsline {section}{\numberline {4.4}Visualisierung und Auswertung}{25}{section.4.4}
+\contentsline {section}{\numberline {4.5}Sonstige Implementierung}{25}{section.4.5}
+\contentsline {section}{\numberline {4.6}Steuerung und Zusammenfassung}{25}{section.4.6}
+\contentsline {chapter}{\numberline {5}Performance \& Auswertung}{27}{chapter.5}
+\contentsline {section}{\numberline {5.1}Performance implementierter Algorithmen}{27}{section.5.1}
+\contentsline {section}{\numberline {5.2}Limitationen und Alternativen von Algorithmen}{27}{section.5.2}
+\contentsline {section}{\numberline {5.3}Vergleich zu bestehenden Systemen}{27}{section.5.3}
+\contentsline {section}{\numberline {5.4}Zusammenfassung}{27}{section.5.4}
+\contentsline {chapter}{\numberline {A}Programmcode Python}{29}{appendix.A}
+\contentsline {section}{\numberline {A.1}LIF-Modell}{29}{section.A.1}
+\contentsline {chapter}{\numberline {B}Aufbau Modul}{31}{appendix.B}
+\contentsline {chapter}{Literaturverzeichnis}{33}{appendix*.18}

@@ -17,23 +17,22 @@
 \BOOKMARK [2][-]{subsection.3.3.2}{Gradient Policies}{section.3.3}% 17
 \BOOKMARK [2][-]{subsection.3.3.3}{Genetische Algorithmen}{section.3.3}% 18
 \BOOKMARK [2][-]{subsection.3.3.4}{Random Search}{section.3.3}% 19
-\BOOKMARK [1][-]{section.3.4}{Implementierung}{chapter.3}% 20
-\BOOKMARK [0][-]{chapter.4}{Implementierung des TW-Netzes}{}% 21
-\BOOKMARK [1][-]{section.4.1}{Aufbau des Programms}{chapter.4}% 22
-\BOOKMARK [1][-]{section.4.2}{Implementierung der Suchalgorithmen}{chapter.4}% 23
-\BOOKMARK [2][-]{subsection.4.2.1}{Suchalgorithmus RandomSearch}{section.4.2}% 24
-\BOOKMARK [2][-]{subsection.4.2.2}{Suchalgorithmus Weights}{section.4.2}% 25
-\BOOKMARK [2][-]{subsection.4.2.3}{Simulation in der Google Cloud Platform\256}{section.4.2}% 26
-\BOOKMARK [1][-]{section.4.3}{Simulationsumgebung: OpenAI Gym}{chapter.4}% 27
-\BOOKMARK [1][-]{section.4.4}{Visualisierung und Auswertung}{chapter.4}% 28
-\BOOKMARK [1][-]{section.4.5}{Sonstige Implementierung}{chapter.4}% 29
-\BOOKMARK [1][-]{section.4.6}{Steuerung und Zusammenfassung}{chapter.4}% 30
-\BOOKMARK [0][-]{chapter.5}{Performance \046 Auswertung}{}% 31
-\BOOKMARK [1][-]{section.5.1}{Performance implementierter Algorithmen}{chapter.5}% 32
-\BOOKMARK [1][-]{section.5.2}{Limitationen und Alternativen von Algorithmen}{chapter.5}% 33
-\BOOKMARK [1][-]{section.5.3}{Vergleich zu bestehenden Systemen}{chapter.5}% 34
-\BOOKMARK [1][-]{section.5.4}{Zusammenfassung}{chapter.5}% 35
-\BOOKMARK [0][-]{appendix.A}{Programmcode Python}{}% 36
-\BOOKMARK [1][-]{section.A.1}{LIF-Modell}{appendix.A}% 37
-\BOOKMARK [0][-]{appendix.B}{Aufbau Modul}{}% 38
-\BOOKMARK [0][-]{appendix*.18}{Literaturverzeichnis}{}% 39
+\BOOKMARK [0][-]{chapter.4}{Implementierung des TW-Netzes}{}% 20
+\BOOKMARK [1][-]{section.4.1}{Aufbau des Programms}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.2}{Implementierung der Suchalgorithmen}{chapter.4}% 22
+\BOOKMARK [2][-]{subsection.4.2.1}{Suchalgorithmus RandomSearch}{section.4.2}% 23
+\BOOKMARK [2][-]{subsection.4.2.2}{Suchalgorithmus Weights}{section.4.2}% 24
+\BOOKMARK [2][-]{subsection.4.2.3}{Simulation in der Google Cloud Platform\256}{section.4.2}% 25
+\BOOKMARK [1][-]{section.4.3}{Simulationsumgebung: OpenAI Gym}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.4}{Visualisierung und Auswertung}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.5}{Sonstige Implementierung}{chapter.4}% 28
+\BOOKMARK [1][-]{section.4.6}{Steuerung und Zusammenfassung}{chapter.4}% 29
+\BOOKMARK [0][-]{chapter.5}{Performance \046 Auswertung}{}% 30
+\BOOKMARK [1][-]{section.5.1}{Performance implementierter Algorithmen}{chapter.5}% 31
+\BOOKMARK [1][-]{section.5.2}{Limitationen und Alternativen von Algorithmen}{chapter.5}% 32
+\BOOKMARK [1][-]{section.5.3}{Vergleich zu bestehenden Systemen}{chapter.5}% 33
+\BOOKMARK [1][-]{section.5.4}{Zusammenfassung}{chapter.5}% 34
+\BOOKMARK [0][-]{appendix.A}{Programmcode Python}{}% 35
+\BOOKMARK [1][-]{section.A.1}{LIF-Modell}{appendix.A}% 36
+\BOOKMARK [0][-]{appendix.B}{Aufbau Modul}{}% 37
+\BOOKMARK [0][-]{appendix*.18}{Literaturverzeichnis}{}% 38
