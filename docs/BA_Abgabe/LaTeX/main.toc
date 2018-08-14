@@ -26,15 +26,15 @@
 \contentsline {subsection}{\numberline {4.2.2}Suchalgorithmus Weights}{23}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}Simulation in der Google Cloud Platform\textsuperscript {\textregistered }}{24}{subsection.4.2.3}
 \contentsline {section}{\numberline {4.3}Simulationsumgebung: OpenAI Gym}{25}{section.4.3}
-\contentsline {section}{\numberline {4.4}Visualisierung und Auswertung}{25}{section.4.4}
-\contentsline {section}{\numberline {4.5}Sonstige Implementierung}{25}{section.4.5}
-\contentsline {section}{\numberline {4.6}Steuerung und Zusammenfassung}{25}{section.4.6}
-\contentsline {chapter}{\numberline {5}Performance \& Auswertung}{27}{chapter.5}
-\contentsline {section}{\numberline {5.1}Performance implementierter Algorithmen}{27}{section.5.1}
-\contentsline {section}{\numberline {5.2}Limitationen und Alternativen von Algorithmen}{27}{section.5.2}
-\contentsline {section}{\numberline {5.3}Vergleich zu bestehenden Systemen}{27}{section.5.3}
-\contentsline {section}{\numberline {5.4}Zusammenfassung}{27}{section.5.4}
-\contentsline {chapter}{\numberline {A}Programmcode Python}{29}{appendix.A}
-\contentsline {section}{\numberline {A.1}LIF-Modell}{29}{section.A.1}
-\contentsline {chapter}{\numberline {B}Aufbau Modul}{31}{appendix.B}
-\contentsline {chapter}{Literaturverzeichnis}{33}{appendix*.18}
+\contentsline {section}{\numberline {4.4}Visualisierung und Auswertung}{28}{section.4.4}
+\contentsline {section}{\numberline {4.5}Sonstige Implementierung}{28}{section.4.5}
+\contentsline {section}{\numberline {4.6}Steuerung und Zusammenfassung}{28}{section.4.6}
+\contentsline {chapter}{\numberline {5}Performance \& Auswertung}{29}{chapter.5}
+\contentsline {section}{\numberline {5.1}Performance implementierter Algorithmen}{29}{section.5.1}
+\contentsline {section}{\numberline {5.2}Limitationen und Alternativen von Algorithmen}{29}{section.5.2}
+\contentsline {section}{\numberline {5.3}Vergleich zu bestehenden Systemen}{29}{section.5.3}
+\contentsline {section}{\numberline {5.4}Zusammenfassung}{29}{section.5.4}
+\contentsline {chapter}{\numberline {A}Programmcode Python}{31}{appendix.A}
+\contentsline {section}{\numberline {A.1}LIF-Modell}{31}{section.A.1}
+\contentsline {chapter}{\numberline {B}Aufbau Modul}{33}{appendix.B}
+\contentsline {chapter}{Literaturverzeichnis}{35}{appendix*.21}
