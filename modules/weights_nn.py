@@ -56,8 +56,10 @@ def initialize(Default_U_leak, load_matrices):
 def random_weights():
 
     # Initializing Weight matrices
-    A_rnd = np.random.rand(1,A_all)
-    B_rnd = np.random.rand(1,B_all)
+    A_rnd = np.random.rand(1,A_all_symm)
+    A_rnd = np.append(A_rnd, A_rnd)
+    B_rnd = np.random.rand(1,B_all_symm)
+    B_rnd = np.append(B_rnd, B_rnd)
 
     return A_rnd, B_rnd
 
@@ -78,11 +80,11 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
             # Synapse Currents between Interneurons
             if A[i, j] == 1:
                 # Excitatory Synapse
-                I_s_inter[i, j] = Iw_syn_calc(x[i], x[j], E_in, w_A_rnd[k], sig_A_rnd[k], mu, A_rnd[0, k])
+                I_s_inter[i, j] = Iw_syn_calc(x[i], x[j], E_in, w_A_rnd[k], sig_A_rnd[k], mu, A_rnd[k])
                 k += 1
             elif A[i, j] == 2:
                 # Inhibitory Synapse
-                I_s_inter[i, j] = Iw_syn_calc(x[i], x[j], E_ex, w_A_rnd[k], sig_A_rnd[k], mu, A_rnd[0, k])
+                I_s_inter[i, j] = Iw_syn_calc(x[i], x[j], E_ex, w_A_rnd[k], sig_A_rnd[k], mu, A_rnd[k])
                 k += 1
             else:
                 I_s_inter[i, j] = 0
@@ -91,16 +93,16 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
             # Synapse Currents between Sensory and Interneurons
             if B[i, j] == 1:
                 # Inhibitory Synapse (can't be Excitatory)
-                I_s_sensor[i, j] = Iw_syn_calc(u[i], u[j], E_in, w_B_rnd[m], sig_B_rnd[m], mu, B_rnd[0, l])
+                I_s_sensor[i, j] = Iw_syn_calc(u[i], u[j], E_in, w_B_rnd[m], sig_B_rnd[m], mu, B_rnd[l])
                 l += 1
                 m += 1
             elif B[i, j] == 2:
-                I_s_sensor[i, j] = Iw_syn_calc(u[i], u[j], E_ex, w_B_rnd[m], sig_B_rnd[m], mu, B_rnd[0, l])
+                I_s_sensor[i, j] = Iw_syn_calc(u[i], u[j], E_ex, w_B_rnd[m], sig_B_rnd[m], mu, B_rnd[l])
                 l += 1
                 m += 1
             elif B[i, j] == 3:
                 # Gap Junction
-                I_g_sensor[i, j] = Iw_gap_calc(u[i], x[j], w_B_gap_rnd[n], B_rnd[0, l])
+                I_g_sensor[i, j] = Iw_gap_calc(u[i], x[j], w_B_gap_rnd[n], B_rnd[l])
                 l += 1
                 n += 1
             else:

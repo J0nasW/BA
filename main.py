@@ -27,12 +27,12 @@ def main():
     sim_time_parameters = 1 # FOR SIMULATION of Parameters
     sim_time_weights = 1 # FOR SIMULATION of additional Weights
     # Simulation time in HOURS ----------------------------
-    sim_time_parameters = sim_time_parameters * 60 * 60
-    sim_time_weights = sim_time_weights * 60 * 60
+    #sim_time_parameters = sim_time_parameters * 60 * 60
+    #sim_time_weights = sim_time_weights * 60 * 60
     #------------------------------------------------------
     # Simulation time in MINUTES ----------------------------
-    #sim_time_parameters = sim_time_parameters * 60
-    #sim_time_weights = sim_time_weights * 60
+    sim_time_parameters = sim_time_parameters * 60
+    sim_time_weights = sim_time_weights * 60
     #------------------------------------------------------
 
     # RANDOM SEARCH

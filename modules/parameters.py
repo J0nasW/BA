@@ -73,7 +73,9 @@ nbr_of_sensor_synapses_symm = int((B == 1).sum() / 2)
 nbr_of_gap_junctions = (B == 3).sum()
 nbr_of_gap_junctions_symm = int((B == 3).sum() / 2)
 A_all = np.count_nonzero(A)
+A_all_symm = int(np.count_nonzero(A) / 2)
 B_all = np.count_nonzero(B)
+B_all_symm = int(np.count_nonzero(B) / 2)
 
 nbr_of_sensor_neurons = np.shape(B)[1]
 nbr_of_sensor_neurons_symm = int(np.shape(B)[1] / 2)
