@@ -26,13 +26,15 @@
 \BOOKMARK [1][-]{section.4.3}{Simulationsumgebung: OpenAI Gym}{chapter.4}% 26
 \BOOKMARK [1][-]{section.4.4}{Visualisierung und Auswertung}{chapter.4}% 27
 \BOOKMARK [1][-]{section.4.5}{Sonstige Implementierung}{chapter.4}% 28
-\BOOKMARK [1][-]{section.4.6}{Steuerung und Zusammenfassung}{chapter.4}% 29
-\BOOKMARK [0][-]{chapter.5}{Performance \046 Auswertung}{}% 30
-\BOOKMARK [1][-]{section.5.1}{Performance implementierter Algorithmen}{chapter.5}% 31
-\BOOKMARK [1][-]{section.5.2}{Limitationen und Alternativen von Algorithmen}{chapter.5}% 32
-\BOOKMARK [1][-]{section.5.3}{Vergleich zu bestehenden Systemen}{chapter.5}% 33
-\BOOKMARK [1][-]{section.5.4}{Zusammenfassung}{chapter.5}% 34
-\BOOKMARK [0][-]{appendix.A}{Programmcode Python}{}% 35
-\BOOKMARK [1][-]{section.A.1}{LIF-Modell}{appendix.A}% 36
-\BOOKMARK [0][-]{appendix.B}{Aufbau Modul}{}% 37
-\BOOKMARK [0][-]{appendix*.21}{Literaturverzeichnis}{}% 38
+\BOOKMARK [2][-]{subsection.4.5.1}{Zentraler Ort f\374r Parameter}{section.4.5}% 29
+\BOOKMARK [2][-]{subsection.4.5.2}{Speicherung von Daten}{section.4.5}% 30
+\BOOKMARK [2][-]{subsection.4.5.3}{Dateiinspektion}{section.4.5}% 31
+\BOOKMARK [0][-]{chapter.5}{Performance \046 Auswertung}{}% 32
+\BOOKMARK [1][-]{section.5.1}{Performance implementierter Algorithmen}{chapter.5}% 33
+\BOOKMARK [1][-]{section.5.2}{Limitationen und Alternativen von Algorithmen}{chapter.5}% 34
+\BOOKMARK [1][-]{section.5.3}{Vergleich zu bestehenden Systemen}{chapter.5}% 35
+\BOOKMARK [1][-]{section.5.4}{Zusammenfassung}{chapter.5}% 36
+\BOOKMARK [0][-]{appendix.A}{Programmcode Python}{}% 37
+\BOOKMARK [1][-]{section.A.1}{LIF-Modell}{appendix.A}% 38
+\BOOKMARK [0][-]{appendix.B}{Aufbau Modul}{}% 39
+\BOOKMARK [0][-]{appendix*.22}{Literaturverzeichnis}{}% 40

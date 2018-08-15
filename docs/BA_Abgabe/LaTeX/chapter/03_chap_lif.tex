@@ -163,10 +163,10 @@
 	\begin{equation}
 	\begin{split}
 		\label{eq:runkgekutta_nn}
-		k_1 &= \frac{(G_{leak} (U_{leak} - u_i(t)) + (I_{Stimuli} + I_{Syn} + I_{Gap}))}{C_m} \Delta t\\
-		k_2 &= \frac{(G_{leak} (U_{leak} - (u_i(t) + \tfrac{1}{2} k_1)) + (I_{Stimuli} + I_{Syn} + I_{Gap}))}{C_m} \Delta t\\
-		k_3 &= \frac{(G_{leak} (U_{leak} - (u_i(t) + \tfrac{1}{2} k_2)) + (I_{Stimuli} + I_{Syn} + I_{Gap}))}{C_m} \Delta t\\
-		k_4 &= \frac{(G_{leak} (U_{leak} - (u_i(t) + k_3)) + (I_{Stimuli} + I_{Syn} + I_{Gap}))}{C_m} \Delta t
+		k_1 &= \frac{G_{leak} (U_{leak} - u_i(t)) + (I_{Stimuli} + I_{Syn} + I_{Gap})}{C_m} \Delta t\\
+		k_2 &= \frac{G_{leak} (U_{leak} - (u_i(t) + \tfrac{1}{2} k_1)) + (I_{Stimuli} + I_{Syn} + I_{Gap})}{C_m} \Delta t\\
+		k_3 &= \frac{G_{leak} (U_{leak} - (u_i(t) + \tfrac{1}{2} k_2)) + (I_{Stimuli} + I_{Syn} + I_{Gap})}{C_m} \Delta t\\
+		k_4 &= \frac{G_{leak} (U_{leak} - (u_i(t) + k_3)) + (I_{Stimuli} + I_{Syn} + I_{Gap})}{C_m} \Delta t
 	\end{split}
 	\end{equation}
 	Rekursive Berechnung der vier Koeffizienten führt zum neuen Membranpotential und entsprechend zu der Information, ob die internen Nervenzellen \textit{AVA} oder \textit{AVB} gefeuert haben:
