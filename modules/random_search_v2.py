@@ -170,12 +170,12 @@ def observe(observation):
 
     # Setting the Angle of the Pole to Sensory Neurons PLM (Phi+) and AVM (Phi-)
     if angle > 0:
-        u[1] = Default_U_leak + ((v-Default_U_leak)/14) * (np.sqrt(np.absolute(angle))*4) # PLM
+        u[1] = Default_U_leak + ((v-Default_U_leak)/11) * (np.sqrt(np.absolute(angle))*5) # PLM
         u[2] = Default_U_leak
     elif angle == 0:
         u[1] = u[2] = Default_U_leak
     else:
-        u[2] = Default_U_leak + ((v-Default_U_leak)/14) * (np.sqrt(np.absolute(angle))*4) # AVM
+        u[2] = Default_U_leak + ((v-Default_U_leak)/11) * (np.sqrt(np.absolute(angle))*5) # AVM
         u[1] = Default_U_leak
     '''
     # Setting the Cart Position to Sensory Neurons ALM (pos. movement) and PVD (neg. movement)
