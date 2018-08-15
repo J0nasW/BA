@@ -1,0 +1,2 @@
+Corresponding Parameter Set: C:\Users\Jonas\Documents\GitHub\BA/parameter_dumps/20180815_10-42-52_rs2_v2_22.hkl
+Weight run from 20180815_10-43-52 with Reward 64 and 6085 Episodes. NeuronalCircuit_v3

@@ -78,11 +78,11 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
             # Synapse Currents between Interneurons
             if A[i, j] == 1:
                 # Excitatory Synapse
-                I_s_inter[i, j] = Iw_syn_calc(x[i], x[j], E_in, w_A_rnd[0, k], sig_A_rnd[0, k], mu, A_rnd[0, k])
+                I_s_inter[i, j] = Iw_syn_calc(x[i], x[j], E_in, w_A_rnd[k], sig_A_rnd[k], mu, A_rnd[0, k])
                 k += 1
             elif A[i, j] == 2:
                 # Inhibitory Synapse
-                I_s_inter[i, j] = Iw_syn_calc(x[i], x[j], E_ex, w_A_rnd[0, k], sig_A_rnd[0, k], mu, A_rnd[0, k])
+                I_s_inter[i, j] = Iw_syn_calc(x[i], x[j], E_ex, w_A_rnd[k], sig_A_rnd[k], mu, A_rnd[0, k])
                 k += 1
             else:
                 I_s_inter[i, j] = 0
@@ -91,16 +91,16 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
             # Synapse Currents between Sensory and Interneurons
             if B[i, j] == 1:
                 # Inhibitory Synapse (can't be Excitatory)
-                I_s_sensor[i, j] = Iw_syn_calc(u[i], u[j], E_in, w_B_rnd[0, m], sig_B_rnd[0, m], mu, B_rnd[0, l])
+                I_s_sensor[i, j] = Iw_syn_calc(u[i], u[j], E_in, w_B_rnd[m], sig_B_rnd[m], mu, B_rnd[0, l])
                 l += 1
                 m += 1
             elif B[i, j] == 2:
-                I_s_sensor[i, j] = Iw_syn_calc(u[i], u[j], E_ex, w_B_rnd[0, m], sig_B_rnd[0, m], mu, B_rnd[0, l])
+                I_s_sensor[i, j] = Iw_syn_calc(u[i], u[j], E_ex, w_B_rnd[m], sig_B_rnd[m], mu, B_rnd[0, l])
                 l += 1
                 m += 1
             elif B[i, j] == 3:
                 # Gap Junction
-                I_g_sensor[i, j] = Iw_gap_calc(u[i], x[j], w_B_gap_rnd[0, n], B_rnd[0, l])
+                I_g_sensor[i, j] = Iw_gap_calc(u[i], x[j], w_B_gap_rnd[n], B_rnd[0, l])
                 l += 1
                 n += 1
             else:
@@ -115,7 +115,7 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
         I_gap_inter = I_g_inter.sum(axis = 0)
         I_syn_stimuli = I_s_sensor.sum(axis = 0)
         I_gap_stimuli = I_g_sensor.sum(axis = 0)
-        x[i], fire[i] = U_neuron_calc(x[i], I_syn_inter[i], I_gap_inter[i], I_syn_stimuli[i], I_gap_stimuli[i], C_m_rnd[0,i], G_leak_rnd[0,i], U_leak_rnd[0,i], v, delta_t)
+        x[i], fire[i] = U_neuron_calc(x[i], I_syn_inter[i], I_gap_inter[i], I_syn_stimuli[i], I_gap_stimuli[i], C_m_rnd[i], G_leak_rnd[i], U_leak_rnd[i], v, delta_t)
 
     #---------------------------------------------------------------------------------------
 

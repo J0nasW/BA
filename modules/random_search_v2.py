@@ -47,17 +47,26 @@ def random_parameters():
     # Initialize random parameters for our Neurons and Synapses according to the current Network
 
     # For Synapses
-    w_A_rnd = np.random.uniform(low = 0.5, high = 3, size = (1,nbr_of_inter_synapses))
-    w_B_rnd = np.random.uniform(low = 0.5, high = 3, size = (1,nbr_of_sensor_synapses))
-    w_B_gap_rnd = np.random.uniform(low = 0, high = 3, size = (1,nbr_of_gap_junctions))
+    w_A_rnd = np.random.uniform(low = 0.5, high = 3, size = (1,nbr_of_inter_synapses_symm))
+    w_A_rnd = np.append(w_A_rnd, w_A_rnd)
+    w_B_rnd = np.random.uniform(low = 0.5, high = 3, size = (1,nbr_of_sensor_synapses_symm))
+    w_B_rnd = np.append(w_B_rnd, w_B_rnd)
+    w_B_gap_rnd = np.random.uniform(low = 0, high = 3, size = (1,nbr_of_gap_junctions_symm))
+    w_B_gap_rnd = np.append(w_B_gap_rnd, w_B_gap_rnd)
 
-    sig_A_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,nbr_of_inter_synapses))
-    sig_B_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,nbr_of_sensor_synapses))
+    sig_A_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,nbr_of_inter_synapses_symm))
+    sig_A_rnd = np.append(sig_A_rnd, sig_A_rnd)
+    sig_B_rnd = np.random.uniform(low = 0.05, high = 0.5, size = (1,nbr_of_sensor_synapses_symm))
+    sig_B_rnd = np.append(sig_B_rnd, sig_B_rnd)
 
     # For Neurons
-    C_m_rnd = np.random.uniform(low = 0.01, high = 0.77, size = (1,nbr_of_inter_neurons))
-    G_leak_rnd = np.random.uniform(low = 0.1, high = 2.5, size = (1,nbr_of_inter_neurons))
-    U_leak_rnd = np.random.uniform(low = -70, high = -60, size = (1,nbr_of_inter_neurons))
+    C_m_rnd = np.random.uniform(low = 0.01, high = 0.77, size = (1,nbr_of_inter_neurons_symm))
+    C_m_rnd = np.append(C_m_rnd, C_m_rnd)
+    G_leak_rnd = np.random.uniform(low = 0.1, high = 2.5, size = (1,nbr_of_inter_neurons_symm))
+    G_leak_rnd = np.append(G_leak_rnd, G_leak_rnd)
+    U_leak_rnd = np.random.uniform(low = -70, high = -60, size = (1,nbr_of_inter_neurons_symm))
+    U_leak_rnd = np.append(U_leak_rnd, U_leak_rnd)
+
 
     return w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd
 
@@ -78,11 +87,11 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
             # Synapse Currents between Interneurons
             if A[i, j] == 1:
                 # Excitatory Synapse
-                I_s_inter[i, j] = I_syn_calc(x[i], x[j], E_in, w_A_rnd[0, k], sig_A_rnd[0, k], mu)
+                I_s_inter[i, j] = I_syn_calc(x[i], x[j], E_in, w_A_rnd[k], sig_A_rnd[k], mu)
                 k += 1
             elif A[i, j] == 2:
                 # Inhibitory Synapse
-                I_s_inter[i, j] = I_syn_calc(x[i], x[j], E_ex, w_A_rnd[0, k], sig_A_rnd[0, k], mu)
+                I_s_inter[i, j] = I_syn_calc(x[i], x[j], E_ex, w_A_rnd[k], sig_A_rnd[k], mu)
                 k += 1
             else:
                 # No Connection here.
@@ -92,14 +101,14 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
             # Synapse Currents between Sensory and Interneurons
             if B[i, j] == 1:
                 # Inhibitory Synapse (can't be Excitatory)
-                I_s_sensor[i, j] = I_syn_calc(u[i], u[j], E_in, w_B_rnd[0, l], sig_B_rnd[0, l], mu)
+                I_s_sensor[i, j] = I_syn_calc(u[i], u[j], E_in, w_B_rnd[l], sig_B_rnd[l], mu)
                 l += 1
             elif B[i, j] == 2:
-                I_s_sensor[i, j] = I_syn_calc(u[i], u[j], E_ex, w_B_rnd[0, l], sig_B_rnd[0, l], mu)
+                I_s_sensor[i, j] = I_syn_calc(u[i], u[j], E_ex, w_B_rnd[l], sig_B_rnd[l], mu)
                 l += 1
             elif B[i, j] == 3:
                 # Gap Junction
-                I_g_sensor[i, j] = I_gap_calc(u[i], x[j], w_B_gap_rnd[0, m])
+                I_g_sensor[i, j] = I_gap_calc(u[i], x[j], w_B_gap_rnd[m])
                 m += 1
             else:
                 # No Connection here.
@@ -114,7 +123,7 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
         I_gap_inter = I_g_inter.sum(axis = 0)
         I_syn_stimuli = I_s_sensor.sum(axis = 0)
         I_gap_stimuli = I_g_sensor.sum(axis = 0)
-        x[i], fire[i] = U_neuron_calc(x[i], I_syn_inter[i], I_gap_inter[i], I_syn_stimuli[i], I_gap_stimuli[i], C_m_rnd[0,i], G_leak_rnd[0,i], U_leak_rnd[0,i], v, delta_t)
+        x[i], fire[i] = U_neuron_calc(x[i], I_syn_inter[i], I_gap_inter[i], I_syn_stimuli[i], I_gap_stimuli[i], C_m_rnd[i], G_leak_rnd[i], U_leak_rnd[i], v, delta_t)
 
     #---------------------------------------------------------------------------------------
 
@@ -170,12 +179,12 @@ def observe(observation):
 
     # Setting the Angle of the Pole to Sensory Neurons PLM (Phi+) and AVM (Phi-)
     if angle > 0:
-        u[1] = Default_U_leak + ((v-Default_U_leak)/14) * (np.sqrt(np.absolute(angle))*4) # PLM
+        u[1] = Default_U_leak + ((v-Default_U_leak)/14) * np.absolute(angle) # PLM
         u[2] = Default_U_leak
     elif angle == 0:
         u[1] = u[2] = Default_U_leak
     else:
-        u[2] = Default_U_leak + ((v-Default_U_leak)/14) * (np.sqrt(np.absolute(angle))*4) # AVM
+        u[2] = Default_U_leak + ((v-Default_U_leak)/14) * np.absolute(angle) # AVM
         u[1] = Default_U_leak
     '''
     # Setting the Cart Position to Sensory Neurons ALM (pos. movement) and PVD (neg. movement)
@@ -190,12 +199,12 @@ def observe(observation):
     '''
     # Setting the Anglespeed of the Pole to Sensory Neurons ALM (Phi.+) and PVD (Phi.-)
     if angle_velocity >= 0:
-        u[0] = Default_U_leak + ((v-Default_U_leak)/1.05) * np.absolute(angle_velocity) # ALM
+        u[0] = Default_U_leak + ((v-Default_U_leak)/2) * np.absolute(angle_velocity) # ALM
         u[3] = Default_U_leak
     elif cart_pos == 0:
         u[0] = u[3] = Default_U_leak
     else:
-        u[3] = Default_U_leak + ((v-Default_U_leak)/1.05) * np.absolute(angle_velocity) # PVD
+        u[3] = Default_U_leak + ((v-Default_U_leak)/2) * np.absolute(angle_velocity) # PVD
         u[0] = Default_U_leak
 
 
