@@ -30,6 +30,12 @@ env_vis = []
 
 # Initialization----------------------------------------------------------------------------
 
+def vis_initialize(Default_U_leak):
+    for i in range(0,4):
+        x[i] = Default_U_leak
+    for i in range(0,4):
+        u[i] = Default_U_leak
+
 def initialize(Default_U_leak):
 
     # Initializing Neurons and Sensors------------------------------------------------------
@@ -185,6 +191,8 @@ def run_episode(env, fire):
 
     global observation, reward, done, info, totalreward, action, env_vis, uncertain, actions_arr, angles_arr
 
+    actions = 0
+
     env_vis.append(env.render(mode = 'rgb_array'))
 
     # - action = 0 LEFT  - action = 1 RIGHT
@@ -207,7 +215,8 @@ def run_episode(env, fire):
     if done:
         action = 0
 
-    actions_arr = np.append(actions_arr, action)
+    actions += action
+    actions_arr = np.append(actions_arr, actions)
     angles_arr = np.append(angles_arr, angle)
 
     return totalreward, done, uncertain
@@ -292,7 +301,7 @@ def main_with_weights(load_parameters, load_weights, runtime):
 
         if done:
             env.reset()
-            #initialize(Default_U_leak)
+            vis_initialize(Default_U_leak)
             episodes = episodes + 1
 
     print ("Did",episodes,"Episodes and was",uncertain,"out of",len(actions_arr),"times uncertain!")

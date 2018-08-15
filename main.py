@@ -44,7 +44,8 @@ def main():
     #date, best_reward_p = rs2.main(sim_time_parameters)
     #parameter_matrices = parameters.current_dir + "/parameter_dumps/" + date + "_rs2_v2_" + best_reward_p + ".hkl"
     #parameter_matrices = parameters.current_dir + "/parameter_dumps/20180806_03-25-01_rs2_v2_95.hkl"
-    parameter_matrices = parameters.current_dir + "/parameter_dumps/20180806_12-15-01_rs2_v2_48.hkl" #Bisher bester Satz - zum filmen geeignet
+    #parameter_matrices = parameters.current_dir + "/parameter_dumps/20180806_12-15-01_rs2_v2_48.hkl" #Bisher bester Satz - zum filmen geeignet
+    parameter_matrices = parameters.current_dir + "/parameter_dumps/20180812_03-00-01_rs2_v2_122.hkl" #Bisher bester Satz - zum filmen geeignet
     #vs.main(parameter_matrices) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
     # WEIGHT APPLICATION (RandomSearch)
@@ -56,7 +57,8 @@ def main():
     #    vs.main(parameter_matrices, vis_runtime) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
     #weight_matrices = parameters.current_dir + "/weight_dumps/20180806_09-25-01_163.hkl"
-    weight_matrices = parameters.current_dir + "/weight_dumps/20180806_15-15-01_167.hkl" #Bisher bester Satz - zum filmen geeignet
+    #weight_matrices = parameters.current_dir + "/weight_dumps/20180806_15-15-01_167.hkl" #Bisher bester Satz - zum filmen geeignet
+    weight_matrices = parameters.current_dir + "/weight_dumps/20180812_09-00-01_170.hkl" #Bisher höchster Satz
     vs.main_with_weights(parameter_matrices, weight_matrices, vis_runtime) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
     # INSPECT FUNCTION------------------------------------------------------------------------------------

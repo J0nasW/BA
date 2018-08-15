@@ -5,7 +5,7 @@ CALL BY:    <policy_gradient.py>
 
 RETURN:     -
 
-INFO:       Tendorflow baby!
+INFO:       Tensorflow baby!
             From https://gist.github.com/simoninithomas/7a3357966eaebd58dddb6166c9135930#file-cartpole-reinforce-monte-carlo-policy-gradients-ipynb
 """
 
