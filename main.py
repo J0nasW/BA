@@ -14,7 +14,7 @@ INFO:       This Git-Repository holds all the Code written for my Bachelor Thesi
 from modules import random_search as rs
 from modules import random_search_v2 as rs2
 from modules import weights_nn as w
-#from modules import visiualize as vs
+from modules import visiualize as vs
 from modules import inspect_nn as inspect
 from modules import parameters
 
