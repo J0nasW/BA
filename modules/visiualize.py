@@ -246,7 +246,6 @@ def main(parameter_matrices, runtime):
     uncertain = 0
 
     initialize(Default_U_leak) # Initializing all Interneurons with the desired leakage voltage
-    #u = [-20, -40, -40, -20]
 
     w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = import_parameters(parameter_matrices)
 
@@ -283,7 +282,6 @@ def main_with_weights(load_parameters, load_weights, runtime):
     uncertain = 0
 
     initialize(Default_U_leak) # Initializing all Interneurons with the desired leakage voltage
-    #u = [-20, -40, -40, -20]
 
     w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = import_parameters(load_parameters)
     A_rnd, B_rnd = import_weights(load_weights)
