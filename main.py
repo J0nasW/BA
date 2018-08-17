@@ -54,6 +54,11 @@ def main():
     #parameter_matrices = parameters.current_dir + "/parameter_dumps/20180817_01-54-01_rs2_v2_104.hkl" #Bisher hoechster Satz
     parameter_matrices = parameters.current_dir + "/parameter_dumps/20180817_01-56-01_rs2_v2_131.hkl" #Bisher hoechster Satz
 
+    #weight_matrices = parameters.current_dir + "/weight_dumps/20180817_13-50-02_200.hkl"
+    #weight_matrices = parameters.current_dir + "/weight_dumps/20180817_13-52-01_200.hkl"
+    #weight_matrices = parameters.current_dir + "/weight_dumps/20180817_13-54-01_200.hkl"
+    weight_matrices = parameters.current_dir + "/weight_dumps/20180817_13-56-01_200.hkl"
+
 
     vs.main(parameter_matrices, vis_runtime) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
 
