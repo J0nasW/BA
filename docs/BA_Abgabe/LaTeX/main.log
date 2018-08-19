@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.7.28)  18 AUG 2018 16:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.7.28)  19 AUG 2018 14:57
 entering extended mode
 **./main.tex
 (main.tex
@@ -1752,13 +1752,13 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 27.
  (figures/chap_neuron/neuron_is.pdf_tex
-<figures/chap_neuron/neuron_is.pdf, id=314, page=1, 569.05513pt x 284.52756pt>
+<figures/chap_neuron/neuron_is.pdf, id=315, page=1, 569.05513pt x 284.52756pt>
 File: figures/chap_neuron/neuron_is.pdf Graphic file (type pdf)
 <use figures/chap_neuron/neuron_is.pdf, page 1>
 Package pdftex.def Info: figures/chap_neuron/neuron_is.pdf , page1 used on inpu
 t line 56.
 (pdftex.def)             Requested size: 341.43306pt x 170.72218pt.
-<figures/chap_neuron/neuron_is.pdf, id=315, page=2, 569.05513pt x 284.52756pt>
+<figures/chap_neuron/neuron_is.pdf, id=316, page=2, 569.05513pt x 284.52756pt>
 File: figures/chap_neuron/neuron_is.pdf Graphic file (type pdf)
 <use figures/chap_neuron/neuron_is.pdf, page 2>
 Package pdftex.def Info: figures/chap_neuron/neuron_is.pdf , page2 used on inpu
@@ -1775,7 +1775,7 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 40.
  [4]
 (figures/chap_neuron/synapse_is.pdf_tex
-<figures/chap_neuron/synapse_is.pdf, id=323, page=1, 569.05513pt x 213.39566pt>
+<figures/chap_neuron/synapse_is.pdf, id=324, page=1, 569.05513pt x 213.39566pt>
 
 File: figures/chap_neuron/synapse_is.pdf Graphic file (type pdf)
 <use figures/chap_neuron/synapse_is.pdf, page 1>
@@ -1787,14 +1787,14 @@ ut line 61.
 LaTeX Font Warning: Font shape `OT1/cmr/m/it' in size <8.5> not available
 (Font)              size <8> substituted on input line 62.
 
-<figures/chap_neuron/synapse_is.pdf, id=324, page=2, 569.05513pt x 213.39566pt>
+<figures/chap_neuron/synapse_is.pdf, id=325, page=2, 569.05513pt x 213.39566pt>
 
 File: figures/chap_neuron/synapse_is.pdf Graphic file (type pdf)
 <use figures/chap_neuron/synapse_is.pdf, page 2>
 Package pdftex.def Info: figures/chap_neuron/synapse_is.pdf , page2 used on inp
 ut line 63.
 (pdftex.def)             Requested size: 341.43306pt x 128.04164pt.
-<figures/chap_neuron/synapse_is.pdf, id=325, page=3, 569.05513pt x 213.39566pt>
+<figures/chap_neuron/synapse_is.pdf, id=326, page=3, 569.05513pt x 213.39566pt>
 
 File: figures/chap_neuron/synapse_is.pdf Graphic file (type pdf)
 <use figures/chap_neuron/synapse_is.pdf, page 3>
@@ -1823,7 +1823,7 @@ Package babel Info: Redefining ngerman shorthand "~
 
 pdfTeX warning: pdflatex.exe (file ./figures/chap_neuron/Orig_TW_Circuit.pdf): 
 PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<figures/chap_neuron/Orig_TW_Circuit.pdf, id=335, 159.1516pt x 150.49425pt>
+<figures/chap_neuron/Orig_TW_Circuit.pdf, id=336, 159.1516pt x 150.49425pt>
 File: figures/chap_neuron/Orig_TW_Circuit.pdf Graphic file (type pdf)
 <use figures/chap_neuron/Orig_TW_Circuit.pdf>
 Package pdftex.def Info: figures/chap_neuron/Orig_TW_Circuit.pdf  used on input
@@ -1855,7 +1855,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 86.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 86.
-<figures/chap_neuron/Neural_Net_v3_plain.pdf, id=449, 752.8125pt x 752.8125pt>
+<figures/chap_neuron/Neural_Net_v3_plain.pdf, id=450, 752.8125pt x 752.8125pt>
 File: figures/chap_neuron/Neural_Net_v3_plain.pdf Graphic file (type pdf)
 <use figures/chap_neuron/Neural_Net_v3_plain.pdf>
 Package pdftex.def Info: figures/chap_neuron/Neural_Net_v3_plain.pdf  used on i
@@ -1903,7 +1903,7 @@ Package babel Info: Redefining ngerman shorthand "~
 
 LaTeX Warning: Reference `sec:neuroimp' on page 10 undefined on input line 77.
 
-<figures/chap_lif/Simple_LIF.pdf, id=487, 1110.06725pt x 554.3109pt>
+<figures/chap_lif/Simple_LIF.pdf, id=488, 1110.06725pt x 554.3109pt>
 File: figures/chap_lif/Simple_LIF.pdf Graphic file (type pdf)
 <use figures/chap_lif/Simple_LIF.pdf>
 Package pdftex.def Info: figures/chap_lif/Simple_LIF.pdf  used on input line 80
@@ -2156,13 +2156,13 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 13.
 (figures/chap_rl/RL_Chart.pdf_tex
-<figures/chap_rl/RL_Chart.pdf, id=619, page=1, 569.05513pt x 213.39566pt>
+<figures/chap_rl/RL_Chart.pdf, id=620, page=1, 569.05513pt x 213.39566pt>
 File: figures/chap_rl/RL_Chart.pdf Graphic file (type pdf)
 <use figures/chap_rl/RL_Chart.pdf, page 1>
 Package pdftex.def Info: figures/chap_rl/RL_Chart.pdf , page1 used on input lin
 e 61.
 (pdftex.def)             Requested size: 341.43306pt x 128.04164pt.
-<figures/chap_rl/RL_Chart.pdf, id=620, page=2, 569.05513pt x 213.39566pt>
+<figures/chap_rl/RL_Chart.pdf, id=621, page=2, 569.05513pt x 213.39566pt>
 File: figures/chap_rl/RL_Chart.pdf Graphic file (type pdf)
 <use figures/chap_rl/RL_Chart.pdf, page 2>
 Package pdftex.def Info: figures/chap_rl/RL_Chart.pdf , page2 used on input lin
@@ -2230,11 +2230,6 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 60.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 60.
-
-Underfull \hbox (badness 10000) in paragraph at lines 82--83
-
- []
-
 ) (chapter/05_chap_implement.tex
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 3.
@@ -2444,7 +2439,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `superscript' on input line 122.
 
-<figures/chap_implement/GCP.png, id=712, 270.25969pt x 146.79843pt>
+<figures/chap_implement/GCP.png, id=713, 270.25969pt x 146.79843pt>
 File: figures/chap_implement/GCP.png Graphic file (type png)
 <use figures/chap_implement/GCP.png>
 Package pdftex.def Info: figures/chap_implement/GCP.png  used on input line 157
@@ -2473,7 +2468,7 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 171.
  [25 <./figures/chap_implement/GCP.png>]
 (figures/chap_implement/cartpole.pdf_tex
-<figures/chap_implement/cartpole.pdf, id=728, page=1, 569.05513pt x 213.39566pt
+<figures/chap_implement/cartpole.pdf, id=729, page=1, 569.05513pt x 213.39566pt
 >
 File: figures/chap_implement/cartpole.pdf Graphic file (type pdf)
 <use figures/chap_implement/cartpole.pdf, page 1>
@@ -2482,35 +2477,35 @@ put line 56.
 (pdftex.def)             Requested size: 341.43306pt x 128.04164pt.
 )
 (figures/chap_implement/cartpole_FWD_REV.pdf_tex
-<figures/chap_implement/cartpole_FWD_REV.pdf, id=730, page=1, 569.05513pt x 213
+<figures/chap_implement/cartpole_FWD_REV.pdf, id=731, page=1, 569.05513pt x 213
 .39566pt>
 File: figures/chap_implement/cartpole_FWD_REV.pdf Graphic file (type pdf)
 <use figures/chap_implement/cartpole_FWD_REV.pdf, page 1>
 Package pdftex.def Info: figures/chap_implement/cartpole_FWD_REV.pdf , page1 us
 ed on input line 56.
 (pdftex.def)             Requested size: 341.43306pt x 128.04164pt.
-<figures/chap_implement/cartpole_FWD_REV.pdf, id=731, page=2, 569.05513pt x 213
+<figures/chap_implement/cartpole_FWD_REV.pdf, id=732, page=2, 569.05513pt x 213
 .39566pt>
 File: figures/chap_implement/cartpole_FWD_REV.pdf Graphic file (type pdf)
 <use figures/chap_implement/cartpole_FWD_REV.pdf, page 2>
 Package pdftex.def Info: figures/chap_implement/cartpole_FWD_REV.pdf , page2 us
 ed on input line 58.
 (pdftex.def)             Requested size: 341.43306pt x 128.04164pt.
-<figures/chap_implement/cartpole_FWD_REV.pdf, id=732, page=3, 569.05513pt x 213
+<figures/chap_implement/cartpole_FWD_REV.pdf, id=733, page=3, 569.05513pt x 213
 .39566pt>
 File: figures/chap_implement/cartpole_FWD_REV.pdf Graphic file (type pdf)
 <use figures/chap_implement/cartpole_FWD_REV.pdf, page 3>
 Package pdftex.def Info: figures/chap_implement/cartpole_FWD_REV.pdf , page3 us
 ed on input line 60.
 (pdftex.def)             Requested size: 341.43306pt x 128.04164pt.
-<figures/chap_implement/cartpole_FWD_REV.pdf, id=733, page=4, 569.05513pt x 213
+<figures/chap_implement/cartpole_FWD_REV.pdf, id=734, page=4, 569.05513pt x 213
 .39566pt>
 File: figures/chap_implement/cartpole_FWD_REV.pdf Graphic file (type pdf)
 <use figures/chap_implement/cartpole_FWD_REV.pdf, page 4>
 Package pdftex.def Info: figures/chap_implement/cartpole_FWD_REV.pdf , page4 us
 ed on input line 62.
 (pdftex.def)             Requested size: 341.43306pt x 128.04164pt.
-<figures/chap_implement/cartpole_FWD_REV.pdf, id=734, page=5, 569.05513pt x 213
+<figures/chap_implement/cartpole_FWD_REV.pdf, id=735, page=5, 569.05513pt x 213
 .39566pt>
 File: figures/chap_implement/cartpole_FWD_REV.pdf Graphic file (type pdf)
 <use figures/chap_implement/cartpole_FWD_REV.pdf, page 5>
@@ -2528,7 +2523,7 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 202.
  [26 <./figures/chap_implement/cartpole.pdf>] (figures/chap_implement/cartpole_
 observation.pdf_tex
-<figures/chap_implement/cartpole_observation.pdf, id=743, page=1, 569.05513pt x
+<figures/chap_implement/cartpole_observation.pdf, id=744, page=1, 569.05513pt x
  213.39566pt>
 File: figures/chap_implement/cartpole_observation.pdf Graphic file (type pdf)
 <use figures/chap_implement/cartpole_observation.pdf, page 1>
@@ -2540,7 +2535,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 227.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 227.
-<figures/sonstiges/platzhalter.pdf, id=746, 1003.75pt x 401.5pt>
+<figures/sonstiges/platzhalter.pdf, id=747, 1003.75pt x 401.5pt>
 File: figures/sonstiges/platzhalter.pdf Graphic file (type pdf)
 <use figures/sonstiges/platzhalter.pdf>
 Package pdftex.def Info: figures/sonstiges/platzhalter.pdf  used on input line 
@@ -2638,9 +2633,6 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 11.
 
-LaTeX Warning: Reference `label' on page 31 undefined on input line 50.
-
-
 Overfull \hbox (4.20148pt too wide) in paragraph at lines 14--51
 \OT1/cmr/m/n/10.95 Ver[]anderungen am Co-de er-ziel-te der Pa-ra-me-ter-such-la
 uf mit dem Zeit-stem-pel \OT1/cmtt/m/n/10.95 20180818[]02-48-01
@@ -2681,9 +2673,6 @@ File: figures/sonstiges/platzhalter.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/sonstiges/platzhalter.pdf  used on input line 
 69.
 (pdftex.def)             Requested size: 341.43306pt x 136.57558pt.
-
-LaTeX Warning: Reference `label' on page 32 undefined on input line 73.
-
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 75.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2718,10 +2707,25 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 86.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 86.
+
+LaTeX Warning: Reference `label' on page 34 undefined on input line 91.
+
+
+LaTeX Warning: Reference `label' on page 34 undefined on input line 91.
+
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 92.
+(babel)             in language  on input line 94.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 92.
+(babel)             in language  on input line 94.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 94.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 94.
+[34]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 96.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 96.
 ) (chapter/99_appendix.tex
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 4.
@@ -2731,7 +2735,19 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 4.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 4.
- [34]
+ [35]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 4.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 4.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 4.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 4.
+ [36
+
+
+]
 Anhang A.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 4.
@@ -2749,10 +2765,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 16.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 16.
-[35
-
-
-]
+[37]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 16.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2761,7 +2774,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 16.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 16.
- [36
+ [38
 
 
 ]
@@ -2788,7 +2801,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
 \OT1/cmtt/m/n/10.95 Plots und Grafiken anzeigen und
  []
 
-<figures/appendix/qr-code.pdf, id=820, 1262.7175pt x 1262.7175pt>
+<figures/appendix/qr-code.pdf, id=839, 1262.7175pt x 1262.7175pt>
 File: figures/appendix/qr-code.pdf Graphic file (type pdf)
 <use figures/appendix/qr-code.pdf>
 Package pdftex.def Info: figures/appendix/qr-code.pdf  used on input line 44.
@@ -2812,11 +2825,6 @@ Overfull \hbox (21.78952pt too wide) in paragraph at lines 66--67
 [][] 
  []
 
-
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 20--69
-[]  [] 
- []
-
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 73.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2825,7 +2833,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 73.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 73.
-[37 <./figures/appendix/qr-code.pdf>]
+[39 <./figures/appendix/qr-code.pdf>]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 73.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2834,7 +2842,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 73.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 73.
- [38
+ [40
 
 
 ]
@@ -2844,12 +2852,12 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 73.
 
-LaTeX Warning: Reference `label' on page 39 undefined on input line 94.
+LaTeX Warning: Reference `label' on page 41 undefined on input line 96.
 
 File: figures/sonstiges/platzhalter.pdf Graphic file (type pdf)
 <use figures/sonstiges/platzhalter.pdf>
 Package pdftex.def Info: figures/sonstiges/platzhalter.pdf  used on input line 
-97.
+99.
 (pdftex.def)             Requested size: 341.43306pt x 136.57558pt.
 ) (main.bbl
 Package babel Info: Redefining ngerman shorthand "|
@@ -2860,7 +2868,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
- [39]
+ [41]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 1.
@@ -2879,7 +2887,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
-[40
+[42
 
 
 
@@ -2914,32 +2922,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--29
 
 )
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 216.
+(babel)             in language  on input line 215.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 216.
+(babel)             in language  on input line 215.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 216.
+(babel)             in language  on input line 215.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 216.
- [41
+(babel)             in language  on input line 215.
+ [43
 
 
 
 ]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 216.
+(babel)             in language  on input line 215.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 216.
+(babel)             in language  on input line 215.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 216.
+(babel)             in language  on input line 215.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 216.
- [42]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 218.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 218.
+(babel)             in language  on input line 215.
+ [44]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 217.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 217.
  (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 218.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 218.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 217.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 217.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 366B409A55CCB972000F37B8F3412A96;3393.
 
@@ -2958,10 +2966,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 55588 strings out of 492973
- 1253190 string characters out of 3135932
- 1474750 words of memory out of 3000000
- 58505 multiletter control sequences out of 15000+200000
+ 55592 strings out of 492973
+ 1253230 string characters out of 3135932
+ 1475833 words of memory out of 3000000
+ 58506 multiletter control sequences out of 15000+200000
  547453 words of font info for 80 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  137i,20n,177p,1622b,2597s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2990,9 +2998,9 @@ iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmtt8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (46 pages, 951489 bytes).
+Output written on main.pdf (48 pages, 959597 bytes).
 PDF statistics:
- 1002 PDF objects out of 1200 (max. 8388607)
- 221 named destinations out of 1000 (max. 500000)
+ 1021 PDF objects out of 1200 (max. 8388607)
+ 224 named destinations out of 1000 (max. 500000)
  621 words of extra memory for PDF output out of 10000 (max. 10000000)
 
