@@ -88,6 +88,28 @@
 }
 %-------------------------------------------------
 
+% Boxes for Datasheet-----------------------------
+
+\usepackage[most]{tcolorbox}
+
+\newtcolorbox{mybox}[2][]{enhanced,
+	fonttitle=\ttfamily,
+	fontupper=\ttfamily,
+	sharp corners,
+	colback=white,
+	colbacktitle=white,
+	coltitle=black,
+	boxed title style={colframe=white},
+	attach boxed title to top left={yshift=-3mm}, 
+	title=#2,#1}
+
+%-------------------------------------------------
+
+% For landscape Tables----------------------------
+\usepackage{pdflscape}
+\usepackage{afterpage}
+%-------------------------------------------------
+
 \usepackage[justification=centering]{caption} % For centering Captions
 
 \usepackage{color, colortbl} % For fancy Tables

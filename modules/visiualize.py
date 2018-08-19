@@ -11,7 +11,6 @@ INFO:       This Module can load a specific File Dump (cPickle) and visiualize t
 # Some dependencies
 import numpy as np
 import matplotlib.pyplot as plt
-import pickle
 import hickle as hkl
 import gym
 

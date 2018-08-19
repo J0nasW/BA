@@ -23,7 +23,7 @@
 \contentsline {section}{\numberline {4.1}Aufbau des Programms}{21}{section.4.1}
 \contentsline {section}{\numberline {4.2}Implementierung der Suchalgorithmen}{22}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Suchalgorithmus RandomSearch}{22}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Suchalgorithmus Weights}{23}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.2}Optimierungsalgorithmus Weights}{23}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}Simulation in der Google Cloud Platform\textsuperscript {\textregistered }}{24}{subsection.4.2.3}
 \contentsline {section}{\numberline {4.3}Simulationsumgebung: OpenAI Gym}{25}{section.4.3}
 \contentsline {section}{\numberline {4.4}Visualisierung und Auswertung}{28}{section.4.4}
@@ -33,10 +33,14 @@
 \contentsline {subsection}{\numberline {4.5.3}Dateiinspektion}{29}{subsection.4.5.3}
 \contentsline {chapter}{\numberline {5}Performance \& Auswertung}{31}{chapter.5}
 \contentsline {section}{\numberline {5.1}Performance implementierter Algorithmen}{31}{section.5.1}
-\contentsline {section}{\numberline {5.2}Limitationen und Alternativen von Algorithmen}{31}{section.5.2}
-\contentsline {section}{\numberline {5.3}Vergleich zu bestehenden Systemen}{31}{section.5.3}
-\contentsline {section}{\numberline {5.4}Zusammenfassung}{31}{section.5.4}
-\contentsline {chapter}{\numberline {A}Programmcode Python}{33}{appendix.A}
-\contentsline {section}{\numberline {A.1}LIF-Modell}{33}{section.A.1}
-\contentsline {chapter}{\numberline {B}Aufbau Modul}{35}{appendix.B}
-\contentsline {chapter}{Literaturverzeichnis}{37}{appendix*.22}
+\contentsline {section}{\numberline {5.2}Limitationen und Alternativen von Algorithmen}{32}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Analyse bereits bestehender Algotithmen}{33}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Alternative Such- und Optimierungsalgorithmen}{34}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.3}Vergleich zu bestehenden Systemen}{34}{section.5.3}
+\contentsline {section}{\numberline {5.4}Zusammenfassung}{34}{section.5.4}
+\contentsline {section}{\numberline {5.5}Ausblick}{34}{section.5.5}
+\contentsline {chapter}{\numberline {A}Programmcode Python}{35}{appendix.A}
+\contentsline {section}{\numberline {A.1}LIF-Modell}{35}{section.A.1}
+\contentsline {chapter}{\numberline {B}Datenblatt Programm: TW-Circuit}{37}{appendix.B}
+\contentsline {chapter}{\numberline {C}Parameter mit guten Simulationsergebnissen}{39}{appendix.C}
+\contentsline {chapter}{Literaturverzeichnis}{41}{appendix*.26}

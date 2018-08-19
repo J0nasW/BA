@@ -114,7 +114,7 @@
 			\caption{random\_search\_v2}
 		\end{algorithm}
 		Die elementare Funtion \texttt{run\_episode} wird in Sektion \ref{sec:imp_sim} genauer erläutert. Sie enthält unter anderem auch die Funktion \texttt{compute}, welche in Sektion \ref{sec:lif_imp} bereits detailliert thematisiert wurde.
-	\subsection{Suchalgorithmus Weights}
+	\subsection{Optimierungsalgorithmus Weights}
 		Als erstes Optimierungsverfahren nach erfolgreicher Simulation der Parameter des neuronalen Netzes wird nun der Algorithmus Weights eingesetzt. Dieser lässt die bereits simulierten Parameter importieren und gewichtet jede Synapse mit einem Faktor $g\in[0,1]$. Durch einfache Simulationen mit willkürlichen Gewichten wird schnell festgestellt, welche Synapsen bei einem Simulationslauf mit hohem Reward eine große Gewichtung erhalten und welche Synapsen nicht förderlich für das Ergebnis sind. Durch diese Simulation war es möglich, das in Kap. \ref{chap:neuro} vorgestellte symmetrische Neuronale Netz (Abb. \ref{fig:nn_new}) zu entwickeln. Die dort gezeigten Synapsen erfahren eine relevante Gewichtung und sind somit wichtig für den Erfolg des neuronalen Netzes.\\
 		Der Gewichtungsalgorithmus ist rechenintensiver als RandomSearch, da insgesamt 16 Synapsen bzw. Gap-Junctions pro Episode mit zufällig gewählten Gewichten versehen werden, um den Reward zu steigern. Jedoch wird ein im Schnitt um das Dreifache höherer Reward verzeichnet bei gleichbleibenden Parametern, was eine sehr gute Optimierung darstellt.\\
 		Aufgerufen wird dieser Algorithmus analog zu RandomSearch aus der \texttt{main.py}-Datei. Als Input werden die bereits errechneten optimalen Parameter der jeweiligen Nervenzellen und Synapsen sowie die maximale Simulationszeit eingegeben. Ebenfalls gleich dem Algorithmus RandomSearch produziert Weights einen Dump mit den errechneten Gewichten der Synapsen und Gap-Junctions sowie eine Informationsdatei im \texttt{.txt}-Format, welche weitere Zugehörigkeitsinformationen sowie die Anzahl an Simulationen und die Dauer enthält.
@@ -246,7 +246,7 @@
 	\begin{figure}[!h] %[!t] ...
 		\centering
 		\includegraphics[width=12cm]{figures/sonstiges/platzhalter.pdf}
-		\caption{Plot der Membranpotentiale }
+		\caption{Plot der Membranpotentiale}
 		\label{fig:imp_plot_1}
 	\end{figure}
 
