@@ -1,16 +1,13 @@
 % Encoding: UTF-8
-﻿% This file was created with Citavi 5.7.1.0
 
-@article{AnimalGaits,
- author = {{J, J. Collins, I. N. Stewart}},
- year = {1993},
- title = {Coupled Nonlinear Oscillators and the Symmetries of Animal Gaits: Toward the next frontiers},
- keywords = {central pattern generators, locomotion, gait transitions, quadrupeds, bifurcation},
- pages = {97--103},
- number = {1},
- issn = {01672789},
- journal = {Physica D: Nonlinear Phenomena},
- doi = {\url{10.1016/0167-2789(93)90034-X}}
+@Article{AnimalGaits,
+  author   = {{J, J. Collins, I. N. Stewart}},
+  title    = {Coupled Nonlinear Oscillators and the Symmetries of Animal Gaits: Toward the next frontiers},
+  journal  = {Physica D: Nonlinear Phenomena},
+  year     = {1993},
+  number   = {1},
+  pages    = {97--103},
+  keywords = {central pattern generators, locomotion, gait transitions, quadrupeds, bifurcation},
 }
 
 @Article{CElegans,
@@ -24,21 +21,18 @@
   issn          = {0270-6474},
   __markedentry = {[Jonas:4]},
   abstract      = {The neural pathways for touch-induced movement in Caenorhabditis elegans contain six touch receptors, five pairs of intemeurons, and 69 motor neurons. The synaptic relationships among these cells have been deduced from reconstructions from serial section electron micrographs, and the roles of the cells were assessed by examining the behavior of animals after selective killing of precursors of the cells by laser microsurgery. This analysis revealed that there are two pathways for touch-mediated movement for anterior touch (through the AVD and AVB intemeurons) and a single pathway for posterior touch (via the PVC intemeurons). The anterior touch circuitry changes in two ways as the animal matures. First, there is the formation of a neural network of touch cells as the three anterior touch cells become coupled by gap junctions. Second, there is the addition of the AVB pathway to the pre-existing AVD pathway. The touch cells also synapse onto many cells that are probably not involved in the generation of movement. Such synapses suggest that stimulation of these receptors may modify a number of behaviors.},
-  doi           = {\url{10.1523/JNEUROSCI.05-04-00956.1985}},
 }
 
-
-@article{FlappingFlight,
- abstract = {This paper presents a new control approach and a dynamic model for engineered flapping flight with many interacting degrees of freedom. This paper explores the applications of neurobiologically inspired control systems in the form of central pattern generators to control flapping-flight dynamics. A rigorous mathematical and control theoretic framework to design complex three-dimensional wing motions is presented based on phase synchronization of nonlinear oscillators. In particular, we show that flapping-flying dynamics without a tail or traditional aerodynamic control surfaces can be effectively controlled by a reduced set of central pattern generator parameters that generate phase-synchronized or symmetry-breaking oscillatory motions of two main wings. Furthermore, by using Hopf bifurcation, we show that tailless aircraft alternating between flapping and gliding can be effectively stabilized by smooth wing motions driven by the central pattern generator network. Results of numerical simulation with a full six-degree-of-freedom flight dynamic model validate the effectiveness of the proposed neurobiologically inspired control approach.},
- author = {Chung, Soon-Jo and Dorothy, Michael},
- year = {2010},
- title = {Neurobiologically Inspired Control of Engineered Flapping Flight},
- pages = {440--453},
- volume = {33},
- number = {2},
- issn = {0731-5090},
- journal = {Journal of Guidance, Control, and Dynamics},
- doi = {\url{10.2514/1.45311}}
+@Article{FlappingFlight,
+  author   = {Chung, Soon-Jo and Dorothy, Michael},
+  title    = {Neurobiologically Inspired Control of Engineered Flapping Flight},
+  journal  = {Journal of Guidance, Control, and Dynamics},
+  year     = {2010},
+  volume   = {33},
+  number   = {2},
+  pages    = {440--453},
+  issn     = {0731-5090},
+  abstract = {This paper presents a new control approach and a dynamic model for engineered flapping flight with many interacting degrees of freedom. This paper explores the applications of neurobiologically inspired control systems in the form of central pattern generators to control flapping-flight dynamics. A rigorous mathematical and control theoretic framework to design complex three-dimensional wing motions is presented based on phase synchronization of nonlinear oscillators. In particular, we show that flapping-flying dynamics without a tail or traditional aerodynamic control surfaces can be effectively controlled by a reduced set of central pattern generator parameters that generate phase-synchronized or symmetry-breaking oscillatory motions of two main wings. Furthermore, by using Hopf bifurcation, we show that tailless aircraft alternating between flapping and gliding can be effectively stabilized by smooth wing motions driven by the central pattern generator network. Results of numerical simulation with a full six-degree-of-freedom flight dynamic model validate the effectiveness of the proposed neurobiologically inspired control approach.},
 }
 {Internet,
  author = {Brian-Team},
@@ -51,9 +45,9 @@
 
 @Book{NeuronalDynamics,
   title         = {Neuronal Dynamics From Single Neurons to Networks and Models of Cognition},
-  publisher     = {{Cambridge University Press}},
+  publisher     = {Cambridge University Press},
   year          = {2014},
-  author        = {{Wulfram Gerstner, Werner M. Kistler, Richard Naud, Liam Paninski}},
+  author        = {Wulfram Gerstner, Werner M. Kistler, Richard Naud, Liam Paninski},
   address       = {Cambridge CB2 8BS, United Kingdom},
   edition       = {1},
   isbn          = {978-1-107-63519-7},
@@ -108,7 +102,7 @@
   number        = {12},
   pages         = {4017},
   month         = jun,
-  __markedentry = {[Jonas:3]},
+  __markedentry = {[Jonas:2]},
   abstract      = {The nematode tap withdrawal reflex demonstrates several forms of behavioral plasticity. Although the neural connectivity that supports this behavior is identified (Integration of mechanosensory stimuli in Caenorhabditis elegans, Wicks and Rankin, 1995, J Neurosci 15:2434-2444), the neurotransmitter phenotypes, and hence whether the synapses in the circuit are excitatory or inhibitory, remain uncharacterized. Here we use a novel strategy to predict the polarity configuration, i.e., the array of excitatory and inhibitory connections, of the nematode tap withdrawal circuit using an anatomically and physiologically justifiable dynamic network simulation of that circuit. The output of the modeled circuit was optimized to the behavior of animals, which possessed circuits altered by surgical ablation by exhaustively enumerating an array of synaptic signs that constituted the modeled circuit. All possible polarity configurations were then compared, and a statistical analysis was used to determine whether, for a given synaptic class, a particular polarity was associated with a good fit to behavioral data. The results from four related experiments were used to predict the polarities of seven of the nine cell classes of the tap withdrawal circuit. In addition, the model was used to assess possible roles for two novel mechanosensory integration neurons: DVA and PVD.},
   url           = {http://www.jneurosci.org/content/16/12/4017.abstract},
 }
@@ -166,8 +160,44 @@
   pages         = {436},
   month         = may,
   __markedentry = {[Jonas:3]},
+  groups        = {CHAPTER_RL},
   publisher     = {Nature Publishing Group, a division of Macmillan Publishers Limited. All Rights Reserved.},
   url           = {http://dx.doi.org/10.1038/nature14539},
 }
 
+@Article{Watkins1992,
+  author        = {Watkins, Christopher J. C. H. and Dayan, Peter},
+  title         = {Q-learning},
+  journal       = {Machine Learning},
+  year          = {1992},
+  volume        = {8},
+  number        = {3},
+  pages         = {279--292},
+  month         = may,
+  issn          = {1573-0565},
+  __markedentry = {[Jonas:3]},
+  abstract      = {Q-learning (Watkins, 1989) is a simple way for agents to learn how to act optimally in controlled Markovian domains. It amounts to an incremental method for dynamic programming which imposes limited computational demands. It works by successively improving its evaluations of the quality of particular actions at particular states.},
+  groups        = {CHAPTER_RL},
+  refid         = {Watkins1992},
+  url           = {https://doi.org/10.1007/BF00992698},
+}
+
+@Misc{BA,
+  author       = {Jonas Wilinski},
+  title        = {Bachelorarbeit Repository},
+  howpublished = {Online},
+  month        = sep,
+  year         = {2018},
+  abstract     = {This Repo includes Code from my Bachelor Thesis at the Chair of Automatic Control (Faculty of Engineering - CAU Kiel) },
+  owner        = {Jonas Wilinski},
+  url          = {https://github.com/J0nasW/BA},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
+
+@Comment{jabref-meta: grouping:
+0 AllEntriesGroup:;
+1 StaticGroup:CHAPTER_RL\;0\;1\;\;\;\;;
+1 StaticGroup:CHAPTER_LIF\;0\;1\;\;\;\;;
+1 StaticGroup:CHAPTER_NEURO\;0\;1\;\;\;\;;
+}
