@@ -30,6 +30,27 @@ Some Libraries that I used:
 Computing is getting more and more complex and takes a huge amount of resources. I'll be using the Google Cloud Plattform from now on to train parameters and weights of my neural Network.
 
 ---
+#### Update Di., 21.08.2018
+* Implemented a GUI into main.py for Desktop use and created main_cmd.py for headless simulation use
+* More writing for the BA Thesis (see Commit History)
+
+#### Update So., 19.08.2018
+* Wrote the last chapters in my Bachelor Thesis and made the first commit - more to come
+* More writing for the BA Thesis (see Commit History)
+
+#### Update Fr., 17.08.2018
+* New Simulation Results from GCP came in - Parameter Run hit the 200 Reward - Mark and performed very well even without weight optimization
+* Did a Screencast of a good run - see /footage
+* More writing for the BA Thesis (see Commit History)
+
+#### Update Mi., 15.08.2018
+* New approach concerning Parameter sweeps - been simulating only half of the desired parameters and then duplicating them for symmetrical use - did improve performance very much
+* More writing for the BA Thesis (see Commit History)
+
+#### Update Mo., 13.08.2018
+* Some little Performance tweaks as well as cleaning up the Repo..
+* More writing for the BA Thesis (see Commit History)
+
 #### Update, Sa., 11.08.2018
 * Have been writing a lot this week and tewaking a little bit on my Observe-Method.
 * Did some Commentarys on my code as well as some very important little changes
