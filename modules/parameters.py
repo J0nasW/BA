@@ -44,6 +44,9 @@ A = np.matrix('0 0 1 1; 2 0 2 0; 0 2 0 2; 1 1 0 0') # AVA, AVD, PVC, AVB
 # B = Connections between Sensory- and Interneurons through Synapses
 B = np.matrix('0 1 1 0; 1 1 3 0; 0 3 1 1; 0 1 1 0') # PVD, PLM, AVM, ALM
 
+# Generate symmetrical PARAMETERS - Could be determined using Matrix but will be left manually
+IsSymmetrical = 0 # 1 = TRUE, 0 = FALSE
+
 #-------------------------------------------------------------------------------------------
 
 # Substantial Parameters/Constants----------------------------------------------------------
@@ -67,13 +70,20 @@ delta_t = 0.01
 # Sone Calculations based on A and B -------------------------------------------------------
 
 nbr_of_inter_synapses = np.count_nonzero(A)
+nbr_of_inter_synapses_symm = int(np.count_nonzero(A) / 2)
 nbr_of_sensor_synapses = (B == 1).sum()
+nbr_of_sensor_synapses_symm = int((B == 1).sum() / 2)
 nbr_of_gap_junctions = (B == 3).sum()
+nbr_of_gap_junctions_symm = int((B == 3).sum() / 2)
 A_all = np.count_nonzero(A)
+A_all_symm = int(np.count_nonzero(A) / 2)
 B_all = np.count_nonzero(B)
+B_all_symm = int(np.count_nonzero(B) / 2)
 
 nbr_of_sensor_neurons = np.shape(B)[1]
+nbr_of_sensor_neurons_symm = int(np.shape(B)[1] / 2)
 nbr_of_inter_neurons = np.shape(A)[1]
+nbr_of_inter_neurons_symm = int(np.shape(A)[1] / 2)
 
 #-------------------------------------------------------------------------------------------
 

@@ -1,0 +1,2 @@
+Parameter run from 20180815_10-24-40 with Reward 26 and 41379 Episodes.
+Simulation Runtime was 120.00119757652283.

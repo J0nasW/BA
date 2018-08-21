@@ -261,7 +261,7 @@ def main(parameter_matrices, runtime):
 
         if done:
             env.reset()
-            #initialize(Default_U_leak)
+            vis_initialize(Default_U_leak)
             episodes = episodes + 1
 
     print ("Did",episodes,"Episodes and was",uncertain,"out of",len(actions_arr),"times uncertain!")

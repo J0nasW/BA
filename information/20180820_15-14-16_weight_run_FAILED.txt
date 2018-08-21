@@ -1,0 +1,2 @@
+Corresponding Parameter Set: C:\Users\Jonas\Documents\GitHub\BA/parameter_dumps/20180820_15-14-06_rs2_v2_16.hkl
+Weight run from 20180820_15-14-16 with Reward 13 did FAIL! NeuronalCircuit_v3

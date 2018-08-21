@@ -55,8 +55,18 @@ def initialize(Default_U_leak, load_matrices):
 def random_weights():
 
     # Initializing Weight matrices
-    A_rnd = np.random.rand(1,A_all)
-    B_rnd = np.random.rand(1,B_all)
+    A_rnd = np.squeeze(np.random.rand(1,A_all))
+    B_rnd = np.squeeze(np.random.rand(1,B_all))
+
+    return A_rnd, B_rnd
+
+def random_weights_symm():
+
+    # Initializing Weight matrices
+    A_rnd = np.random.rand(1,A_all_symm)
+    A_rnd = np.append(A_rnd, A_rnd)
+    B_rnd = np.random.rand(1,B_all_symm)
+    B_rnd = np.append(B_rnd, B_rnd)
 
     return A_rnd, B_rnd
 
@@ -77,11 +87,11 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
             # Synapse Currents between Interneurons
             if A[i, j] == 1:
                 # Excitatory Synapse
-                I_s_inter[i, j] = Iw_syn_calc(x[i], x[j], E_in, w_A_rnd[0, k], sig_A_rnd[0, k], mu, A_rnd[0, k])
+                I_s_inter[i, j] = Iw_syn_calc(x[i], x[j], E_in, w_A_rnd[k], sig_A_rnd[k], mu, A_rnd[k])
                 k += 1
             elif A[i, j] == 2:
                 # Inhibitory Synapse
-                I_s_inter[i, j] = Iw_syn_calc(x[i], x[j], E_ex, w_A_rnd[0, k], sig_A_rnd[0, k], mu, A_rnd[0, k])
+                I_s_inter[i, j] = Iw_syn_calc(x[i], x[j], E_ex, w_A_rnd[k], sig_A_rnd[k], mu, A_rnd[k])
                 k += 1
             else:
                 I_s_inter[i, j] = 0
@@ -90,16 +100,16 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
             # Synapse Currents between Sensory and Interneurons
             if B[i, j] == 1:
                 # Inhibitory Synapse (can't be Excitatory)
-                I_s_sensor[i, j] = Iw_syn_calc(u[i], u[j], E_in, w_B_rnd[0, m], sig_B_rnd[0, m], mu, B_rnd[0, l])
+                I_s_sensor[i, j] = Iw_syn_calc(u[i], u[j], E_in, w_B_rnd[m], sig_B_rnd[m], mu, B_rnd[l])
                 l += 1
                 m += 1
             elif B[i, j] == 2:
-                I_s_sensor[i, j] = Iw_syn_calc(u[i], u[j], E_ex, w_B_rnd[0, m], sig_B_rnd[0, m], mu, B_rnd[0, l])
+                I_s_sensor[i, j] = Iw_syn_calc(u[i], u[j], E_ex, w_B_rnd[m], sig_B_rnd[m], mu, B_rnd[l])
                 l += 1
                 m += 1
             elif B[i, j] == 3:
                 # Gap Junction
-                I_g_sensor[i, j] = Iw_gap_calc(u[i], x[j], w_B_gap_rnd[0, n], B_rnd[0, l])
+                I_g_sensor[i, j] = Iw_gap_calc(u[i], x[j], w_B_gap_rnd[n], B_rnd[l])
                 l += 1
                 n += 1
             else:
@@ -114,7 +124,7 @@ def compute(x, u, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, 
         I_gap_inter = I_g_inter.sum(axis = 0)
         I_syn_stimuli = I_s_sensor.sum(axis = 0)
         I_gap_stimuli = I_g_sensor.sum(axis = 0)
-        x[i], fire[i] = U_neuron_calc(x[i], I_syn_inter[i], I_gap_inter[i], I_syn_stimuli[i], I_gap_stimuli[i], C_m_rnd[0,i], G_leak_rnd[0,i], U_leak_rnd[0,i], v, delta_t)
+        x[i], fire[i] = U_neuron_calc(x[i], I_syn_inter[i], I_gap_inter[i], I_syn_stimuli[i], I_gap_stimuli[i], C_m_rnd[i], G_leak_rnd[i], U_leak_rnd[i], v, delta_t)
 
     #---------------------------------------------------------------------------------------
 
@@ -173,7 +183,10 @@ def main(sim_time, load_parameters, best_reward_p):
     while True:
         w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = initialize(Default_U_leak, load_parameters) # Initializing all Sensory- and Interneurons with the desired leakage voltage [-70mV]
         episodes += 1 # Episode Counter
-        A_rnd, B_rnd = random_weights() # Make some new random Weights
+        if IsSymmetrical == True:
+            A_rnd, B_rnd = random_weights_symm() # Make some new random Weights
+        elif IsSymmetrical == False:
+            A_rnd, B_rnd = random_weights() # Make some new random Weights
         reward = run_episode(env, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd, A_rnd, B_rnd)
         if reward > best_reward:
             # Set current reward as new reward
