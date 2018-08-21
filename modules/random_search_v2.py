@@ -42,7 +42,27 @@ def initialize(Default_U_leak):
 
 # Random Function---------------------------------------------------------------------------
 
+
 def random_parameters():
+
+    # Initialize random parameters for our Neurons and Synapses according to the current Network
+
+    # For Synapses
+    w_A_rnd = np.squeeze(np.random.uniform(low = 0.5, high = 3, size = (1,nbr_of_inter_synapses)))
+    w_B_rnd = np.squeeze(np.random.uniform(low = 0.5, high = 3, size = (1,nbr_of_sensor_synapses)))
+    w_B_gap_rnd = np.squeeze(np.random.uniform(low = 0, high = 3, size = (1,nbr_of_gap_junctions)))
+
+    sig_A_rnd = np.squeeze(np.random.uniform(low = 0.05, high = 0.5, size = (1,nbr_of_inter_synapses)))
+    sig_B_rnd = np.squeeze(np.random.uniform(low = 0.05, high = 0.5, size = (1,nbr_of_sensor_synapses)))
+
+    # For Neurons
+    C_m_rnd = np.squeeze(np.random.uniform(low = 0.01, high = 0.77, size = (1,nbr_of_inter_neurons)))
+    G_leak_rnd = np.squeeze(np.random.uniform(low = 0.1, high = 2.5, size = (1,nbr_of_inter_neurons)))
+    U_leak_rnd = np.squeeze(np.random.uniform(low = -70, high = -60, size = (1,nbr_of_inter_neurons)))
+
+    return w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd
+
+def random_parameters_symm():
 
     # Initialize random parameters for our Neurons and Synapses according to the current Network
 
@@ -231,7 +251,10 @@ def main(sim_time):
     while True:
         initialize(Default_U_leak) # Initializing all Sensory- and Interneurons with the desired leakage voltage [-70mV]
         episodes += 1 # Episode Counter
-        w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = random_parameters() # Make some new random parameter Matrices
+        if IsSymmetrical == True:
+            w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = random_parameters_symm() # Make some new random parameter Matrices
+        elif IsSymmetrical == False:
+            w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = random_parameters() # Make some new random parameter Matrices
         reward = run_episode(env, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd)
         if reward > best_reward:
             # Set current reward as new reward

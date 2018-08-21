@@ -56,6 +56,14 @@ def initialize(Default_U_leak, load_matrices):
 def random_weights():
 
     # Initializing Weight matrices
+    A_rnd = np.squeeze(np.random.rand(1,A_all))
+    B_rnd = np.squeeze(np.random.rand(1,B_all))
+
+    return A_rnd, B_rnd
+
+def random_weights_symm():
+
+    # Initializing Weight matrices
     A_rnd = np.random.rand(1,A_all_symm)
     A_rnd = np.append(A_rnd, A_rnd)
     B_rnd = np.random.rand(1,B_all_symm)
@@ -176,7 +184,10 @@ def main(sim_time, load_parameters, best_reward_p):
     while True:
         w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = initialize(Default_U_leak, load_parameters) # Initializing all Sensory- and Interneurons with the desired leakage voltage [-70mV]
         episodes += 1 # Episode Counter
-        A_rnd, B_rnd = random_weights() # Make some new random Weights
+        if IsSymmetrical == True:
+            A_rnd, B_rnd = random_weights_symm() # Make some new random Weights
+        elif IsSymmetrical == False:
+            A_rnd, B_rnd = random_weights() # Make some new random Weights
         reward = run_episode(env, w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd, A_rnd, B_rnd)
         if reward > best_reward:
             # Set current reward as new reward

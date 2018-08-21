@@ -44,6 +44,9 @@ A = np.matrix('0 0 1 1; 2 0 2 0; 0 2 0 2; 1 1 0 0') # AVA, AVD, PVC, AVB
 # B = Connections between Sensory- and Interneurons through Synapses
 B = np.matrix('0 1 1 0; 1 1 3 0; 0 3 1 1; 0 1 1 0') # PVD, PLM, AVM, ALM
 
+# Generate symmetrical PARAMETERS - Could be determined using Matrix but will be left manually
+IsSymmetrical = 0 # 1 = TRUE, 0 = FALSE
+
 #-------------------------------------------------------------------------------------------
 
 # Substantial Parameters/Constants----------------------------------------------------------
