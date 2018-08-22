@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{10}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -18,6 +18,11 @@ Chalfie M, Sulston JE, White JG, Southgate E, Thomson JN, Brenner S (1985) The
 Hasani RM, Beneder V, Fuchs M, Lung D, Grosu R (????) Sim-ce: An advanced
   simulink platform for studying the brain of caenorhabditis elegans
 
+\bibitem[{Holland(1992)}]{Holland1992}
+Holland JH (1992) Adaptation in Natural and Artificial Systems. MIT University
+  Press Group Ltd,
+  \urlprefix\url{https://www.ebook.de/de/product/2864942/john_h_holland_adaptation_in_natural_and_artificial_systems.html}
+
 \bibitem[{Lechner et~al(2017)Lechner, Grosu, and Hasani}]{WormLevelRL}
 Lechner M, Grosu R, Hasani RM (2017) Worm-level control through search-based
   reinforcement learning
@@ -32,6 +37,10 @@ Strogatz SH (1994) Nonlinear Dynamics And Chaos: With Applications To Physics,
   Biology, Chemistry And Engineering (Studies in Nonlinearity). Studies in
   nonlinearity, Perseus Books,
   \urlprefix\url{https://books.google.de/books?id=PHmED2xxrE8C}
+
+\bibitem[{Watkins and Dayan(1992)}]{Watkins1992}
+Watkins CJCH, Dayan P (1992) Q-learning. Machine Learning 8(3):279--292,
+  \urlprefix\url{https://doi.org/10.1007/BF00992698}
 
 \bibitem[{Wicks et~al(1996)Wicks, Roehrig, and Rankin}]{Wicks1996}
 Wicks SR, Roehrig CJ, Rankin CH (1996) A dynamic network simulation of the

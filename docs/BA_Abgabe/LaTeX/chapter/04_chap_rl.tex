@@ -43,7 +43,7 @@
 	Reinforcement Learning findet klassischerweise Anwendung durch Deep Learning Algorithmen auf künstlich erstellte neuronale Netze mit vielen s.g. \grqq Hidden Layers\glqq{} (Ebenen zwischen Ein- und Ausgang mit hoher Anzahl an Neuronen) statt. Variiert werden in einem solchen Netz lediglich die jeweiligen Gewichte der Synapsen zwischen den Neuronen. Synapsen sind darüber hinaus einfache Mittel zur Informationsübertragung und haben keine weiteren Eigenschaften oder zeigen kein eigenes Verhalten.\\
 	Das hier vorliegende neuronale Netzwerk ist jedoch gänzlich anders aufgebaut. Nervenzellen werden durch Potenziale beschrieben und integrieren anliegende Informationen auf. Synapsen können verschiedenen Typs sein und hemmend sowie erregend wirken. Sowohl Nervenzellen als auch Synapsen (und Gap-Junctions) haben verschiedene Parameter, welche gewisse Aktionen im neuronalen Netz verursachen können.\\
 	Daher wird in dieser Arbeit die Methode des Reinforcement Learning auf biologische neuronale Netze abgewandelt, um dieses auf Probleme der Regelungstechnik anzuwenden. Folglich befassen wir uns mit einem neuronalen Netz, welches eine Ebene mit vier Neuronen aufweist. Diese  arbeiten wie bereits in Kapitel \ref{chap:neuro} und \ref{chap:lif} beschrieben ebenfalls anders als in den üblichen Modellen künstlicher neuronaler Netze.\\
-	Die Schwierigkeit dieser Aufgabenstellung besteht darin, geeignete Parameter für jede Nervenzelle sowie für jede Synapse zu finden, sodass das Netz korrekt und zuverlässig auf interpretierte Signale aus der Umwelt reagiert und entsprechend durch den Agenten eine Aktion wählt, welche einen möglichst hohen Reward nach sich zieht. Bezogen auf Abb. \ref{fig:rl_chart} stellt die Umwelt unsere Simulationsumgebung des inversen Pendels (\code{OpenAI Gym - CartPolev0}) dar. Diese nimmt eine Aktion (FWD oder REV) pro Simulationsschritt an und gibt entsprechend einen Observationsvektor $\textbf{o}$ aus, welcher durch den Interpreter übersetzt wird. Der aktuelle State $s$ wird durch die vier Sensorneuronen \textit{PVD, PLM, AVM und ALM} entsprechend interpretiert und in das neuronale Netz eingegeben. Durch den gegebenen Reward haben wir die Information, wie gut das Netzwerk in der entsprechenden Episode mit den entsprechenden Parametern abschneidet.
+	Die Schwierigkeit dieser Aufgabenstellung besteht darin, geeignete Parameter für jede Nervenzelle sowie für jede Synapse zu finden, sodass das Netz korrekt und zuverlässig auf interpretierte Signale aus der Umwelt reagiert und entsprechend durch den Agenten eine Aktion wählt, welche einen möglichst hohen Reward nach sich zieht. Bezogen auf Abb. \ref{fig:rl_chart} stellt die Umwelt unsere Simulationsumgebung des inversen Pendels (\texttt{OpenAI Gym - CartPolev0}) dar. Diese nimmt eine Aktion (FWD oder REV) pro Simulationsschritt an und gibt entsprechend einen Observationsvektor $\textbf{o}$ aus, welcher durch den Interpreter übersetzt wird. Der aktuelle State $s$ wird durch die vier Sensorneuronen \textit{PVD, PLM, AVM und ALM} entsprechend interpretiert und in das neuronale Netz eingegeben. Durch den gegebenen Reward haben wir die Information, wie gut das Netzwerk in der entsprechenden Episode mit den entsprechenden Parametern abschneidet.
 
 % ***
 \section{Verschiedene Suchalgorithmen}
@@ -52,18 +52,59 @@
 	Die Wahl des geeigneten Suchalgorithmus ist immer von der Beschaffenheit der Problemstellung abhängig. Klassische Probleme mit Anwendung des Reinforcement Learning auf künstliche neuronale Netze nutzen Algorithmen wie Q-Learning, Policies (Epsilon-Greedy, Gradient-Decend/Acend) oder genetische Algorithmen. Diese sind hoch spezialisiert und suchen nach Maxima/Minima der gegebenen Funktion, um den Fehler zu reduzieren. Bei einer großen Zahl an Parametern, welche untereinander noch korreliert sein können, kommt oft der einfache, jedoch gleichzeitig sehr effektive \glqq RandomSearch\grqq{} Algorithmus zum Einsatz.\\
 	Grundsätzlich sei noch zu erwähnen, dass konventionelle Such- bzw. Optimierungsalgorithmen innerhalb des Reinforcement Learning ein Markov-Entscheidungsproblem voraussetzen. 
 	\subsection{Q-Learning}
-		Beschreibung und Grundlagen zu Q-Learning. tbd.
+		Die Methode des Q-Learnings wurde zuerst durch ein Paper von Watkins \cite{Watkins1992} definiert und vorgestellt. Voraussetzung um diese Algorithmen anzuwenden ist eine kontrollierte Markov Umgebung.
+		\begin{remark}[Markow Eigenschaft und Umgebung]
+			Als Markow-Eigenschaft\footnote{Nach Andrei Markow (1856 - 1922)} bezeichnet man, wie stark ein stochastischer Prozess von der Vergangenheit abhängt. Diese Bedingung erlaubt es, Markow-Prozesse zu beschreiben.\\
+			Durch eine Markow-Umgebung ist es möglich, aus einer begrenzten Anzahl an vergangenen States die Wahrscheinlichkeit für das Eintreten zukünftiger Ereignisse durch selbst gewählte Aktionen vorherzusagen.
+		\end{remark}
+		Ziel der Q-Learning Methode ist es, die Qualität der getätigten Aktionen bei unterschiedlichen Simulationsbedingungen zu verbessern. Dabei wird ein Agent eingesetzt, welcher lernt, in einer Markow-Umgebung optimal zu handeln, indem die Konsequenzen der Aktionen sofort zurückgeführt, analysiert und verarbeitet werden. Dem Agenten ist zu jedem Zeitpunkt der Simulation die Umwelt unbekannt.\\
+		Unmittelbar nach einer getätigten Aktion $\pi$ erhält der Agent neben dem State $x$ (ausgwählte Messgrößen wie bspw. der Winkel des inversen Pendels $\varphi$) den Reward $R_x(\pi(x))$. Aus diesen Informationen lässt sich der Wert des erhaltenen States $x$ berechnen:
+		\begin{align}
+			V^\pi(x) \equiv R_x(\pi(x)) + \gamma \sum_{y}P_{xy}[\pi(x)]V^\pi(y)
+		\end{align}
+		mit $\gamma$ als Diskontierungsfaktor des nächsten Rewards und $P_{xy}$ als Wahrscheinlichkeit der nächsten vorhergesagten Veränderung der Umwelt.\\
+		Nach Watkins existiert mindestens eine optimale stationäre Vorgehensweise (\grqq Policy\glqq) $\pi^*$ für welche gilt
+		\begin{align}
+			V^*(x) \equiv V^{\pi^*}(x) = \max_{\substack{a}} \bigg\{R_x(a) + \gamma \sum_{y}P_{xy}[a]V^{\pi^*}(y)\bigg\}.
+		\end{align}
+		Ziel des s.g. \grqq Q-Learner \glqq{} ist es, diese optimale Policy zu finden. So lassen sich die charakteristischen Q-Values
+		\begin{align}
+			Q^\pi(x,a) = R_x(a) + \gamma \sum_{y}R_{xy}[\pi(x)]V^\pi(y)
+		\end{align}
+		berechnen. Diese spiegeln den erwarteten diskontierten Reward bei Ausführung einer Aktion $a$ mit State $x$ und der darauf folgenden Policy $\pi$ wieder. Zusammenfassend kann durch die Methode des Q-Learning eine optimale Vorgehensweise des Agenten erzielt werden, wenn die entsprechenden Q-Values der optimalen Policy gefunden bzw. erlernt werden.
 	\subsection{Gradient Policies}
-		Beschreibung und Grundlagen zu Gradient Policies. tbd.
+		Eine weitere Möglichkeit, Probleme durch Reinforcement Learning zu lösen, ist die Anwendung s.g. \grqq Gradient Policies \glqq{}. Dies stellt ein klassisches Optimierungsproblem dar und fordert in erster Linie ebenfalls eine Markow-Umgebung.\\
+		Es wird eine gegebene Policy $\pi_\theta(s,a)$ mit Parametern $\theta$ angenommen. Ziel ist es, die optimalen Parameter $\theta$ zu finden, um den Reward zu maximieren. Um die Qualität der Policy $\pi_\theta$ zu messen, wird
+		\begin{align}
+			J(\theta) = V^{\pi_\theta}(s)
+		\end{align}
+		als Qualitätsgröße abhängig von der gegebenen Policy sowie dem State $s$ eingeführt.\\
+		Policy Gradient Algorithmen suchen nach einem lokalen Maximum in $J(\theta)$, indem sie sich entlang des Gradienten der Policy 
+		\begin{align}
+			\Delta \theta = \alpha \nabla_\theta J(\theta)
+		\end{align}
+		bewegen. $\alpha$ ist dabei ein Schrittweitenparameter.\\
+		Somit ist $\nabla_\theta J(\theta)$ definiert als
+		\begin{align}
+			\nabla_\theta J(\theta) = \begin{pmatrix}
+			\frac{\partial J(\theta)}{\partial \theta_1} & \\
+			\vdots & \\
+			\frac{\partial J(\theta)}{\partial \theta_n} & \end{pmatrix}.
+		\end{align}
+		Bei Anwendung von Gradient Policies stellt sich eine gute Konvergenzeigenschaft des Lernaglgorithmus ein. Durch das stetige Bewegen auf dem erlernten Gradienten der Qualitätsgröße $J(\theta)$ wird ein Maximum gefunden. Jedoch kann dieses nur ein lokales Maximum darstellen, und global gesehen nicht das Optimum widerspiegeln. Darüber hinaus bietet sich die Methode bei großen Aktionsräumen und langen Laufzeiten an, da selbst stochastische Prozesse erlernt werden können. 
 	\subsection{Genetische Algorithmen}
-		Beschreibung und Grundlagen zu genetischen Algorithmen. tbd.
+		Die Anwendung genetischer Algorithmen im Bereich des Reinforcement Learning ist ebenfalls schon seit einiger Zeit bekannt und führt in den richtigen Situationen zu guten Ergebnissen.\\
+		Der Grundstein dieser Optimierungsverfahren wurde von Holland et al. in seinem Werk \grqq Adaption in Natural and Artificial Systems \glqq{} \cite{Holland1992} gelegt. Basierend auf den bereits von Darwin\footnote{Charles Darwin (1809 - 1882)} beobachteten Phänomenen der Natur, setzen genetische Algorithmen bei dem Ansatz \glqq Survival of the Fittest\grqq{} an. Grundsätzlich kann die Vorgehensweise genetischer Algorithmen wie folgt dargestellt werden \cite{Goldberg1989}:
+		\begin{itemize}
+			\item 
+		\end{itemize}
 	\subsection{Random Search}
 		Beschreibung und Grundlagen zu Random Search + Anwendung. tbd.
 		
 	
 	Wie in der vorherigen Sektion \ref{sec:rl_neuro} bereits kurz beschrieben, werden die jeweiligen Parameter der Synapsen und Nervenzellen gesucht. Dies sind die folgenden:
 	\begin{center}
-		\begin{tabular}{l@{\hskip 0.5cm}c@{\hskip 0.5cm}c@{\hskip 0.5cm}r}    \toprule
+		\begin{tabular}{l@{\hskip 0.5cm}c@{\hskip 0.5cm}c@{\hskip 0.5cm}c}    \toprule
 			\setlength{\tabcolsep}{50pt}
 			\renewcommand{\arraystretch}{1.5}
 			\emph{Parameter-Typ} 	& \emph{Parameter}  & \emph{Beschreibung} 				& \emph{Grenzen} 					 \\\midrule
