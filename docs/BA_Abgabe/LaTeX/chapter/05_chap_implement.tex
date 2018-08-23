@@ -228,26 +228,19 @@
 \label{sec:imp_vis}
 % ***
 	Wie bereits in Sektion \ref{sec:imp_sim} näher beschrieben, liefert die Simulationsumgebung \texttt{CartPole\_v0} eine sehr gute Echtzeitvisualisierung des inversen Pendels als Animation. Diese wird durch das Speichern eines errechneten RGB-Tensors jedes Simulationsschrittes und anschließenden Animieren der Informationen erreicht. Weiterhin soll das Programm jedoch in der Lage sein, wichtige Parameter der Simulation über die Simulationszeit darzustellen, um ggf. Probleme zu erkennen und Aktionen zu verstehen. Um Plots aus Arrays zu erstellen, wir die Python-Bibliothek \texttt{matplotlib} genutzt. Durch die einfache Bedienung und den enormen Umfang an Werkzeugen ist diese Bibliothek sehr beliebt in der Visualisierung von Daten und Parametern.\\
-	Der generelle Ablauf des Programms sieht im ersten Schritt die Simulation von Parametern und Gewichten vor. Dies erfordert keine Visualisierung der Vorgänge, da die Performance erheblich beeinträchtigt werden würde. Daher wurde das Modul \texttt{visiualize.py} geschrieben, um gefundene Parameter und Gewichte mühelos simulieren zu können. Für den Aufruf werden die entsprechenden Parameter- und Gewichte-Dumps übergeben sowie die gewünschte Simulationszeit (bspw. 5 Sekunden). Die Simulation wird analog in den Suchalgorithmen jedoch mit festen Parametern ausgeführt. Gewünschte Größen werden pro Simulationsschritt gespeichert und letztlich grafisch dargestellt. Besonders die Übersicht über die Membranpotentiale einzelner Nervenzellen bietet einen sehr guten Überblick über die Vorgänge im neuronalen Netz und die Reaktion auf gegebene Sensor-Daten.\\
-%	\begin{figure}[!h] %[!t] ...
-%		\centering
-%		\def\svgwidth{12cm}
-%		\input{figures/sonstiges/platzhalter.pdf}
-%		\caption{Platzhalter}
-%		\label{fig:imp_plot_1}
-%	\end{figure}\\
-	\begin{figure}[!h] %[!t] ...
+	Der generelle Ablauf des Programms sieht im ersten Schritt die Simulation von Parametern und Gewichten vor. Dies erfordert keine Visualisierung der Vorgänge, da die Performance erheblich beeinträchtigt werden würde. Daher wurde das Modul \texttt{visiualize.py} geschrieben, um gefundene Parameter und Gewichte mühelos simulieren zu können. Für den Aufruf werden die entsprechenden Parameter- und Gewichte-Dumps übergeben sowie die gewünschte Simulationszeit (bspw. 5 Sekunden). Die Simulation wird analog in den Suchalgorithmen jedoch mit festen Parametern ausgeführt. Gewünschte Größen werden pro Simulationsschritt gespeichert und letztlich grafisch dargestellt. Besonders die Übersicht über die Membranpotentiale einzelner Nervenzellen bietet einen sehr guten Überblick über die Vorgänge im neuronalen Netz und die Reaktion auf gegebene Sensor-Daten.
+	\begin{figure}[H] %[!t] ...
 		\centering
-		\includegraphics[width=12cm]{figures/sonstiges/platzhalter.pdf}
-		\caption{Plot der Membranpotentiale }
-		\label{fig:imp_plot_1}
+		\includegraphics[width=16cm]{figures/chap_implement/plot_membranpot.pdf}
+		\caption{Plot der Membranpotentiale von Inter- und Sensorneuronen}
+		\label{fig:plot_membr}
 	\end{figure}
-	Weiterhin wird standardmäßig neben den Membranpotentialen auch der anliegende Synapsenstrom an jeder Nervenzelle geplottet. Diese Veranschaulichung gibt Aufschluss über die gewählten Parameter und das Feuerverhalten im internen neuronalen Netzwerk.\\
-	\begin{figure}[!h] %[!t] ...
+	Weiterhin wird standardmäßig neben den Membranpotentialen auch der anliegende Synapsenstrom an jeder Nervenzelle geplottet. Diese Veranschaulichung gibt Aufschluss über die gewählten Parameter und das Feuerverhalten im internen neuronalen Netzwerk.
+	\begin{figure}[H] %[!t] ...
 		\centering
-		\includegraphics[width=12cm]{figures/sonstiges/platzhalter.pdf}
-		\caption{Plot der Membranpotentiale}
-		\label{fig:imp_plot_1}
+		\includegraphics[width=16cm]{figures/chap_implement/plot_synstrom.pdf}
+		\caption{Plot der anliegenden Ströme aus Stimulus, Synapsen und Gap-Junctions}
+		\label{fig:plot_membr}
 	\end{figure}
 
 % ***

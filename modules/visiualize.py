@@ -107,15 +107,15 @@ def arr(x, u, fire, I_all):
 def plot():
 
     plt.figure(1)
-    plt.suptitle('Leaky-Integrate-and-Fire Neuronal Network', fontsize=16)
+    plt.suptitle('TW Circuit Simulator for biological neural Networks', fontsize=16)
 
     plt.subplot(121)
     plt.title('Sensory Neurons', fontsize=10)
     plt.plot(PLM, '-y', label='PLM (Phi)', linewidth=1)
     plt.plot(AVM, '-g', label='AVM (-Phi)', linewidth=1)
-    plt.plot(ALM, '-r', label='ALM (x)', linewidth=1)
-    plt.plot(PVD, '-b', label='PVD (-x)', linewidth=1)
-    plt.xlabel('t (in s)')
+    plt.plot(ALM, '-r', label='ALM (Phi dot)', linewidth=1)
+    plt.plot(PVD, '-b', label='PVD (-Phi dot)', linewidth=1)
+    plt.xlabel('t')
     plt.ylabel('u(t) in [mV]')
     plt.legend(loc='upper left')
 
@@ -125,7 +125,7 @@ def plot():
     plt.plot(AVD, '-y', label='AVD (REV)', linewidth=1)
     plt.plot(PVC, '-g', label='PVC (FWD)', linewidth=1)
     plt.plot(AVB, '-k', label='AVB (FWD)', linewidth=0.3)
-    plt.xlabel('t (in s)')
+    plt.xlabel('t')
     plt.ylabel('u(t) in [mV]')
     plt.legend(loc='upper left')
 

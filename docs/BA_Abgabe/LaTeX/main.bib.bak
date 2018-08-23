@@ -268,6 +268,17 @@
   keywords    = {cs.LG, cs.AI},
 }
 
+@Book{Holland1992,
+  title     = {Adaptation in Natural and Artificial Systems},
+  publisher = {MIT University Press Group Ltd},
+  year      = {1992},
+  author    = {Holland, John H.},
+  isbn      = {0262581116},
+  date      = {1992-04-11},
+  ean       = {9780262581110},
+  url       = {https://www.ebook.de/de/product/2864942/john_h_holland_adaptation_in_natural_and_artificial_systems.html},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
 
 @Comment{jabref-meta: grouping:

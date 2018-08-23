@@ -87,12 +87,12 @@
 \label{sec:my_net}
 % ***
 	Wie in \cite{Wicks1996} bereits thematisiert, wird in Abb. \ref{fig:01_TW-Circuit} lediglich eine Hälfte des symmetrischen neuronalen Netzes des Wurms C. Elegans beschrieben. Wie im menschlichen Gehirn besteht das Netzwerk aus zwei Hälften, welche zusammenwirken und bei gegebenen Sensor-Input eine Aktion wählen. Eine erweiterte Analyse des Netzwerks besonders mit den berechneten Gewichten der einzelnen Synapsen ergibt, dass das gegebene Netz von Lechner et al. \ref{fig:01_TW-Circuit} unsymmetrisch scheint. Die Nervenzelle \textit{DVA}, welche als Synchronisationszelle zwischen beiden Netzwerkhälften dienen soll, taucht im gegebenen Netz als unsymmetrische Komponente auf und scheint gewisse Sensor-Inputs ungleichmäßig zu gewichten. Im Zuge dessen wird ein neues, symmetrisches neuronales Netz entwickelt, welches zum einen symmetrischer Natur ist, zum anderen manche Synapsen und Gap-Junctions misst, da diese nicht zielführend für das gegebene Problem erschienen. Spätere Simulationen bestätigten diese Annahmen, indem durch Gewichtung der Synapsen und Gap-Junctions manche Verbindungen ein verschwindend geringes Gewicht erhielten.
-	\begin{figure}[!h] %[!t] ...
+	\begin{figure}[H] %[!t] ...
 		\centering
 		\includegraphics[width=10cm]{figures/chap_neuron/Neural_Net_v3_plain.pdf}
 		\caption{Symmetrisches neuronales Netz des TW-Circuits}
 		\label{fig:nn_new}
-	\end{figure}\\
+	\end{figure}
 	Das in Abb. \ref{fig:nn_new} dargestellte, symmetrische neuronale Netz des TW-Circuit wird für alle weiteren Analysen und Simulationsläufe verwendet. Die genaue Umsetzung wird in Kapitel \ref{chap:imp} weiter erläutert.
 	
 

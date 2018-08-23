@@ -46,7 +46,7 @@ B = np.matrix('0 1 1 0; 1 1 3 0; 0 3 1 1; 0 1 1 0') # PVD, PLM, AVM, ALM
 
 # Generate symmetrical PARAMETERS - Could be determined using Matrix but will be left manually
 IsSymmetrical = 0 # 1 = TRUE, 0 = FALSE
-SecondObservation = "cart" # "angle" = Angle Velocity on PLM and AVM, "cart" = Cart Position on PLM and AVM
+SecondObservation = "angle" # "angle" = Angle Velocity on PLM and AVM, "cart" = Cart Position on PLM and AVM
 
 #-------------------------------------------------------------------------------------------
 

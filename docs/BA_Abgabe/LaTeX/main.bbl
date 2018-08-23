@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{11}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -13,6 +13,11 @@
 Chalfie M, Sulston JE, White JG, Southgate E, Thomson JN, Brenner S (1985) The
   neural circuit for touch sensitivity in caenorhabditis elegans. The Journal
   of Neuroscience 5(4):956--964
+
+\bibitem[{Goldberg(1989)}]{Goldberg1989}
+Goldberg DE (1989) Genetic Algorithms in Search, Optimization, and Machine
+  Learning. Addison-Wesley Professional,
+  \urlprefix\url{https://www.amazon.com/Genetic-Algorithms-Optimization-Machine-Learning/dp/0201157675?SubscriptionId=AKIAIOBINVZYXZQZ2U3A&tag=chimbori05-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=0201157675}
 
 \bibitem[{Hasani et~al(????)Hasani, Beneder, Fuchs, Lung, and Grosu}]{SimCE}
 Hasani RM, Beneder V, Fuchs M, Lung D, Grosu R (????) Sim-ce: An advanced

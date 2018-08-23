@@ -1,0 +1,20 @@
+%
+% ****
+\chapter{Einleitung}
+\label{chap:einleitung}
+% ****
+%
+
+	Diese Arbeit beschäftigt sich mit Themen des Reinforcement Learning und der Anwendung biologischer neuronaler Netze auf Probleme der Regelungstechnik.\\
+	Hierzu wird als Basis ein Paper von Lechner et al. \glqq Worm-level Control through Search-based Reinforcement Learning \grqq{} \cite{WormLevelRL} herangezogen. Anders als herkömmliche neuronale Netze, welche meist künstlich erzeugt und angewendet werden, findet in dieser Arbeit ein biologisches Netz des Wurms C.Elegans Anwendung. Dieses Netz wurde schon durch verschiedene Paper \cite{CElegans} \cite{SimCE} \cite{Wicks1996} untersucht und vorgestellt. Um dieses Netz zu simulieren, wird auf das Leaky Integrate and Fire Modell verwiesen, welches eine gute Berechnungsgrundlage für Prozesse innerhalb biologischer neuronaler Netze bietet. Zur Berechnung von Simulationen müssen charakteristische Größen innerhalb des Netzes berechnet werden:
+	\begin{itemize}
+		\item Membranpotential $U_i$ einer Nervenzelle und
+		\item Anliegende Ströme $I_i$ aus Sensorneuronen, Synapsen und Gap-Junctions.
+	\end{itemize}
+	Um die Informationsverarbeitung innerhalb des Netzes zu nutzen werden Sensor- und Motor-Neuronen definiert. Sensor-Neuronen nehmen Größen aus der gegebenen Umwelt auf und übersetzen diese in ein verständliches Format - in diesem Falle werden Größen auf einen Aktionsbereich von $a \in [-70mV, -20mV]$ übersetzt. Gleichzeitig können Motor-Neuronen den genannten Aktionsbereich $a$ bspw. auf translatorische Größen anwenden.\\
+	Aufgrund des komplexen Berechenbarkeitsmodells biologischer neuronaler Netze müssen für alle eingesetzten Nervenzellen, Synapsen und Gap-Junctions Parameter gefunden werden, welche eine gute und stabile Simulation der gegebenen Umwelt gewährleisten. Hier wird auf die Methode des Reinforcement Learning verwiesen. Durch zufälliges Sampling der geforderten Größen in einem vorher festgelegten Bereich werden eine Vielzahl an Simulationen auf industriellen Servern gefahren. Ein Belohnungssystem gibt Aufschluss über die Güte der eingesetzten Parameter. Besonders gute Parametersätze werden nach Ablauf der Simulationszeit gespeichert. Durch eine nachgelagerte Optimierung des Netzwerkes mit Gewichtung der Synapsen und Gap-Junctions werden gute Simulationsergebnisse erzielt und das inverse Pendel kann im Lernprozess stabilisiert werden. Gute Parameter sowie Animationen sind in Appendix \ref{app:parameter} zu finden.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End: 
