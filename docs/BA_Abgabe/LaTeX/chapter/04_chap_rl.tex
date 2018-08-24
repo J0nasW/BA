@@ -14,8 +14,8 @@
 \label{sec:rl_dl}
 % ***
 	Deep Learning hat in den letzten Jahren immer mehr an Relevanz gewonnen. Obwohl der Grundstein dieser Algorithmen und Vorgehensweisen bereits Ende des 19. Jahrhunderts gelegt wurde, fehlte es damals an Rechenleistung sowie hoch parallelen Rechenstrukturen. In der Theorie ist das Konstrukt des Deep Learning in der Lage, bei gegebenen Berechnungsmodellen mit multiplen verbundenen Ebenen Strukturen in großen Datenmengen zu erkennen. Durch heutige Rechenleistungen können Strukturen ein beliebig hohes Abstraktionslevel aufweisen. Anwendungsbereiche für Deep Learning bewegen sich meist im Bereich der Bild- oder Spracherkennung und -klassifizierung, breiten sich jedoch auch auf weitere Bereiche wie Medizin (Pharmazie, Genom-Entschlüsselung) oder Wirtschaft (Kunden-Kaufverhalten, Logistik) aus. Dabei zeichnet einen guten Deep Learning Algorithmus die Fähigkeit aus, s.g. Raw-Files (unbearbeitete Signale wie bspw. Audio-Dateien oder Bilder) ohne Vorwissen auf die gewünschten Daten zu untersuchen und zu klassifizieren, ohne aufwendige Filter, Feature-Vektoren oder andere Mittel zur Vorklassifikation.\\	
-	\textit{Supervised Learning} (zu Deutsch: überwachtes Lernen) bildet die Grundlage und wurde in den Anfängen der künstlichen Intelligenz eingesetzt. Ein Algorithmus lernt aus gegebenen Paaren von Ein- und Ausgängen eine Funktion, welche nach mehrmaligen Trainingsläufen Assoziationen herstellen soll und auf neue Eingaben passende Ausgaben liefert.\\
-	\textit{Unsupervised Learning} (zu Deutsch: unüberwachtes Lernen) bietet entgegen der Methode des supervised Learning die Möglichkeit, ein Modell ohne im Voraus bekannte Zielwerte oder Belohnungssysteme durch die Umwelt zu trainieren. Entsprechend benötigen diese Algorithmen mehr Rechenleistung (bei gleichbleibender Aufgabenstellung). Sie versuchen, in einer Anhäufung von Daten Strukturen zu erkennen, welche von stochastischem Rauschen abweichen. Neuronale Netze orientieren sich hier oft an den bekannten Eingängen. Diese Methode wird oft in Bereichen der automatischen Klassifizierung oder Dateikomprimierung genutzt, da hier das Ergebnis im Vorhinein meist unbekannt ist.\\
+	\textit{Supervised Learning} (zu Deutsch: überwachtes Lernen) bildet die Grundlage und wurde in den Anfängen der künstlichen Intelligenz eingesetzt. Ein Algorithmus lernt aus gegebenen Paaren von Ein- und Ausgängen eine Funktion, welche nach mehrmaligen Trainingsläufen Assoziationen herstellen soll und auf neue Eingaben passende Ausgaben liefert \cite{DeepLearning}.\\
+	\textit{Unsupervised Learning} (zu Deutsch: unüberwachtes Lernen) bietet entgegen der Methode des supervised Learning die Möglichkeit, ein Modell ohne im Voraus bekannte Zielwerte oder Belohnungssysteme durch die Umwelt zu trainieren. Entsprechend benötigen diese Algorithmen mehr Rechenleistung (bei gleichbleibender Aufgabenstellung). Sie versuchen, in einer Anhäufung von Daten Strukturen zu erkennen, welche von stochastischem Rauschen abweichen. Neuronale Netze orientieren sich hier oft an den bekannten Eingängen. Diese Methode wird oft in Bereichen der automatischen Klassifizierung oder Dateikomprimierung genutzt, da hier das Ergebnis im Vorhinein meist unbekannt ist \cite{DeepLearning}.\\
 	\textit{Reinforcement Learning} bietet, wie bereits in der Einleitung erwähnt, den Vorteil eines Reward-Systems (zu Deutsch: Belohnungssystem).
 	\begin{figure}[H] %[!t] ...
 		\centering
@@ -33,8 +33,7 @@
 	\begin{align}
 		G_{t\gamma} = \sum_{k=0}^{\infty}\gamma^k R_{t+k+1}\text{ mit }\gamma\in[0,1)
 	\end{align}
-	Von der Benutzung eines solchen Discount-Faktors wird jedoch zuerst abgesehen, da das Finden der perfekten Parameter für die vorgestellte Simulation im Vordergrund steht. In weiteren Anwendungen kann dieser Faktor eingeführt werden.
-	
+	Von der Benutzung eines solchen Discount-Faktors wird jedoch vorerst abgesehen, da das Finden der perfekten Parameter für die vorgestellte Simulation im Vordergrund steht. In weiteren Anwendungen kann dieser Faktor eingeführt werden.
 	
 % ***
 \section{Anwendung auf Modelle neuronaler Netze}
@@ -43,19 +42,20 @@
 	Reinforcement Learning findet klassischerweise Anwendung durch Deep Learning Algorithmen auf künstlich erstellte neuronale Netze mit vielen s.g. \grqq Hidden Layers\glqq{} (Ebenen zwischen Ein- und Ausgang mit hoher Anzahl an Neuronen) statt. Variiert werden in einem solchen Netz lediglich die jeweiligen Gewichte der Synapsen zwischen den Neuronen. Synapsen sind darüber hinaus einfache Mittel zur Informationsübertragung und haben keine weiteren Eigenschaften oder zeigen kein eigenes Verhalten.\\
 	Das hier vorliegende neuronale Netzwerk ist jedoch gänzlich anders aufgebaut. Nervenzellen werden durch Potenziale beschrieben und integrieren anliegende Informationen auf. Synapsen können verschiedenen Typs sein und hemmend sowie erregend wirken. Sowohl Nervenzellen als auch Synapsen (und Gap-Junctions) haben verschiedene Parameter, welche gewisse Aktionen im neuronalen Netz verursachen können.\\
 	Daher wird in dieser Arbeit die Methode des Reinforcement Learning auf biologische neuronale Netze abgewandelt, um dieses auf Probleme der Regelungstechnik anzuwenden. Folglich befassen wir uns mit einem neuronalen Netz, welches eine Ebene mit vier Neuronen aufweist. Diese  arbeiten wie bereits in Kapitel \ref{chap:neuro} und \ref{chap:lif} beschrieben ebenfalls anders als in den üblichen Modellen künstlicher neuronaler Netze.\\
-	Die Schwierigkeit dieser Aufgabenstellung besteht darin, geeignete Parameter für jede Nervenzelle sowie für jede Synapse zu finden, sodass das Netz korrekt und zuverlässig auf interpretierte Signale aus der Umwelt reagiert und entsprechend durch den Agenten eine Aktion wählt, welche einen möglichst hohen Reward nach sich zieht. Bezogen auf Abb. \ref{fig:rl_chart} stellt die Umwelt unsere Simulationsumgebung des inversen Pendels (\texttt{OpenAI Gym - CartPolev0}) dar. Diese nimmt eine Aktion (FWD oder REV) pro Simulationsschritt an und gibt entsprechend einen Observationsvektor $\textbf{o}$ aus, welcher durch den Interpreter übersetzt wird. Der aktuelle State $s$ wird durch die vier Sensorneuronen \textit{PVD, PLM, AVM und ALM} entsprechend interpretiert und in das neuronale Netz eingegeben. Durch den gegebenen Reward haben wir die Information, wie gut das Netzwerk in der entsprechenden Episode mit den entsprechenden Parametern abschneidet.
+	Die Schwierigkeit dieser Aufgabenstellung besteht darin, geeignete Parameter für jede Nervenzelle sowie für jede Synapse und Gap-Junction zu finden, sodass das Netz korrekt und zuverlässig auf interpretierte Signale aus der Umwelt reagiert und entsprechend durch den Agenten eine Aktion wählt, welche einen möglichst hohen Reward nach sich zieht. Bezogen auf Abb. \ref{fig:rl_chart} stellt die Umwelt unsere Simulationsumgebung des inversen Pendels (\texttt{OpenAI Gym - CartPolev0}) dar. Diese nimmt eine Aktion (FWD oder REV) pro Simulationsschritt an und gibt entsprechend einen Observationsvektor $\textbf{o}$ aus, welcher durch den Interpreter übersetzt wird. Der aktuelle State $s$ wird durch die vier Sensorneuronen \textit{PVD, PLM, AVM und ALM} entsprechend interpretiert und in das neuronale Netz eingegeben.
 
 % ***
 \section{Verschiedene Suchalgorithmen}
 \label{sec:rl_alt}
 % ***
-	Die Wahl des geeigneten Suchalgorithmus ist immer von der Beschaffenheit der Problemstellung abhängig. Klassische Probleme mit Anwendung des Reinforcement Learning auf künstliche neuronale Netze nutzen Algorithmen wie Q-Learning, Policies (Epsilon-Greedy, Gradient-Decend/Acend) oder genetische Algorithmen. Diese sind hoch spezialisiert und suchen nach Maxima/Minima der gegebenen Funktion, um den Fehler zu reduzieren. Bei einer großen Zahl an Parametern, welche untereinander noch korreliert sein können, kommt oft der einfache, jedoch gleichzeitig sehr effektive \glqq RandomSearch\grqq{} Algorithmus zum Einsatz.\\
+	Die Wahl des geeigneten Suchalgorithmus ist immer von der Beschaffenheit der Problemstellung abhängig. Klassische Probleme mit Anwendung des Reinforcement Learning auf künstliche neuronale Netze nutzen Algorithmen wie Q-Learning, Policies (Epsilon-Greedy, Gradient-Decend/Acend) oder genetische Algorithmen. Diese sind hoch spezialisiert und suchen nach Maxima der gegebenen Funktion, um den Fehler zu reduzieren. Bei einer großen Zahl an Parametern, welche untereinander noch korreliert sein können, kommt oft der einfache, jedoch gleichzeitig sehr effektive \glqq RandomSearch\grqq{} Algorithmus zum Einsatz.\\
 	Grundsätzlich sei noch zu erwähnen, dass konventionelle Such- bzw. Optimierungsalgorithmen innerhalb des Reinforcement Learning ein Markov-Entscheidungsproblem voraussetzen. 
 	\subsection{Q-Learning}
+	\label{subsec:rl_qlearning}
 		Die Methode des Q-Learnings wurde zuerst durch ein Paper von Watkins \cite{Watkins1992} definiert und vorgestellt. Voraussetzung um diese Algorithmen anzuwenden ist eine kontrollierte Markov Umgebung.
 		\begin{remark}[Markow Eigenschaft und Umgebung]
 			Als Markow-Eigenschaft\footnote{Nach Andrei Markow (1856 - 1922)} bezeichnet man, wie stark ein stochastischer Prozess von der Vergangenheit abhängt. Diese Bedingung erlaubt es, Markow-Prozesse zu beschreiben.\\
-			Durch eine Markow-Umgebung ist es möglich, aus einer begrenzten Anzahl an vergangenen States die Wahrscheinlichkeit für das Eintreten zukünftiger Ereignisse durch selbst gewählte Aktionen vorherzusagen.
+			Durch eine Markow-Umgebung ist es möglich, aus einer begrenzten Anzahl an vergangenen States die Wahrscheinlichkeit für das Eintreten zukünftiger Ereignisse durch selbst gewählte Aktionen vorherzusagen. \cite{SilverRL}
 		\end{remark}
 		Ziel der Q-Learning Methode ist es, die Qualität der getätigten Aktionen bei unterschiedlichen Simulationsbedingungen zu verbessern. Dabei wird ein Agent eingesetzt, welcher lernt, in einer Markow-Umgebung optimal zu handeln, indem die Konsequenzen der Aktionen sofort zurückgeführt, analysiert und verarbeitet werden. Dem Agenten ist zu jedem Zeitpunkt der Simulation die Umwelt unbekannt.\\
 		Unmittelbar nach einer getätigten Aktion $\pi$ erhält der Agent neben dem State $x$ (ausgwählte Messgrößen wie bspw. der Winkel des inversen Pendels $\varphi$) den Reward $R_x(\pi(x))$. Aus diesen Informationen lässt sich der Wert des erhaltenen States $x$ berechnen:
@@ -91,7 +91,7 @@
 			\vdots & \\
 			\frac{\partial J(\theta)}{\partial \theta_n} & \end{pmatrix}.
 		\end{align}
-		Bei Anwendung von Gradient Policies stellt sich eine gute Konvergenzeigenschaft des Lernaglgorithmus ein. Durch das stetige Bewegen auf dem erlernten Gradienten der Qualitätsgröße $J(\theta)$ wird ein Maximum gefunden. Jedoch kann dieses nur ein lokales Maximum darstellen, und global gesehen nicht das Optimum widerspiegeln. Darüber hinaus bietet sich die Methode bei großen Aktionsräumen und langen Laufzeiten an, da selbst stochastische Prozesse erlernt werden können. 
+		Bei Anwendung von Gradient Policies stellt sich eine gute Konvergenzeigenschaft des Lernaglgorithmus ein. Durch das stetige Bewegen auf dem erlernten Gradienten der Qualitätsgröße $J(\theta)$ wird ein Maximum gefunden. Jedoch kann dieses nur ein lokales Maximum darstellen, und global gesehen nicht das Optimum widerspiegeln. Darüber hinaus bietet sich die Methode bei großen Aktionsräumen und langen Laufzeiten an, da selbst stochastische Prozesse erlernt werden können. \cite{SilverRL} 
 	\subsection{Genetische Algorithmen}
 		Die Anwendung genetischer Algorithmen im Bereich des Reinforcement Learning ist ebenfalls schon seit einiger Zeit bekannt und führt in den richtigen Situationen zu guten Ergebnissen.\\
 		Der Grundstein dieser Optimierungsverfahren wurde von Holland et al. in seinem Werk \grqq Adaption in Natural and Artificial Systems \glqq{} \cite{Holland1992} gelegt. Basierend auf den bereits von Darwin\footnote{Charles Darwin (1809 - 1882)} beobachteten Phänomenen der Natur, setzen genetische Algorithmen bei dem Ansatz \glqq Survival of the Fittest\grqq{} an. Grundsätzlich kann die Vorgehensweise genetischer Algorithmen wie folgt dargestellt werden \cite{Goldberg1989}:
@@ -115,10 +115,11 @@
 	\subsection{Random Search}
 		Gewisse Probleme in der Domäne des Reinforcement Learning erfordern einen verallgemeinerten Ansatz zum finden von optimalen Parametern. Das hier vorliegende Problem bietet eine große Anzahl an lokalen Maxima und bereitet daher den meisten Algorithmen Probleme bei der Anwendung. Ein anpassen an die geforderten Umstände ist im Grunde möglich, erfordert jedoch einen hohen Rechenaufwand und führt evtl. zu keiner Verbesserung der Ergebnisse. Daher wird die Methode des Random Search angewendet.\\
 		Ähnlich zum genetischen Algorithmus werden Parameter für die Simulation in vorher festgelegten Grenzen durch eine Gleichverteilung erzeugt. Diese werden auf eine Simulation angewendet und die Performance wird anhand des Rewards ausgewertet. Durch ein simples High Score System werden Parameter mit gutem Reward gespeichert, schlechte Simulationen werden verworfen. Durch den Einsatz von genügend Rechenleistung und langen Simulationszeiten können so sehr gute Parameter gefunden werden (siehe Appendix \ref{app:parameter}).
-		
 	
 	Wie in der vorherigen Sektion \ref{sec:rl_neuro} bereits kurz beschrieben, werden die jeweiligen Parameter der Synapsen und Nervenzellen gesucht. Dies sind die folgenden:
-	\begin{center}
+	\begin{table}[H]
+		\centering
+		\resizebox{0.9\columnwidth}{!}{%
 		\begin{tabular}{l@{\hskip 0.5cm}c@{\hskip 0.5cm}c@{\hskip 0.5cm}c}    \toprule
 			\setlength{\tabcolsep}{50pt}
 			\renewcommand{\arraystretch}{1.5}
@@ -126,15 +127,17 @@
 			Membranpotential		& $C_m$				& Kapazität der Zellmembran			& $[1mF, 1F]$						 \\ 
 			Membranpotential	 	& $G_{Leak}$		& Leitwert der Zellmembran			& $[50mS, 5S]$						 \\
 			Membranpotential	 	& $U_{Leak}$		& Ruhepotential der Zellmembran		& $[-90mV, 0mV]$						 \\
-			Synapsenstrom			& $E_{Excitatory}$	& Weiterleiten des Synapsenstroms	& $[0mV]$							 \\
-			Synapsenstrom			& $E_{Inhibitory}$	& Negieren des Synapsenstroms		& $[-90mV]$							 \\ 
-			Synapsenstrom			& $\mu$				& ...								& $[-40mV]$							 \\
+			Synapsenstrom			& $E_{Excitatory}$	& pos. Beeinflussung des Membranpotentials	& $[0mV]$							 \\
+			Synapsenstrom			& $E_{Inhibitory}$	& neg. Beeinflussung des Membranpotentials		& $[-90mV]$							 \\ 
+			Synapsenstrom			& $\mu$				& Erwartungswert (Modelle)			& $[-40mV]$							 \\
 			Synapsenstrom			& $\sigma$			& Standardabweichung (Modell)		& $[0.05, 0.5]$						 \\ 
-			Synapsenstrom		 	& $w$				& ...								& $[0S, 3S]$							 \\
-			Synapsenstrom				& $\hat{w}$			& ...								& $[0S, 3S]$							 \\\bottomrule
+			Synapsenstrom		 	& $w$				& Kreisfrequenz der Synapsen		& $[0S, 3S]$							 \\
+			Synapsenstrom			& $\hat{w}$			& Kreisfrequenz der Gap-Junctions	& $[0S, 3S]$							 \\\bottomrule
 			\hline
-		\end{tabular}
-	\end{center}
+		\end{tabular}}
+		\caption{Grenzen der essentiellen Parameter im biologischen neuronalen Netz.}
+		\label{tab:rl_parameter}
+	\end{table}
 	Die gegebenen Grenzen folgen aus \cite{WormLevelRL} und \cite{SimCE} und sind durch Calcium und Potassiummengen im Nervensystem des C. Elegans verbunden.
 
 %%% Local Variables: 

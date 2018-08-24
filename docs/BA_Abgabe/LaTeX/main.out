@@ -35,11 +35,11 @@
 \BOOKMARK [1][-]{section.6.2}{Limitationen und Alternativen von Algorithmen}{chapter.6}% 35
 \BOOKMARK [2][-]{subsection.6.2.1}{Analyse bereits bestehender Algotithmen}{section.6.2}% 36
 \BOOKMARK [2][-]{subsection.6.2.2}{Alternative Such- und Optimierungsalgorithmen}{section.6.2}% 37
-\BOOKMARK [1][-]{section.6.3}{Vergleich zu bestehenden Systemen}{chapter.6}% 38
-\BOOKMARK [1][-]{section.6.4}{Zusammenfassung}{chapter.6}% 39
-\BOOKMARK [1][-]{section.6.5}{Ausblick}{chapter.6}% 40
-\BOOKMARK [0][-]{appendix.A}{Programmcode Python}{}% 41
-\BOOKMARK [1][-]{section.A.1}{LIF-Modell}{appendix.A}% 42
-\BOOKMARK [0][-]{appendix.B}{Datenblatt Programm: TW-Circuit}{}% 43
+\BOOKMARK [1][-]{section.6.3}{Zusammenfassung}{chapter.6}% 38
+\BOOKMARK [1][-]{section.6.4}{Ausblick}{chapter.6}% 39
+\BOOKMARK [0][-]{appendix.A}{UML-Diagramme wichtiger Algorithmen}{}% 40
+\BOOKMARK [1][-]{section.A.1}{RandomSearch}{appendix.A}% 41
+\BOOKMARK [1][-]{section.A.2}{Weights}{appendix.A}% 42
+\BOOKMARK [0][-]{appendix.B}{Datenblatt Programm: TW Circuit}{}% 43
 \BOOKMARK [0][-]{appendix.C}{Parameter mit guten Simulationsergebnissen}{}% 44
-\BOOKMARK [0][-]{appendix*.27}{Literaturverzeichnis}{}% 45
+\BOOKMARK [0][-]{appendix*.28}{Literaturverzeichnis}{}% 45

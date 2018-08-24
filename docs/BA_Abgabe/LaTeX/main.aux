@@ -20,7 +20,6 @@
 \providecommand \oddpage@label [2]{}
 \babel@aux{ngerman}{}
 \babel@aux{ngerman}{}
-\citation{WormLevelRL}
 \@writefile{toc}{\contentsline {chapter}{Abstract und Kurzfassung}{1}{chapter*.2}}
 \citation{WormLevelRL}
 \citation{CElegans}
@@ -69,13 +68,14 @@
 \newlabel{sec:lif_model}{{3.1}{11}{Das Leaky Integrate and Fire - Modell}{section.3.1}{}}
 \newlabel{eq:lif_current}{{3.1}{11}{Das Leaky Integrate and Fire - Modell}{equation.3.1.1}{}}
 \newlabel{eq:lif_IR}{{3.2}{11}{Das Leaky Integrate and Fire - Modell}{equation.3.1.2}{}}
+\citation{WormLevelRL}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Ersatzschaltbild der Zellmembran\relax }}{12}{figure.caption.9}}
 \newlabel{cic:lif}{{3.1}{12}{Ersatzschaltbild der Zellmembran\relax }{figure.caption.9}{}}
 \newlabel{eq:lif_IC}{{3.3}{12}{Das Leaky Integrate and Fire - Modell}{equation.3.1.3}{}}
 \newlabel{eq:lif_I}{{3.4}{12}{Das Leaky Integrate and Fire - Modell}{equation.3.1.4}{}}
 \newlabel{eq:lif_nd}{{3.5}{12}{Das Leaky Integrate and Fire - Modell}{equation.3.1.5}{}}
 \newlabel{eq:lif}{{3.6}{12}{Das Leaky Integrate and Fire - Modell}{equation.3.1.6}{}}
-\newlabel{eq:lif_current}{{3.7}{12}{Das Leaky Integrate and Fire - Modell}{equation.3.1.7}{}}
+\newlabel{eq:lif_current_in}{{3.7}{12}{Das Leaky Integrate and Fire - Modell}{equation.3.1.7}{}}
 \newlabel{eq:chem_syn_current}{{3.8}{12}{Das Leaky Integrate and Fire - Modell}{equation.3.1.8}{}}
 \citation{WormLevelRL}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Grafische Darstellung des Membranpotentials durch das Leaky Integrate and Fire - Modell\relax }}{13}{figure.caption.10}}
@@ -99,6 +99,10 @@
 \newlabel{eq:runkgekutta_erg}{{3.18}{16}{Implementierung}{equation.3.4.18}{}}
 \@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces compute\relax }}{16}{algocf.1}}
 \newlabel{eq:xu}{{3.20}{17}{Implementierung}{equation.3.4.20}{}}
+\newlabel{eq:mat_A}{{3.21}{17}{Implementierung}{equation.3.4.21}{}}
+\newlabel{eq:mat_B}{{3.22}{17}{Implementierung}{equation.3.4.22}{}}
+\citation{DeepLearning}
+\citation{DeepLearning}
 \@writefile{toc}{\contentsline {chapter}{\numberline {4}Reinforcement Learning - Lernen mit Belohnung}{19}{chapter.4}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -108,12 +112,15 @@
 \newlabel{sec:rl_dl}{{4.1}{19}{Reinforcement Learning - eine Abwandlung des Deep Learning}{section.4.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Graphische Darstellung des Reinforcement Learning Algorithmus\relax }}{20}{figure.caption.12}}
 \newlabel{fig:rl_chart}{{4.1}{20}{Graphische Darstellung des Reinforcement Learning Algorithmus\relax }{figure.caption.12}{}}
+\citation{Watkins1992}
 \@writefile{toc}{\contentsline {section}{\numberline {4.2}Anwendung auf Modelle neuronaler Netze}{21}{section.4.2}}
 \newlabel{sec:rl_neuro}{{4.2}{21}{Anwendung auf Modelle neuronaler Netze}{section.4.2}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.3}Verschiedene Suchalgorithmen}{21}{section.4.3}}
 \newlabel{sec:rl_alt}{{4.3}{21}{Verschiedene Suchalgorithmen}{section.4.3}{}}
-\citation{Watkins1992}
+\citation{SilverRL}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Q-Learning}{22}{subsection.4.3.1}}
+\newlabel{subsec:rl_qlearning}{{4.3.1}{22}{Q-Learning}{subsection.4.3.1}{}}
+\citation{SilverRL}
 \citation{Holland1992}
 \citation{Goldberg1989}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Gradient Policies}{23}{subsection.4.3.2}}
@@ -123,8 +130,9 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.4}Random Search}{24}{subsection.4.3.4}}
 \citation{WormLevelRL}
 \citation{SimCE}
-\citation{BA}
-\citation{BA}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Grenzen der essentiellen Parameter im biologischen neuronalen Netz.\relax }}{25}{table.caption.14}}
+\newlabel{tab:rl_parameter}{{4.1}{25}{Grenzen der essentiellen Parameter im biologischen neuronalen Netz.\relax }{table.caption.14}{}}
+\citation{hdf5}
 \@writefile{toc}{\contentsline {chapter}{\numberline {5}Implementierung des TW-Netzes}{27}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -132,35 +140,45 @@
 \newlabel{chap:imp}{{5}{27}{Implementierung des TW-Netzes}{chapter.5}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5.1}Aufbau des Programms}{27}{section.5.1}}
 \newlabel{sec:imp_module}{{5.1}{27}{Aufbau des Programms}{section.5.1}{}}
+\citation{NumPy}
 \@writefile{toc}{\contentsline {section}{\numberline {5.2}Implementierung der Suchalgorithmen}{28}{section.5.2}}
 \newlabel{sec:imp_search}{{5.2}{28}{Implementierung der Suchalgorithmen}{section.5.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Suchalgorithmus RandomSearch}{28}{subsection.5.2.1}}
 \@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces random\_parameters\relax }}{29}{algocf.2}}
 \@writefile{loa}{\contentsline {algocf}{\numberline {3}{\ignorespaces random\_search\_v2\relax }}{29}{algocf.3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Optimierungsalgorithmus Weights}{29}{subsection.5.2.2}}
-\citation{BA}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Simulation in der Google Cloud Platform\textsuperscript  {\textregistered }}{30}{subsection.5.2.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Systemauslastung der virtuellen Instanz auf der GCP\relax }}{31}{figure.caption.16}}
-\newlabel{fig:gcp_1}{{5.1}{31}{Systemauslastung der virtuellen Instanz auf der GCP\relax }{figure.caption.16}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Simulationsumgebung: OpenAI Gym}{31}{section.5.3}}
-\newlabel{sec:imp_sim}{{5.3}{31}{Simulationsumgebung: OpenAI Gym}{section.5.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Simulationsumgebung \texttt  {CartPole\_v0}.\relax }}{32}{figure.caption.17}}
-\newlabel{fig:imp_cartpole}{{5.2}{32}{Simulationsumgebung \texttt {CartPole\_v0}.\relax }{figure.caption.17}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Simulationsumgebung \texttt  {CartPole\_v0} mit Aktionen \textit  {FWD} und \textit  {REV}.\relax }}{33}{figure.caption.18}}
-\newlabel{fig:imp_cartpole_FWD_REV}{{5.3}{33}{Simulationsumgebung \texttt {CartPole\_v0} mit Aktionen \textit {FWD} und \textit {REV}.\relax }{figure.caption.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Simulationsumgebung \texttt  {CartPole\_v0} mit Observationsgr\IeC {\"o}\IeC {\ss }en.\relax }}{33}{figure.caption.19}}
-\newlabel{fig:imp_cartpole_observation}{{5.4}{33}{Simulationsumgebung \texttt {CartPole\_v0} mit Observationsgrößen.\relax }{figure.caption.19}{}}
+\citation{hdf5}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Systemauslastung der virtuellen Instanz auf der GCP\relax }}{31}{figure.caption.17}}
+\newlabel{fig:gcp_1}{{5.1}{31}{Systemauslastung der virtuellen Instanz auf der GCP\relax }{figure.caption.17}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Simulationsumgebung: OpenAI Gym}{32}{section.5.3}}
+\newlabel{sec:imp_sim}{{5.3}{32}{Simulationsumgebung: OpenAI Gym}{section.5.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Simulationsumgebung \texttt  {CartPole\_v0}.\relax }}{32}{figure.caption.18}}
+\newlabel{fig:imp_cartpole}{{5.2}{32}{Simulationsumgebung \texttt {CartPole\_v0}.\relax }{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Simulationsumgebung \texttt  {CartPole\_v0} mit Aktionen \textit  {FWD} und \textit  {REV}.\relax }}{33}{figure.caption.19}}
+\newlabel{fig:imp_cartpole_FWD_REV}{{5.3}{33}{Simulationsumgebung \texttt {CartPole\_v0} mit Aktionen \textit {FWD} und \textit {REV}.\relax }{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Simulationsumgebung \texttt  {CartPole\_v0} mit Observationsgr\IeC {\"o}\IeC {\ss }en.\relax }}{33}{figure.caption.20}}
+\newlabel{fig:imp_cartpole_observation}{{5.4}{33}{Simulationsumgebung \texttt {CartPole\_v0} mit Observationsgrößen.\relax }{figure.caption.20}{}}
+\citation{Hunter2007}
 \@writefile{toc}{\contentsline {section}{\numberline {5.4}Visualisierung und Auswertung}{34}{section.5.4}}
 \newlabel{sec:imp_vis}{{5.4}{34}{Visualisierung und Auswertung}{section.5.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Plot der Membranpotentiale von Inter- und Sensorneuronen\relax }}{34}{figure.caption.20}}
-\newlabel{fig:plot_membr}{{5.5}{34}{Plot der Membranpotentiale von Inter- und Sensorneuronen\relax }{figure.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Plot der anliegenden Str\IeC {\"o}me aus Stimulus, Synapsen und Gap-Junctions\relax }}{35}{figure.caption.21}}
-\newlabel{fig:plot_membr}{{5.6}{35}{Plot der anliegenden Ströme aus Stimulus, Synapsen und Gap-Junctions\relax }{figure.caption.21}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Sonstige Implementierung}{35}{section.5.5}}
-\newlabel{sec:imp_vis}{{5.5}{35}{Sonstige Implementierung}{section.5.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Zentraler Ort f\IeC {\"u}r Parameter}{35}{subsection.5.5.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Speicherung von Daten}{35}{subsection.5.5.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Plot der Membranpotentiale von Inter- und Sensorneuronen\relax }}{35}{figure.caption.21}}
+\newlabel{fig:plot_membr}{{5.5}{35}{Plot der Membranpotentiale von Inter- und Sensorneuronen\relax }{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Plot der anliegenden Str\IeC {\"o}me aus Stimulus, Synapsen und Gap-Junctions\relax }}{35}{figure.caption.22}}
+\newlabel{fig:plot_synstrom}{{5.6}{35}{Plot der anliegenden Ströme aus Stimulus, Synapsen und Gap-Junctions\relax }{figure.caption.22}{}}
+\citation{hdf5}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Sonstige Implementierung}{36}{section.5.5}}
+\newlabel{sec:imp_sonst}{{5.5}{36}{Sonstige Implementierung}{section.5.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Zentraler Ort f\IeC {\"u}r Parameter}{36}{subsection.5.5.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Speicherung von Daten}{36}{subsection.5.5.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}Dateiinspektion}{36}{subsection.5.5.3}}
+\citation{CElegans}
+\citation{SimCE}
+\citation{NonlinearDynamics}
+\citation{NumPy}
+\citation{NumPy}
+\citation{Hunter2007}
+\citation{hdf5}
 \@writefile{toc}{\contentsline {chapter}{\numberline {6}Performance \& Auswertung}{37}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -168,56 +186,68 @@
 \newlabel{chap:erg}{{6}{37}{Performance \& Auswertung}{chapter.6}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {6.1}Performance implementierter Algorithmen}{37}{section.6.1}}
 \newlabel{sec:erg_performance}{{6.1}{37}{Performance implementierter Algorithmen}{section.6.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Parametersuche durch Algorithmus \texttt  {RandomSearch}.\relax }}{38}{table.caption.22}}
-\newlabel{tab:sim_rs}{{6.1}{38}{Parametersuche durch Algorithmus \texttt {RandomSearch}.\relax }{table.caption.22}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Optimierung durch Algorithmus \texttt  {Weights}.\relax }}{38}{table.caption.23}}
-\newlabel{tab:sim_weights}{{6.2}{38}{Optimierung durch Algorithmus \texttt {Weights}.\relax }{table.caption.23}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Parametersuche durch Algorithmus \texttt  {RandomSearch}.\relax }}{38}{table.caption.23}}
+\newlabel{tab:sim_rs}{{6.1}{38}{Parametersuche durch Algorithmus \texttt {RandomSearch}.\relax }{table.caption.23}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Optimierung durch Algorithmus \texttt  {Weights}.\relax }}{38}{table.caption.24}}
+\newlabel{tab:sim_weights}{{6.2}{38}{Optimierung durch Algorithmus \texttt {Weights}.\relax }{table.caption.24}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {6.2}Limitationen und Alternativen von Algorithmen}{38}{section.6.2}}
 \newlabel{sec:erg_lim}{{6.2}{38}{Limitationen und Alternativen von Algorithmen}{section.6.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}Analyse bereits bestehender Algotithmen}{39}{subsection.6.2.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Flowchart des Algorithmus \texttt  {RandomSearch}.\relax }}{39}{figure.caption.24}}
-\newlabel{fig:erg_rs_flow}{{6.1}{39}{Flowchart des Algorithmus \texttt {RandomSearch}.\relax }{figure.caption.24}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Flowchart des Algorithmus \texttt  {Weights}.\relax }}{39}{figure.caption.25}}
-\newlabel{fig:erg_w_flow}{{6.2}{39}{Flowchart des Algorithmus \texttt {Weights}.\relax }{figure.caption.25}{}}
-\citation{WormLevelRL}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Alternative Such- und Optimierungsalgorithmen}{40}{subsection.6.2.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Vergleich zu bestehenden Systemen}{40}{section.6.3}}
-\newlabel{sec:erg_vgl}{{6.3}{40}{Vergleich zu bestehenden Systemen}{section.6.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}Zusammenfassung}{40}{section.6.4}}
-\newlabel{sec:erg_zsm}{{6.4}{40}{Zusammenfassung}{section.6.4}{}}
-\citation{CElegans}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Alternative Such- und Optimierungsalgorithmen}{39}{subsection.6.2.2}}
 \citation{NeuronalDynamics}
-\@writefile{toc}{\contentsline {section}{\numberline {6.5}Ausblick}{41}{section.6.5}}
-\newlabel{sec:erg_ausblick}{{6.5}{41}{Ausblick}{section.6.5}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Programmcode Python}{43}{appendix.A}}
+\citation{WormLevelRL}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Zusammenfassung}{40}{section.6.3}}
+\newlabel{sec:erg_zsm}{{6.3}{40}{Zusammenfassung}{section.6.3}{}}
+\citation{CElegans}
+\citation{DeepLearning}
+\citation{Russell2016}
+\citation{NeuronalDynamics}
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Ausblick}{41}{section.6.4}}
+\newlabel{sec:erg_ausblick}{{6.4}{41}{Ausblick}{section.6.4}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}UML-Diagramme wichtiger Algorithmen}{43}{appendix.A}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {A.1}LIF-Modell}{43}{section.A.1}}
-\newlabel{sec:lifpy}{{A.1}{43}{LIF-Modell}{section.A.1}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Datenblatt Programm: TW-Circuit}{45}{appendix.B}}
+\newlabel{app:UML}{{A}{43}{UML-Diagramme wichtiger Algorithmen}{appendix.A}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}\texttt  {RandomSearch}}{43}{section.A.1}}
+\newlabel{app:UML_RS}{{A.1}{43}{\texttt {RandomSearch}}{section.A.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces UML Diagramm des Algorithmus \texttt  {RandomSearch}\relax }}{43}{figure.caption.25}}
+\newlabel{fig:uml_rs}{{A.1}{43}{UML Diagramm des Algorithmus \texttt {RandomSearch}\relax }{figure.caption.25}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}\texttt  {Weights}}{44}{section.A.2}}
+\newlabel{app:UML_RS}{{A.2}{44}{\texttt {Weights}}{section.A.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.2}{\ignorespaces UML Diagramm des Algorithmus \texttt  {Weights}\relax }}{44}{figure.caption.26}}
+\newlabel{fig:uml_weights}{{A.2}{44}{UML Diagramm des Algorithmus \texttt {Weights}\relax }{figure.caption.26}{}}
+\citation{WormLevelRL}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Datenblatt Programm: TW Circuit}{45}{appendix.B}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\bibdata{main}
+\newlabel{app:datenblatt}{{B}{46}{Datenblatt Programm: TW Circuit}{appendix.B}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {C}Parameter mit guten Simulationsergebnissen}{47}{appendix.C}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
 \newlabel{app:parameter}{{C}{47}{Parameter mit guten Simulationsergebnissen}{appendix.C}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {C.1}{\ignorespaces Neuronales Netz mit Legende f\IeC {\"u}r Gewichte\relax }}{47}{figure.caption.26}}
-\newlabel{fig:erg_rs_flow}{{C.1}{47}{Neuronales Netz mit Legende für Gewichte\relax }{figure.caption.26}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.1}{\ignorespaces Table caption\relax }}{48}{table.C.1}}
+\bibdata{main}
+\@writefile{lof}{\contentsline {figure}{\numberline {C.1}{\ignorespaces Neuronales Netz mit Legende f\IeC {\"u}r Gewichte\relax }}{48}{figure.caption.27}}
+\newlabel{fig:erg_rs_flow}{{C.1}{48}{Neuronales Netz mit Legende für Gewichte\relax }{figure.caption.27}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.1}{\ignorespaces Simulationsl\IeC {\"a}ufe mit guten Ergebnissen\relax }}{49}{table.C.1}}
+\newlabel{tab:app_erg}{{C.1}{49}{Simulationsläufe mit guten Ergebnissen\relax }{table.C.1}{}}
 \bibcite{CElegans}{{1}{1985}{{Chalfie et~al}}{{Chalfie, Sulston, White, Southgate, Thomson, and Brenner}}}
 \bibcite{Goldberg1989}{{2}{1989}{{Goldberg}}{{}}}
-\bibcite{SimCE}{{3}{????}{{Hasani et~al}}{{Hasani, Beneder, Fuchs, Lung, and Grosu}}}
-\bibcite{Holland1992}{{4}{1992}{{Holland}}{{}}}
-\bibcite{WormLevelRL}{{5}{2017}{{Lechner et~al}}{{Lechner, Grosu, and Hasani}}}
-\bibcite{TheorieNeuro}{{6}{1996}{{Rojas}}{{}}}
-\bibcite{NonlinearDynamics}{{7}{1994}{{Strogatz}}{{}}}
-\bibcite{Watkins1992}{{8}{1992}{{Watkins and Dayan}}{{}}}
-\bibcite{Wicks1996}{{9}{1996}{{Wicks et~al}}{{Wicks, Roehrig, and Rankin}}}
-\bibcite{BA}{{10}{2018}{{Wilinski}}{{}}}
-\bibcite{NeuronalDynamics}{{11}{2014}{{Wulfram~Gerstner}}{{}}}
-\@writefile{toc}{\contentsline {chapter}{Literaturverzeichnis}{49}{appendix*.27}}
+\bibcite{hdf5}{{3}{2018}{{Group}}{{}}}
+\bibcite{SimCE}{{4}{????}{{Hasani et~al}}{{Hasani, Beneder, Fuchs, Lung, and Grosu}}}
+\bibcite{Holland1992}{{5}{1992}{{Holland}}{{}}}
+\bibcite{Hunter2007}{{6}{2007}{{Hunter}}{{}}}
+\bibcite{WormLevelRL}{{7}{2017}{{Lechner et~al}}{{Lechner, Grosu, and Hasani}}}
+\bibcite{DeepLearning}{{8}{2015}{{LeCun et~al}}{{LeCun, Bengio, and Hinton}}}
+\bibcite{NumPy}{{9}{2006}{{Oliphant}}{{}}}
+\bibcite{TheorieNeuro}{{10}{1996}{{Rojas}}{{}}}
+\bibcite{Russell2016}{{11}{2016}{{Russell and Norvig}}{{}}}
+\@writefile{toc}{\contentsline {chapter}{Literaturverzeichnis}{51}{appendix*.28}}
+\bibcite{SilverRL}{{12}{2015}{{Silver}}{{}}}
+\bibcite{NonlinearDynamics}{{13}{1994}{{Strogatz}}{{}}}
+\bibcite{Watkins1992}{{14}{1992}{{Watkins and Dayan}}{{}}}
+\bibcite{Wicks1996}{{15}{1996}{{Wicks et~al}}{{Wicks, Roehrig, and Rankin}}}
+\bibcite{NeuronalDynamics}{{16}{2014}{{Wulfram~Gerstner}}{{}}}
 \bibstyle{lrt_thesis}

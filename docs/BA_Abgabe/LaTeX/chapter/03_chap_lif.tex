@@ -12,7 +12,7 @@
 \label{sec:lif_model}
 % ***
 	Grundsätzlich wird in der Natur beobachtet, dass die neuronale Dynamik als Summationsprozess gefolgt von einer kurzfristigen Entladung des Aktionspotentials beschrieben werden kann. Die Entladung erfolgt hierbei immer ab einem gewissen Wert, welcher als 'Treshold' $\vartheta$ beschrieben wird. Bei Überschreitung 'feuert' die Nervenzelle und Informationen gelangen über Synapsen und Gap-Junctions zu nahegelegenen Neuronen.\\
-	Um dieses Verhalten zu modellieren, wird der Zellkern genauer betrachtet. Dieser ist mit einer Zellmembran umgeben, welche als guter Isolator dient. Bei anliegenden Strömen $I_{Stimuli}$, $I_{Syn}$ oder $I_{Gap}$ wird die elektrische Ladung $q = \int I(t')dt'$ die Membran aufladen. Die Zellmembran handelt entsprechend einem Kondensator mit Kapazität $C_m$. Da jedoch in der Natur kein perfekter Kondensator existiert, verliert die Zellmembran über Zeit minimal elektrische Ladung. Daher wird dem Kondensator ein Leckwiderstand $R$ parallel geschaltet. Um das beobachtete Ruhepotential $U_{Leak}$ nach einem Feuer-Event oder bei keinem Input wiederherzustellen, wird eine Batterie in Reihe mit dem Widerstand $R$ geschaltet.\\
+	Um dieses Verhalten zu modellieren, wird der Zellkern genauer betrachtet. Dieser ist mit einer Zellmembran umgeben, welche als guter Isolator dient. Bei anliegenden Strömen $I_{Stimuli}$, $I_{Syn}$ oder $I_{Gap}$ wird die elektrische Ladung $q = \int I(t')dt'$ die Membran aufladen. Die Zellmembran handelt analog eines Kondensators mit Kapazität $C_m$. Da jedoch in der Natur kein perfekter Kondensator existiert, verliert die Zellmembran über Zeit minimal elektrische Ladung. Daher wird dem Kondensator ein Leckwiderstand $R$ parallel geschaltet. Um das beobachtete Ruhepotential $U_{Leak}$ nach einem Feuer-Event oder bei keinem Input wiederherzustellen, wird eine Batterie in Reihe mit dem Widerstand $R$ geschaltet.\\
 	Technisch lässt sich dieses Verhalten als ein elektrisches Ersatzschaltbild wie in Abb. \ref{cic:lif} darstellen (siehe \cite{NeuronalDynamics} Kap. 1.3.1).
 	\begin{figure}
 		\centering
@@ -43,7 +43,7 @@
 		\label{eq:lif_current}
 		I(t) = I_R + I_C\text{.}
 	\end{align}
-	Der erste Strom $I_R$ ist einfach durch das ohmsche Gesetz wie folgt zu berechnen
+	Der Strom $I_R$ ist einfach durch das ohmsche Gesetz wie folgt zu berechnen
 	\begin{align}
 		\label{eq:lif_IR}
 		I_R = \frac{U_R}{R} = \frac{U - U_{Leak}}{R}\text{.}
@@ -59,7 +59,7 @@
 		\label{eq:lif_I}
 		I(t) = \frac{u(t) - U_{Leak}}{R} + C\frac{du}{dt}\text{.}
 	\end{align}
-	Wird diese Gleichung mit $R$ multipliziert und etwas umgestellt, bildet sich die folgende lineare Differenzialgleichung erster Ordnung:
+	Wird diese Gleichung mit $R$ multipliziert und umgestellt, bildet sich die folgende lineare Differenzialgleichung erster Ordnung:
 	\begin{align}
 		\label{eq:lif_nd}
 		R C \frac{du(t)}{dt} = (U_{Leak} - u(t)) + R I(t)\text{.}
@@ -71,35 +71,35 @@
 	\end{align}
 	In dieser Gleichung stehen die Variablen $G_{Leak}$, $U_{Leak}$ und $C_m$ für Parameter der betrachteten Nervenzelle, während $I(t) = \sum_{i = 1}^{n}{I_{in}}$ stellvertretend für alle eingehenden Ströme aus Stimuli, chemischen Synapsen und Gap-Junctions steht
 	\begin{align}
-		\label{eq:lif_current}
+		\label{eq:lif_current_in}
 		I_{in} = I_{Stimuli} + I_{Syn} + I_{Gap}\text{.}
 	\end{align}
-	Die Implementierung dieser Gleichungen und den entsprechenden nummerischen Lösungsverfahren findet sich in \ref{sec:neuroimp}. Ein beispielhafter Spannungsverlauf bei einem konstanten, positiv einfließendem Strom $I_{in}$ sieht wie folgt aus:
-	\begin{figure}[!h]
+	Die Implementierung dieser Gleichungen und den entsprechenden nummerischen Lösungsverfahren findet sich in \ref{sec:lif_neuro}. Ein beispielhafter Spannungsverlauf bei einem konstanten, positiv einfließendem Strom $I_{in}$ wird in Abb. \ref{fig:simple_lif} dargestellt.
+	\begin{figure}[h]
 		\centering
-		\includegraphics[width=14cm]{figures/chap_lif/Simple_LIF.pdf}
+		\includegraphics[width=12cm]{figures/chap_lif/Simple_LIF.pdf}
 		\caption{Grafische Darstellung des Membranpotentials durch das Leaky Integrate and Fire - Modell}
 		\label{fig:simple_lif}
-	\end{figure}\\
-	Die anliegenden Synapsenströme sind durch folgenden formularen Zusammenhang zu berechnen:
+	\end{figure}
+	Die anliegenden Synapsenströme sind durch folgenden formularen Zusammenhang zu berechnen \cite{WormLevelRL}:
 	\begin{align}
 		\label{eq:chem_syn_current}
 		I_{Syn} = \frac{w}{1 + \e^{\sigma(u_{pre}(t) + \mu)}}(E - u_{post}(t))\text{.}
 	\end{align}
-	Synapsenströme sind grundsätzlich von den pre- und postsynaptischen Potentialen der jeweiligen Nervenzellen $u_{pre}$ und $u_{post}$ abhängig. Weiterhin können diese chemischen Synapsen exzitatorisch oder inhibitorisch wirken. Diese Eigenschaft wird durch das s.g. Nernstpotential $E\in[0mV, -90mV]$ beschrieben. Weitere Größen dieser Gleichung bilden $w$, die Standardabweichung $\sigma$ und $\mu$.\\
+	Synapsenströme sind grundsätzlich von den pre- und postsynaptischen Potentialen der jeweiligen Nervenzellen $u_{pre}$ und $u_{post}$ abhängig. Weiterhin können diese chemischen Synapsen exzitatorisch oder inhibitorisch wirken. Diese Eigenschaft wird durch das s.g. Nernstpotential $E\in[0mV, -90mV]$ beschrieben. Weitere Größen dieser Gleichung bilden die Kreisfrequenz $w$, die Standardabweichung $\sigma$ und der Erwartungswert $\mu$.\\
 	Gap-Junctions bilden die Ausnahme, denn sie dienen als Ausgleichsglied und wirken bidirektional. Ihr Strom wird wie folgt berechnet:
 	\begin{align}
 		\label{eq:gap_syn_current}
 		I_{Gap} = \hat{w}(u_{post}(t) - u_{pre}(t))\text{.}
 	\end{align}
-	Für die Berechnung des Gap-Junction Stroms benötigt es ebenfalls das pre und postsynaptische Potenzial der jeweiligen Nervenzellen $u_{pre}$ und $u_{post}$, sowie $\hat{w}$.\\	
+	Für die Berechnung des Gap-Junction Stroms benötigt es ebenfalls das pre- und postsynaptische Potenzial der jeweiligen Nervenzellen $u_{pre}$ und $u_{post}$, sowie die Kreisfrequenz $\hat{w}$.\\	
 	Durch diese formularen Zusammenhänge kann ein ganzheitliches neuronales Netz simuliert werden.
 	
 % ***
 \section{Anwendung auf Modelle neuronaler Netze}
 \label{sec:lif_neuro}
 % ***
-	Durch das im vorherigen Kapitel beschriebene Leaky Integrate and Fire - Modell ist es möglich, interne Vorgänge eines neuronalen Netzes zu beschreiben und zu simulieren. Dies setzt jedoch einen konstanten Input der vier Sensorneuronen durch äußere Stimuli voraus. Diese Rezeptoren sind in der Lage, äußere Einflüsse wie bspw. Licht- oder Berührungsintensität in ein für das neuronale Netz verständliche Größe zu übersetzen. Wie bereits eingangs erwähnt, bewegen wir uns in einem Aktionsraum $A\in[-70mV, -20mV]$, wobei $-70mV$ als Ruhespannung und $-20mV$ als Aktionspotential wahrgenommen wird. Aufgabe der vier Sensor-Neuronen \textit{PVD, PLM, AVM und ALM} ist es folglich, eingehende Größen entsprechend auf den gegebenen Aktionsraum $A$ zu übersetzen.\\
+	Durch das im vorherigen Kapitel beschriebene Leaky Integrate and Fire - Modell ist es möglich, interne Vorgänge eines neuronalen Netzes zu beschreiben und zu simulieren. Dies setzt jedoch einen konstanten Input der vier Sensorneuronen durch äußere Stimuli voraus. Diese Rezeptoren sind in der Lage, äußere Einflüsse wie bspw. Licht- oder Berührungsintensität in eine für das neuronale Netz verständliche Größe zu übersetzen. Wie bereits eingangs erwähnt, bewegen wir uns in einem Aktionsraum $A\in[-70mV, -20mV]$, wobei $-70mV$ als Ruhespannung und $-20mV$ als Aktionspotential wahrgenommen wird. Aufgabe der vier Sensor-Neuronen \textit{PVD, PLM, AVM und ALM} ist es folglich, eingehende Größen entsprechend auf den gegebenen Aktionsraum $A$ zu übersetzen.\\
 	In dem bereits thematisierten Schaubild nach Lechner et al (Abb. \ref{fig:01_TW-Circuit} \cite{WormLevelRL}) werden jeweils zwei Sensorneuronen für einen Eingang genutzt, da zwischen positiven und negativen Eingangsgrößen unterschieden wird. \textit{PLM und AVM} bilden das primäre Sensorpaar für die ausschlaggebendste Eingangsgröße (inverses Pendel: Winkel $\varphi$), \textit{PVD und ALM} bedienen eine sekundäre Eingangsgröße (inverses Pendel: Winkelgeschwindigkeit $\dot{\varphi}$ oder Cartposition $x$). Diese Wahl beruht auf der internen Verschaltung des Netzwerks durch Synapsen und Gap-Junctions und wird im weiteren Verlauf dieser Arbeit weiter thematisiert.\\
 	Um nun die jeweiligen Größen durch die Sensorneuronen zu übersetzen werden folgende Funktionen für die jeweils positive und negative Sensorneurone $S_{positiv}$ und $S_{negativ}$ angenommen:
 	\begin{align}
@@ -116,15 +116,15 @@
 \label{sec:lif_lim}
 % ***
 	Das Leaky Integrate and Fire - Modell ist stark vereinfacht und zeigt die grundsätzlichen Eigenschaften des Membranpotentials auf. Es erfolgt ein lineares Auf-integrieren der anliegenden Ströme und eine simple Rücksetzung des Aktionspotentials nach Überschreitung des Thresholds $\vartheta$ auf das Ruhepotential $U_{Leak}$.\\
-	Zur weiteren Analyse eines neuronalen Netzwerks besonders im Bereich der Biologie und Biochemie werden daher detailliertere Modelle angewendet, um biologische Effekte in verschiedenen Zelltypen zu berücksichtigen. Jedoch eignet sich das hier angewendete Modell sehr gut zur Analyse der gegebenen Nervenzellen. Das Leaky Integrate and Fire - Modell ist in der Lage, s.g. Fire-Events bei der Überschreitung des genannten Thresholds exakt zu ermitteln und liefert somit eine grundlegende Zeitbasis für die Simulationsumgebung.
+	Zur weiteren Analyse eines neuronalen Netzwerks besonders im Bereich der Biologie und Biochemie werden daher detailliertere Modelle angewendet, um biologische Effekte in verschiedenen Zelltypen zu berücksichtigen. Jedoch eignet sich das hier angewendete Modell sehr gut zur Analyse der gegebenen Nervenzellen. Das Leaky Integrate and Fire - Modell ist in der Lage, s.g. Fire-Events bei der Überschreitung des genannten Thresholds exakt zu ermitteln und liefert somit eine grundlegende Zeitbasis für die Simulationsumgebung.\\
+	Da das biologische neuronale Netzwerk qualitativ betrachtet werden soll und eine spätere Optimierung durch Parameterfindung und Gewichtung erfolgt, wird das Leaky Integrate and Fire Modell weiterhin verwendet.
 
 % ***
 \section{Implementierung}
 \label{sec:lif_imp}
 % ***
-	Zur Implementierung des Leaky Integrate and Fire - Modells wird die Programmiersprache \texttt{Python} verwendet. Angelehnt an die Formeln aus \ref{sec:lif_model} kann ein einfacher Algorithmus implementiert werden. Der gesamte Code findet sich in Anhang \ref{sec:lifpy}.\\
-	Da sich in der Berechnung der Membranpotentiale eine lineare Differenzialgleichung erster Ordnung ergibt \ref{eq:lif}, muss diese entsprechend numerisch gelöst werden. Die Lösung kann durch das Euler-Verfahren, sowie durch die Methode nach Runge-Kutta gefunden werden, wobei letztere (4. Ordnung) deutlich genauer ist.
-	
+	Zur Implementierung des Leaky Integrate and Fire - Modells wird die Programmiersprache \texttt{Python} verwendet. Angelehnt an die Formeln aus Sektion \ref{sec:lif_model} kann ein einfacher Algorithmus implementiert werden. Der gesamte Code befindet sich auf der zugehörigen GitHub Repository\footnote{https://github.com/J0nasW/BA}.\\
+	Da sich in der Berechnung der Membranpotentiale eine lineare Differenzialgleichung erster Ordnung ergibt (Siehe \eqref{eq:lif}), muss diese entsprechend numerisch gelöst werden. Die Lösung kann durch das Euler-Verfahren sowie durch die Methode nach Runge-Kutta gefunden werden, wobei letztere (4. Ordnung) deutlich genauer ist.
 	\begin{remark}[Numerisches Lösungsverfahren nach Euler]\\
 		Gegeben sei eine Differenzialgleichung der Form $\dot{x} = f(x)$ mit der Bedingung $x = x_0$ bei $t = t_0$. Man finde einen Weg, um die Lösung $x(t)$ zu approximieren.\\
 		Weiterhin sollte die Schrittweite $\Delta t$ bekannt sein sowie die Anzahl der Zeitschritte $T$. Somit lässt sich die Differenzialgleichung numerisch lösen:
@@ -159,7 +159,7 @@
 		\end{align}
 		Dieses Verfahren ermöglicht eine genauere Approximation als die Euler-Methoden bei gleichbleibender Schrittweite. Der Fehler $E = |x(t_n)-x_n|$ wird signifikant kleiner. Diese Methode erfordert jedoch eine höhere Rechenzeit und ist daher nur bei ausreichender Leistung anzuwenden. Aus \cite{NonlinearDynamics}.
 	\end{remark}
-	Anwendung der Anmerkung 2.3 auf die Funktion \ref{eq:lif} resultiert in folgende Berechnung, welche direkt implementiert werden kann:
+	Anwendung der Anmerkung 2.3 auf die Funktion \eqref{eq:lif} resultiert in folgende Berechnung, welche direkt implementiert werden kann:
 	\begin{equation}
 	\begin{split}
 		\label{eq:runkgekutta_nn}
@@ -172,7 +172,7 @@
 	Rekursive Berechnung der vier Koeffizienten führt zum neuen Membranpotential und entsprechend zu der Information, ob die internen Nervenzellen \textit{AVA} oder \textit{AVB} gefeuert haben:
 	\begin{align}
 		\label{eq:runkgekutta_erg}
-		u_{i+1}(t) &= u_i(t) + \tfrac{1}{6} (k_1 + 2 k_2 + 2 k_3 + k_4)
+		u_{i+1}(t) &= u_i(t) + \tfrac{1}{6} (k_1 + 2 k_2 + 2 k_3 + k_4).
 	\end{align}
 	Um diese Funktion im Gesamtcode später mühelos aufrufen zu können, wird ein Python-Script (\texttt{modules/lif.py}) erstellt. Dieses enthält neben der Funktion zur Berechnung des Membranpotentials auch die der Berechnung von Synapsen- und Gap-Junction-Strömen.\\
 	In diversen Such-Algorithmen wird eine Funktion \texttt{compute} implementiert, welche das Modul \texttt{lif.py} aufruft. Um eine effiziente Berechnung der Membranpotentiale und Synapsen- bzw. Gap-Junction Ströme zu gewährleisten, wird die Funktion wie folgt aufgebaut:
@@ -219,15 +219,16 @@
 		\KwRet{$\boldsymbol{x}, \boldsymbol{u}, \boldsymbol{fire}, \boldsymbol{I_{Syn}}, \boldsymbol{I_{Gap}}$}
 		\caption{compute}
 	\end{algorithm}
-	Die Vektoren $\boldsymbol{x}$ und $\boldsymbol{u}$ spiegeln die aktuellen Membranpotentiale der jeweiligen Nervenzellen wieder:
+	Die Vektoren $\boldsymbol{x}$ und $\boldsymbol{u}$ spiegeln die aktuellen Membranpotentiale der jeweiligen Nervenzellen wider:
 	\begin{align}
 		\boldsymbol{x} &= \begin{pmatrix}AVA & AVD & PVC & AVB\end{pmatrix}\text{ und}\\
 		\boldsymbol{u} &= \begin{pmatrix}PVD & PLM & AVM & ALM\end{pmatrix}\text{.}
 		\label{eq:xu}
 	\end{align}
-	Vektor $\boldsymbol{x}$ beschreibt das Membranpotential interner Nervenzellen, Feuer-Events der Neuronen \textit{AVA} und \textit{AVB} sind später von Interesse. $\boldsymbol{u}$ stellt das Potential für die Eingangsneuronen dar, welche durch die Berechnungsvorschriften \ref{eq:sensor_translation_p} und \ref{eq:sensor_translation_n} je nach Sensordaten gesetzt werden.\\
-	Matrizen $\boldsymbol{A}$ und $\boldsymbol{B}$ werden als Transitionsmatrizen genutzt, um die Verbindungen der Neuronen im neuronalen Netz zu beschreiben.
+	Vektor $\boldsymbol{x}$ beschreibt das Membranpotential interner Nervenzellen, Feuer-Events der Neuronen \textit{AVA} und \textit{AVB} sind später von Interesse. $\boldsymbol{u}$ stellt das Potential für die Eingangsneuronen dar, welche durch die Berechnungsvorschriften \eqref{eq:sensor_translation_p} und \eqref{eq:sensor_translation_n} je nach Sensordaten gesetzt werden.\\
+	Matrizen $\boldsymbol{A}$ und $\boldsymbol{B}$ werden als Transitionsmatrizen genutzt, um die Verbindungen der Nervenzellen im neuronalen Netz zu beschreiben.
 	\begin{align}
+		\label{eq:mat_A}
 		\boldsymbol{A} &= \bordermatrix{
 		\quad\Rsh& AVA & AVD & PVC & AVB \cr
 			AVA &  0  &  0  &  1  &  1  \cr
@@ -244,6 +245,7 @@
 	\end{align*}
 	Die Matrix
 	\begin{align}
+	\label{eq:mat_B}
 	\boldsymbol{B} &= \bordermatrix{
 		\quad\Rsh& AVA & AVD & PVC & AVB \cr
 			PVD &  0  &  1  &  1  &  0  \cr
@@ -252,12 +254,13 @@
 			ALM &  0  &  1  &  1  &  0  \cr
 		}\text{.}
 	\end{align}
-	beschreibt analog die Verbindungen der Sensor-Neuronen mit den internen Nervenzellen. Verbindungen werden zwischen diesen Typen von Nervenzellen nur durch inhibitorische Synapsen und Gap-Junctions gemacht. Die Ziffern $[0,1,3]$ haben folgende Bedeutung:
+	beschreibt analog die Verbindungen der Sensor-Neuronen mit den internen Nervenzellen. Verbindungen werden zwischen diesen Typen von Nervenzellen nur durch inhibitorische Synapsen und Gap-Junctions hergestellt. Die Ziffern $[0,1,3]$ haben folgende Bedeutung:
 	\begin{align*}
 		0 &: \text{Keine Verbindung zwischen Neuronen }\boldsymbol{B_i}\text{ und } \boldsymbol{B_j}\\
 		1 &: \text{Inhibitorische Verbindung zwischen Neuronen }\boldsymbol{B_i}\text{ und }\boldsymbol{B_j}\\
 		3 &: \text{Verbindung durch Gap-Junction zwischen Neuronen }\boldsymbol{B_i}\text{ und }\boldsymbol{B_j}.
 	\end{align*}
+	Durch diese Vorschriften ist eine Implementierung des gegebenen neuronalen Netzes möglich und die Berechnung essenzieller Größen durch einfache Matrixoperationen zu realisieren.
 
 %%% Local Variables: 
 %%% mode: latex

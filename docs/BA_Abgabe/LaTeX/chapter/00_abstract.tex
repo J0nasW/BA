@@ -10,20 +10,19 @@
 \section*{Abstract}
 % ***
 %
+This bachelor thesis implements a way to achieve a reliable and stable control of dynamic systems through approaches of reinforcement learning. For a neuronal network, the \glqq Touch Withdrawal Circuit \grqq{} of the worm C.Elegans is examined in great detail and the structures are transformed into a simulator. As a simulation environment, the inverted pendulum is being used, containing one degree of freedom.\\
+To simulate the neural network and gurantee reliable control for the inverted pendulum, a simulator is being developed and implemented using the programming languarge \texttt{Python}. Using the well known Leaky Integrate and Fire model, simulation of internal neural dynamics and processing information within the network is made possible. Furthermore, Parameters of the network are found using reinforcement learning algorithms and applied to the environment \texttt{CartPole\_v0} from OpenAI Gym.\\
+The result of this work shows, that it is possible to implement a functional simulator for biological neural networks and to link it with methods of reinforcement learning. After computing multiple simulations, suitable Parameters for the network, which ensure stable control of the inverse pendulum, are found. An application to other simulation environments or with similar neural networks is also possible due to the structure of the simulator.
 
-English version ... approx. $\frac{1}{2}$ page
 
 %
 % ***
 \section*{Kurzfassung}
 % ***
 %
-
-{\Large --- ARBEITSSTAND ---}\vspace{1cm}\\
-Diese Bachelorarbeit umfasst den Ansatz, durch \textit{Reinforcement Learning} eine zuverlässige und vergleichbare Regelung von dynamischen Systemen zu erzielen, welche bisher nur durch klassische Regelansätze möglich gewesen ist. Dabei wird im ersten Schritt in Anlehnung an das Tierreich das neuronale Netz des Wurms C. Elegans \cite{WormLevelRL} genauer betrachtet. Der Touch-Withdrawal Circuit ist dafür zuständig, dass das Tier bei Berührung zurückschnellt. Diese Verschaltung der verschiedenen Nervenzellen mittels Synapsen und Gap-Junctions lassen sich exakt nachbilden und mathematisch durch das s.g. \textit{Leaky Integrate and Fire Model} beschreiben.\\
-Weiterhin soll ein universeller Simulator zur Implementierung dieses Netzwerkes geschaffen werden, welcher durch zahlreiche Module in der Lage ist, geeignete Parameter zu finden und das Netzwerk auf Probleme der Regelungstechnik anzuwenden. Der Simulator wird dabei in der Programmiersprache \texttt{Python} realisiert und enthält mehrere Dependencies.\\
-Ziel dieser Bachelorarbeit ist es, eine verlässliche Regelung dynamischer Systeme als Simulation zu erschaffen und diese mit konventionellen Ansätzen der Regelungstechnik qualitativ zu vergleichen.
-
+Ziel dieser Bachelorarbeit ist es, durch Ansätze des Reinforcement Learning sowie unter Nutzung biologischer neuronaler Netze eine zuverlässige und stabile Regelung dynamischer Systeme zu erzielen. Als neuronales Netz wird der s.g. \glqq Touch Withdrawal Circuit \grqq{} des Wurms C. Elegans detailliert untersucht und die Strukturen in einen Simulator überführt. Als Simulationsumgebung wird das inverse Pendel mit einem Freiheitsgrad gewählt.\\
+Um das o.g. neuronale Netz zu simulieren und die Regelung auf das inverse Pendel zu übertragen, wird ein Simulator in der Programmiersprache \texttt{Python} entwickelt und implementiert. Dieser nutzt das bekannte Leaky Integrate and Fire Modell, um die neuronale Dynamik zu simulieren und Prozesse innerhalb des Netzwerkes darzustellen. Parameter des Netzwerkes werden duch Algorithmen des Reinforcement Learning gefunden und auf die Umgebung \texttt{CartPole\_v0} von OpenAI Gym angewendet.\\
+Das Ergebnis dieser Arbeit zeigt, dass es möglich ist, einen funktionsfähigen Simulator für biologische neuronale Netze zu implementieren und diesen mit Methoden des Reinforcement Learning zu koppeln. Durch rechenintensive Simulationen wurden geeignete Parameter für das Netzwerk gefunden, welche eine stabile Regelung des inversen Pendels gewährleisten. Eine Anwendung auf weitere Simulationsumgebungen oder mit ähnlichen neuronalen Netzen ist durch den universalen Aufbau des Simulators ebenfalls möglich.
 
 %%% Local Variables: 
 %%% mode: latex

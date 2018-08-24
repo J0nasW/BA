@@ -1,28 +1,48 @@
 \appendix
 %
 % ***
-\chapter{Programmcode Python}
+\chapter{UML-Diagramme wichtiger Algorithmen}
+\label{app:UML}
 % ***
 %
 
 	% ***
-	\section{LIF-Modell}
-	\label{sec:lifpy}
+	\section{\texttt{RandomSearch}}
+	\label{app:UML_RS}
 	% ***
-	%\lstinputlisting[language=Python, firstline=23, lastline=38]{../Python/animation_lif/lif.py}
-
+		Die folgende Abbildung \ref{fig:uml_rs} stellt den genutzten Algorithmus \texttt{RandomSearch} qualitativ als UML-Diagramm vor.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=14cm]{figures/appendix/uml_rs.pdf}
+			\caption{UML Diagramm des Algorithmus \texttt{RandomSearch}}
+			\label{fig:uml_rs}
+		\end{figure}
+	
+	% ***
+	\section{\texttt{Weights}}
+	\label{app:UML_RS}
+	% ***
+	Die folgende Abbildung \ref{fig:uml_weights} stellt den genutzten Algorithmus \texttt{Weights} qualitativ als UML-Diagramm vor.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=14cm]{figures/appendix/uml_w.pdf}
+		\caption{UML Diagramm des Algorithmus \texttt{Weights}}
+		\label{fig:uml_weights}
+	\end{figure}
+	
 %
 % ***
-\chapter{Datenblatt Programm: TW-Circuit}
+\chapter{Datenblatt Programm: TW Circuit}
 % ***
 %
+\label{app:datenblatt}
 
-\begin{minipage}[b]{0.62\textwidth}
+\begin{minipage}[b]{0.61\textwidth}
 	\begin{mybox}{Name}
 		\texttt{TW Circuit}
 	\end{mybox}
 	\begin{mybox}{Kurzinfo}
-		\texttt{Lorem Ipsum Dolor sit amen.}
+		\texttt{Das Programm TW Circuit dient als Simulator des Touch Withdrawal Circuit des Wurms C.Elegans \cite{WormLevelRL}. Es kann ein beliebig aufgebautes, neuronales Netz mit biologischem Hintergrund implementiert werden. Dazu wird das Leaky Integrate and Fire Modell genutzt, um die neuronale Dynamik zu simulieren und Fire-Events vorherzusagen. Der Output wird auf eine beliebige Simulationsumgebung gegeben, in diesem Beispiel wird OpenAI's CartPole\_v0 genutzt.\\ Der Simulator ist OpenSource und kann beliebig erweitert oder verändert werden. Er verfügt darüber hinaus auch über Inspektionsfunktionen sowie gut dokumentiertem Code, um Befehle schnell nachzuvollziehen.}
 	\end{mybox}
 	\begin{mybox}{Dependencies}
 		\begin{itemize}
@@ -39,7 +59,7 @@
 	\end{mybox}
 \end{minipage}
 \hfill
-\begin{minipage}[c]{0.35\textwidth}
+\begin{minipage}[b]{0.38\textwidth}
 	\begin{mybox}{QR-Code}
 		\includegraphics[width=\textwidth]{figures/appendix/qr-code.pdf}
 	\end{mybox}
@@ -75,7 +95,7 @@
 %
 \label{app:parameter}
 
-	Nachfolgend werden verschiedene Simulationsläufe mit guten Ergebnissen im Detail vorgestellt. Dabei wird besonders auf die Parameter und Gewichte des neuronalen Netzes wert gelegt, da diese durch Simulationen gefunden wurden.\\
+	Nachfolgend werden verschiedene Simulationsläufe mit guten Ergebnissen im Detail in Tabelle \ref{tab:app_erg} vorgestellt. Dabei wird besonders auf die Parameter und Gewichte des neuronalen Netzes wert gelegt, da diese durch Simulationen gefunden wurden.\\
 	Folgende Konvention wird eingehalten, um die Ergebnisse anschaulich darzustellen:\\
 	Parameter der Nervenzellen:
 	\begin{align}
@@ -83,20 +103,20 @@
 		\boldsymbol{G_{Leak}} &= \begin{pmatrix}G_{AVA} & G_{AVD} & G_{PVC} & G_{AVB}\end{pmatrix},\\
 		\boldsymbol{U_{Leak}} &= \begin{pmatrix}U_{AVA} & U_{AVD} & U_{PVC} & U_{AVB}\end{pmatrix}.
 	\end{align}
-	Parameter der Synapsen und Gap-Junctions:
+	Parameter der Synapsen und Gap-Junctions  werden anhand der Transitionsmatrizen \ref{eq:mat_A} und \ref{eq:mat_B} in Vektorschreibweise dargestellt:
 	\begin{align}
-		\boldsymbol{\sigma} &= \begin{pmatrix}\sigma_1 & \dots & \sigma_{16}\end{pmatrix},\\
-		\boldsymbol{w} &= \begin{pmatrix}w_1 & \dots & w_{16}\end{pmatrix},\\
+		\boldsymbol{\sigma} &= \begin{pmatrix}\sigma_A & \sigma_B\end{pmatrix} = \begin{pmatrix}\sigma_1 & \dots & \sigma_{16}\end{pmatrix},\\
+		\boldsymbol{w} &= \begin{pmatrix}w_A & w_B\end{pmatrix} = \begin{pmatrix}w_1 & \dots & w_{16}\end{pmatrix},\\
 		\boldsymbol{\hat{w}} &= \begin{pmatrix}\hat{w}_1 & \hat{w}_{2}\end{pmatrix}.
 	\end{align}
-	Gewichte der Synapsen und Gap-Junctions:
+	Gewichte der Synapsen ($\sigma$, $w$) und Gap-Junctions ($\hat{w}$) werden anhand der Transitionsmatrizen \ref{eq:mat_A} und \ref{eq:mat_B} in Vektorschreibweise dargestellt:
 	\begin{align}
-		\boldsymbol{g} &= \begin{pmatrix}g_1 & \dots & g_{18}\end{pmatrix}.
+		\boldsymbol{g} &= \begin{pmatrix}g_A & g_B\end{pmatrix} = \begin{pmatrix}g_1 & \dots & g_{18}\end{pmatrix}.
 	\end{align}
-	Weitere Parameter und Einheiten sind der Tabelle \ref{label} zu entnehmen.
-	\begin{figure}[!h] %[!t] ...
+	Weitere Parameter und Einheiten sind der Tabelle \ref{tab:rl_parameter} zu entnehmen. In Abb. \ref{fig:erg_rs_flow} werden den Synapsen des bekannten neuronalen Netzes Nummerierungen hinzugefügt, um die Parameter der Synapsen und Gap-Junctions zuzuweisen zu können.
+	\begin{figure}[H]
 		\centering
-		\includegraphics[width=12cm]{figures/sonstiges/platzhalter.pdf}
+		\includegraphics[width=12cm]{figures/appendix/Neural_Net_v3_num_syn.pdf}
 		\caption{Neuronales Netz mit Legende für Gewichte}
 		\label{fig:erg_rs_flow}
 	\end{figure}
@@ -112,21 +132,21 @@
 				\emph{Zeitstempel} 		& \emph{Algorithmus}		& \emph{Reward}	& \emph{Simulation (Dauer, Anz.)} 	& \emph{Parameter}		 \\\midrule
 				
 				20180817\_01-56-01		& RandomSearch - Parameter	& 131			& 12h, ca. 1 Mio. Simulationen		& Parameter der Nervenzellen \newline
-				$\boldsymbol{C_m} = \begin{pmatrix}C_{AVA}, C_{AVD}, C_{PVC}, C_{AVB}\end{pmatrix}$,\newline
-				$\boldsymbol{G_{Leak}} = \begin{pmatrix}G_{AVA}, G_{AVD}, G_{PVC}, G_{AVB}\end{pmatrix}$,\newline
-				$\boldsymbol{U_{Leak}} = \begin{pmatrix}U_{AVA}, U_{AVD}, U_{PVC}, U_{AVB}\end{pmatrix}.$ \vspace{0.2cm} \newline
-				Parameter der Synapsen \& GJ \newline
-				$\boldsymbol{\sigma} = \begin{pmatrix}\sigma_1, \dots, \sigma_{16}\end{pmatrix}$,\newline
-				$\boldsymbol{w} = \begin{pmatrix}w_1, \dots, w_{16}\end{pmatrix}$,\newline
-				$\boldsymbol{\hat{w}} = \begin{pmatrix}\hat{w}_1, \hat{w}_{2}\end{pmatrix}$.\vspace{0.5cm}\\
+				$\boldsymbol{C_m} = \begin{pmatrix}0.01, 0.01, 0.01, 0.01\end{pmatrix}$,\newline
+				$\boldsymbol{G_{Leak}} = \begin{pmatrix}1.42, 0.63, 1.42, 0.63\end{pmatrix}$,\newline
+				$\boldsymbol{U_{Leak}} = \begin{pmatrix}-63.2, -62.2, -63.2, -62.2\end{pmatrix}.$ \vspace{0.2cm} \newline
+				Parameter der Synapsen \& Gap-Junctions \newline
+				$\boldsymbol{\sigma} = \begin{pmatrix}0.16, 0.49, 0.15, 0.29, 0.16, 0.49, 0.15, 0.29, 0.13, 0.39, 0.17, 0.06, 0.13, 0.39, 0.17, 0.06\end{pmatrix}$,\newline
+				$\boldsymbol{w} = \begin{pmatrix}0.97, 1.57, 1.48, 1.28, 0.97, 1.57, 1.48, 1.28, 1.71, 1.45, 0.78, 2.84, 1.71, 1.45, 0.78, 2.84\end{pmatrix}$,\newline
+				$\boldsymbol{\hat{w}} = \begin{pmatrix}1.84, 1.84\end{pmatrix}$.\vspace{0.5cm}\\
 				
 				20180817\_13-56-01		& Weights - Gewichte		& 200			& 12h, ca. 400.000 Simulationen		& Gewichte der Synapsen \newline
-				$\boldsymbol{g} = \begin{pmatrix}g_{1}, \dots, g_{18}\end{pmatrix}$.\\
-				
+				$\boldsymbol{g} = \begin{pmatrix}0.94, 0.96, 0.95, 0.14, 0.94, 0.96, 0.95, 0.14, 0.75, 0.45, 0.54, 0.21, 0.97, 0.75, 0.45, 0.54, 0.21, 0.97\end{pmatrix}$.\\
 				\bottomrule
 				\hline
 			\end{tabular}
-			\captionof{table}{Table caption}% Add 'table' caption
+			\captionof{table}{Simulationsläufe mit guten Ergebnissen}% Add 'table' caption
+			\label{tab:app_erg}
 		\end{landscape}
 		\clearpage% Flush page
 	}

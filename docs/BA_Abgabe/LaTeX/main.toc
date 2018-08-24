@@ -26,22 +26,22 @@
 \contentsline {subsection}{\numberline {5.2.1}Suchalgorithmus RandomSearch}{28}{subsection.5.2.1}
 \contentsline {subsection}{\numberline {5.2.2}Optimierungsalgorithmus Weights}{29}{subsection.5.2.2}
 \contentsline {subsection}{\numberline {5.2.3}Simulation in der Google Cloud Platform\textsuperscript {\textregistered }}{30}{subsection.5.2.3}
-\contentsline {section}{\numberline {5.3}Simulationsumgebung: OpenAI Gym}{31}{section.5.3}
+\contentsline {section}{\numberline {5.3}Simulationsumgebung: OpenAI Gym}{32}{section.5.3}
 \contentsline {section}{\numberline {5.4}Visualisierung und Auswertung}{34}{section.5.4}
-\contentsline {section}{\numberline {5.5}Sonstige Implementierung}{35}{section.5.5}
-\contentsline {subsection}{\numberline {5.5.1}Zentraler Ort f\IeC {\"u}r Parameter}{35}{subsection.5.5.1}
-\contentsline {subsection}{\numberline {5.5.2}Speicherung von Daten}{35}{subsection.5.5.2}
+\contentsline {section}{\numberline {5.5}Sonstige Implementierung}{36}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Zentraler Ort f\IeC {\"u}r Parameter}{36}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Speicherung von Daten}{36}{subsection.5.5.2}
 \contentsline {subsection}{\numberline {5.5.3}Dateiinspektion}{36}{subsection.5.5.3}
 \contentsline {chapter}{\numberline {6}Performance \& Auswertung}{37}{chapter.6}
 \contentsline {section}{\numberline {6.1}Performance implementierter Algorithmen}{37}{section.6.1}
 \contentsline {section}{\numberline {6.2}Limitationen und Alternativen von Algorithmen}{38}{section.6.2}
 \contentsline {subsection}{\numberline {6.2.1}Analyse bereits bestehender Algotithmen}{39}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Alternative Such- und Optimierungsalgorithmen}{40}{subsection.6.2.2}
-\contentsline {section}{\numberline {6.3}Vergleich zu bestehenden Systemen}{40}{section.6.3}
-\contentsline {section}{\numberline {6.4}Zusammenfassung}{40}{section.6.4}
-\contentsline {section}{\numberline {6.5}Ausblick}{41}{section.6.5}
-\contentsline {chapter}{\numberline {A}Programmcode Python}{43}{appendix.A}
-\contentsline {section}{\numberline {A.1}LIF-Modell}{43}{section.A.1}
-\contentsline {chapter}{\numberline {B}Datenblatt Programm: TW-Circuit}{45}{appendix.B}
+\contentsline {subsection}{\numberline {6.2.2}Alternative Such- und Optimierungsalgorithmen}{39}{subsection.6.2.2}
+\contentsline {section}{\numberline {6.3}Zusammenfassung}{40}{section.6.3}
+\contentsline {section}{\numberline {6.4}Ausblick}{41}{section.6.4}
+\contentsline {chapter}{\numberline {A}UML-Diagramme wichtiger Algorithmen}{43}{appendix.A}
+\contentsline {section}{\numberline {A.1}\texttt {RandomSearch}}{43}{section.A.1}
+\contentsline {section}{\numberline {A.2}\texttt {Weights}}{44}{section.A.2}
+\contentsline {chapter}{\numberline {B}Datenblatt Programm: TW Circuit}{45}{appendix.B}
 \contentsline {chapter}{\numberline {C}Parameter mit guten Simulationsergebnissen}{47}{appendix.C}
-\contentsline {chapter}{Literaturverzeichnis}{49}{appendix*.27}
+\contentsline {chapter}{Literaturverzeichnis}{51}{appendix*.28}
