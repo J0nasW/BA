@@ -11,7 +11,13 @@ INFO:       -
 import os
 import numpy as np
 
-w_A_rnd = np.squeeze(np.random.uniform(low = 0.5, high = 3, size = (1,5)))
-print (w_A_rnd)
-w_A_rnd = np.append(w_A_rnd, w_A_rnd)
-print (w_A_rnd)
+
+A = np.arange(9).reshape((3,3))
+
+B = np.array([0, 1, 3, 4, 6])
+
+C = np.empty((0,5), int)
+
+D = B.reshape((1, -1))
+
+print (D)

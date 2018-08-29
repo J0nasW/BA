@@ -10,7 +10,7 @@
 	\section{\texttt{RandomSearch}}
 	\label{app:UML_RS}
 	% ***
-		Die folgende Abbildung \ref{fig:uml_rs} stellt den genutzten Algorithmus \texttt{RandomSearch} qualitativ als UML-Diagramm vor.
+		Die folgende Abbildung \ref{fig:uml_rs} stellt den genutzten Algorithmus \texttt{RandomSearch} qualitativ in einem Programmablaufplan vor.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=14cm]{figures/appendix/uml_rs.pdf}
@@ -22,7 +22,7 @@
 	\section{\texttt{Weights}}
 	\label{app:UML_RS}
 	% ***
-	Die folgende Abbildung \ref{fig:uml_weights} stellt den genutzten Algorithmus \texttt{Weights} qualitativ als UML-Diagramm vor.
+	Die folgende Abbildung \ref{fig:uml_weights} stellt den genutzten Algorithmus \texttt{Weights} qualitativ in einem Programmablaufplan vor.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=14cm]{figures/appendix/uml_w.pdf}
@@ -42,7 +42,7 @@
 		\texttt{TW Circuit}
 	\end{mybox}
 	\begin{mybox}{Kurzinfo}
-		\texttt{Das Programm TW Circuit dient als Simulator des Touch Withdrawal Circuit des Wurms C.Elegans \cite{WormLevelRL}. Es kann ein beliebig aufgebautes, neuronales Netz mit biologischem Hintergrund implementiert werden. Dazu wird das Leaky Integrate and Fire Modell genutzt, um die neuronale Dynamik zu simulieren und Fire-Events vorherzusagen. Der Output wird auf eine beliebige Simulationsumgebung gegeben, in diesem Beispiel wird OpenAI's CartPole\_v0 genutzt.\\ Der Simulator ist OpenSource und kann beliebig erweitert oder verändert werden. Er verfügt darüber hinaus auch über Inspektionsfunktionen sowie gut dokumentiertem Code, um Befehle schnell nachzuvollziehen.}
+		\texttt{Das Programm TW Circuit dient als Simulator des Touch Withdrawal Circuit des Wurms C. Elegans \cite{WormLevelRL}. Es kann ein beliebig aufgebautes, neuronales Netz mit biologischem Hintergrund implementiert werden. Dazu wird das Leaky Integrate and Fire Modell genutzt, um die neuronale Dynamik zu simulieren und Fire-Events vorherzusagen. Der Output wird auf eine beliebige Simulationsumgebung gegeben, in diesem Beispiel wird OpenAI's CartPole\_v0 genutzt.\\ Der Simulator ist OpenSource und kann beliebig erweitert oder verändert werden. Er verfügt darüber hinaus auch über Inspektionsfunktionen sowie gut dokumentiertem Code, um Befehle schnell nachzuvollziehen.}
 	\end{mybox}
 	\begin{mybox}{Dependencies}
 		\begin{itemize}
@@ -136,12 +136,12 @@
 				$\boldsymbol{G_{Leak}} = \begin{pmatrix}1.42, 0.63, 1.42, 0.63\end{pmatrix}$,\newline
 				$\boldsymbol{U_{Leak}} = \begin{pmatrix}-63.2, -62.2, -63.2, -62.2\end{pmatrix}.$ \vspace{0.2cm} \newline
 				Parameter der Synapsen \& Gap-Junctions \newline
-				$\boldsymbol{\sigma} = \begin{pmatrix}0.16, 0.49, 0.15, 0.29, 0.16, 0.49, 0.15, 0.29, 0.13, 0.39, 0.17, 0.06, 0.13, 0.39, 0.17, 0.06\end{pmatrix}$,\newline
-				$\boldsymbol{w} = \begin{pmatrix}0.97, 1.57, 1.48, 1.28, 0.97, 1.57, 1.48, 1.28, 1.71, 1.45, 0.78, 2.84, 1.71, 1.45, 0.78, 2.84\end{pmatrix}$,\newline
+				$\boldsymbol{\sigma} = \begin{pmatrix}0.16, 0.49, 0.15, 0.29, 0.16, 0.49, 0.15, 0.29,\\ 0.13, 0.39, 0.17, 0.06, 0.13, 0.39, 0.17, 0.06\end{pmatrix}$,\newline
+				$\boldsymbol{w} = \begin{pmatrix}0.97, 1.57, 1.48, 1.28, 0.97, 1.57, 1.48, 1.28,\\ 1.71, 1.45, 0.78, 2.84, 1.71, 1.45, 0.78, 2.84\end{pmatrix}$,\newline
 				$\boldsymbol{\hat{w}} = \begin{pmatrix}1.84, 1.84\end{pmatrix}$.\vspace{0.5cm}\\
 				
 				20180817\_13-56-01		& Weights - Gewichte		& 200			& 12h, ca. 400.000 Simulationen		& Gewichte der Synapsen \newline
-				$\boldsymbol{g} = \begin{pmatrix}0.94, 0.96, 0.95, 0.14, 0.94, 0.96, 0.95, 0.14, 0.75, 0.45, 0.54, 0.21, 0.97, 0.75, 0.45, 0.54, 0.21, 0.97\end{pmatrix}$.\\
+				$\boldsymbol{g} = \begin{pmatrix}0.94, 0.96, 0.95, 0.14, 0.94, 0.96, 0.95, 0.14, 0.75,\\ 0.45, 0.54, 0.21, 0.97, 0.75, 0.45, 0.54, 0.21, 0.97\end{pmatrix}$.\\
 				\bottomrule
 				\hline
 			\end{tabular}

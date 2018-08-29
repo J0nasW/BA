@@ -14,6 +14,7 @@ INFO:       This Git-Repository holds all the Code written for my Bachelor Thesi
 from modules import random_search as rs
 from modules import random_search_v2 as rs2
 from modules import weights_nn as w
+from modules import genetic_algorithm as ga
 from modules import inspect_nn as ins
 from modules import parameters
 
@@ -35,11 +36,14 @@ def main():
     #--------------------------------------------------------
 
     # RANDOM SEARCH V2
-    date, best_reward_p = rs2.main(sim_time_parameters)
-    parameter_matrices = parameters.current_dir + "/parameter_dumps/" + date + "_rs2_v2_" + best_reward_p + ".hkl"
+    #date, best_reward_p = rs2.main(sim_time_parameters)
+    #parameter_matrices = parameters.current_dir + "/parameter_dumps/" + date + "_rs2_v2_" + best_reward_p + ".hkl"
 
     # WEIGHT APPLICATION (RandomSearch)
-    date, best_reward_w = w.main(sim_time_weights, parameter_matrices, best_reward_p)
+    #date, best_reward_w = w.main(sim_time_weights, parameter_matrices, best_reward_p)
+
+    # GENETIC Algorithms
+    date, best_reward_p = ga.main(sim_time_parameters)
 
     # Simulation 15.08.2018 - symmetrical Parameters
     #parameter_matrices = parameters.current_dir + "/parameter_dumps/20180817_01-50-02_rs2_v2_158.hkl"
