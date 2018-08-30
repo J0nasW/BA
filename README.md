@@ -16,7 +16,10 @@ The result of this work shows, that it is possible to implement a functional sim
 
 <img src="https://github.com/J0nasW/BA/blob/master/docs/BA_Abgabe/LaTeX/figures/chap_neuron/Neural_Net_v3_plain.png" alt="TW-Neural Circuit of C. Elegans with some Modifications" vspace="10" align="middle" width="500px"/>
 
-[![YT Video CartPole_v0](http://img.youtube.com/vi/NKdNCSEsll8/0.jpg)](http://www.youtube.com/watch?v=NKdNCSEsll8)
+<p float="left">
+  <img src="https://github.com/J0nasW/BA/blob/master/docs/BA_Abgabe/LaTeX/figures/chap_neuron/Neural_Net_v3_plain.png" alt="TW-Neural Circuit of C. Elegans with some Modifications" vspace="10" align="middle" width="100" />
+  <a href="https://www.youtube.com/watch?v=NKdNCSEsll8"><img src="https://github.com/J0nasW/BA/blob/master/docs/BA_Abgabe/img/Cover/Cover.png" alt="YouTube Link to the inverted pendulum Simulation" vspace="10" align="middle" width="100" /> </a>
+</p>
 
 ---
 
