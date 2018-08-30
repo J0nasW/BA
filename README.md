@@ -15,8 +15,8 @@ To simulate the neural network and gurantee reliable control for the inverted pe
 The result of this work shows, that it is possible to implement a functional simulator for biological neural networks and to link it with methods of reinforcement learning. After computing multiple simulations, suitable Parameters for the network, which ensure stable control of the inverse pendulum, are found. An application to other simulation environments or with similar neural networks is also possible due to the structure of the simulator.
 
 <p float="left">
-  <img src="https://github.com/J0nasW/BA/blob/master/docs/BA_Abgabe/LaTeX/figures/chap_neuron/Neural_Net_v3_plain.png" alt="TW-Neural Circuit of C. Elegans with some Modifications" vspace="10" align="middle" width="400px" />
-  <a href="https://www.youtube.com/watch?v=NKdNCSEsll8"><img src="https://github.com/J0nasW/BA/blob/master/img/Cover/Cover.png" alt="YouTube Link to the inverted pendulum Simulation" vspace="10" align="middle" width="400px" /> </a>
+  <img src="https://github.com/J0nasW/BA/blob/master/docs/BA_Abgabe/LaTeX/figures/chap_neuron/Neural_Net_v3_plain.png" alt="TW-Neural Circuit of C. Elegans with some Modifications" vspace="10" align="middle" width="450px" style="padding:10px;"/>
+  <a href="https://www.youtube.com/watch?v=NKdNCSEsll8"><img src="https://github.com/J0nasW/BA/blob/master/img/Cover/Cover.png" alt="YouTube Link to the inverted pendulum Simulation" vspace="10" align="middle" width="450px" style="padding:10px;"/> </a>
 </p>
 
 ---
