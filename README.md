@@ -10,26 +10,35 @@ NOW IN PYTHON 3!
 ---
 
 ### My Approach
-To outperform established control-circuits and well known models in Control-Theroy, it takes more than a new Approach. But maybe this Idea is a new Way to solve problems like the Cart Pole "Inverted Pendulum" Problem. But instead of generating a neuronal Circuit from scratch like nearly every artificial Intelligence project, we use a already discovered neuronal Circuit: the touch-withdrawal neural circuit from C.Elegans []. With some modification and even more programming, we are able to simulate the well known leaky integrate and fire models and closing the loop to simulation environnments like OpenAI's GYM.
+This bachelor thesis implements a way to achieve a reliable and stable control of a dynamic system through approaches of reinforcement learning. For a neuronal network, the "Touch Withdrawal Circuit" of the worm C. Elegans is examined in great detail and the structures are transformed into a simulator. As a simulation environment, the inverted pendulum is being used with one degree of freedom (1 DOF).
+To simulate the neural network and gurantee reliable control for the inverted pendulum, a simulator is being developed and implemented using the programming languarge Python. Using the well known Leaky Integrate and Fire model, simulation of internal neural dynamics and processing information within the network is made possible. Furthermore, Pparameters of the network are found using reinforcement learning algorithms and applied to the environment CartPole v0 from OpenAI Gym.
+The result of this work shows, that it is possible to implement a functional simulator for biological neural networks and to link it with methods of reinforcement learning. After computing multiple simulations, suitable Parameters for the network, which ensure stable control of the inverse pendulum, are found. An application to other simulation environments or with similar neural networks is also possible due to the structure of the simulator.
 
-This Circuit is being used here and presented by many transition-matrices and state-vectors:
+<img src="https://github.com/J0nasW/BA/blob/master/docs/BA_Abgabe/LaTeX/figures/chap_neuron/Neural_Net_v3_plain.png" alt="TW-Neural Circuit of C. Elegans with some Modifications" vspace="10" align="middle" width="500px"/>
 
-<img src="https://github.com/J0nasW/BA/blob/master/img/Neural_Net.png" alt="TW-Neural Circuit of C. Elegans with some Modifications" vspace="10" align="middle" width="500px"/>
+[![YT Video CartPole_v0](http://img.youtube.com/vi/NKdNCSEsll8/0.jpg)](http://www.youtube.com/watch?v=NKdNCSEsll8)
 
 ---
 
 ### ToDo's and Thoughts:
-* Simulation for my neural Circuit was initally to use Roboschool's inverted Pendulum. Because of the high degree of non-linerarity, a new approach is being developed: A new Simulation Environment containing a Wagon which starts some distance out of its reference point. Control Theory would suggest a PT2, the neural Network should solve this on it's own using no control Theory at all.
-* Got the OpenAI Gym CartPole_v0 Environment up and running - now we have to develop a reliable Reward-System and some good reinforcement Learning algorithms - Maybe even getting to Epsilon-Greedy soon.. :blush:
+* Simulation for my neural Circuit was initally to use Roboschool's inverted Pendulum. Because of the high degree of non-linerarity, a new approach is being developed: A new Simulation Environment containing a Wagon which starts some distance out of its reference point. Control Theory would suggest a PT2, the neural Network should solve this on it's own using no control Theory at all. - Depricated due to the good integration of CartPole_v0 from OpenAI Gym
+* Got the OpenAI Gym CartPole_v0 Environment up and running - now we have to develop a reliable Reward-System and some good reinforcement Learning algorithms
+* Genetic Algorithms still under development.. Need to implement some tensor multiplications
 
 Some Libraries that I used:
 * [matplotlib](https://matplotlib.org/)
 * [numpy](http://www.numpy.org/)
 * [OpenAI Gym and Roboschool](https://gym.openai.com/)
+* [Hickle](https://github.com/telegraphic/hickle)
 
-Computing is getting more and more complex and takes a huge amount of resources. I'll be using the Google Cloud Plattform from now on to train parameters and weights of my neural Network.
+Computing is getting more and more complex and takes a huge amount of resources. I'll be using the Google Cloud Plattform from now on to train parameters and weights of my neural Network. More Information in my Bachelor Thesis
 
 ---
+#### Update Mi., 30.08.2018
+* Bachelor Thesis is finally done and being reviewed by several people.
+* Genetic Algorithm gets more and more complex
+* Cleaning up this Repo - Everything under the master branch now
+
 #### Update Di., 21.08.2018
 * Implemented a GUI into main.py for Desktop use and created main_cmd.py for headless simulation use
 * More writing for the BA Thesis (see Commit History)
