@@ -1,0 +1,30 @@
+\frametitle{Boxes}
+  \framesubtitle{Some examples}
+
+\begin{verbatim}
+\begin{alignbox}{0.5\textwidth}
+  \begin{align}
+    y = x^2
+  \end{align}
+\end{alignbox}
+\end{verbatim}
+
+  \begin{alignbox}{0.5\textwidth}
+    \begin{align}
+      y = x^2
+    \end{align}
+  \end{alignbox}
+  %
+
+\begin{verbatim}
+This shows the use of an \texttt{inlinebox} environment
+\begin{inlinebox}{1cm}
+  abc
+\end{inlinebox}
+\end{verbatim}\newenvironment{onlinebox}[1]
+
+This shows the use of an \texttt{inlinebox} environment
+\begin{inlinebox}{1cm}
+  abc
+\end{inlinebox}
+

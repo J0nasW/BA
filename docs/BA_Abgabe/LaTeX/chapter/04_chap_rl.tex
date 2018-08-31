@@ -58,7 +58,7 @@
 			Durch eine Markow-Umgebung ist es möglich, aus einer begrenzten Anzahl an vergangenen States die Wahrscheinlichkeit für das Eintreten zukünftiger Ereignisse durch selbst gewählte Aktionen vorherzusagen. \cite{SilverRL}
 		\end{remark}
 		Ziel der Q-Learning Methode ist es, die Qualität der getätigten Aktionen bei unterschiedlichen Simulationsbedingungen zu verbessern. Dabei wird ein Agent eingesetzt, welcher lernt, in einer Markow-Umgebung optimal zu handeln, indem die Konsequenzen der Aktionen sofort zurückgeführt, analysiert und verarbeitet werden. Dem Agenten ist zu jedem Zeitpunkt der Simulation die Umwelt unbekannt.\\
-		Unmittelbar nach einer getätigten Aktion $\pi$ erhält der Agent neben dem State $x$ (ausgwählte Messgrößen wie bspw. der Winkel des inversen Pendels $\varphi$) den Reward $R_x(\pi(x))$. Aus diesen Informationen lässt sich der Wert des erhaltenen States $x$ berechnen:
+		Unmittelbar nach einer getätigten Aktion $a$ erhält der Agent neben dem State $x$ (ausgwählte Messgrößen wie bspw. der Winkel des inversen Pendels $\varphi$) den Reward $R_x(\pi(x))$. Aus diesen Informationen lässt sich der Wert des erhaltenen States $x$ berechnen:
 		\begin{align}
 			V^\pi(x) \equiv R_x(\pi(x)) + \gamma \sum_{y}P_{xy}[\pi(x)]V^\pi(y)
 		\end{align}

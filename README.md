@@ -1,7 +1,8 @@
 # :mortar_board: Bachelor Thesis
 at the [Chair of Automatic Control](https://www.control.tf.uni-kiel.de/en) ([Faculty of Engineering](http://www.tf.uni-kiel.de/en) - [CAU Kiel](https://www.uni-kiel.de/en/))
 
-## Eine Anwendung des Reinforcement Learning zur Regelung dynamischer Systeme
+## An application of Reinforcement Learning to control dynamic systems
+(Eine Anwendung des Reinforcement Learning zur Regelung dynamischer Systeme)
 
 This Git-Repository holds all the Code written for my Bachelor Thesis at the Chair of Automatic Control at TF Uni Kiel.
 The Programming Language is Python.

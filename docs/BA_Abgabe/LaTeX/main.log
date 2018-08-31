@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.7.28)  29 AUG 2018 21:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.7.28)  31 AUG 2018 11:33
 entering extended mode
 **./main.tex
 (main.tex
@@ -3208,7 +3208,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  55749 strings out of 492973
  1256510 string characters out of 3135932
- 1480628 words of memory out of 3000000
+ 1480629 words of memory out of 3000000
  58612 multiletter control sequences out of 15000+200000
  547622 words of font info for 81 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -3240,7 +3240,7 @@ pe1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
 nts/cm/cmtt8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbo
 ls/msam10.pfb>
-Output written on main.pdf (57 pages, 1161406 bytes).
+Output written on main.pdf (57 pages, 1161404 bytes).
 PDF statistics:
  1305 PDF objects out of 1440 (max. 8388607)
  260 named destinations out of 1000 (max. 500000)
