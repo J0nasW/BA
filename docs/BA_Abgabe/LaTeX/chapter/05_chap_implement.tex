@@ -6,13 +6,13 @@
 %
 
 	\begin{minipage}[b]{0.65\textwidth}
-		Die Implementierung des gesamten neuronalen Netzes inklusive der Simulationsumgebung erfolgt in der Programmiersprache \texttt{Python}. Als Module werden zum einen das bereits vorgestellte Leaky Integrate and Fire - Modell implementiert, zum anderen diverse Algorithmen zur Suche von individuellen Parametern des neuronalen Netzes. Darüber hinaus ist das Programm in der Lage, eine Simulation der gefundenen Parameter durch die Simulationsumgebung \texttt{CartPole\_v0} von OpenAI Gym zu zeigen und Parameter über die Simulationszeit zu plotten. Die Module sowie diverse Dokumentationen und Informationen sind auf meiner GitHub-Repository\footnotemark{} zu finden. Ein entsprechendes Deckblatt mit weiteren Informationen liegt dieser Arbeit in Anhang \ref{app:parameter} bei.
+		Die Implementierung des gesamten neuronalen Netzes inklusive der Simulationsumgebung erfolgt in der Programmiersprache \texttt{Python}. Als Module werden zum einen das bereits vorgestellte Leaky Integrate and Fire - Modell implementiert, zum anderen diverse Algorithmen zur Suche von individuellen Parametern des neuronalen Netzes. Darüber hinaus ist das Programm in der Lage, eine Simulation der gefundenen Parameter durch die Simulationsumgebung \texttt{CartPole\_v0} von OpenAI Gym zu zeigen und Parameter über die Simulationszeit zu plotten. Die Module sowie diverse Dokumentationen und Informationen sind in meinem GitHub-Repository\footnotemark{} zu finden. Ein entsprechendes Deckblatt mit weiteren Informationen liegt dieser Arbeit in Anhang \ref{app:parameter} bei.
 	\end{minipage}
 	\begin{minipage}[b]{0.35\textwidth}
 		\begin{figure}[H] %[!t] ...
 			\centering
 			\includegraphics[width=5cm]{figures/appendix/qr-code.pdf}
-			\caption{QR-Code Verweis zur GitHub-Repository.}
+			\caption{QR-Code Verweis zum GitHub-Repository.}
 			\label{fig:qr}
 		\end{figure}
 	\end{minipage}
@@ -148,7 +148,7 @@
 				\hline
 			\end{tabular}
 		\end{center}
-		Somit werden in jedem Simulationslauf zuerst 46 Parameter in gegebenen Grenzen durch eine Gleichverteilung erzeugt und anschließend durch das \texttt{compute}-Modul \ref{sec:lif_imp} die benötigten Synapsenströme und Membranpotentiale errechnet.\\
+		Somit werden in jedem Simulationslauf zuerst 46 Parameter in gegebenen Grenzen durch eine Gleichverteilung erzeugt und anschließend durch das \texttt{compute}-Modul (siehe Sektion\ref{sec:lif_imp}) die benötigten Synapsenströme und Membranpotentiale errechnet.\\
 		Das Modul Weights erzeugt, analog zu RandomSearch, zuerst für jede Synapse und Gap-Junction ein gleich-verteiltes, zufälliges Gewicht $g\in[0,1]$.
 		\begin{center}
 			\begin{tabular}{c@{\hskip 0.5cm}c@{\hskip 0.5cm}c@{\hskip 0.5cm}}    \toprule
@@ -229,9 +229,9 @@
 			\renewcommand{\arraystretch}{1.5}
 			\emph{Parameter}	& \emph{Beschreibung}  				& \emph{Grenzen} 			\\\midrule
 			$C_{Position}$		& Position des Carts				& $[-2.4, 2.4]$				\\
-			$C_{Velocity}$		& Geschwindigkeit des Carts			& $[-\infty, \infty]$		\\
+			$C_{Velocity}$		& Geschwindigkeit des Carts			& $(-\infty, \infty)$		\\
 			$P_{Angle}$			& Winkel des Pendels				& $[-41,8^{\circ}, 41,8^{\circ}]$	\\
-			$P_{Velocity}$		& Winkelgeschwindigkeit des Pendels	& $[-\infty, \infty]$		\\\bottomrule
+			$P_{Velocity}$		& Winkelgeschwindigkeit des Pendels	& $(-\infty, \infty)$		\\\bottomrule
 			\hline
 		\end{tabular}
 	\end{center}
@@ -248,7 +248,7 @@
 \section{Visualisierung und Auswertung}
 \label{sec:imp_vis}
 % ***
-	Wie bereits in Sektion \ref{sec:imp_sim} näher beschrieben, liefert die Simulationsumgebung \texttt{CartPole\_v0} eine sehr gute Echtzeitvisualisierung des inversen Pendels als Animation. Diese wird durch das Speichern eines errechneten RGB-Tensors jedes Simulationsschrittes und anschließenden Animieren der Informationen erreicht. Weiterhin soll das Programm jedoch in der Lage sein, wichtige Parameter der Simulation über die Simulationszeit darzustellen, um ggf. Probleme zu erkennen und Aktionen zu verstehen. Um Plots aus Arrays zu erstellen, wir die Python-Bibliothek \texttt{matplotlib} \cite{Hunter2007} genutzt. Durch die einfache Bedienung und den enormen Umfang an Werkzeugen ist diese Bibliothek sehr beliebt in der Visualisierung von Daten und Parametern.\\
+	Wie bereits in Sektion \ref{sec:imp_sim} näher beschrieben, liefert die Simulationsumgebung \texttt{CartPole\_v0} eine sehr gute Echtzeitvisualisierung des inversen Pendels als Animation. Diese wird durch das Speichern eines errechneten RGB-Tensors jedes Simulationsschrittes und anschließenden Animieren der Informationen erreicht. Weiterhin soll das Programm jedoch in der Lage sein, wichtige Parameter der Simulation über die Simulationszeit darzustellen, um ggf. Probleme zu erkennen und Aktionen zu verstehen. Um Plots aus Arrays zu erstellen, wird die Python-Bibliothek \texttt{matplotlib} \cite{Hunter2007} genutzt. Durch die einfache Bedienung und den enormen Umfang an Werkzeugen ist diese Bibliothek sehr beliebt in der Visualisierung von Daten und Parametern.\\
 	Der generelle Ablauf des Programms sieht im ersten Schritt die Simulation von Parametern und Gewichten vor. Dies erfordert keine Visualisierung der Vorgänge, da die Performance erheblich beeinträchtigt werden würde. Daher wurde das Modul \texttt{visiualize.py} geschrieben, um gefundene Parameter und Gewichte mühelos simulieren zu können. Für den Aufruf werden die entsprechenden Parameter- und Gewichte-Dumps übergeben sowie die gewünschte Simulationszeit (bspw. 5 Sekunden). Die Simulation wird analog in den Suchalgorithmen jedoch mit festen Parametern ausgeführt. Gewünschte Größen werden pro Simulationsschritt gespeichert und letztlich grafisch dargestellt. Besonders die Übersicht über die Membranpotentiale einzelner Nervenzellen bietet einen sehr guten Überblick über die Vorgänge im neuronalen Netz und die Reaktion auf gegebene Sensor-Daten.
 	\begin{figure}[H] %[!t] ...
 		\centering
@@ -273,9 +273,9 @@
 		Um einen zentralen Ort für verschiedene Größen und Parameter zu schaffen, wurde das Modul \texttt{parameters.py} erstellt. Dieses Modul wird im gesamten Programm eingebunden und dient als globale Informationsbasis. Nur wenige Größen können verändert werden wie bspw. die Transitionsmatrizen des neuronalen Netzes oder manche Parameter zur Berechnung von Synapsenströmen und Membranpotentialen. Alle weiteren Daten werden automatisch berechnet und im Laufe der Simulation bereitgestellt.
 	\subsection{Speicherung von Daten}
 		Ein Problem, welches über die Implementierung aufkam, war die Speicherung von Dateien in s.g. Dump-Files. Nach einer erfolgreichen Simulation von Parametern soll der beste Parametersatz zur weiteren Analyse gespeichert werden. Dazu liefert Python die Bibliothek \texttt{Pickle}, welche verschiedene Datentypen seriell in ein kompaktes Binärformat konvertiert und in der \texttt{.p} Dateiendung speichert. Dieser Vorgang ist jedoch besonders mit Python 2.7 verhältnismäßig langsam und beeinträchtigt die Performance der Simulation. Darüber hinaus besteht eine Inkompatibilität des Dateiformats zum einen zwischen verschiedenen Python-Versionen, zum anderen unter unterschiedlichen Betriebssystemen.\\
-		Eine elegantere Möglichkeit bietet die Open Source Bibliothek \texttt{hickle}. Sie wird ähnlich wie \texttt{pickle} importiert und speichert die gewählten Parametern in einer \texttt{.hkl}-Datei. Die Daten werden anders als bei Pickle im s.g. HDF5 (Hierarchical Data Format 5) \cite{hdf5} gespeichert. Dies ist zum einen performanter, sorgt zum anderen für eine erheblich größere Kompatibilität unter Python-Versionen und Betriebssystemen.
+		Eine elegantere Möglichkeit bietet die Open Source Bibliothek \texttt{hickle}. Sie wird ähnlich wie \texttt{pickle} importiert und speichert die gewählten Parameter in einer \texttt{.hkl}-Datei. Die Daten werden anders als bei Pickle im s.g. HDF5 (Hierarchical Data Format 5) \cite{hdf5} gespeichert. Dies ist zum einen performanter, sorgt zum anderen für eine erheblich größere Kompatibilität unter Python-Versionen und Betriebssystemen.
 	\subsection{Dateiinspektion}
-		Besonders nach den ersten Simulationen ist die Inspektion der errechneten Parametern und Gewichten von äußerster Wichtigkeit. Hohe Rewards bedeuten nicht direkt, dass das neuronale Netz in jeder Situation richtig oder gut performt. Beispielsweise kann ein sehr guter Reward in der Bewegung des Pendels in Vorwärtsrichtung erreicht werden, obwohl die Parameter der Rückwärtsbewegung nicht sehr gut ausgereift sind. Daher wird ein Modul zur detaillierten Inspizierung der Dump-Dateien \texttt{inspect.py} geschrieben. Bei Aufruf einer Funktion dieses Moduls muss jeweils der Pfad der Dump-Datei übergeben werden. Die Datei wird geöffnet und die Parameter den entsprechenden Größen zugewiesen. Danach kann ein Konsolen-Output erfolgen oder ein Plot der gespeicherten Daten erzeugt werden.
+		Besonders nach den ersten Simulationen ist die Inspektion der errechneten Parameter und Gewichte von äußerster Wichtigkeit. Hohe Rewards bedeuten nicht direkt, dass das neuronale Netz in jeder Situation richtig oder gut performt. Beispielsweise kann ein sehr guter Reward in der Bewegung des Pendels in Vorwärtsrichtung erreicht werden, obwohl die Parameter der Rückwärtsbewegung nicht sehr gut ausgereift sind. Daher wird ein Modul zur detaillierten Inspizierung der Dump-Dateien \texttt{inspect.py} geschrieben. Bei Aufruf einer Funktion dieses Moduls muss jeweils der Pfad der Dump-Datei übergeben werden. Die Datei wird geöffnet und die Parameter den entsprechenden Größen zugewiesen. Danach kann ein Konsolen-Output erfolgen oder ein Plot der gespeicherten Daten erzeugt werden.
 
 
 %%% Local Variables: 

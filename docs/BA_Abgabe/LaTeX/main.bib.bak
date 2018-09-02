@@ -182,17 +182,6 @@
   url           = {https://doi.org/10.1007/BF00992698},
 }
 
-@Misc{BA,
-  author       = {Jonas Wilinski},
-  title        = {Bachelorarbeit Repository},
-  howpublished = {Online},
-  month        = sep,
-  year         = {2018},
-  abstract     = {This Repo includes Code from my Bachelor Thesis at the Chair of Automatic Control (Faculty of Engineering - CAU Kiel) },
-  owner        = {Jonas Wilinski},
-  url          = {https://github.com/J0nasW/BA},
-}
-
 @Book{Haykin1994,
   title         = {Neural Networks: A Comprehensive Foundation},
   publisher     = {Macmillan Coll Div},

@@ -23,8 +23,8 @@ Goldberg DE (1989) Genetic Algorithms in Search, Optimization, and Machine
 Group TH (2018) Hierarchical data format, version 5.
   \urlprefix\url{http://www.hdfgroup.org/HDF5/}
 
-\bibitem[{Hasani et~al(????)Hasani, Beneder, Fuchs, Lung, and Grosu}]{SimCE}
-Hasani RM, Beneder V, Fuchs M, Lung D, Grosu R (????) Sim-ce: An advanced
+\bibitem[{Hasani et~al(2017)Hasani, Beneder, Fuchs, Lung, and Grosu}]{SimCE}
+Hasani RM, Beneder V, Fuchs M, Lung D, Grosu R (2017) Sim-ce: An advanced
   simulink platform for studying the brain of caenorhabditis elegans
 
 \bibitem[{Holland(1992)}]{Holland1992}
