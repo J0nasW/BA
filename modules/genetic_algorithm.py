@@ -17,6 +17,7 @@ import gym.spaces # Simulating the Environments
 import hickle as hkl # Performance Dumping in HDF5 Format <.hkl>
 import time # For Runtime Evaluations
 import datetime # For Datestamp on stored files
+import matplotlib.pyplot as plt
 
 from .lif import I_syn_calc, I_gap_calc, U_neuron_calc
 from .parameters import *
@@ -65,10 +66,30 @@ def initialize(Default_U_leak):
     done = 0
     info = 0
 
+
+
+#-------------------------------------------------------------------------------------------
+
+# Clear Function---------------------------------------------------------------------------
+
+def clear():
+    # Reset Generation-Episode-Counter
+    gen_episodes = 0
+    gen_reward_arr = []
+    gen_selection_reward_arr = []
+    # Reset Parameter Tensors
+    dict_syn = {}
+    id_syn = 0
+    dict_neuro = {}
+    id_neuro = 0
+    # Reset Parameter Arrays
+    w_A_sel = w_B_sel = w_B_gap_sel = w_sel = sig_A_sel = sig_B_sel = sig_sel = C_m_sel = G_leak_sel = U_leak_sel = np.array([])
+
+    return gen_episodes, gen_reward_arr, gen_selection_reward_arr, dict_syn, id_syn, dict_neuro, id_neuro, w_A_sel, w_B_sel, w_B_gap_sel, w_sel, sig_A_sel, sig_B_sel, sig_sel, C_m_sel, G_leak_sel, U_leak_sel
+
 #-------------------------------------------------------------------------------------------
 
 # Random Function---------------------------------------------------------------------------
-
 
 def random_parameters(w_limit, sig_limit, C_m_limit, G_leak_limit, U_leak_limit):
 
@@ -94,28 +115,102 @@ def random_parameters_symm(w_limit, sig_limit, C_m_limit, G_leak_limit, U_leak_l
     # Initialize symmetrical random parameters for our Neurons and Synapses according to the current Network
 
     # For Synapses
-    w_A_rnd = np.squeeze(np.random.uniform(low = w_limit[0], high = w_limit[1], size = (1,nbr_of_inter_synapses)))
+    w_A_rnd = np.squeeze(np.random.uniform(low = w_limit[0], high = w_limit[1], size = (1,nbr_of_inter_synapses_symm)))
     w_A_rnd = np.append(w_A_rnd, np.flip(w_A_rnd))
-    w_B_rnd = np.squeeze(np.random.uniform(low = w_limit[0], high = w_limit[1], size = (1,nbr_of_sensor_synapses)))
+    w_B_rnd = np.squeeze(np.random.uniform(low = w_limit[0], high = w_limit[1], size = (1,nbr_of_sensor_synapses_symm)))
     w_B_rnd = np.append(w_B_rnd, np.flip(w_B_rnd))
-    w_B_gap_rnd = np.squeeze(np.random.uniform(low = w_limit[0], high = w_limit[1], size = (1,nbr_of_gap_junctions)))
+    w_B_gap_rnd = np.squeeze(np.random.uniform(low = w_limit[0], high = w_limit[1], size = (1,nbr_of_gap_junctions_symm)))
     w_B_gap_rnd = np.append(w_B_gap_rnd, np.flip(w_B_gap_rnd))
 
-    sig_A_rnd = np.squeeze(np.random.uniform(low = sig_limit[0], high = sig_limit[1], size = (1,nbr_of_inter_synapses)))
+    sig_A_rnd = np.squeeze(np.random.uniform(low = sig_limit[0], high = sig_limit[1], size = (1,nbr_of_inter_synapses_symm)))
     sig_A_rnd = np.append(sig_A_rnd, np.flip(sig_A_rnd))
-    sig_B_rnd = np.squeeze(np.random.uniform(low = sig_limit[0], high = sig_limit[1], size = (1,nbr_of_sensor_synapses)))
+    sig_B_rnd = np.squeeze(np.random.uniform(low = sig_limit[0], high = sig_limit[1], size = (1,nbr_of_sensor_synapses_symm)))
     sig_B_rnd = np.append(sig_B_rnd, np.flip(sig_B_rnd))
 
     # For Neurons
-    C_m_rnd = np.squeeze(np.random.uniform(low = C_m_limit[0], high = C_m_limit[1], size = (1,nbr_of_inter_neurons)))
+    C_m_rnd = np.squeeze(np.random.uniform(low = C_m_limit[0], high = C_m_limit[1], size = (1,nbr_of_inter_neurons_symm)))
     C_m_rnd = np.append(C_m_rnd, np.flip(C_m_rnd))
-    G_leak_rnd = np.squeeze(np.random.uniform(low = G_leak_limit[0], high = G_leak_limit[1], size = (1,nbr_of_inter_neurons)))
+    G_leak_rnd = np.squeeze(np.random.uniform(low = G_leak_limit[0], high = G_leak_limit[1], size = (1,nbr_of_inter_neurons_symm)))
     G_leak_rnd = np.append(G_leak_rnd, np.flip(G_leak_rnd))
-    U_leak_rnd = np.squeeze(np.random.uniform(low = U_leak_limit[0], high = U_leak_limit[1], size = (1,nbr_of_inter_neurons)))
+    U_leak_rnd = np.squeeze(np.random.uniform(low = U_leak_limit[0], high = U_leak_limit[1], size = (1,nbr_of_inter_neurons_symm)))
     U_leak_rnd = np.append(U_leak_rnd, np.flip(U_leak_rnd))
 
 
     return w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd
+
+#-------------------------------------------------------------------------------------------
+
+# Plot Function-----------------------------------------------------------------------------
+
+def plot(w_limit_arr_low, w_limit_arr_high, sig_limit_arr_low, sig_limit_arr_high, C_m_limit_arr_low, C_m_limit_arr_high, G_leak_limit_arr_low, G_leak_limit_arr_high, U_leak_limit_arr_low, U_leak_limit_arr_high, reward_arr_plot, best_reward_arr_plot):
+    plt.rc('text', usetex=True)
+    plt.rc('font', family='serif')
+
+    plt.figure(1)
+    plt.suptitle('TW Circuit Simulator - Genetic Algorithm - SYNAPSE', fontsize=16)
+
+    plt.subplot(121)
+    plt.title('$\omega_{limit}$', fontsize=10)
+    plt.plot(w_limit_arr_low, '-b', label='$\omega_{low}$', linewidth=1)
+    plt.plot(w_limit_arr_high, '-g', label='$\omega_{high}$', linewidth=1)
+    plt.xlabel('Selection')
+    plt.ylabel('$S$')
+    plt.legend(loc='upper left')
+
+    plt.subplot(122)
+    plt.title('$\sigma_{limit}$', fontsize=10)
+    plt.plot(sig_limit_arr_low, '-b', label='$\sigma_{low}$', linewidth=1)
+    plt.plot(sig_limit_arr_high, '-g', label='$\sigma_{high}$', linewidth=1)
+    plt.xlabel('Selection')
+    plt.legend(loc='upper left')
+
+    plt.figure(2)
+    plt.suptitle('TW Circuit Simulator - Genetic Algorithm - NEURON', fontsize=16)
+
+    plt.subplot(131)
+    plt.title('$C_{m\_limit}$', fontsize=10)
+    plt.plot(C_m_limit_arr_low, '-b', label='$C_{m\_low}$', linewidth=1)
+    plt.plot(C_m_limit_arr_high, '-g', label='$C_{m\_high}$', linewidth=1)
+    plt.xlabel('Selection')
+    plt.ylabel('$mF$')
+    plt.legend(loc='upper left')
+
+    plt.subplot(132)
+    plt.title('$G_{leak\_limit}$', fontsize=10)
+    plt.plot(G_leak_limit_arr_low, '-b', label='$G_{leak\_low}$', linewidth=1)
+    plt.plot(G_leak_limit_arr_high, '-g', label='$G_{leak\_high}$', linewidth=1)
+    plt.xlabel('Selection')
+    plt.ylabel('$S$')
+    plt.legend(loc='upper left')
+
+    plt.subplot(133)
+    plt.title('$U_{leak\_limit}$', fontsize=10)
+    plt.plot(U_leak_limit_arr_low, '-b', label='$U_{leak\_low}$', linewidth=1)
+    plt.plot(U_leak_limit_arr_high, '-g', label='$U_{leak\_high}$', linewidth=1)
+    plt.xlabel('Selection')
+    plt.ylabel('$mV$')
+    plt.legend(loc='upper left')
+
+    plt.figure(3)
+    plt.suptitle('TW Circuit Simulator - GENETICAL ALGORITHM - REWARD', fontsize=16)
+
+    plt.subplot(121)
+    plt.title('Best Reward of Selection', fontsize=10)
+    plt.plot(best_reward_arr_plot, '-r', label='Reward', linewidth=1)
+    plt.xlabel('Selection')
+    plt.ylabel('Reward')
+    plt.legend(loc='upper left')
+
+    plt.subplot(122)
+    plt.title('Best Reward of every EPISODE', fontsize=10)
+    plt.plot(reward_arr_plot, '-b', label='Reward', linewidth=1)
+    plt.xlabel('Episode')
+    plt.ylabel('Reward')
+    plt.legend(loc='upper left')
+
+
+
+    plt.show()
 
 #-------------------------------------------------------------------------------------------
 
@@ -265,7 +360,7 @@ def observe(observation):
 # Main Function-----------------------------------------------------------------------------
 #-------------------------------------------------------------------------------------------
 
-def main(sim_time):
+def main(sim_time,plot_choice):
     global x, u, env, action
 
     start_time = time.time() # for Runtime reasons
@@ -280,8 +375,15 @@ def main(sim_time):
     # Initialize Genetic Arrays
     current_parameters_syn = np.array([])
     current_parameters_neuro = np.array([])
-    gen_parameter_mat_syn = np.empty((0,5), int)
-    gen_parameter_mat_neuro = np.empty((0,3), int)
+
+    # Initialize Parameter Tensors (as Python Dictionaries)
+    dict_syn = {}
+    id_syn = 0
+    dict_neuro = {}
+    id_neuro = 0
+
+    #gen_parameter_mat_syn = np.empty((0,5), int)
+    #gen_parameter_mat_neuro = np.empty((0,3), int)
 
     gen_reward_arr = np.array([])
     gen_selection_reward_arr = np.array([])
@@ -289,6 +391,9 @@ def main(sim_time):
     gen_selection_parameter_mat_neuro = np.empty((0,3), int)
     w_A_sel = w_B_sel = w_B_gap_sel = w_sel = sig_A_sel = sig_B_sel = sig_sel = C_m_sel = G_leak_sel = U_leak_sel = np.array([])
     w_limit, sig_limit, C_m_limit, G_leak_limit, U_leak_limit = initialize_limits()
+
+    # Some plotting Arrays
+    w_limit_arr_low = w_limit_arr_high = sig_limit_arr_low = sig_limit_arr_high = C_m_limit_arr_low = C_m_limit_arr_high = G_leak_limit_arr_low = G_leak_limit_arr_high = U_leak_limit_arr_low = U_leak_limit_arr_high = reward_arr_plot = best_reward_arr_plot = np.array([])
 
 
     while True:
@@ -298,7 +403,7 @@ def main(sim_time):
         gen_episodes +=1
 
         if IsSymmetrical == True:
-            w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = random_parameters_symm(w_limit, sig_limit, C_m_limit, G_leak_limit, U_leak_limitw_limit, sig_limit, C_m_limit, G_leak_limit, U_leak_limit) # Make some new random parameter Matrices
+            w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = random_parameters_symm(w_limit, sig_limit, C_m_limit, G_leak_limit, U_leak_limit) # Make some new random parameter Matrices
         elif IsSymmetrical == False:
             w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd = random_parameters(w_limit, sig_limit, C_m_limit, G_leak_limit, U_leak_limit) # Make some new random parameter Matrices
 
@@ -307,58 +412,72 @@ def main(sim_time):
         # Genetic stuff --------------------------
 
         # Generates a Matrix of Parameters in the current Generation (100x8)
-        current_parameters_syn = np.array([w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd])
+        current_parameters_syn = np.array([w_A_rnd, w_B_rnd, np.append(w_B_gap_rnd,[0,0,0,0,0,0]), sig_A_rnd, sig_B_rnd])
         current_parameters_neuro = np.array([C_m_rnd, G_leak_rnd, U_leak_rnd])
-        gen_parameter_mat_syn = np.vstack((gen_parameter_mat_syn, current_parameters_syn))
-        print (np.size(gen_parameter_mat_neuro))
-        print (np.size(current_parameters_neuro))
-        print (current_parameters_neuro)
-        gen_parameter_mat_neuro = np.vstack((gen_parameter_mat_neuro, current_parameters_neuro))
 
-        # Generates a Vektor of Rewards in the current Generation (1x100)
+        # Generate Tesors for Matrices through time
+        dict_syn.update({id_syn:current_parameters_syn}) # 5x8x100
+        dict_neuro.update({id_neuro:current_parameters_neuro}) # 3x4x100
+        id_syn += 1
+        id_neuro += 1
+
+        # Generates a Vector of Rewards in the current Generation (1x100)
         gen_reward_arr = np.append(gen_reward_arr, reward)
 
         if gen_episodes >= 100:
             # Selection of the current Generation (10 out of 100 Episodes with the best Rewards)
             gen_selection_reward_arr = np.argpartition(gen_reward_arr, -10)[-10:]
-
             for i in range(10):
                 # Get indices of the best 10 Episodes
                 j = gen_selection_reward_arr[i]
-                # Make Parameter Matrix of 10 best Episodes
-                gen_selection_parameter_mat_syn = np.vstack((gen_selection_parameter_mat_syn, gen_parameter_mat_syn[j,:]))
-                gen_selection_parameter_mat_neuro = np.vstack((gen_selection_parameter_mat_neuro, gen_parameter_mat_neuro[j,:]))
 
-            print (gen_selection_parameter_mat)
+                w_A_sel = np.append(w_A_sel, dict_syn.get(j)[0,:])
+                w_B_sel = np.append(w_B_sel, dict_syn.get(j)[1,:])
+                w_B_gap_sel = np.append(w_B_gap_sel, dict_syn.get(j)[2,(0,1)])
+                sig_A_sel = np.append(sig_A_sel, dict_syn.get(j)[3,:])
+                sig_B_sel = np.append(sig_B_sel, dict_syn.get(j)[4,:])
+
+                C_m_sel = np.append(C_m_sel, dict_neuro.get(j)[0,:])
+                G_leak_sel = np.append(G_leak_sel, dict_neuro.get(j)[1,:])
+                U_leak_sel = np.append(U_leak_sel, dict_neuro.get(j)[2,:])
 
             # Get the Parameter-Vektors of the Selection (each 1x10)
-            w_A_sel = gen_selection_parameter_mat_syn[:,0]
-            w_B_sel = gen_selection_parameter_mat_syn[:,1]
-            w_B_gap_sel = gen_selection_parameter_mat_syn[:,2]
             w_sel = np.append(w_A_sel, w_B_sel)
             w_sel = np.append(w_sel, w_B_gap_sel)
-            sig_A_sel = gen_selection_parameter_mat_syn[:,3]
-            sig_B_sel = gen_selection_parameter_mat_syn[:,4]
             sig_sel = np.append(sig_A_sel, sig_B_sel)
-            C_m_sel = gen_selection_parameter_mat_neuro[:,0]
-            G_leak_sel = gen_selection_parameter_mat_neuro[:,1]
-            U_leak_sel = gen_selection_parameter_mat_neuro[:,2]
 
             # Get maximum/minimum values for new Limits
-            w_sel = np.array([np.amin(w_sel), np.amax(w_sel)])
-            sig_sel = np.array([np.amin(sig_sel), np.amax(sig_sel)])
+            w_limit = np.array([np.amin(w_sel), np.amax(w_sel)])
+            sig_limit = np.array([np.amin(sig_sel), np.amax(sig_sel)])
             C_m_limit = np.array([np.amin(C_m_sel), np.amax(C_m_sel)])
             G_leak_limit = np.array([np.amin(G_leak_sel), np.amax(G_leak_sel)])
             U_leak_limit = np.array([np.amin(U_leak_sel), np.amax(U_leak_sel)])
 
-            # Reset Generation-Episode-Counter
-            gen_episodes = 0
+            if plot_choice == 1:
+                # For plotting purposes
+                w_limit_arr_low = np.append(w_limit_arr_low, w_limit[0])
+                w_limit_arr_high = np.append(w_limit_arr_high, w_limit[1])
+                sig_limit_arr_low = np.append(sig_limit_arr_low, sig_limit[0])
+                sig_limit_arr_high = np.append(sig_limit_arr_high, sig_limit[1])
+                C_m_limit_arr_low = np.append(C_m_limit_arr_low, C_m_limit[0])
+                C_m_limit_arr_high = np.append(C_m_limit_arr_high, C_m_limit[1])
+                G_leak_limit_arr_low = np.append(G_leak_limit_arr_low, G_leak_limit[0])
+                G_leak_limit_arr_high = np.append(G_leak_limit_arr_high, G_leak_limit[1])
+                U_leak_limit_arr_low = np.append(U_leak_limit_arr_low, U_leak_limit[0])
+                U_leak_limit_arr_high = np.append(U_leak_limit_arr_high, U_leak_limit[1])
+                best_reward_arr_plot = np.append(best_reward_arr_plot, gen_reward_arr[np.argpartition(gen_reward_arr, -1)[-1:]])
+
+            #Reset and Clear
+            gen_episodes, gen_reward_arr, gen_selection_reward_arr, dict_syn, id_syn, dict_neuro, id_neuro, w_A_sel, w_B_sel, w_B_gap_sel, w_sel, sig_A_sel, sig_B_sel, sig_sel, C_m_sel, G_leak_sel, U_leak_sel = clear()
+
 
         if reward > best_reward:
-            # Set current reward as new reward
+            # Set current reward as new best_reward
             best_reward = reward
             # Save Results of the Run with the best reward
             Result = [w_A_rnd, w_B_rnd, w_B_gap_rnd, sig_A_rnd, sig_B_rnd, C_m_rnd, G_leak_rnd, U_leak_rnd]
+
+        reward_arr_plot = np.append(reward_arr_plot, best_reward)
 
         if (time.time() - start_time) >= sim_time:
             # End Simulation-Run, if given Simulation time is elapsed.
@@ -378,6 +497,9 @@ def main(sim_time):
 
     # Console Prints
     print ('The best Reward was:',best_reward)
+
+    if plot_choice == 1:
+        plot(w_limit_arr_low, w_limit_arr_high, sig_limit_arr_low, sig_limit_arr_high, C_m_limit_arr_low, C_m_limit_arr_high, G_leak_limit_arr_low, G_leak_limit_arr_high, U_leak_limit_arr_low, U_leak_limit_arr_high, reward_arr_plot, best_reward_arr_plot)
 
     print("--- %s seconds ---" % (time.time() - start_time))
     return date, best_reward_s

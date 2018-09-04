@@ -91,6 +91,7 @@
 		\end{align}
 		Bei Anwendung von Gradient Policies stellt sich eine gute Konvergenzeigenschaft des Lernalgorithmus ein. Durch das stetige Bewegen auf dem erlernten Gradienten der Qualitätsgröße $J(\theta)$ wird ein Maximum gefunden. Jedoch spiegelt dieses lediglich ein lokales Maximum wieder und ist mit geringer Wahrscheinlichkeit gleichzeitig ein globales Optimum. Darüber hinaus bietet sich die Methode bei großen Aktionsräumen und langen Laufzeiten an, da selbst stochastische Prozesse erlernt werden können. \cite{SilverRL} 
 	\subsection{Genetische Algorithmen}
+	\label{subsec:gen_alg}
 		Die Anwendung genetischer Algorithmen im Bereich des Reinforcement Learning ist ebenfalls schon seit einiger Zeit bekannt und führt in den richtigen Situationen zu zufriedenstellenden Ergebnissen.\\
 		Der Grundstein dieser Optimierungsverfahren wurde von Holland et al. in seinem Werk \glqq Adaption in Natural and Artificial Systems\grqq{} \cite{Holland1992} gelegt. Basierend auf den bereits von Darwin\footnote{Charles Darwin (1809 - 1882)} beobachteten Phänomenen der Natur, setzen genetische Algorithmen bei dem Ansatz \glqq Survival of the Fittest\grqq{} an. Grundsätzlich kann die Vorgehensweise genetischer Algorithmen wie folgt dargestellt werden \cite{Goldberg1989}:
 		\begin{itemize}
@@ -109,7 +110,8 @@
 			\caption{Graphische Darstellung des genetischen Algorithmus}
 			\label{fig:gen_chart}
 		\end{figure}
-		Wie in Abb. \ref{fig:gen_chart} anschaulich dargestellt, verringert sich mit jeder Generation der Parameterraum und die Simulation konvergiert optimalerweise zu einem globalen Maximum. Dieses hängt jedoch stark von der Anzahl der Selektionen sowie der gewählten Varianz bei Mutation ab. Hier ist ein optimaler Trade-Off zwischen Rechenleistung und Simulationsdauer zu finden.
+		Wie in Abb. \ref{fig:gen_chart} anschaulich dargestellt, verringert sich mit jeder Generation der Parameterraum und die Simulation konvergiert optimaler Weise zu einem globalen Maximum. Dieses hängt jedoch stark von der Anzahl der Selektionen sowie der gewählten Varianz bei Mutation ab. Hier ist ein optimaler Trade-Off zwischen Rechenleistung und Simulationsdauer zu finden.\\
+		Wie nachfolgend in Kapitel \ref{chap:imp} beschrieben findet die Anwendung genetischer Algorithmen auf das vorgestellte biologische Netzwerk statt.
 	\subsection{Random Search}
 		Gewisse Probleme in der Domäne des Reinforcement Learning erfordern einen verallgemeinerten Ansatz zum Finden von optimalen Parametern. Das hier vorliegende Problem bietet eine große Anzahl an lokalen Maxima und bereitet daher den meisten Algorithmen Probleme bei der Anwendung. Ein Anpassen an die geforderten Umstände ist im Grunde möglich, erfordert jedoch einen hohen Rechenaufwand und führt evtl. zu keiner Verbesserung der Ergebnisse. Daher wird die Methode des Random Search angewendet.\\
 		Ähnlich zum genetischen Algorithmus werden Parameter für die Simulation in vorher festgelegten Grenzen durch eine Gleichverteilung erzeugt. Diese werden auf eine Simulation angewendet und die Performance wird anhand des Rewards ausgewertet. Durch ein simples High Score System werden Parameter mit gutem Reward gespeichert, schlechte Simulationen werden verworfen. Durch den Einsatz von genügend Rechenleistung und langen Simulationszeiten können so sehr gute Parameter gefunden werden (siehe Appendix \ref{app:parameter}).

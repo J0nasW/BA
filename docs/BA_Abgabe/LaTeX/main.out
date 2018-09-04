@@ -22,24 +22,25 @@
 \BOOKMARK [1][-]{section.5.1}{Aufbau des Programms}{chapter.5}% 22
 \BOOKMARK [1][-]{section.5.2}{Implementierung der Suchalgorithmen}{chapter.5}% 23
 \BOOKMARK [2][-]{subsection.5.2.1}{Suchalgorithmus RandomSearch}{section.5.2}% 24
-\BOOKMARK [2][-]{subsection.5.2.2}{Optimierungsalgorithmus Weights}{section.5.2}% 25
-\BOOKMARK [2][-]{subsection.5.2.3}{Simulation in der Google Cloud Platform\256}{section.5.2}% 26
-\BOOKMARK [1][-]{section.5.3}{Simulationsumgebung: OpenAI Gym}{chapter.5}% 27
-\BOOKMARK [1][-]{section.5.4}{Visualisierung und Auswertung}{chapter.5}% 28
-\BOOKMARK [1][-]{section.5.5}{Sonstige Implementierung}{chapter.5}% 29
-\BOOKMARK [2][-]{subsection.5.5.1}{Zentraler Ort f\374r Parameter}{section.5.5}% 30
-\BOOKMARK [2][-]{subsection.5.5.2}{Speicherung von Daten}{section.5.5}% 31
-\BOOKMARK [2][-]{subsection.5.5.3}{Dateiinspektion}{section.5.5}% 32
-\BOOKMARK [0][-]{chapter.6}{Performance \046 Auswertung}{}% 33
-\BOOKMARK [1][-]{section.6.1}{Performance implementierter Algorithmen}{chapter.6}% 34
-\BOOKMARK [1][-]{section.6.2}{Limitationen und Alternativen von Algorithmen}{chapter.6}% 35
-\BOOKMARK [2][-]{subsection.6.2.1}{Analyse bereits bestehender Algotithmen}{section.6.2}% 36
-\BOOKMARK [2][-]{subsection.6.2.2}{Alternative Such- und Optimierungsalgorithmen}{section.6.2}% 37
-\BOOKMARK [1][-]{section.6.3}{Zusammenfassung}{chapter.6}% 38
-\BOOKMARK [1][-]{section.6.4}{Ausblick}{chapter.6}% 39
-\BOOKMARK [0][-]{appendix.A}{UML-Diagramme wichtiger Algorithmen}{}% 40
-\BOOKMARK [1][-]{section.A.1}{RandomSearch}{appendix.A}% 41
-\BOOKMARK [1][-]{section.A.2}{Weights}{appendix.A}% 42
-\BOOKMARK [0][-]{appendix.B}{Datenblatt Programm: TW Circuit}{}% 43
-\BOOKMARK [0][-]{appendix.C}{Parameter mit guten Simulationsergebnissen}{}% 44
-\BOOKMARK [0][-]{appendix*.30}{Literaturverzeichnis}{}% 45
+\BOOKMARK [2][-]{subsection.5.2.2}{Suchalgorithmus Genetic\137Algorithm}{section.5.2}% 25
+\BOOKMARK [2][-]{subsection.5.2.3}{Optimierungsalgorithmus Weights}{section.5.2}% 26
+\BOOKMARK [1][-]{section.5.3}{Simulation in der Google Cloud Platform\256}{chapter.5}% 27
+\BOOKMARK [1][-]{section.5.4}{Simulationsumgebung: OpenAI Gym}{chapter.5}% 28
+\BOOKMARK [1][-]{section.5.5}{Visualisierung und Auswertung}{chapter.5}% 29
+\BOOKMARK [1][-]{section.5.6}{Sonstige Implementierung}{chapter.5}% 30
+\BOOKMARK [2][-]{subsection.5.6.1}{Zentraler Ort f\374r Parameter}{section.5.6}% 31
+\BOOKMARK [2][-]{subsection.5.6.2}{Speicherung von Daten}{section.5.6}% 32
+\BOOKMARK [2][-]{subsection.5.6.3}{Dateiinspektion}{section.5.6}% 33
+\BOOKMARK [0][-]{chapter.6}{Performance \046 Auswertung}{}% 34
+\BOOKMARK [1][-]{section.6.1}{Performance implementierter Algorithmen}{chapter.6}% 35
+\BOOKMARK [1][-]{section.6.2}{Limitationen und Alternativen von Algorithmen}{chapter.6}% 36
+\BOOKMARK [2][-]{subsection.6.2.1}{Analyse bereits bestehender Algotithmen}{section.6.2}% 37
+\BOOKMARK [2][-]{subsection.6.2.2}{Alternative Such- und Optimierungsalgorithmen}{section.6.2}% 38
+\BOOKMARK [1][-]{section.6.3}{Zusammenfassung}{chapter.6}% 39
+\BOOKMARK [1][-]{section.6.4}{Ausblick}{chapter.6}% 40
+\BOOKMARK [0][-]{appendix.A}{UML-Diagramme wichtiger Algorithmen}{}% 41
+\BOOKMARK [1][-]{section.A.1}{RandomSearch}{appendix.A}% 42
+\BOOKMARK [1][-]{section.A.2}{Weights}{appendix.A}% 43
+\BOOKMARK [0][-]{appendix.B}{Datenblatt Programm: TW Circuit}{}% 44
+\BOOKMARK [0][-]{appendix.C}{Parameter mit guten Simulationsergebnissen}{}% 45
+\BOOKMARK [0][-]{appendix*.32}{Literaturverzeichnis}{}% 46

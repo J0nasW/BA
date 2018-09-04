@@ -36,6 +36,10 @@ Some Libraries that I used:
 Computing is getting more and more complex and takes a huge amount of resources. I'll be using the Google Cloud Plattform from now on to train parameters and weights of my neural Network. More Information in my Bachelor Thesis
 
 ---
+#### Update Di., 04.09.2018
+* Genetic Algorithm is finally done and works fine - searches for a local maximum instead of a global maximum - as predicted
+* BA got some more description of the GA.
+
 #### Update Mi., 30.08.2018
 * Bachelor Thesis is finally done and being reviewed by several people.
 * Genetic Algorithm gets more and more complex

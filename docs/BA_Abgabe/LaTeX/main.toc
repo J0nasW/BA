@@ -19,29 +19,30 @@
 \contentsline {subsection}{\numberline {4.3.1}Q-Learning}{22}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}Gradient Policies}{23}{subsection.4.3.2}
 \contentsline {subsection}{\numberline {4.3.3}Genetische Algorithmen}{23}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}Random Search}{24}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.4}Random Search}{25}{subsection.4.3.4}
 \contentsline {chapter}{\numberline {5}Implementierung des TW-Netzes}{27}{chapter.5}
 \contentsline {section}{\numberline {5.1}Aufbau des Programms}{27}{section.5.1}
 \contentsline {section}{\numberline {5.2}Implementierung der Suchalgorithmen}{28}{section.5.2}
 \contentsline {subsection}{\numberline {5.2.1}Suchalgorithmus RandomSearch}{29}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Optimierungsalgorithmus Weights}{30}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Simulation in der Google Cloud Platform\textsuperscript {\textregistered }}{30}{subsection.5.2.3}
-\contentsline {section}{\numberline {5.3}Simulationsumgebung: OpenAI Gym}{32}{section.5.3}
-\contentsline {section}{\numberline {5.4}Visualisierung und Auswertung}{34}{section.5.4}
-\contentsline {section}{\numberline {5.5}Sonstige Implementierung}{36}{section.5.5}
-\contentsline {subsection}{\numberline {5.5.1}Zentraler Ort f\IeC {\"u}r Parameter}{36}{subsection.5.5.1}
-\contentsline {subsection}{\numberline {5.5.2}Speicherung von Daten}{36}{subsection.5.5.2}
-\contentsline {subsection}{\numberline {5.5.3}Dateiinspektion}{36}{subsection.5.5.3}
-\contentsline {chapter}{\numberline {6}Performance \& Auswertung}{37}{chapter.6}
-\contentsline {section}{\numberline {6.1}Performance implementierter Algorithmen}{37}{section.6.1}
-\contentsline {section}{\numberline {6.2}Limitationen und Alternativen von Algorithmen}{38}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Analyse bereits bestehender Algotithmen}{39}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Alternative Such- und Optimierungsalgorithmen}{39}{subsection.6.2.2}
-\contentsline {section}{\numberline {6.3}Zusammenfassung}{40}{section.6.3}
-\contentsline {section}{\numberline {6.4}Ausblick}{41}{section.6.4}
-\contentsline {chapter}{\numberline {A}UML-Diagramme wichtiger Algorithmen}{43}{appendix.A}
-\contentsline {section}{\numberline {A.1}\texttt {RandomSearch}}{43}{section.A.1}
-\contentsline {section}{\numberline {A.2}\texttt {Weights}}{44}{section.A.2}
-\contentsline {chapter}{\numberline {B}Datenblatt Programm: TW Circuit}{45}{appendix.B}
-\contentsline {chapter}{\numberline {C}Parameter mit guten Simulationsergebnissen}{47}{appendix.C}
-\contentsline {chapter}{Literaturverzeichnis}{51}{appendix*.30}
+\contentsline {subsection}{\numberline {5.2.2}Suchalgorithmus Genetic\_Algorithm}{30}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Optimierungsalgorithmus Weights}{31}{subsection.5.2.3}
+\contentsline {section}{\numberline {5.3}Simulation in der Google Cloud Platform\textsuperscript {\textregistered }}{31}{section.5.3}
+\contentsline {section}{\numberline {5.4}Simulationsumgebung: OpenAI Gym}{33}{section.5.4}
+\contentsline {section}{\numberline {5.5}Visualisierung und Auswertung}{35}{section.5.5}
+\contentsline {section}{\numberline {5.6}Sonstige Implementierung}{37}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Zentraler Ort f\IeC {\"u}r Parameter}{37}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}Speicherung von Daten}{37}{subsection.5.6.2}
+\contentsline {subsection}{\numberline {5.6.3}Dateiinspektion}{37}{subsection.5.6.3}
+\contentsline {chapter}{\numberline {6}Performance \& Auswertung}{39}{chapter.6}
+\contentsline {section}{\numberline {6.1}Performance implementierter Algorithmen}{39}{section.6.1}
+\contentsline {section}{\numberline {6.2}Limitationen und Alternativen von Algorithmen}{40}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Analyse bereits bestehender Algotithmen}{41}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Alternative Such- und Optimierungsalgorithmen}{41}{subsection.6.2.2}
+\contentsline {section}{\numberline {6.3}Zusammenfassung}{42}{section.6.3}
+\contentsline {section}{\numberline {6.4}Ausblick}{43}{section.6.4}
+\contentsline {chapter}{\numberline {A}UML-Diagramme wichtiger Algorithmen}{45}{appendix.A}
+\contentsline {section}{\numberline {A.1}\texttt {RandomSearch}}{45}{section.A.1}
+\contentsline {section}{\numberline {A.2}\texttt {Weights}}{46}{section.A.2}
+\contentsline {chapter}{\numberline {B}Datenblatt Programm: TW Circuit}{47}{appendix.B}
+\contentsline {chapter}{\numberline {C}Parameter mit guten Simulationsergebnissen}{49}{appendix.C}
+\contentsline {chapter}{Literaturverzeichnis}{53}{appendix*.32}

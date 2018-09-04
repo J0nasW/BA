@@ -29,14 +29,14 @@
 		\caption{UML Diagramm des Algorithmus \texttt{Weights}}
 		\label{fig:uml_weights}
 	\end{figure}
-	
+
 %
 % ***
 \chapter{Datenblatt Programm: TW Circuit}
 % ***
 %
 \label{app:datenblatt}
-
+\enlargethispage{2\baselineskip}
 \begin{minipage}[b]{0.61\textwidth}
 	\begin{mybox}{Name}
 		\texttt{TW Circuit}
@@ -58,13 +58,14 @@
 		\end{itemize}
 	\end{mybox}
 \end{minipage}
-\hfill
+%\hfill
 \begin{minipage}[b]{0.38\textwidth}
 	\begin{mybox}{QR-Code}
-		\includegraphics[width=\textwidth]{figures/appendix/qr-code.pdf}
+		\centering
+		\includegraphics[width=0.9\textwidth]{figures/appendix/qr-code.pdf}
 	\end{mybox}
 	\begin{mybox}{Dateibaum}
-		\vspace{0.3cm}
+		\vspace{0.1cm}
 		\begin{forest}
 			pic dir tree,
 			where level=0{}{% folder icons by default; override using file for file icons
@@ -74,6 +75,7 @@
 			[docs]
 			[information]
 			[modules
+			[genetic\_algorithm.py, file]
 			[inspect.py, file]
 			[lif.py, file]
 			[parameters.py, file]
@@ -86,8 +88,6 @@
 		\end{forest}
 	\end{mybox}
 \end{minipage}
-
-
 %
 % ***
 \chapter{Parameter mit guten Simulationsergebnissen}

@@ -18,13 +18,20 @@ from modules import genetic_algorithm as ga
 from modules import inspect_nn as ins
 from modules import parameters
 
+import numpy as np
+
+
+
 def main():
     global parameter_matrices, weight_matrices
 
-    vis_runtime = 10 # in sec. - FOR VISIUALIZATION
+    reward_arr = np.array([])
 
-    sim_time_parameters = 10 # FOR SIMULATION of Parameters
-    sim_time_weights = 10 # FOR SIMULATION of additional Weights
+    vis_runtime = 5 # in sec. - FOR VISIUALIZATION
+
+    sim_time_parameters = 5 # FOR SIMULATION of Parameters
+    sim_time_genetic = 60 # FOR SIMULATION of Genetic Algorithm
+    sim_time_weights = 5 # FOR SIMULATION of additional Weights
 
     # Simulation time in HOURS ------------------------------
     #sim_time_parameters = sim_time_parameters * 60 * 60
@@ -43,7 +50,11 @@ def main():
     #date, best_reward_w = w.main(sim_time_weights, parameter_matrices, best_reward_p)
 
     # GENETIC Algorithms
-    date, best_reward_p = ga.main(sim_time_parameters)
+    date, best_reward_g = ga.main(sim_time_genetic,1) # ga.main(SIMULATION TIME, PLOT<0=no,1=yes>)
+    #for i in range(10):
+    #    date, best_reward_g = ga.main(sim_time_genetic,0) # ga.main(SIMULATION TIME, PLOT<0=no,1=yes>)
+    #    reward_arr = np.append(reward_arr, best_reward_g)
+    #print (reward_arr)
 
     # Simulation 15.08.2018 - symmetrical Parameters
     #parameter_matrices = parameters.current_dir + "/parameter_dumps/20180817_01-50-02_rs2_v2_158.hkl"

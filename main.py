@@ -14,6 +14,7 @@ INFO:       This Git-Repository holds all the Code written for my Bachelor Thesi
 from modules import random_search as rs
 from modules import random_search_v2 as rs2
 from modules import weights_nn as w
+from modules import genetic_algorithm as ga
 from modules import visiualize as vs
 from modules import inspect_nn as ins
 from modules import parameters
@@ -31,24 +32,57 @@ def start():
     return choice
 
 def local_simulation():
+    msg = "Wählen Sie eine der unten aufgeführten lokalen Simulationen:"
+    title = "TW Circuit Simulator - Local Simulation"
+    choices = ["RandomSearch_v2","RandomSearch_v2 mit Weight-Optimization","Genetic Algorithm"]
+    choice = eg.choicebox(msg, title, choices)
+
+    if choice == choices[0]:
+        local_rs()
+    elif choice == choices[1]:
+        local_rs_w()
+    elif choice == choices[2]:
+        local_ga()
+
+def local_rs():
     fieldmsg = "Legen Sie die Dauer der lokalen Simulation fest. Bei keiner Eingabe wird die Simulation nicht durchgeführt."
-    fieldtitle = "TW Circuit - Simulationsdauer"
+    fieldtitle = "TW Circuit - RandomSearch_v2"
+    fieldNames = ["Dauer der Parametersimulation (in Sek.):","Dauer der Visualisierung"]
+    fieldValues = [60,10]
+    fieldValues = eg.multenterbox(fieldmsg, fieldtitle, fieldNames)
+
+    date, best_reward_p = rs2.main(int(fieldValues[0]))
+    parameter_matrices = parameters.current_dir + "/parameter_dumps/" + date + "_rs2_v2_" + best_reward_p + ".hkl"
+    vs.main(parameter_matrices, int(fieldValues[1])) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
+
+def local_rs_w():
+    fieldmsg = "Legen Sie die Dauer der lokalen Simulation fest. Bei keiner Eingabe wird die Simulation nicht durchgeführt."
+    fieldtitle = "TW Circuit - RandomSearch_v2 with Weights"
     fieldNames = ["Dauer der Parametersimulation (in Sek.):","Dauer der Gewichtungsoptimierung: (in Sek.)","Dauer der Visualisierung"]
     fieldValues = [60,60,10]
     fieldValues = eg.multenterbox(fieldmsg, fieldtitle, fieldNames)
 
-    if fieldValues[1] == "":
-        date, best_reward_p = rs2.main(int(fieldValues[0]))
+    date, best_reward_p = rs2.main(int(fieldValues[0]))
+    parameter_matrices = parameters.current_dir + "/parameter_dumps/" + date + "_rs2_v2_" + best_reward_p + ".hkl"
+    date, best_reward_w = w.main(int(fieldValues[1]), parameter_matrices, best_reward_p)
+    if best_reward_p <= best_reward_w:
+        weight_matrices = parameters.current_dir + "/weight_dumps/" + date + "_" + best_reward_w + ".hkl"
+        vs.main_with_weights(parameter_matrices, weight_matrices, int(fieldValues[2])) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
     else:
-        date, best_reward_p = rs2.main(int(fieldValues[0]))
-        parameter_matrices = parameters.current_dir + "/parameter_dumps/" + date + "_rs2_v2_" + best_reward_p + ".hkl"
-        date, best_reward_w = w.main(int(fieldValues[1]), parameter_matrices, best_reward_p)
-        if best_reward_p <= best_reward_w:
-            weight_matrices = parameters.current_dir + "/weight_dumps/" + date + "_" + best_reward_w + ".hkl"
-            vs.main_with_weights(parameter_matrices, weight_matrices, int(fieldValues[2])) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
-        else:
-            eg.msgbox(msg="Weight Run Failed!")
-            vs.main(parameter_matrices, int(fieldValues[2])) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
+        eg.msgbox(msg="Weight Run Failed!")
+        vs.main(parameter_matrices, int(fieldValues[2])) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
+
+def local_ga():
+    fieldmsg = "Legen Sie die Dauer der lokalen Simulation fest. Bei keiner Eingabe wird die Simulation nicht durchgeführt."
+    fieldtitle = "TW Circuit - Genetic Algorithm"
+    fieldNames = ["Dauer der Parametersimulation (in Sek.):","Plot der Lernkurven erwünscht? <0=NEIN,1=JA>","Dauer der Visualisierung"]
+    fieldValues = [60,10]
+    fieldValues = eg.multenterbox(fieldmsg, fieldtitle, fieldNames)
+
+    date, best_reward_p = ga.main(int(fieldValues[0]),int(fieldValues[1]))
+    parameter_matrices = parameters.current_dir + "/parameter_dumps/" + date + "_ga_" + best_reward_p + ".hkl"
+    vs.main(parameter_matrices, int(fieldValues[2])) # Callig the VISIUALIZATION Module to show the newly learned paramteter matrices
+
 
 def load_parameter():
     eg.msgbox(msg="Wählen Sie den Parameter-Dump.")
