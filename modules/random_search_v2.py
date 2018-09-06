@@ -229,7 +229,7 @@ def observe(observation):
             u[0] = Default_U_leak
 
 
-    return angle
+    return angle, angle_velocity
 
 
 #------------------------------------------------------------------------------------

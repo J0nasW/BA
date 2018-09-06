@@ -43,7 +43,7 @@ def initialize(Default_U_leak):
     for i in range(0,4):
         u[i] = Default_U_leak
 
-    global AVA, AVD, PVC, AVB, PVD, PLM, AVM, ALM, AVA_spike, AVD_spike, PVC_spike, AVB_spike, I_PVC, I_AVD, I_AVA, I_AVB, actions_arr, angles_arr, totalreward, done, info
+    global AVA, AVD, PVC, AVB, PVD, PLM, AVM, ALM, AVA_spike, AVD_spike, PVC_spike, AVB_spike, I_PVC, I_AVD, I_AVA, I_AVB, actions_arr, angles_arr, angle_velocity_arr, totalreward, done, info, actions
 
     AVA = np.array([Default_U_leak])
     AVD = np.array([Default_U_leak])
@@ -67,11 +67,13 @@ def initialize(Default_U_leak):
 
     actions_arr = np.array([])
     angles_arr = np.array([])
+    angle_velocity_arr = np.array([])
     #---------------------------------------------------------------------------------------
 
     totalreward = 0
     done = 0
     info = 0
+    actions = 0
 
 #-------------------------------------------------------------------------------------------
 
@@ -106,56 +108,58 @@ def arr(x, u, fire, I_all):
 
 def plot():
 
+    #plt.rc('text', usetex=True)
+    plt.rc('font', family='serif', size=20)
+
     plt.figure(1)
-    plt.suptitle('TW Circuit Simulator for biological neural Networks', fontsize=16)
+    #plt.suptitle('TW Circuit Simulator for biological neural Networks', fontsize=16)
 
     plt.subplot(121)
-    plt.title('Sensory Neurons', fontsize=10)
+    plt.title('Sensory Neurons', fontsize=20)
     plt.plot(PLM, '-y', label='PLM (Phi)', linewidth=1)
     plt.plot(AVM, '-g', label='AVM (-Phi)', linewidth=1)
     plt.plot(ALM, '-r', label='ALM (Phi dot)', linewidth=1)
     plt.plot(PVD, '-b', label='PVD (-Phi dot)', linewidth=1)
     plt.xlabel('t')
-    plt.ylabel('u(t) in [mV]')
+    plt.ylabel('u in mV')
     plt.legend(loc='upper left')
 
     plt.subplot(122)
-    plt.title('Inter Neurons', fontsize=10)
+    plt.title('Inter Neurons', fontsize=20)
     plt.plot(AVA, '-b', label='AVA (REV)', linewidth=0.3)
     plt.plot(AVD, '-y', label='AVD (REV)', linewidth=1)
     plt.plot(PVC, '-g', label='PVC (FWD)', linewidth=1)
     plt.plot(AVB, '-k', label='AVB (FWD)', linewidth=0.3)
     plt.xlabel('t')
-    plt.ylabel('u(t) in [mV]')
+    plt.ylabel('u in mV')
     plt.legend(loc='upper left')
 
-
     plt.figure(2)
-    plt.suptitle('Neuron Currents', fontsize=16)
+    #plt.suptitle('Neuron Currents', fontsize=16)
 
     plt.subplot(221)
-    plt.title('PVC', fontsize=10)
+    plt.title('PVC', fontsize=22)
     plt.plot(I_PVC, '-r', label='PVC', linewidth=1)
     plt.subplot(222)
-    plt.title('AVD', fontsize=10)
+    plt.title('AVD', fontsize=22)
     plt.plot(I_AVD, '-r', label='AVD', linewidth=1)
     plt.subplot(223)
-    plt.title('AVA', fontsize=10)
+    plt.title('AVA', fontsize=22)
     plt.plot(I_AVA, '-r', label='AVA', linewidth=0.5)
     plt.xlabel('t')
-    plt.ylabel('i(t) in [mA]')
+    plt.ylabel('i in mA')
     plt.subplot(224)
-    plt.title('AVB', fontsize=10)
+    plt.title('AVB', fontsize=22)
     plt.plot(I_AVB, '-r', label='AVB', linewidth=0.5)
 
     plt.figure(3)
-    plt.suptitle('Action and Angle of this Simulation', fontsize=16)
-    plt.plot(actions_arr, '-r', label='Actions [LEFT/RIGHT]', linewidth=1)
-    plt.plot(angles_arr, '-b', label='Angles [deg]', linewidth=1)
+    #plt.suptitle('Action and Angle of this Simulation', fontsize=16)
+    plt.plot(actions_arr, '-r', label='Actions', linewidth=1)
+    plt.plot(angles_arr, '-b', label='Angle [deg]', linewidth=1)
+    plt.plot(angle_velocity_arr, '-g', label='Angle Velocity [m/s]', linewidth=1)
     plt.xlabel('t')
     plt.ylabel('Action / Angle in Deg')
     plt.legend(loc='upper left')
-
 
     plt.show()
 
@@ -188,9 +192,7 @@ def import_weights(load_weights):
 
 def run_episode(env, fire):
 
-    global observation, reward, done, info, totalreward, action, env_vis, uncertain, actions_arr, angles_arr
-
-    actions = 0
+    global observation, reward, done, info, totalreward, action, env_vis, uncertain, actions_arr, angles_arr, angle_velocity_arr, actions
 
     env_vis.append(env.render(mode = 'rgb_array'))
 
@@ -209,14 +211,19 @@ def run_episode(env, fire):
         observation, reward, done, info = env.step(action)
 
     totalreward += reward
-    angle = observe(observation)
+    angle, angle_velocity = observe(observation)
 
     if done:
         action = 0
+        actions = 0
 
-    actions += action
+    if action == 0:
+        actions -= 1
+    elif action == 1:
+        actions += 1
     actions_arr = np.append(actions_arr, actions)
-    angles_arr = np.append(angles_arr, angle)
+    angles_arr = np.append(angles_arr, np.absolute(angle))
+    angle_velocity_arr = np.append(angle_velocity_arr, np.absolute(angle_velocity))
 
     return totalreward, done, uncertain
 
@@ -263,6 +270,7 @@ def main(parameter_matrices, runtime):
             env.reset()
             vis_initialize(Default_U_leak)
             episodes = episodes + 1
+
 
     print ("Did",episodes,"Episodes and was",uncertain,"out of",len(actions_arr),"times uncertain!")
     env_render(env_vis)

@@ -1,12 +1,12 @@
 %
 % ****
-\chapter{Implementierung des TW-Netzes}
+\chapter{Implementierung des neuronalen Netzes}
 \label{chap:imp}
 % ****
 %
 
 	\begin{minipage}[b]{0.65\textwidth}
-		Die Implementierung des gesamten neuronalen Netzes inklusive der Simulationsumgebung erfolgt in der Programmiersprache \texttt{Python}. Als Module werden zum einen das bereits vorgestellte \textit{LIF} - Modell implementiert, zum anderen diverse Algorithmen zur Suche von individuellen Parametern des neuronalen Netzes. Darüber hinaus ist das Programm in der Lage, eine Simulation der gefundenen Parameter durch die Simulationsumgebung \texttt{CartPole\_v0} von OpenAI Gym \cite{Brockman2016} zu zeigen und Parameter über die Simulationszeit zu plotten. Die Module sowie diverse Dokumentationen und Informationen sind im GitHub-Repository\footnotemark{} zu finden. Ein entsprechendes Deckblatt mit weiteren Informationen liegt dieser Arbeit in Anhang \ref{app:parameter} bei.
+		Die Implementierung des gesamten neuronalen Netzes, inklusive der Simulationsumgebung, erfolgt in der Programmiersprache \texttt{Python}. Als Module werden zum einen das bereits vorgestellte \textit{LIF} - Modell implementiert, zum anderen diverse Algorithmen zur Suche von individuellen Parametern des neuronalen Netzes. Darüber hinaus ist das Programm in der Lage, eine Simulation der gefundenen Parameter durch die Simulationsumgebung \texttt{CartPole\_v0} von OpenAI Gym \cite{Brockman2016} zu zeigen und Parameter über die Simulationszeit zu plotten. Die Module sowie diverse Dokumentationen und Informationen sind im GitHub-Repository\footnotemark{} zu finden. Ein entsprechendes Deckblatt mit weiteren Informationen liegt dieser Arbeit in Anhang \ref{app:parameter} bei.
 	\end{minipage}
 	\begin{minipage}[b]{0.35\textwidth}
 		\begin{figure}[H] %[!t] ...
@@ -23,7 +23,8 @@
 \section{Aufbau des Programms}
 \label{sec:imp_module}
 % ***
-	Ein Ziel dieser Arbeit ist es, neben der Funktionstüchtigkeit des Simulators das entstandene Programm mitsamt allen Modulen und Abhängigkeiten modular und leicht verständlich aufzubauen. Dazu gehört eine gute Dokumentation sowie saubere Versionierung, um Änderungen nachvollziehbar darzustellen.\\
+	Ein Ziel dieser Arbeit ist es, neben der Funktionstüchtigkeit des Simulators, das entstandene Programm, mitsamt allen Modulen und Abhängigkeiten, modular und leicht verständlich aufzubauen. Dazu gehört eine gute Dokumentation sowie eine saubere Versionierung, um Änderungen nachvollziehbar darzustellen.
+	
 	Folgende Anforderungen werden an das Programm gestellt:
 	\begin{itemize}
 		\item Es existiert ein zentraler Punkt zum Ändern aller nötigen Parameter. Alle weiteren Größen werden durch Formeln und Abfragen erzeugt.
@@ -62,7 +63,7 @@
 		\begin{itemize}
 			\item Der Ordner \texttt{docs} beinhaltet wichtige Dokumentationen bezüglich des Codes und dem Umgang mit diversen Befehlen innerhalb der \texttt{main.py}. Darüber hinaus wird hier ebenfalls diese Arbeit inklusive des \LaTeX-Codes abgelegt.
 			\item Aufgrund vieler komplexer Simulationen mit verschiedenen Parametersätzen wurde die Berechnung von Heim- und Unirechnern auf Rechenzentren ausgelagert. Der Ordner \texttt{information} wird genutzt, um Informationen über jede Simulation (Ergebnisse, Zeitstempel, Zugehörigkeit, ...) in Form einer TXT-Datei zu speichern.
-			\item Alle nötigen Module zur Simulation und Visualisierung finden sich in dem Ordner \texttt{modules} wieder. Genauere Informationen zu den einzelnen Skripten werden in den nächsten Sektionen aufgeführt.
+			\item Alle nötigen Module zur Simulation und Visualisierung finden sich in dem Ordner \texttt{modules} wieder. Genauere Informationen zu den einzelnen Skripten werden in den nächsten Abschnitten aufgeführt.
 			\item parameter\_dumps und weight\_dumps sind die Resultate der Simulationsläufe. In diesen Ordnern werden Parameter und Gewichte des neuronalen Netzes nach erfolgreichen Simulationsläufen abgespeichert. Die Dateien werden durch das Skript \texttt{hickle} in ein HDF-5 Dateiformat \cite{hdf5} gespeichert.
 		\end{itemize}		
 	\end{minipage}
@@ -73,10 +74,10 @@
 \section{Implementierung der Suchalgorithmen}
 \label{sec:imp_search}
 % ***
-	Die Suchalgorithmen befinden sich jeweils in dem Ordner \texttt{modules} und werden durch Import in der Datei \texttt{main.py} aufgerufen. Sie erhalten bei Aufruf die vom Anwender gewählte Simulationszeit (bspw. 12 Stunden) und bei Bedarf bereits errechnete Parameter. Als Ausgabe wird ein Dump der errechneten Parameter oder Gewichte gespeichert sowie eine Informationsdatei, welche Zugehörigkeiten, Anzahl an Simulationen, Laufzeiten und die gesamte Belohnung beschreibt. 
+	Die Suchalgorithmen befinden sich in dem Ordner \texttt{modules} und werden durch Import in der Datei \texttt{main.py} aufgerufen. Sie erhalten bei Aufruf die vom Anwender gewählte Simulationszeit (bspw. 12 Stunden) und bei Bedarf bereits errechnete Parameter. Als Ausgabe wird ein Dump der errechneten Parameter oder Gewichte gespeichert sowie eine Informationsdatei, welche Zugehörigkeiten, Anzahl an Simulationen, Laufzeiten und die gesamte Belohnung beschreibt. 
 	
 	\subsection{Suchalgorithmus Random-Search}
-		Der Suchalgorithmus Random-Search wurde direkt in die Simulation eingebunden. Es werden die Parameter $C_m, G_{Leak}, U_{Leak}, \sigma, w, \hat{w}$ durch eine Gleichverteilung in den bereits genannten Grenzen zufällig erzeugt. Um gleich-verteilte, zufällige Werte zu generieren, wird die Funktion \texttt{random.uniform} aus dem bekannten Package \texttt{numpy} \cite{NumPy} verwendet.\\
+		Der Suchalgorithmus Random-Search wurde direkt in die Simulation eingebunden. Es werden die Parameter $C_m, G_{Leak}, U_{Leak}, \sigma, w$ und $\hat{w}$ durch eine Gleichverteilung in den bereits genannten Grenzen zufällig erzeugt. Um gleichverteilte, zufällige Werte zu generieren, wird die Funktion \texttt{random.uniform} aus dem bekannten Package \texttt{numpy} \cite{NumPy} verwendet.\\
 		\begin{algorithm}
 			\SetKwInOut{Input}{Input}
 			\SetKwInOut{Output}{Output}
@@ -95,7 +96,7 @@
 				\KwRet{$\boldsymbol{C_m, G_{Leak}, U_{Leak}, \sigma, w, \hat{w}}$}	
 			\caption{random\_parameters}
 		\end{algorithm}\\
-		Nach Aufruf des Algorithmus \texttt{random\_parameters} wird eine Simulation mit den erzeugten Parametern und maximal 200 Zeitschritten durchgeführt. Die Belohnung dieser Simulation wird mit vergangenen Belohnungen verglichen. Wenn die Simulation eine Belohnung größer oder gleich 200 erreicht, gilt sie erfolgreich, andernfalls wird nach Ablauf der Simulationszeit der Algorithmus unterbrochen.\\
+		Nach Aufruf des Algorithmus \texttt{random\_parameters} wird eine Simulation mit den erzeugten Parametern und maximal 200 Zeitschritten durchgeführt. Die Belohnung dieser Simulation wird mit vergangenen Belohnungen verglichen. Wenn die Simulation eine Belohnung größer oder gleich 200 erreicht, gilt sie als erfolgreich, andernfalls wird nach Ablauf der Simulationszeit der Algorithmus unterbrochen.\\
 		Der gesamte Programmablauf gestaltet sich vereinfacht wie folgt:
 		\begin{algorithm}
 			\SetKwInOut{Input}{Input}
@@ -125,33 +126,34 @@
 			\KwRet{information.txt, parameter\_dump.hkl, date, best\_reward}
 			\caption{random\_search\_v2}
 		\end{algorithm}\\
-		Die elementare Funktion \texttt{run\_episode} wird in Abschnitt \ref{sec:imp_sim} genauer erläutert. Sie enthält unter anderem auch die Funktion \texttt{compute}, welche in Abschnitt \ref{sec:lif_imp} bereits detailliert thematisiert wurde.
+		Die elementare Funktion \texttt{run\_episode} wird in Abschnitt \ref{sec:imp_sim} genauer erläutert. Sie enthält unter anderem auch die Funktion \texttt{compute}, welche in Abschnitt \ref{sec:lif_imp} bereits detailliert thematisiert worden ist.
 	\subsection{Suchalgorithmus Genetic Algorithm}
 		\enlargethispage{2\baselineskip}
-		Als Alternative zu dem Algorithmus \texttt{RandomSearch} wird ein weiterer Suchalgorithmus\\ \texttt{Genetic\_Algorithm} implementiert. Anhand der Beschreibung aus Abschnitt \ref{subsec:gen_alg} wird anfangs analog zu RandomSearch ein Parametersatz aus einer Gleichverteilung mit festen Grenzen erzeugt. Dieser Parametersatz wird für die Simulation einer gegebenen Anzahl an Episoden genutzt, der sog. ersten Generation. Diese wird nachfolgend untersucht und ausgewertet. Aus der ersten Generation wird eine gewisse Anzahl an sehr guten Parameterläufen (mit hohem Reward) isoliert, die entsprechenden Parameter werden analysiert, um auf neue Grenzen der Gleichverteilung von Zufallsparametern in der nachfolgenden Generation zu schließen. Somit bildet sich wie in Abbildung \ref{fig:gen_chart} gezeigt eine zielführende Suche nach Parametern, welche für eine stabile Simulation sorgen.\\
+		Als Alternative zu dem Algorithmus \texttt{Random-Search} wird ein weiterer Suchalgorithmus\\ \texttt{Genetic Algorithm} implementiert. Anhand der Beschreibung aus Abschnitt \ref{subsec:gen_alg} wird anfangs analog zu Random-Search ein Parametersatz aus einer Gleichverteilung mit festen Grenzen erzeugt. Dieser Parametersatz wird für die Simulation einer gegebenen Anzahl an Episoden genutzt, der sog. ersten Generation. Diese wird nachfolgend untersucht und ausgewertet. Aus der ersten Generation wird eine gewisse Anzahl an sehr guten Parameterläufen (mit hoher Belohnung) isoliert, die entsprechenden Parameter werden analysiert, um auf neue Grenzen der Gleichverteilung von Zufallsparametern in der nachfolgenden Generation zu schließen. Somit bildet sich wie in Abbildung \ref{fig:gen_chart} gezeigt eine zielführende Suche nach Parametern, welche für eine stabile Simulation sorgen.
+		
 		Grenzen der Gleichverteilung für zufällige Parameter werden mit zunehmender Anzahl an Generationen justiert und konvergieren auf einen optimalen Wert:
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=13cm]{figures/chap_implement/ga_neuron.pdf}
+			\includegraphics[width=11cm]{figures/chap_implement/ga_neuron.pdf}
 			\caption{Gleichverteilungsgrenzen von Parametern der Nervenzellen.}
 			\label{fig:ga_1}
 		\end{figure}
-		\begin{figure}[h]
+		\begin{figure}[H]
 			\centering
-			\includegraphics[width=13cm]{figures/chap_implement/ga_synapse.pdf}
+			\includegraphics[width=11cm]{figures/chap_implement/ga_synapse.pdf}
 			\caption{Gleichverteilungsgrenzen von Parametern der Synapsen.}
 			\label{fig:ga_2}
 		\end{figure}
 	
 	\subsection{Optimierungsalgorithmus Weights}
-		Als erstes Optimierungsverfahren nach erfolgreicher Simulation der Parameter des neuronalen Netzes wird nun der Algorithmus Weights eingesetzt. Dieser lässt die bereits simulierten Parameter importieren und gewichtet jede Synapse mit einem Faktor $g\in[0,1]$. Durch einfache Simulationen mit willkürlichen Gewichten wird schnell festgestellt, welche Synapsen bei einem Simulationslauf mit hoher Belohnung eine große Gewichtung erhalten und welche Synapsen nicht förderlich für das Ergebnis sind. Durch diese Simulation war es möglich, das in Kapitel \ref{chap:neuro} vorgestellte symmetrische Neuronale Netz (Abbildung \ref{fig:nn_new}) zu entwickeln. Die dort gezeigten Synapsen erfahren eine relevante Gewichtung und sind somit wichtig für den Erfolg des neuronalen Netzes.
+		Als erstes Optimierungsverfahren, nach erfolgreicher Simulation der Parameter des neuronalen Netzes, wird nun der Algorithmus Weights eingesetzt. Dieser lässt die bereits simulierten Parameter importieren und gewichtet jede Synapse mit einem Faktor $g\in[0,1]$. Durch einfache Simulationen mit willkürlichen Gewichten wird schnell festgestellt, welche Synapsen, bei einem Simulationslauf mit hoher Belohnung, eine große Gewichtung erhalten und welche Synapsen nicht förderlich für das Ergebnis sind. Durch diese Simulation ist es möglich, das in Kapitel \ref{chap:neuro} vorgestellte symmetrische Neuronale Netz (Abbildung \ref{fig:nn_new}) zu entwickeln. Die dort gezeigten Synapsen erfahren eine relevante Gewichtung und sind somit wichtig für den Erfolg des neuronalen Netzes.
 		
-		Der Gewichtungsalgorithmus ist rechenintensiver als Random-Search, da insgesamt 16 Synapsen bzw. Gap-Junctions pro Episode mit zufällig gewählten Gewichten versehen werden, um die Belohnung zu steigern. Jedoch wird eine im Schnitt um das Dreifache höhere Belohnung verzeichnet bei gleichbleibenden Parametern, was eine sehr gute Optimierung darstellt.
+		Der Gewichtungsalgorithmus ist rechenintensiver als Random-Search, da insgesamt 16 Synapsen bzw. Gap-Junctions pro Episode mit zufällig gewählten Gewichten versehen werden, um die Belohnung zu steigern. Jedoch wird eine im Schnitt um das Dreifache höhere Belohnung verzeichnet (bei gleichbleibenden Parametern), was eine sehr gute Optimierung darstellt.
 		
-		Aufgerufen wird dieser Algorithmus analog zu Random-Search aus der \texttt{main.py}-Datei. Als Input werden die bereits errechneten optimalen Parameter der jeweiligen Nervenzellen und Synapsen sowie die maximale Simulationszeit eingegeben. Ebenfalls gleich dem Algorithmus RandomSearch produziert Weights einen Dump mit den errechneten Gewichten der Synapsen und Gap-Junctions sowie eine Informationsdatei im \texttt{.txt}-Format, welche weitere Zugehörigkeitsinformationen sowie die Anzahl an Simulationen und die Dauer enthält.
+		Aufgerufen wird dieser Algorithmus analog zu Random-Search aus der \texttt{main.py}-Datei. Als Input werden die bereits errechneten optimalen Parameter der jeweiligen Nervenzellen und Synapsen sowie die maximale Simulationszeit eingegeben. Ebenfalls gleich dem Algorithmus Random-Search produziert Weights einen Dump mit den errechneten Gewichten der Synapsen und Gap-Junctions sowie eine Informationsdatei im \texttt{.txt}-Format, welche weitere Zugehörigkeitsinformationen, die Anzahl an Simulationen und die Dauer enthält.
 		
 	\section{Simulation in der Google Cloud Platform\textsuperscript{\textregistered}}
-	Wie bereits in diesem Abschnitt mehrfach erwähnt, sind die implementierten Suchalgorithmen Random-Search und Weights äußerst rechenintensiv. Beide Skripte erfordern das zufällige Generieren einer hohen Anzahl an Parametern sowie die Anwendung dieser Parameter auf das gegebene Problem durch numerische Lösungsansätze für Differenzialgleichungen (siehe Abschnitt \ref{sec:lif_imp}). Es müssen Parameter zwischengespeichert und Dumps auf Festplatten geschrieben werden.
+	Wie bereits mehrfach erwähnt, sind die implementierten Suchalgorithmen Random-Search und Weights äußerst rechenintensiv. Beide Skripte erfordern das zufällige Generieren einer hohen Anzahl an Parametern sowie die Anwendung dieser Parameter auf das gegebene Problem durch numerische Lösungsansätze für Differenzialgleichungen (siehe Abschnitt \ref{sec:lif_imp}). Es müssen Parameter zwischengespeichert und Dumps auf Festplatten geschrieben werden.
 	
 	Um eine erfolgreiche Simulation des inversen Pendels zu erhalten, muss ein Parametersatz mit hoher Belohnung gefunden werden, welcher die korrekte Funktionsweise des neuronalen Netzes gewährleistet. Bei dem in Abbildung \ref{fig:nn_new} gezeigten neuronalen Netz werden die Parameter $C_m, G_{Leak}, U_{Leak}, \sigma, w, \hat{w}$ für Synapsen, Gap-Junctions und Nervenzellen simuliert.
 	\begin{center}
@@ -233,8 +235,8 @@
 	\end{figure}
 	Die Handhabung dieser Simulationsumgebung ist dank einer großen Community und guten Dokumentationen sehr einfach. Initialisiert wird die Umgebung, indem die Bibliothek \texttt{gym} in das Python-Skript importiert und die gewählte Umgebung als \glqq Environment\grqq{}festgelegt wird. Pro Simulationsschritt kann eine Aktion $a = \{0,1\}$ getätigt werden.
 	\begin{align*}
-		0 :& \text{ Schritt nach Links}\\
-		1 :& \text{ Schritt nach Rechts}
+		0 :& \text{ Schritt nach Links (REV)}\\
+		1 :& \text{ Schritt nach Rechts (FWD)}
 	\end{align*}
 	Das bereits vorgestellte neuronale Netz (Abbildung: \ref{fig:nn_new}) verfügt über zwei Motor-Neuronen, welche als Eingang der Simulation genutzt werden können. Interne Nervenzellen \textit{AVA} und \textit{AVB} sind durch eine direkte Synapse mit den genannten Motor-Neuronen verbunden und verursachen im Falle eines Feuer-Events die Bewegung des Wagens um einen Schritt nach links bzw. rechts. Pro Simulationsschritt erfolgt je nach Observation immer ein Feuer-Event, sodass das Pendel zu jeder Zeit eine berechnete Aktion erhält.
 	\begin{figure}[H] %[!t] ...
@@ -246,7 +248,7 @@
 	\end{figure}
 	Pro Simulationsschritt wird ein Observationsvektor ausgegeben. Dieser enthält die folgenden Parameter:
 	\begin{align}
-		\boldsymbol{o} &= \begin{pmatrix}C_{Position} & C_{Velocity} & P_{Angle} & P_{Velocity}\end{pmatrix}\text{.}
+		\boldsymbol{o} &= \begin{bmatrix}C_{Position} & C_{Velocity} & P_{Angle} & P_{Velocity}\end{bmatrix}^T\text{.}
 	\end{align}
 	\begin{center}
 		\begin{tabular}{c@{\hskip 0.5cm}c@{\hskip 0.5cm}r@{\hskip 0.5cm}}    \toprule
@@ -275,20 +277,32 @@
 % ***
 	Wie bereits in Abschnitt \ref{sec:imp_sim} näher beschrieben, liefert die Simulationsumgebung \texttt{CartPole\_v0} eine sehr gute Echtzeitvisualisierung des inversen Pendels als Animation. Diese wird durch das Speichern eines errechneten RGB-Tensors jedes Simulationsschrittes und anschließenden Animieren der Informationen erreicht. Weiterhin soll das Programm jedoch in der Lage sein, wichtige Parameter der Simulation über die Simulationszeit darzustellen, um ggf. Probleme zu erkennen und Aktionen zu verstehen. Um Plots aus Arrays zu erstellen, wird die Python-Bibliothek \texttt{matplotlib} \cite{Hunter2007} genutzt. Durch die einfache Bedienung und den enormen Umfang an Werkzeugen ist diese Bibliothek sehr beliebt in der Visualisierung von Daten und Parametern.
 	
-	Der generelle Ablauf des Programms sieht im ersten Schritt die Simulation von Parametern und Gewichten vor. Dies erfordert keine Visualisierung der Vorgänge, da die Performance erheblich beeinträchtigt werden würde. Daher wurde das Modul \texttt{visiualize.py} geschrieben, um gefundene Parameter und Gewichte mühelos simulieren zu können. Für den Aufruf werden die entsprechenden Parameter- und Gewichte-Dumps übergeben sowie die gewünschte Simulationszeit (bspw. 5 Sekunden). Die Simulation wird analog in den Suchalgorithmen jedoch mit festen Parametern ausgeführt. Gewünschte Größen werden pro Simulationsschritt gespeichert und letztlich grafisch dargestellt. Besonders die Übersicht über die Membranpotentiale einzelner Nervenzellen bietet einen sehr guten Überblick über die Vorgänge im neuronalen Netz und die Reaktion auf gegebene Sensor-Daten.
+	Der generelle Ablauf des Programms sieht im ersten Schritt die Simulation von Parametern und Gewichten vor. Dies erfordert keine Visualisierung der Vorgänge, da die Performance erheblich beeinträchtigt werden würde. Daher wurde das Modul \texttt{visiualize.py} geschrieben, um gefundene Parameter und Gewichte mühelos simulieren zu können. Für den Aufruf werden die entsprechenden Parameter- und Gewichte-Dumps übergeben sowie die gewünschte Simulationszeit (bspw. 10 Sekunden). Die Simulation wird analog den Suchalgorithmen jedoch mit festen Parametern ausgeführt. Gewünschte Größen werden pro Simulationsschritt gespeichert und letztlich grafisch dargestellt. Besonders die Übersicht über Membranpotentiale einzelner Nervenzellen bietet einen sehr guten Überblick über die Vorgänge im neuronalen Netz und die Reaktion auf gegebene Sensor-Daten.
 	\begin{figure}[H] %[!t] ...
 		\centering
-		\includegraphics[width=16cm]{figures/chap_implement/plot_membranpot.pdf}
+		\includegraphics[width=15cm]{figures/chap_implement/plot_membranpot_1.pdf}
 		\caption{Darstellung der Membranpotentiale von Inter- und Sensorneuronen.}
 		\label{fig:plot_membr}
 	\end{figure}
-	Weiterhin wird standardmäßig neben den Membranpotentialen auch der anliegende Synapsenstrom an jeder Nervenzelle geplottet. Diese Veranschaulichung gibt Aufschluss über die gewählten Parameter und das Feuerverhalten im internen neuronalen Netzwerk.
+	Weiterhin wird standardmäßig neben den Membranpotentialen auch der anliegende Synapsenstrom an jeder Nervenzelle grafisch dargestellt. Diese Veranschaulichung gibt Aufschluss über die gewählten Parameter und das Feuerverhalten im internen neuronalen Netzwerk.
 	\begin{figure}[H] %[!t] ...
 		\centering
-		\includegraphics[width=16cm]{figures/chap_implement/plot_synstrom.pdf}
+		\includegraphics[width=15cm]{figures/chap_implement/plot_synstrom_1.pdf}
 		\caption{Darstellung der anliegenden Ströme aus Stimulus, Synapsen und Gap-Junctions.}
 		\label{fig:plot_synstrom}
 	\end{figure}
+	Abbildung \ref{fig:plot_action} gibt Aufschluss über das Verhalten des Pendels bei gegebenen Eingangsgrößen:
+	\begin{itemize}
+		\item Winkel des inversen Pendels $\varphi$ und
+		\item Winkelgeschwindigkeit $\dot{\varphi}$.
+	\end{itemize}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=15cm]{figures/chap_implement/plot_action.pdf}
+		\caption{Verhalten des Pendels bei Eingangsgrößen $\varphi$ und $\dot{\varphi}$.}
+		\label{fig:plot_action}
+	\end{figure}
+	Als zweite Observationsgröße wurde die Winkelgeschwindigkeit $\dot{\varphi}$ gewählt, da eine Simulation mit der Eingangsgröße der Wagenposition $x$ zu sehr trägen Reaktionen des Wagens geführt haben.
 
 % ***
 \section{Anmerkungen zur Implementierung}

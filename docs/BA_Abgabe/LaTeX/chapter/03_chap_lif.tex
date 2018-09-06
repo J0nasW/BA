@@ -5,10 +5,10 @@
 % ****
 %
 
-	Um biologische neuronale Netze zu simulieren und nutzbar zu machen, bedarf es verschiedener Modelle und Algorithmen. Dieses Kapitel stellt das \textit{LIF} - Modell vor, welches zur Berechnung des Membranpotentials einer internen Nervenzelle dient. Da es sich hier um eine lineare Differenzialgleichung erster Ordnung handelt, werden darüber hinaus numerische Berechnungsmethoden vorgestellt, welche ebenfalls implementiert werden. Weiterhin wird auf die Berechnung der Synapsenströme und Übersetzung der Sensorpotentiale eingegangen und ein simulatives Modell des neuronalen Netzes vorgestellt.
+	Um biologische neuronale Netze zu simulieren und nutzbar zu machen, bedarf es verschiedener Modelle und Algorithmen. Dieses Kapitel stellt das \textit{Leaky Integrate and Fire (LIF)} - Modell vor, welches zur Berechnung des Membranpotentials einer internen Nervenzelle dient. Da es sich hier um eine lineare Differenzialgleichung erster Ordnung handelt, werden darüber hinaus numerische Berechnungsmethoden vorgestellt, welche ebenfalls implementiert werden. Weiterhin wird auf die Berechnung der Synapsenströme und Übersetzung der Sensorpotentiale eingegangen und ein simulatives Modell des neuronalen Netzes vorgestellt.
 
 % ***
-\section{Das Leaky Integrate and Fire - Modell}
+\section{Herleitung des Leaky Integrate and Fire - Modells}
 \label{sec:lif_model}
 % ***
 	Grundsätzlich wird in der Natur beobachtet, dass die neuronale Dynamik als Summationsprozess gefolgt von einer kurzfristigen Entladung des Aktionspotentials beschrieben werden kann. Die Entladung erfolgt hierbei immer ab einem gewissen Wert, welcher als Schwellwert $\vartheta$ beschrieben wird. Bei Überschreitung dieses Grenzwertes \glqq feuert\grqq{} die Nervenzelle und Informationen gelangen über Synapsen und Gap-Junctions zu nahegelegenen Neuronen.
@@ -80,7 +80,7 @@
 	Die Implementierung dieser Gleichungen und den entsprechenden numerischen Lösungsverfahren findet sich in Abschnitt \ref{sec:lif_neuro}. Ein beispielhafter Spannungsverlauf bei einem konstanten, positiv einfließendem Strom $I_{in}$ wird in Abbildung \ref{fig:simple_lif} dargestellt.
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=12cm]{figures/chap_lif/Simple_LIF.pdf}
+		\includegraphics[width=14cm]{figures/chap_lif/Simple_LIF.pdf}
 		\caption{Grafische Darstellung des Membranpotentials durch das \textit{LIF} - Modell.}
 		\label{fig:simple_lif}
 	\end{figure}

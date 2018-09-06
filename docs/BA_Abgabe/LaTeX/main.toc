@@ -4,11 +4,11 @@
 \contentsline {chapter}{\numberline {1}Einleitung}{3}{chapter.1}
 \contentsline {chapter}{\numberline {2}Grundlagen der neuronalen Netze}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Grundlegende Berechenbarkeitsmodelle}{5}{section.2.1}
-\contentsline {section}{\numberline {2.2}Grundlagen der biologische Nervenzelle}{6}{section.2.2}
+\contentsline {section}{\numberline {2.2}Grundlagen der biologischen Nervenzelle}{6}{section.2.2}
 \contentsline {section}{\numberline {2.3}Biologische neuronale Netze}{8}{section.2.3}
 \contentsline {section}{\numberline {2.4}Symmetrische neuronale Netze}{10}{section.2.4}
 \contentsline {chapter}{\numberline {3}Leaky Integrate and Fire und simulative Modelle neuronaler Netze}{13}{chapter.3}
-\contentsline {section}{\numberline {3.1}Das Leaky Integrate and Fire - Modell}{13}{section.3.1}
+\contentsline {section}{\numberline {3.1}Herleitung des Leaky Integrate and Fire - Modells}{13}{section.3.1}
 \contentsline {section}{\numberline {3.2}Anwendung auf Modelle neuronaler Netze}{15}{section.3.2}
 \contentsline {section}{\numberline {3.3}Zuverl\IeC {\"a}ssigkeit und Limitationen}{16}{section.3.3}
 \contentsline {section}{\numberline {3.4}Implementierung}{17}{section.3.4}
@@ -19,33 +19,35 @@
 \contentsline {section}{\numberline {4.1}Reinforcement Learning - eine Abwandlung des Deep Learning}{21}{section.4.1}
 \contentsline {section}{\numberline {4.2}Anwendung auf Modelle neuronaler Netze}{23}{section.4.2}
 \contentsline {section}{\numberline {4.3}Verschiedene Suchalgorithmen}{23}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Q-Learning}{24}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Gradient Policies}{25}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Genetische Algorithmen}{25}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}Random-Search}{27}{subsection.4.3.4}
-\contentsline {chapter}{\numberline {5}Implementierung des TW-Netzes}{29}{chapter.5}
+\contentsline {subsection}{\numberline {4.3.1}Random-Search}{24}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Genetische Algorithmen}{24}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Q-Learning}{26}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}Gradient Policies}{26}{subsection.4.3.4}
+\contentsline {chapter}{\numberline {5}Implementierung des neuronalen Netzes}{29}{chapter.5}
 \contentsline {section}{\numberline {5.1}Aufbau des Programms}{29}{section.5.1}
 \contentsline {section}{\numberline {5.2}Implementierung der Suchalgorithmen}{30}{section.5.2}
 \contentsline {subsection}{\numberline {5.2.1}Suchalgorithmus Random-Search}{31}{subsection.5.2.1}
 \contentsline {subsection}{\numberline {5.2.2}Suchalgorithmus Genetic Algorithm}{32}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Optimierungsalgorithmus Weights}{32}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.3}Optimierungsalgorithmus Weights}{33}{subsection.5.2.3}
 \contentsline {section}{\numberline {5.3}Simulation in der Google Cloud Platform\textsuperscript {\textregistered }}{33}{section.5.3}
 \contentsline {section}{\numberline {5.4}Simulationsumgebung: OpenAI Gym}{35}{section.5.4}
 \contentsline {section}{\numberline {5.5}Visualisierung und Auswertung}{37}{section.5.5}
 \contentsline {section}{\numberline {5.6}Anmerkungen zur Implementierung}{39}{section.5.6}
 \contentsline {subsection}{\numberline {5.6.1}Zentraler Ort f\IeC {\"u}r Parameter}{39}{subsection.5.6.1}
-\contentsline {subsection}{\numberline {5.6.2}Speicherung von Daten}{39}{subsection.5.6.2}
+\contentsline {subsection}{\numberline {5.6.2}Speicherung von Daten}{40}{subsection.5.6.2}
 \contentsline {subsection}{\numberline {5.6.3}Dateiinspektion}{40}{subsection.5.6.3}
 \contentsline {chapter}{\numberline {6}Performance \& Auswertung}{41}{chapter.6}
 \contentsline {section}{\numberline {6.1}Performance implementierter Algorithmen}{41}{section.6.1}
 \contentsline {section}{\numberline {6.2}Limitationen und Alternativen von Algorithmen}{43}{section.6.2}
 \contentsline {subsection}{\numberline {6.2.1}Analyse bereits bestehender Algotithmen}{43}{subsection.6.2.1}
 \contentsline {subsection}{\numberline {6.2.2}Alternative Such- und Optimierungsalgorithmen}{43}{subsection.6.2.2}
-\contentsline {section}{\numberline {6.3}Zusammenfassung}{44}{section.6.3}
-\contentsline {section}{\numberline {6.4}Ausblick}{45}{section.6.4}
+\contentsline {chapter}{\numberline {7}Zusammenfassung und Ausblick}{45}{chapter.7}
+\contentsline {section}{\numberline {7.1}Zusammenfassung}{45}{section.7.1}
+\contentsline {section}{\numberline {7.2}Ausblick}{46}{section.7.2}
 \contentsline {chapter}{\numberline {A}UML-Diagramme wichtiger Algorithmen}{47}{appendix.A}
-\contentsline {section}{\numberline {A.1}\texttt {RandomSearch}}{47}{section.A.1}
-\contentsline {section}{\numberline {A.2}\texttt {Weights}}{48}{section.A.2}
-\contentsline {chapter}{\numberline {B}Datenblatt Programm: TW Circuit}{49}{appendix.B}
-\contentsline {chapter}{\numberline {C}Parameter mit guten Simulationsergebnissen}{51}{appendix.C}
-\contentsline {chapter}{Literaturverzeichnis}{55}{appendix*.33}
+\contentsline {section}{\numberline {A.1}\texttt {Random-Search}}{47}{section.A.1}
+\contentsline {section}{\numberline {A.2}\texttt {Genetic Algorithm}}{48}{section.A.2}
+\contentsline {section}{\numberline {A.3}\texttt {Weights}}{49}{section.A.3}
+\contentsline {chapter}{\numberline {B}Datenblatt Programm: TW Circuit}{51}{appendix.B}
+\contentsline {chapter}{\numberline {C}Parameter mit guten Simulationsergebnissen}{53}{appendix.C}
+\contentsline {chapter}{Literaturverzeichnis}{57}{appendix*.35}

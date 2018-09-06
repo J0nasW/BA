@@ -2,11 +2,11 @@
 \BOOKMARK [0][-]{chapter.1}{Einleitung}{}% 2
 \BOOKMARK [0][-]{chapter.2}{Grundlagen der neuronalen Netze}{}% 3
 \BOOKMARK [1][-]{section.2.1}{Grundlegende Berechenbarkeitsmodelle}{chapter.2}% 4
-\BOOKMARK [1][-]{section.2.2}{Grundlagen der biologische Nervenzelle}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.2}{Grundlagen der biologischen Nervenzelle}{chapter.2}% 5
 \BOOKMARK [1][-]{section.2.3}{Biologische neuronale Netze}{chapter.2}% 6
 \BOOKMARK [1][-]{section.2.4}{Symmetrische neuronale Netze}{chapter.2}% 7
 \BOOKMARK [0][-]{chapter.3}{Leaky Integrate and Fire und simulative Modelle neuronaler Netze}{}% 8
-\BOOKMARK [1][-]{section.3.1}{Das Leaky Integrate and Fire - Modell}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.1}{Herleitung des Leaky Integrate and Fire - Modells}{chapter.3}% 9
 \BOOKMARK [1][-]{section.3.2}{Anwendung auf Modelle neuronaler Netze}{chapter.3}% 10
 \BOOKMARK [1][-]{section.3.3}{Zuverl\344ssigkeit und Limitationen}{chapter.3}% 11
 \BOOKMARK [1][-]{section.3.4}{Implementierung}{chapter.3}% 12
@@ -17,11 +17,11 @@
 \BOOKMARK [1][-]{section.4.1}{Reinforcement Learning - eine Abwandlung des Deep Learning}{chapter.4}% 17
 \BOOKMARK [1][-]{section.4.2}{Anwendung auf Modelle neuronaler Netze}{chapter.4}% 18
 \BOOKMARK [1][-]{section.4.3}{Verschiedene Suchalgorithmen}{chapter.4}% 19
-\BOOKMARK [2][-]{subsection.4.3.1}{Q-Learning}{section.4.3}% 20
-\BOOKMARK [2][-]{subsection.4.3.2}{Gradient Policies}{section.4.3}% 21
-\BOOKMARK [2][-]{subsection.4.3.3}{Genetische Algorithmen}{section.4.3}% 22
-\BOOKMARK [2][-]{subsection.4.3.4}{Random-Search}{section.4.3}% 23
-\BOOKMARK [0][-]{chapter.5}{Implementierung des TW-Netzes}{}% 24
+\BOOKMARK [2][-]{subsection.4.3.1}{Random-Search}{section.4.3}% 20
+\BOOKMARK [2][-]{subsection.4.3.2}{Genetische Algorithmen}{section.4.3}% 21
+\BOOKMARK [2][-]{subsection.4.3.3}{Q-Learning}{section.4.3}% 22
+\BOOKMARK [2][-]{subsection.4.3.4}{Gradient Policies}{section.4.3}% 23
+\BOOKMARK [0][-]{chapter.5}{Implementierung des neuronalen Netzes}{}% 24
 \BOOKMARK [1][-]{section.5.1}{Aufbau des Programms}{chapter.5}% 25
 \BOOKMARK [1][-]{section.5.2}{Implementierung der Suchalgorithmen}{chapter.5}% 26
 \BOOKMARK [2][-]{subsection.5.2.1}{Suchalgorithmus Random-Search}{section.5.2}% 27
@@ -39,11 +39,13 @@
 \BOOKMARK [1][-]{section.6.2}{Limitationen und Alternativen von Algorithmen}{chapter.6}% 39
 \BOOKMARK [2][-]{subsection.6.2.1}{Analyse bereits bestehender Algotithmen}{section.6.2}% 40
 \BOOKMARK [2][-]{subsection.6.2.2}{Alternative Such- und Optimierungsalgorithmen}{section.6.2}% 41
-\BOOKMARK [1][-]{section.6.3}{Zusammenfassung}{chapter.6}% 42
-\BOOKMARK [1][-]{section.6.4}{Ausblick}{chapter.6}% 43
-\BOOKMARK [0][-]{appendix.A}{UML-Diagramme wichtiger Algorithmen}{}% 44
-\BOOKMARK [1][-]{section.A.1}{RandomSearch}{appendix.A}% 45
-\BOOKMARK [1][-]{section.A.2}{Weights}{appendix.A}% 46
-\BOOKMARK [0][-]{appendix.B}{Datenblatt Programm: TW Circuit}{}% 47
-\BOOKMARK [0][-]{appendix.C}{Parameter mit guten Simulationsergebnissen}{}% 48
-\BOOKMARK [0][-]{appendix*.33}{Literaturverzeichnis}{}% 49
+\BOOKMARK [0][-]{chapter.7}{Zusammenfassung und Ausblick}{}% 42
+\BOOKMARK [1][-]{section.7.1}{Zusammenfassung}{chapter.7}% 43
+\BOOKMARK [1][-]{section.7.2}{Ausblick}{chapter.7}% 44
+\BOOKMARK [0][-]{appendix.A}{UML-Diagramme wichtiger Algorithmen}{}% 45
+\BOOKMARK [1][-]{section.A.1}{Random-Search}{appendix.A}% 46
+\BOOKMARK [1][-]{section.A.2}{Genetic Algorithm}{appendix.A}% 47
+\BOOKMARK [1][-]{section.A.3}{Weights}{appendix.A}% 48
+\BOOKMARK [0][-]{appendix.B}{Datenblatt Programm: TW Circuit}{}% 49
+\BOOKMARK [0][-]{appendix.C}{Parameter mit guten Simulationsergebnissen}{}% 50
+\BOOKMARK [0][-]{appendix*.35}{Literaturverzeichnis}{}% 51

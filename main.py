@@ -24,7 +24,7 @@ import easygui as eg
 def start():
     global choices
 
-    msg = "Willkommen im TW Circuit Simulator. Bitte wählen Sie eine Option:"
+    msg = "Willkommen im TW Circuit20 Si10mulator. Bitte wählen Sie eine Option:"
     title = "TW Circuit Simulator"
     choices = ["Lokale Simulation","Parameter Dump öffnen","Parameter mit Weight Dump öffnen","Dumps inspizieren"]
     choice = eg.choicebox(msg, title, choices)
@@ -85,10 +85,18 @@ def local_ga():
 
 
 def load_parameter():
-    eg.msgbox(msg="Wählen Sie den Parameter-Dump.")
-    parameter_dir = eg.fileopenbox()
-    vis_time = eg.integerbox("Dauer der Simulation (in Sek.):","TW Circuit")
-    vs.main(parameter_dir, int(vis_time))
+    msg = "Parameter Dump auswählen oder Best-Score-Visualisierung"
+    choices = ["Parameter auswählen","Beste Visualisierug"]
+    reply = eg.buttonbox(msg, choices=choices)
+
+    if reply == choices[0]:
+        parameter_dir = eg.fileopenbox()
+        vis_time = eg.integerbox("Dauer der Simulation (in Sek.):","TW Circuit")
+        vs.main(parameter_dir, int(vis_time))
+    elif reply == choices[1]:
+        parameter_dir = "parameter_dumps/20180817_01-56-01_rs2_v2_131.hkl"
+        vis_time = eg.integerbox("Dauer der Simulation (in Sek.):","TW Circuit")
+        vs.main(parameter_dir, int(vis_time))
 
 def load_parameter_weights():
     eg.msgbox(msg="Wählen Sie zuerst den Parameter-Dump.")
