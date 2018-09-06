@@ -1,4 +1,4 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{19}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -7,6 +7,11 @@
   \providecommand{\doi}{DOI~\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
 \providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{Brockman et~al(????)Brockman, Cheung, Pettersson, Schneider,
+  Schulman, Tang, and Zaremba}]{Brockman2016}
+Brockman G, Cheung V, Pettersson L, Schneider J, Schulman J, Tang J, Zaremba W
+  (????) Openai gym \eprint{http://arxiv.org/abs/1606.01540v1}
 
 \bibitem[{Chalfie et~al(1985)Chalfie, Sulston, White, Southgate, Thomson, and
   Brenner}]{CElegans}
@@ -44,6 +49,9 @@ Lechner M, Grosu R, Hasani RM (2017) Worm-level control through search-based
 LeCun Y, Bengio Y, Hinton G (2015) Deep learning. Nature 521:436,
   \urlprefix\url{http://dx.doi.org/10.1038/nature14539}
 
+\bibitem[{von Neumann(1945)}]{Neumann1945}
+von Neumann J (1945) First draft of a report on the edvac. Tech. rep.
+
 \bibitem[{Oliphant(2006)}]{NumPy}
 Oliphant TE (2006) A guide to NumPy. Trelgol Publishing USA
 
@@ -66,6 +74,12 @@ Strogatz SH (1994) Nonlinear Dynamics And Chaos: With Applications To Physics,
   Biology, Chemistry And Engineering (Studies in Nonlinearity). Studies in
   nonlinearity, Perseus Books,
   \urlprefix\url{https://books.google.de/books?id=PHmED2xxrE8C}
+
+\bibitem[{Turing(1936)}]{Turing1936}
+Turing AM (1936) On computable numbers, with an application to the
+  {E}ntscheidungsproblem. Proceedings of the London Mathematical Society
+  2(42):230--265,
+  \urlprefix\url{https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf}
 
 \bibitem[{Watkins and Dayan(1992)}]{Watkins1992}
 Watkins CJCH, Dayan P (1992) Q-learning. Machine Learning 8(3):279--292,

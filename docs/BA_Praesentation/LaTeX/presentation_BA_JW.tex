@@ -22,7 +22,7 @@
                           %are used
 \usepackage{curve2e}
 
-\usepackage{media9} %For Video Playback
+\usepackage{multimedia} %For Video Playback
 
 % =======================
 
@@ -116,17 +116,7 @@
 	\frametitle{Animation des inversen Pendels}
 	\framesubtitle{Parametersuche durch RandomSearch}
 	
-	\includemedia[
-	width=0.4\linewidth,
-	totalheight=0.225\linewidth,
-	activate=pageopen,
-	passcontext,  %show VPlayer's right-click menu
-	addresource=video/20180830_Render.mp4,
-	flashvars={
-		%important: same path as in `addresource'
-		source=video/20180830_Render.mp4
-	}
-	]{\fbox{PLAY}}{VPlayer.swf}
+	\movie[width=6cm,height=6cm,duration=5s,poster]{}{video/20180830_Render.mp4}
 
 
 \end{frame}

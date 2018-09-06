@@ -66,6 +66,7 @@
 @Article{SimCE,
   author        = {Hasani, Ramin M. and Beneder, Victoria and Fuchs, Magdalena and Lung, David and Grosu, Radu},
   title         = {SIM-CE: An Advanced Simulink Platform for Studying the Brain of Caenorhabditis elegans},
+  year          = {2017},
   __markedentry = {[Jonas:4]},
   abstract      = {We introduce SIM-CE, an advanced, user-friendly modeling and simulation environment in Simulink for performing multi-scale behavioral analysis of the nervous system of Caenorhabditis elegans (C. elegans). SIM-CE contains an implementation of the mathematical models of C. elegans's neurons and synapses, in Simulink, which can be easily extended and particularized by the user. The Simulink model is able to capture both complex dynamics of ion channels and additional biophysical detail such as intracellular calcium concentration. We demonstrate the performance of SIM-CE by carrying out neuronal, synaptic and neural-circuit-level behavioral simulations. Such environment enables the user to capture unknown properties of the neural circuits, test hypotheses and determine the origin of many behavioral plasticities exhibited by the worm.},
   date          = {2017},
@@ -282,6 +283,23 @@
   title  = {Hierarchical Data Format, version 5},
   year   = {2018},
   url    = {http://www.hdfgroup.org/HDF5/},
+}
+
+@Article{Turing1936,
+  author  = {Turing, Alan M.},
+  title   = {On Computable Numbers, with an Application to the {E}ntscheidungsproblem},
+  journal = {Proceedings of the London Mathematical Society},
+  year    = {1936},
+  volume  = {2},
+  number  = {42},
+  pages   = {230-265},
+  url     = {https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf},
+}
+
+@TechReport{,
+  author = {John von Neumann},
+  title  = {First Draft of a Report on the EDVAC},
+  year   = {1945},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

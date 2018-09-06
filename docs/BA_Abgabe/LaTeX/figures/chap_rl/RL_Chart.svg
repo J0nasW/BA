@@ -226,8 +226,8 @@
      id="namedview3769"
      showgrid="false"
      inkscape:zoom="1.5790283"
-     inkscape:cx="362.91568"
-     inkscape:cy="151.47549"
+     inkscape:cx="309.48495"
+     inkscape:cy="149.57196"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
@@ -238,26 +238,26 @@
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:15px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375"
      x="187.52075"
-     y="252.08899"
+     y="253.96399"
      id="text3777"><tspan
        sodipodi:role="line"
        x="187.52075"
-       y="252.08899"
+       y="253.96399"
        style="font-size:15px;stroke-width:0.9375"
-       id="tspan20">Reward r</tspan></text>
+       id="tspan20">Belohnung $r$</tspan></text>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-weight:normal;font-size:15px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:0.875;stroke:none;stroke-width:0.9375"
+     style="font-style:normal;font-weight:normal;font-size:15px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375"
      x="140.86508"
      y="151.1716"
      id="text3777-3"><tspan
        sodipodi:role="line"
        x="140.86508"
        y="151.1716"
-       style="font-size:15px;fill:#000000;fill-opacity:0.875;stroke-width:0.9375"
-       id="tspan3799">Observation <tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;fill-opacity:0.875"
-   id="tspan1007">o</tspan></tspan></text>
+       style="font-size:15px;fill:#000000;fill-opacity:1;stroke-width:0.9375"
+       id="tspan3799">Observation $\boldsymbol{o}<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;fill-opacity:1"
+   id="tspan1007">$</tspan></tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:15px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375"
@@ -290,9 +290,9 @@
        x="559.74945"
        y="136.49715"
        style="font-size:15px;stroke-width:0.9375"
-       id="tspan20-6">Aktion a</tspan></text>
+       id="tspan20-6">Aktion $a$</tspan></text>
   <rect
-     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:1.40624988;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:none;fill-opacity:0.58984375;stroke:#000000;stroke-width:1.40624988;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect1003"
      width="133.58688"
      height="48.684998"
@@ -302,13 +302,13 @@
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:15px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375"
      x="195.97366"
-     y="212.47896"
+     y="214.35396"
      id="text3777-8"><tspan
        sodipodi:role="line"
        x="195.97366"
-       y="212.47896"
+       y="214.35396"
        style="font-size:15px;stroke-width:0.9375"
-       id="tspan20-8">State s</tspan></text>
+       id="tspan20-8">Zustand $\boldsymbol{x}$</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:15px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375"
@@ -321,7 +321,7 @@
        style="font-size:15px;stroke-width:0.9375"
        id="tspan3799-1">Interpreter</tspan></text>
   <rect
-     style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.95704436;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:0.95704436;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect1003-1"
      width="89.34388"
      height="33.715778"
@@ -334,7 +334,7 @@
      inkscape:connector-curvature="0" />
   <path
      sodipodi:type="star"
-     style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:1.40624988;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.40624988;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path1114"
      sodipodi:sides="3"
      sodipodi:cx="356.7316"
@@ -365,4 +365,10 @@
      d="m 137.74292,199.84515 v 39.18548 H 310.5153"
      id="path1356"
      inkscape:connector-curvature="0" />
+  <circle
+     style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.11964965;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="path4648"
+     cx="137.74292"
+     cy="199.80804"
+     r="3.0252607" />
 </svg>

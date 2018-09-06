@@ -144,53 +144,54 @@ def random_parameters_symm(w_limit, sig_limit, C_m_limit, G_leak_limit, U_leak_l
 
 def plot(w_limit_arr_low, w_limit_arr_high, sig_limit_arr_low, sig_limit_arr_high, C_m_limit_arr_low, C_m_limit_arr_high, G_leak_limit_arr_low, G_leak_limit_arr_high, U_leak_limit_arr_low, U_leak_limit_arr_high, reward_arr_plot, best_reward_arr_plot):
     plt.rc('text', usetex=True)
-    plt.rc('font', family='serif')
+    plt.rc('font', family='serif', size=20)
 
     plt.figure(1)
-    plt.suptitle('TW Circuit Simulator - Genetic Algorithm - SYNAPSE', fontsize=16)
+    #plt.suptitle('TW Circuit Simulator - Genetic Algorithm - SYNAPSE', fontsize=16)
 
     plt.subplot(121)
-    plt.title('$\omega_{limit}$', fontsize=10)
+    plt.title('$\omega_{limit}$', fontsize=22)
     plt.plot(w_limit_arr_low, '-b', label='$\omega_{low}$', linewidth=1)
     plt.plot(w_limit_arr_high, '-g', label='$\omega_{high}$', linewidth=1)
-    plt.xlabel('Selection')
+    plt.xlabel('Generation')
     plt.ylabel('$S$')
     plt.legend(loc='upper left')
 
     plt.subplot(122)
-    plt.title('$\sigma_{limit}$', fontsize=10)
+    plt.title('$\sigma_{limit}$', fontsize=22)
     plt.plot(sig_limit_arr_low, '-b', label='$\sigma_{low}$', linewidth=1)
     plt.plot(sig_limit_arr_high, '-g', label='$\sigma_{high}$', linewidth=1)
-    plt.xlabel('Selection')
+    plt.xlabel('Generation')
     plt.legend(loc='upper left')
 
     plt.figure(2)
-    plt.suptitle('TW Circuit Simulator - Genetic Algorithm - NEURON', fontsize=16)
+    #plt.suptitle('TW Circuit Simulator - Genetic Algorithm - NEURON', fontsize=16)
 
     plt.subplot(131)
-    plt.title('$C_{m\_limit}$', fontsize=10)
+    plt.title('$C_{m\_limit}$', fontsize=22)
     plt.plot(C_m_limit_arr_low, '-b', label='$C_{m\_low}$', linewidth=1)
     plt.plot(C_m_limit_arr_high, '-g', label='$C_{m\_high}$', linewidth=1)
-    plt.xlabel('Selection')
+    plt.xlabel('Generation')
     plt.ylabel('$mF$')
     plt.legend(loc='upper left')
 
     plt.subplot(132)
-    plt.title('$G_{leak\_limit}$', fontsize=10)
+    plt.title('$G_{leak\_limit}$', fontsize=22)
     plt.plot(G_leak_limit_arr_low, '-b', label='$G_{leak\_low}$', linewidth=1)
     plt.plot(G_leak_limit_arr_high, '-g', label='$G_{leak\_high}$', linewidth=1)
-    plt.xlabel('Selection')
+    plt.xlabel('Generation')
     plt.ylabel('$S$')
     plt.legend(loc='upper left')
 
     plt.subplot(133)
-    plt.title('$U_{leak\_limit}$', fontsize=10)
+    plt.title('$U_{leak\_limit}$', fontsize=22)
     plt.plot(U_leak_limit_arr_low, '-b', label='$U_{leak\_low}$', linewidth=1)
     plt.plot(U_leak_limit_arr_high, '-g', label='$U_{leak\_high}$', linewidth=1)
-    plt.xlabel('Selection')
+    plt.xlabel('Generation')
     plt.ylabel('$mV$')
     plt.legend(loc='upper left')
 
+    '''
     plt.figure(3)
     plt.suptitle('TW Circuit Simulator - GENETICAL ALGORITHM - REWARD', fontsize=16)
 
@@ -207,7 +208,7 @@ def plot(w_limit_arr_low, w_limit_arr_high, sig_limit_arr_low, sig_limit_arr_hig
     plt.xlabel('Episode')
     plt.ylabel('Reward')
     plt.legend(loc='upper left')
-
+    '''
 
 
     plt.show()

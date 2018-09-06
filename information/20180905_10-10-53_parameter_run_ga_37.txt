@@ -1,0 +1,3 @@
+---GENETIC ALGORITHM---
+Parameter run from 20180905_10-10-53 with Reward 37 and 3238 Episodes.
+Simulation Runtime was 10.005475282669067.

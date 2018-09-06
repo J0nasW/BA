@@ -56,7 +56,7 @@
     \put(0,0){\includegraphics[width=\unitlength,page=1]{figures/chap_implement/cartpole_observation.pdf}}%
     \put(0.60441878,0.24154288){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Winkel $\varphi$\end{tabular}}}}%
     \put(0.56941979,0.15316767){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Winkelgeschwindigkeit $\dot{\varphi}$\end{tabular}}}}%
-    \put(0.56858199,0.03545617){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Cartposition $x$\end{tabular}}}}%
-    \put(0.58656151,0.09787261){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Cartgeschwindigkeit $\dot{x}$\end{tabular}}}}%
+    \put(0.56858199,0.03545617){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Wagenposition $x$\end{tabular}}}}%
+    \put(0.58656151,0.09787261){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Wagengeschwindigkeit $\dot{x}$\end{tabular}}}}%
   \end{picture}%
 \endgroup%
