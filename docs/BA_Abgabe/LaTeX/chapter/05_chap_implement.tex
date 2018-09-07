@@ -6,7 +6,7 @@
 %
 
 	\begin{minipage}[b]{0.65\textwidth}
-		Die Implementierung des gesamten neuronalen Netzes, inklusive der Simulationsumgebung, erfolgt in der Programmiersprache \texttt{Python}. Als Module werden zum einen das bereits vorgestellte \textit{LIF} - Modell implementiert, zum anderen diverse Algorithmen zur Suche von individuellen Parametern des neuronalen Netzes. Darüber hinaus ist das Programm in der Lage, eine Simulation der gefundenen Parameter durch die Simulationsumgebung \texttt{CartPole\_v0} von OpenAI Gym \cite{Brockman2016} zu zeigen und Parameter über die Simulationszeit zu plotten. Die Module sowie diverse Dokumentationen und Informationen sind im GitHub-Repository\footnotemark{} zu finden. Ein entsprechendes Deckblatt mit weiteren Informationen liegt dieser Arbeit in Anhang \ref{app:parameter} bei.
+		Die Implementierung des gesamten neuronalen Netzes, inklusive der Simulationsumgebung, erfolgt in der Programmiersprache \texttt{Python}. Als Module werden zum einen das bereits vorgestellte \textit{LIF} - Modell implementiert, zum anderen diverse Algorithmen zur Suche von individuellen Parametern des neuronalen Netzes. Darüber hinaus ist das Programm in der Lage, eine Simulation der gefundenen Parameter durch die Simulationsumgebung \texttt{CartPole\_v0} von OpenAI Gym \cite{Brockman2016} zu zeigen und Parameter über die Simulationszeit darzustellen. Die Module, sowie diverse Dokumentationen und Informationen, sind im GitHub-Repository\footnotemark{} zu finden. Ein entsprechendes Datenblatt mit weiteren Informationen liegt dieser Arbeit in Anhang \ref{app:datenblatt} bei.
 	\end{minipage}
 	\begin{minipage}[b]{0.35\textwidth}
 		\begin{figure}[H] %[!t] ...
@@ -23,18 +23,16 @@
 \section{Aufbau des Programms}
 \label{sec:imp_module}
 % ***
-	Ein Ziel dieser Arbeit ist es, neben der Funktionstüchtigkeit des Simulators, das entstandene Programm, mitsamt allen Modulen und Abhängigkeiten, modular und leicht verständlich aufzubauen. Dazu gehört eine gute Dokumentation sowie eine saubere Versionierung, um Änderungen nachvollziehbar darzustellen.
-	
-	Folgende Anforderungen werden an das Programm gestellt:
+	Ein Ziel dieser Arbeit ist es, neben der Funktionstüchtigkeit des Simulators, das entstandene Programm, mitsamt allen Modulen und Abhängigkeiten, modular und leicht verständlich aufzubauen. Dazu gehört eine gute Dokumentation sowie eine saubere Versionierung, um Änderungen nachvollziehbar darzustellen.	Folgende Anforderungen werden an das Programm gestellt:
 	\begin{itemize}
 		\item Es existiert ein zentraler Punkt zum Ändern aller nötigen Parameter. Alle weiteren Größen werden durch Formeln und Abfragen erzeugt.
 		\subitem Datei: \texttt{parameters.py}
 		\item Es wird ein Modul zur Visualisierung gegebener Parameter oder Gewichte des neuronalen Netzes bereitgestellt. Diese Datei muss leicht verständlich und manipulierbar sein, um eigene Schaubilder (siehe Abbildungen \ref{fig:plot_membr} und \ref{fig:plot_synstrom}) zu erstellen und neue Simulationsumgebungen einzubinden.
 		\subitem Datei: \texttt{visiualize.py}
 		\item Es muss die Möglichkeit bestehen, aus bereits existierenden Suchalgorithmen neue Implementationen zu erstellen, um gegebene Funktionen einfach einsetzen zu können.
-		\subitem Vorlage: \texttt{random\_search\_v2.py}, \texttt{weights\_nn.py}, \texttt{genetic\_algorithm.py}
+		\subitem Dateien: \texttt{random\_search\_v2.py}, \texttt{weights\_nn.py}, \texttt{genetic\_algorithm.py}
 	\end{itemize}
-	Aufgrund der hohen Vielfältigkeit an neuronalen Netzen und Suchalgorithmen soll dieses Programm als Basis für neue Projekte und Ideen dienen. Daher wird empfohlen, eine Fork des Repositories (siehe Anhang \ref{app:parameter}) zu erstellen und den Simulator weiter zu gestalten.\\
+	Aufgrund der hohen Vielfältigkeit an neuronalen Netzen und Suchalgorithmen soll dieses Programm als Basis für neue Projekte und Ideen dienen. Daher wird empfohlen, eine Fork des Repositories (siehe Anhang \ref{app:datenblatt}) zu erstellen und den Simulator weiter zu gestalten.\\
 	Das Programm beinhaltet folgende Module:\\
 	\begin{minipage}{0.35\textwidth}
 		\vspace{0.3cm}
@@ -64,7 +62,7 @@
 			\item Der Ordner \texttt{docs} beinhaltet wichtige Dokumentationen bezüglich des Codes und dem Umgang mit diversen Befehlen innerhalb der \texttt{main.py}. Darüber hinaus wird hier ebenfalls diese Arbeit inklusive des \LaTeX-Codes abgelegt.
 			\item Aufgrund vieler komplexer Simulationen mit verschiedenen Parametersätzen wurde die Berechnung von Heim- und Unirechnern auf Rechenzentren ausgelagert. Der Ordner \texttt{information} wird genutzt, um Informationen über jede Simulation (Ergebnisse, Zeitstempel, Zugehörigkeit, ...) in Form einer TXT-Datei zu speichern.
 			\item Alle nötigen Module zur Simulation und Visualisierung finden sich in dem Ordner \texttt{modules} wieder. Genauere Informationen zu den einzelnen Skripten werden in den nächsten Abschnitten aufgeführt.
-			\item parameter\_dumps und weight\_dumps sind die Resultate der Simulationsläufe. In diesen Ordnern werden Parameter und Gewichte des neuronalen Netzes nach erfolgreichen Simulationsläufen abgespeichert. Die Dateien werden durch das Skript \texttt{hickle} in ein HDF-5 Dateiformat \cite{hdf5} gespeichert.
+			\item Parameter-Dumps und Weight-Dumps sind die Resultate der Simulationsläufe. In diesen Ordnern werden Parameter und Gewichte des neuronalen Netzes nach erfolgreichen Simulationsläufen abgespeichert. Die Dateien werden durch das Paket \texttt{Hickle} in ein HDF-5 Dateiformat \cite{hdf5} gespeichert.
 		\end{itemize}		
 	\end{minipage}
 	
@@ -92,7 +90,7 @@
 				\tcp{Für Synapsen:}
 				$\boldsymbol{\sigma}$ = np.random.uniform(low = 0.05, high = 0.5, size = (1,Anz. Synapsen))\\
 				$\boldsymbol{w}$ = np.random.uniform(low = 0, high = 3, size = (1,Anz. Synapsen))\\
-				$\boldsymbol{\hat{w}}$ = np.random.uniform(low = 0, high = 03, size = (1,Anz. Gap-Junctions))
+				$\boldsymbol{\hat{w}}$ = np.random.uniform(low = 0, high = 03, size = (1,Anz. Gap-Junctions))\\
 				\KwRet{$\boldsymbol{C_m, G_{Leak}, U_{Leak}, \sigma, w, \hat{w}}$}	
 			\caption{random\_parameters}
 		\end{algorithm}\\
@@ -111,12 +109,12 @@
 				initialize(Default\_U\_leak)\\
 				episodes $\leftarrow$ episodes + 1\\
 				$\boldsymbol{C_m, G_{Leak}, U_{Leak}, \sigma, w, \hat{w}}$ = random\_parameters()\\
-				reward = run\_episode($\boldsymbol{C_m, G_{Leak}, U_{Leak}, \sigma, w, \hat{w}}$) \tcp*{Simulation mit neuen Parametern - Siehe Sec. \ref{sec:imp_sim}}
+				reward = run\_episode($\boldsymbol{C_m, G_{Leak}, U_{Leak}, \sigma, w, \hat{w}}$) \tcp*{Simulation mit neuen Parametern - Siehe Abschnitt \ref{sec:imp_sim}}
 				\If{reward $\geq$ best\_reward}{
 					Set best\_reward $\leftarrow$ reward\\
 					Result = [$\boldsymbol{C_m, G_{Leak}, U_{Leak}, \sigma, w, \hat{w}}$] \tcp*{Für Parameter-Dump}
 					\If{reward $\geq$ 200}{
-						\textbf{break}\tcp*{Exit-Argument, wenn Reward von 200 erreicht wurde}
+						\textbf{break}\tcp*{Exit-Argument, wenn Belohnung von 200 erreicht wurde}
 					}
 				}
 				\If{elapsed\_time $>$ simulation\_time}{
@@ -125,14 +123,15 @@
 			}
 			\KwRet{information.txt, parameter\_dump.hkl, date, best\_reward}
 			\caption{random\_search\_v2}
-		\end{algorithm}\\
+		\end{algorithm}
+		\newpage
 		Die elementare Funktion \texttt{run\_episode} wird in Abschnitt \ref{sec:imp_sim} genauer erläutert. Sie enthält unter anderem auch die Funktion \texttt{compute}, welche in Abschnitt \ref{sec:lif_imp} bereits detailliert thematisiert worden ist.
 	\subsection{Suchalgorithmus Genetic Algorithm}
 	\label{subsec:imp_ga}
 		\enlargethispage{2\baselineskip}
 		Als Alternative zu dem Algorithmus \texttt{Random-Search} wird ein weiterer Suchalgorithmus\\ \texttt{Genetic Algorithm} implementiert. Anhand der Beschreibung aus Abschnitt \ref{subsec:gen_alg} wird anfangs analog zu Random-Search ein Parametersatz aus einer Gleichverteilung mit festen Grenzen erzeugt. Dieser Parametersatz wird für die Simulation einer gegebenen Anzahl an Episoden genutzt, der sog. ersten Generation. Diese wird nachfolgend untersucht und ausgewertet. Aus der ersten Generation wird eine gewisse Anzahl an sehr guten Parameterläufen (mit hoher Belohnung) isoliert, die entsprechenden Parameter werden analysiert, um auf neue Grenzen der Gleichverteilung von Zufallsparametern in der nachfolgenden Generation zu schließen. Somit bildet sich wie in Abbildung \ref{fig:gen_chart} gezeigt eine zielführende Suche nach Parametern, welche für eine stabile Simulation sorgen.
 		
-		Grenzen der Gleichverteilung für zufällige Parameter werden mit zunehmender Anzahl an Generationen justiert und konvergieren auf einen optimalen Wert:
+		Grenzen der Gleichverteilung für zufällige Parameter werden mit zunehmender Anzahl an Generationen justiert und konvergieren auf einen optimalen Wert. Abbildungen \ref{fig:ga_1} und \ref{fig:ga_2} zeigen einen beispielhaften Verlauf der Konvergenz verschiedener Parameter auf.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=11cm]{figures/chap_implement/ga_neuron.pdf}
@@ -141,22 +140,20 @@
 		\end{figure}
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=11cm]{figures/chap_implement/ga_synapse.pdf}
+			\includegraphics[width=10cm]{figures/chap_implement/ga_synapse.pdf}
 			\caption{Gleichverteilungsgrenzen von Parametern der Synapsen.}
 			\label{fig:ga_2}
 		\end{figure}
 	
 	\subsection{Optimierungsalgorithmus Weights}
-		Als erstes Optimierungsverfahren, nach erfolgreicher Simulation der Parameter des neuronalen Netzes, wird nun der Algorithmus Weights eingesetzt. Dieser lässt die bereits simulierten Parameter importieren und gewichtet jede Synapse mit einem Faktor $g\in[0,1]$. Durch einfache Simulationen mit willkürlichen Gewichten wird schnell festgestellt, welche Synapsen, bei einem Simulationslauf mit hoher Belohnung, eine große Gewichtung erhalten und welche Synapsen nicht förderlich für das Ergebnis sind. Durch diese Simulation ist es möglich, das in Kapitel \ref{chap:neuro} vorgestellte symmetrische neuronale Netz (Abbildung \ref{fig:nn_new}) zu entwickeln. Die dort gezeigten Synapsen erfahren eine relevante Gewichtung und sind somit wichtig für den Erfolg des neuronalen Netzes.
+		Als erstes Optimierungsverfahren, nach erfolgreicher Simulation der Parameter des neuronalen Netzes, wird nun der Algorithmus Weights eingesetzt. Dieser lässt die bereits simulierten Parameter importieren und gewichtet jede Synapse mit einem Faktor $g\in[0,1]$. Durch einfache Simulationen mit willkürlichen Gewichten wird schnell festgestellt, welche Synapsen, bei einem Simulationslauf mit hoher Belohnung, eine große Gewichtung erhalten und welche Synapsen nicht förderlich für das Ergebnis sind. Durch diese Simulation ist es möglich, das in Kapitel \ref{chap:neuro} vorgestellte symmetrische neuronale Netz (Abbildung \ref{fig:nn_new}) zu entwickeln. Die dort gezeigten Synapsen erfahren eine relevante Gewichtung und sind somit wichtig für die stabile Regelung durch das neuronale Netz.
 		
-		Der Gewichtungsalgorithmus ist rechenintensiver als Random-Search, da insgesamt 16 Synapsen bzw. Gap-Junctions pro Episode mit zufällig gewählten Gewichten versehen werden, um die Belohnung zu steigern. Jedoch wird eine im Schnitt um das Dreifache höhere Belohnung verzeichnet (bei gleichbleibenden Parametern), was eine sehr gute Optimierung darstellt.
-		
-		Aufgerufen wird dieser Algorithmus analog zu Random-Search aus der \texttt{main.py}-Datei. Als Input werden die bereits errechneten optimalen Parameter der jeweiligen Nervenzellen und Synapsen sowie die maximale Simulationszeit eingegeben. Ebenfalls gleich dem Algorithmus Random-Search produziert Weights einen Dump mit den errechneten Gewichten der Synapsen und Gap-Junctions sowie eine Informationsdatei im \texttt{.txt}-Format, welche weitere Zugehörigkeitsinformationen, die Anzahl an Simulationen und die Dauer enthält.
+		Der Gewichtungsalgorithmus ist rechenintensiver als der Algorithmus Random-Search, da insgesamt 16 Synapsen bzw. Gap-Junctions pro Episode mit zufällig gewählten Gewichten versehen werden, um die Belohnung zu steigern. Jedoch wird eine im Schnitt um das Dreifache höhere Belohnung verzeichnet (bei gleichbleibenden Parametern), was eine sehr gute Optimierung darstellt. Aufgerufen wird dieser Algorithmus analog zu Random-Search aus der \texttt{main.py}-Datei. Als Input werden die bereits errechneten optimalen Parameter der jeweiligen Nervenzellen und Synapsen sowie die maximale Simulationszeit eingegeben. Ebenfalls gleich dem Algorithmus Random-Search produziert Weights einen Dump mit den errechneten Gewichten der Synapsen und Gap-Junctions sowie eine Informationsdatei im \texttt{.txt}-Format, welche weitere Zugehörigkeitsinformationen, die Anzahl an Simulationen und die Dauer enthält.
 		
 	\section{Simulation in der Google Cloud Platform\textsuperscript{\textregistered}}
 	Wie bereits mehrfach erwähnt, sind die implementierten Suchalgorithmen Random-Search und Weights äußerst rechenintensiv. Beide Skripte erfordern das zufällige Generieren einer hohen Anzahl an Parametern sowie die Anwendung dieser Parameter auf das gegebene Problem durch numerische Lösungsansätze für Differenzialgleichungen (siehe Abschnitt \ref{sec:lif_imp}). Es müssen Parameter zwischengespeichert und Dumps auf Festplatten geschrieben werden.
 	
-	Um eine erfolgreiche Simulation des inversen Pendels zu erhalten, muss ein Parametersatz mit hoher Belohnung gefunden werden, welcher die korrekte Funktionsweise des neuronalen Netzes gewährleistet. Bei dem in Abbildung \ref{fig:nn_new} gezeigten neuronalen Netz werden die Parameter $C_m, G_{Leak}, U_{Leak}, \sigma, w, \hat{w}$ für Synapsen, Gap-Junctions und Nervenzellen simuliert.
+	Um eine erfolgreiche Simulation des inversen Pendels zu erhalten, muss ein Parametersatz mit hoher Belohnung gefunden werden, welcher die korrekte Funktionsweise des neuronalen Netzes gewährleistet. Bei dem in Abbildung \ref{fig:nn_new} gezeigten neuronalen Netz werden die Parameter $C_m, G_{Leak}, U_{Leak}, \sigma, w$ und $\hat{w}$ für Synapsen, Gap-Junctions und Nervenzellen simuliert.
 	\begin{center}
 		\begin{tabular}{c@{\hskip 0.5cm}c@{\hskip 0.5cm}c@{\hskip 0.5cm}}    \toprule
 			\setlength{\tabcolsep}{50pt}
@@ -186,7 +183,7 @@
 	\end{center}
 	Es werden insgesamt 18 Gewichte pro Episode erzeugt und auf das Modell angewendet. Zur Berechnung der erforderlichen Ströme und Potenziale wird das \texttt{compute}-Modul um die Funktion der Gewichtung erweitert.
 	
-	Ein solches Simulationsvorhaben wird üblicherweise aufgrund zu geringer Ressourcen nicht mehr auf Heimrechnern ausgeführt, sondern findet den Weg in die Cloud. Gerade in den letzten Jahren haben Cloud-Computing-Firmen wie Amazon mit AWS\footnote{https://aws.amazon.com/de/}, Microsoft mit der Azure Cloud\footnote{https://azure.microsoft.com/de-de/} und Google mit der Google Cloud Platform (GCP)\footnote{https://cloud.google.com/} an großer Aufmerksamkeit gewonnen. Die einfache Handhabung und Kontrolle über eigene virtuelle Instanzen von ganzen Betriebssystemen erlaubt eine zuverlässige und effiziente Simulation von Parametern. In dieser Angelegenheit fiel die Entscheidung auf die Google Cloud Plattform, da diese kostengünstige, virtuelle Maschinen anbietet. Gemietet wurde ein Server mit dem Standort Frankfurt, welcher über vier virtuelle Intel XEON\textsuperscript{\textregistered} Prozessoren sowie 12 GB DDR4 Arbeitsspeicher verfügt. Dies erlaubt eine schnelle Simulation von vier Instanzen zur gleichen Zeit sowie den Vorteil, dass Langzeitsimulationen von 12 Stunden oder mehr im Hintergrund oder über Nacht erfolgen können.
+	Ein solches Simulationsvorhaben wird üblicherweise aufgrund zu geringer Ressourcen nicht mehr auf Heimrechnern ausgeführt, sondern findet den Weg in die Cloud. Gerade in den letzten Jahren haben Cloud-Computing-Firmen wie Amazon mit AWS\footnote{https://aws.amazon.com/de/}, Microsoft mit der Azure Cloud\footnote{https://azure.microsoft.com/de-de/} und Google mit der Google Cloud Platform (GCP)\footnote{https://cloud.google.com/} an großer Aufmerksamkeit gewonnen. Die einfache Handhabung und Kontrolle über eigene virtuelle Instanzen von ganzen Betriebssystemen erlaubt eine zuverlässige und effiziente Simulation von Parametern. In dieser Angelegenheit fiel die Entscheidung auf die Google Cloud Plattform, da diese kostengünstige, virtuelle Maschinen anbietet. Gemietet wurde ein Server mit dem Standort Frankfurt a. M., welcher über vier virtuelle Intel XEON\textsuperscript{\textregistered} Prozessoren sowie 12 GB DDR4 Arbeitsspeicher verfügt. Dies erlaubt eine schnelle Simulation von vier Instanzen zur gleichen Zeit sowie den Vorteil, dass Langzeitsimulationen von 12 Stunden oder mehr im Hintergrund oder über Nacht erfolgen können.
 	
 	Auf der virtuellen Instanz wurde ein Linux Ubuntu 18.04 LTS installiert und bereitgestellt. Im nächsten Schritt wird die vorbereitete GitHub Repository auf das System geklont und die benötigten Abhängigkeiten (siehe Anhang \ref{app:datenblatt}) installiert. Durch einen Cronjob werden Skripte ausgeführt und mit \texttt{crontab -e} die Simulation zu einer festen Uhrzeit gestartet. Die übliche Simulationszeit beträgt 12 Stunden.\\
 	\begin{minipage}[c]{0.5\textwidth}
@@ -229,7 +226,7 @@
 	In dieser Arbeit wird die Umgebung \texttt{CartPole\_v0} (Abb. \ref{fig:imp_cartpole}) gewählt. Diese besteht aus einem einfachen inversen Pendel, welches sich auf einer zweidimensionalen Bahn frei bewegen kann.
 	\begin{figure}[H]
 		\centering
-		\def\svgwidth{12cm}
+		\def\svgwidth{13cm}
 		\input{figures/chap_implement/cartpole.pdf_tex}
 		\caption{Simulationsumgebung \texttt{CartPole\_v0}.}
 		\label{fig:imp_cartpole}
@@ -239,10 +236,10 @@
 		0 :& \text{ Schritt nach Links (REV)}\\
 		1 :& \text{ Schritt nach Rechts (FWD)}
 	\end{align*}
-	Das bereits vorgestellte neuronale Netz (Abbildung: \ref{fig:nn_new}) verfügt über zwei Motor-Neuronen, welche als Eingang der Simulation genutzt werden können. Interne Nervenzellen \textit{AVA} und \textit{AVB} sind durch eine direkte Synapse mit den genannten Motor-Neuronen verbunden und verursachen im Falle eines Feuer-Events die Bewegung des Wagens um einen Schritt nach links bzw. rechts. Pro Simulationsschritt erfolgt, je nach Observation, immer ein Feuer-Event, sodass das Pendel zu jeder Zeit eine berechnete Aktion erhält.
+	Das bereits vorgestellte neuronale Netz (Abbildung: \ref{fig:nn_new}) verfügt über zwei Motor-Neuronen, welche als Eingang der Simulation genutzt werden können. Interne Nervenzellen AVA und AVB sind durch eine direkte Synapse mit den genannten Motor-Neuronen verbunden und verursachen im Falle eines Feuer-Events die Bewegung des Wagens um einen Schritt nach links bzw. rechts. Pro Simulationsschritt erfolgt, je nach Observation, immer ein Feuer-Event, sodass das Pendel zu jeder Zeit eine berechnete Aktion erhält.
 	\begin{figure}[H] %[!t] ...
 		\centering
-		\def\svgwidth{12cm}
+		\def\svgwidth{14cm}
 		\input{figures/chap_implement/cartpole_FWD_REV.pdf_tex}
 		\caption{Simulationsumgebung \texttt{CartPole\_v0} mit Aktionen \textit{FWD} und \textit{REV}.}
 		\label{fig:imp_cartpole_FWD_REV}
@@ -265,12 +262,12 @@
 	\end{center}
 	\begin{figure}[!h] %[!t] ...
 		\centering
-		\def\svgwidth{12cm}
+		\def\svgwidth{14cm}
 		\input{figures/chap_implement/cartpole_observation.pdf_tex}
 		\caption{Simulationsumgebung \texttt{CartPole\_v0} mit Observationsgrößen.}
 		\label{fig:imp_cartpole_observation}
 	\end{figure}
-	Die Informationen aus dem Observationsvektor $\boldsymbol{o}$ werden entsprechend interpretiert und den Sensor-Neuronen zugeführt. Wie bereits in Abschnitt \ref{sec:neuro_netz} beschrieben, ist der Winkel des Pendels $\varphi$ als primäre Größe den Sensor-Neuronen \textit{PLM} und \textit{AVM} zuzuführen. Als sekundäre Größe kann die Winkelgeschwindigkeit $\dot{\varphi}$ oder die Position des Wagens $x$ den Sensor-Neuronen \textit{ALM} und \textit{PVD} zugeführt werden. Die Wahl der geeigneten sekundären Observationsgröße ist dem neuronalen Netz zuzuschreiben. Durch die inhibitorische Beeinflussung mittels Sensor-Neuronen \textit{ALM} und \textit{PVD} entsteht ein dämpfendes Signal, welches dafür sorgt, dass bei zu hoher Winkelgeschwindigkeit oder Wagenposition die Kompensation durch Bewegung des Wagens nicht übersteuert.
+	Die Informationen aus dem Observationsvektor $\boldsymbol{o}$ werden entsprechend interpretiert und den Sensor-Neuronen zugeführt. Wie bereits in Abschnitt \ref{sec:neuro_netz} beschrieben, ist der Winkel des Pendels $\varphi$ als primäre Größe den Sensor-Neuronen PLM und AVM zuzuführen. Als sekundäre Größe kann die Winkelgeschwindigkeit $\dot{\varphi}$ oder die Position des Wagens $x$ den Sensor-Neuronen ALM und PVD zugeführt werden. Die Wahl der geeigneten sekundären Observationsgröße ist dem neuronalen Netz zuzuschreiben. Durch die inhibitorische Beeinflussung mittels Sensor-Neuronen ALM und PVD entsteht ein dämpfendes Signal, welches dafür sorgt, dass bei zu hoher Winkelgeschwindigkeit oder Wagenposition die Kompensation durch Bewegung des Wagens nicht übersteuert.
 
 % ***
 \section{Visualisierung und Auswertung}
@@ -304,7 +301,7 @@
 		\caption{Verhalten des Pendels bei Eingangsgrößen $\varphi$ und $\dot{\varphi}$.}
 		\label{fig:plot_action}
 	\end{figure}
-	Als zweite Observationsgröße wurde die Winkelgeschwindigkeit $\dot{\varphi}$ gewählt, da eine Simulation mit der Eingangsgröße der Wagenposition $x$ zu sehr trägen Reaktionen des Wagens geführt haben.
+	Als zweite Observationsgröße wurde die Winkelgeschwindigkeit $\dot{\varphi}$ gewählt, da eine Simulation mit der Eingangsgröße der Wagenposition $x$ zu sehr trägen Reaktionen des Wagens geführt hat.
 
 % ***
 \section{Anmerkungen zur Implementierung}
@@ -312,13 +309,13 @@
 % ***
 	Neben den prominenten Modulen wurden im Laufe der Zeit sowohl mehrere hilfreiche Nebenmodule und Funktionen implementiert, als auch notwendige Pakete genutzt.
 	\subsection{Zentraler Ort für Parameter}
-		Um einen zentralen Ort für verschiedene Größen und Parameter zu schaffen, ist das Modul \texttt{parameters.py} erstellt worden. Dieses Modul wird im gesamten Programm eingebunden und dient als globale Informationsbasis. Nur wenige Größen können verändert werden wie bspw. die Transitionsmatrizen des neuronalen Netzes oder manche Parameter zur Berechnung von Synapsenströmen und Membranpotentialen. Alle weiteren Daten werden automatisch berechnet und im Laufe der Simulation bereitgestellt.
+		Um einen zentralen Ort für verschiedene Größen und Parameter zu schaffen, ist das Modul \texttt{parameters.py} erstellt worden. Dieses Modul wird im gesamten Programm eingebunden und dient als globale Informationsbasis. Nur wenige Größen können verändert werden wie bspw. die Transitionsmatrizen des neuronalen Netzes (siehe \eqref{eq:mat_A} und \eqref{eq:mat_B}) oder manche Parameter zur Berechnung von Synapsenströmen und Membranpotentialen. Alle weiteren Daten werden automatisch berechnet und im Laufe der Simulation bereitgestellt.
 	\subsection{Speicherung von Daten}
 		Nach einer erfolgreichen Simulation von Parametern soll der beste Parametersatz zur weiteren Analyse gespeichert werden. Dazu liefert Python die Bibliothek \texttt{Pickle}, welche verschiedene Datentypen seriell in ein kompaktes Binärformat konvertiert und in der \texttt{.p} Dateiendung speichert. Dieser Vorgang ist jedoch besonders mit Python 2.7 verhältnismäßig langsam und beeinträchtigt die Performance der Simulation. Darüber hinaus besteht eine Inkompatibilität des Dateiformats zum einen zwischen verschiedenen Python-Versionen, zum anderen unter unterschiedlichen Betriebssystemen.
 		
-		Eine elegantere Möglichkeit bietet die Open Source Bibliothek \texttt{hickle}. Sie wird ähnlich wie \texttt{pickle} importiert und speichert die gewählten Parameter in einer \texttt{.hkl}-Datei. Die Daten werden anders als bei Pickle im sog. HDF-5 (Hierarchical Data Format 5) \cite{hdf5} gespeichert. Dies ist zum einen performanter, sorgt zum anderen für eine erheblich größere Kompatibilität unter Python-Versionen und Betriebssystemen.
+		Eine elegantere Möglichkeit bietet die Open Source Bibliothek \texttt{Hickle}. Sie wird ähnlich wie \texttt{Pickle} importiert und speichert die gewählten Parameter in einer \texttt{.hkl}-Datei. Die Daten werden anders als bei Pickle im sog. HDF-5 (Hierarchical Data Format 5) \cite{hdf5} gespeichert. Dies ist zum einen performanter, sorgt zum anderen für eine erheblich größere Kompatibilität unter Python-Versionen und Betriebssystemen.
 	\subsection{Dateiinspektion}
-		Um die Inspektion der errechneten Parameter und Gewichte zu ermöglichen, wird ein eigenes Modul implementiert. Hohe Belohnungen bedeuten nicht direkt, dass das neuronale Netz in jeder Situation richtig entscheidet. Beispielsweise kann eine sehr gute Belohnung in der Bewegung des Pendels in Vorwärtsrichtung erreicht werden, obwohl die Parameter der Rückwärtsbewegung nicht sehr gut gewählt sind. Daher wird ein Modul zur detaillierten Inspizierung der Dump-Dateien \texttt{inspect.py} geschrieben. Bei Aufruf einer Funktion dieses Moduls muss jeweils der Pfad der Dump-Datei übergeben werden. Die Datei wird geöffnet und die Parameter den entsprechenden Größen zugewiesen. Danach kann ein Konsolen-Output erfolgen oder ein Plot der gespeicherten Daten erzeugt werden.
+		Um die Inspektion der errechneten Parameter und Gewichte zu ermöglichen, wird ein eigenes Modul implementiert. Hohe Belohnungen bedeuten nicht direkt, dass das neuronale Netz in jeder Situation richtig entscheidet. Beispielsweise kann eine sehr gute Belohnung in der Bewegung des Pendels in Vorwärtsrichtung erreicht werden, obwohl die Parameter der Rückwärtsbewegung nicht sehr gut gewählt sind. Daher wird ein Modul zur detaillierten Inspizierung der Dump-Dateien \texttt{inspect.py} geschrieben. Bei Aufruf einer Funktion dieses Moduls muss jeweils der Pfad der Dump-Datei übergeben werden. Die Datei wird geöffnet und die Parameter den entsprechenden Größen zugewiesen. Danach kann ein Konsolen-Output erfolgen oder eine grafische Darstellung der gespeicherten Daten erzeugt werden.
 
 
 %%% Local Variables: 

@@ -14,7 +14,7 @@
 \section{Reinforcement Learning - eine Abwandlung des Deep Learning}
 \label{sec:rl_dl}
 % ***
-	Deep Learning hat in den letzten Jahren immer mehr an Relevanz gewonnen. Obwohl der Grundstein dieser Algorithmen und Vorgehensweisen bereits Ende des 19. Jahrhunderts gelegt wurde, fehlte es damals sowohl an Rechenleistung, als auch an hoch parallelen Rechenstrukturen. In der Theorie ist das Konstrukt des Deep Learning in der Lage, bei gegebenen Berechnungsmodellen mit multiplen verbundenen Ebenen, Strukturen in großen Datenmengen zu erkennen. Durch heute verfügbare Rechenleistungen können Strukturen ein beliebig hohes Abstraktionslevel aufweisen. Anwendungsbereiche für Deep Learning bewegen sich meist im Bereich der Bild- oder Spracherkennung und Klassifizierung, breiten sich jedoch auch auf weitere Bereiche wie Medizin (Pharmazie, Genom-Entschlüsselung) oder Wirtschaft (Kunden-Kaufverhalten, Logistik) aus. Dabei zeichnet einen guten Deep Learning Algorithmus die Fähigkeit aus, sog. Raw-Files (unbearbeitete Signale wie bspw. Audio-Dateien oder Bilder) ohne Vorwissen auf die gewünschten Daten zu untersuchen und zu klassifizieren, ohne aufwendige Filter, Feature-Vektoren oder andere Mittel zur Vorklassifikation.
+	Deep Learning hat in den letzten Jahren immer mehr an Relevanz gewonnen. Obwohl der Grundstein dieser Algorithmen und Vorgehensweisen bereits Ende des 19. Jahrhunderts gelegt wurde, fehlte es damals sowohl an Rechenleistung, als auch an hoch parallelen Rechenstrukturen. In der Theorie ist das Konstrukt des Deep Learning in der Lage, bei gegebenen Berechnungsmodellen mit multiplen verbundenen Ebenen, Strukturen in großen Datenmengen zu erkennen. Durch heute verfügbare Rechenleistungen können Strukturen ein beliebig hohes Abstraktionslevel aufweisen. Anwendungsbereiche für Deep Learning bewegen sich meist im Bereich der Bild- oder Spracherkennung und Klassifizierung, breiten sich jedoch auch auf weitere Bereiche wie Medizin (Pharmazie, Genom-Entschlüsselung) oder Wirtschaft (Kunden-Kaufverhalten, Logistik) aus. Dabei zeichnet einen guten Deep Learning Algorithmus die Fähigkeit aus, sog. Raw-Files (unbearbeitete Signale wie bspw. Audio-Dateien oder Bilder) ohne Vorwissen auf die gewünschten Daten zu untersuchen und zu klassifizieren, ohne aufwendige Filter, Feature-Vektoren oder andere Mittel zur Vorklassifikation zu nutzen.
 	
 	\textit{Supervised Learning} (zu Deutsch: überwachtes Lernen) bildet die Grundlage und wurde in den Anfängen der künstlichen Intelligenz eingesetzt. Ein Algorithmus lernt aus gegebenen Paaren von Ein- und Ausgängen eine Funktion, welche nach mehrmaligen Trainingsläufen Assoziationen herstellen soll und auf neue Eingaben passende Ausgaben liefert \cite{DeepLearning}.
 	
@@ -28,15 +28,15 @@
 		\caption{Graphische Darstellung des \textit{Reinforcement Learning} Algorithmus.}
 		\label{fig:rl_chart}
 	\end{figure}
-	Der Agent beginnt mit einer anfangs willkürlich gewählten Aktion und beeinflusst damit die Umwelt bzw. die Simulation. Durch einen Interpreter ist es möglich, wichtige Messgrößen (inverses Pendel: Winkel $\varphi$ oder Winkelgeschwindigkeit $\dot{\varphi}$) zu messen und in einen Observationsvektor $\textbf{o}$ zu schreiben. Dieser kann ausgelesen werden und den aktuellen Zustand $x$ nach der erfolgten Aktion liefern. Dazu wird durch ein anfangs definiertes Lohn-System eine vereinbarte Belohnung geliefert, welcher die Performance der Simulation widerspiegelt. Der Agent besitzt nun diese Informationen und entscheidet aufgrund des gegebenen Zustandes sowie der Belohnung, welche Aktion als nächstes getätigt werden soll. In der Theorie wird so die Belohnung mit jeder erfolgreichen Episode höher und der Agent ist in der Lage gewisse Parameter der Simulation entsprechend des jeweiligen Observationsparameters anzupassen.
+	Der Agent beginnt mit einer anfangs willkürlich gewählten Aktion und beeinflusst damit die Umwelt bzw. die Simulation. Durch einen Interpreter ist es möglich, wichtige Messgrößen (inverses Pendel: Winkel $\varphi$ oder Winkelgeschwindigkeit $\dot{\varphi}$) zu messen und in einen Observationsvektor $\boldsymbol{o}$ zu schreiben. Dieser kann ausgelesen werden und den aktuellen Zustand $\boldsymbol{x}$ nach der erfolgten Aktion liefern. Dazu wird durch ein anfangs definiertes Lohn-System eine vereinbarte Belohnung $r$ geliefert, welche die Performance der Simulation widerspiegelt. Der Agent besitzt nun diese Informationen und entscheidet aufgrund des gegebenen Zustandes sowie der Belohnung, welche Aktion als nächstes getätigt werden soll. In der Theorie wird so die Belohnung mit jeder erfolgreichen Episode höher und der Agent ist in der Lage, gewisse Parameter der Simulation entsprechend des jeweiligen Observationsparameters anzupassen.
 	
-	Bei dieser Methode ist die Grundlage aller Algorithmen und Optimierungsverfahren der Gesamtreward
+	Bei dieser Methode ist die Grundlage aller Algorithmen und Optimierungsverfahren die Gesamtbelohnung
 	\begin{align}
-		G_t = \sum_{k=0}^{T}R_{t+k+1}.
+		G_t = \sum_{k=0}^{T}r_{t+k+1}.
 	\end{align}
 	Des Weiteren ist es geläufig, einen sog. \glqq Discount-Faktor\grqq{} $\gamma$ einzuführen. Belohnungen in frühen Schritten der Simulation sind wahrscheinlicher und gut vorherzusehen, wohingegen in fortgeschrittenen Simulationen die Aktionen meist schwer vorhersehbar sind und somit eine höhere Belohnung verdienen.
 	\begin{align}
-		G_{t\gamma} = \sum_{k=0}^{\infty}\gamma^k R_{t+k+1}\text{ mit }\gamma\in[0,1)
+		G_{t\gamma} = \sum_{k=0}^{\infty}\gamma^k r_{t+k+1}\text{ mit }\gamma\in[0,1)
 	\end{align}
 	Von der Benutzung eines solchen Discount-Faktors wird jedoch vorerst abgesehen, da das Finden der perfekten Parameter für die vorgestellte Simulation im Vordergrund steht. In weiteren Anwendungen kann dieser Faktor eingeführt werden.
 	
@@ -44,13 +44,13 @@
 \section{Anwendung auf Modelle neuronaler Netze}
 \label{sec:rl_neuro}
 % ***
-	\textit{Reinforcement Learning} findet klassischerweise Anwendung durch Deep Learning Algorithmen auf künstlich erstellten neuronalen Netzen mit vielen s.g. \glqq Hidden Layers\grqq{} (Ebenen zwischen Ein- und Ausgang mit hoher Anzahl an Neuronen) statt. Variiert werden in einem solchen Netz lediglich die jeweiligen Gewichte der Synapsen zwischen den Neuronen. Synapsen sind darüber hinaus einfache Mittel zur Informationsübertragung und haben keine weiteren Eigenschaften oder zeigen kein eigenes Verhalten.
+	\textit{Reinforcement Learning} findet klassischerweise Anwendung durch Deep Learning Algorithmen auf künstlich erstellten neuronalen Netzen mit vielen s.g. \textit{Hidden Layers} (Ebenen zwischen Ein- und Ausgang mit hoher Anzahl an Neuronen) statt. Variiert werden in einem solchen Netz lediglich die jeweiligen Gewichte der Synapsen zwischen den Neuronen. Synapsen sind darüber hinaus einfache Mittel zur Informationsübertragung und haben keine weiteren Eigenschaften oder zeigen kein eigenes Verhalten.
 	
-	Das hier vorliegende neuronale Netzwerk ist jedoch gänzlich anders aufgebaut. Nervenzellen werden durch Potenziale beschrieben und integrieren anliegende Informationen auf. Synapsen können verschiedener Art sein und entsprechend hemmend sowie erregend wirken. Sowohl Nervenzellen als auch Synapsen (und Gap-Junctions) haben verschiedene Parameter, welche gewisse Aktionen im neuronalen Netz verursachen können.
+	Das hier vorliegende neuronale Netzwerk ist jedoch gänzlich anders aufgebaut. Nervenzellen werden durch Potenziale beschrieben und integrieren anliegende Informationen auf. Synapsen können verschiedener Art sein und entsprechend hemmend sowie erregend wirken. Sowohl Nervenzellen als auch Synapsen und Gap-Junctions haben verschiedene Parameter, welche gewisse Aktionen im neuronalen Netz verursachen können.
 	
 	Daher wird die Methode des \textit{Reinforcement Learning} auf biologische neuronale Netze abgewandelt, um diese auf Probleme der Regelungstechnik anzuwenden. Folglich befassen wir uns mit einem neuronalen Netz, welches eine Ebene mit vier Neuronen aufweist. Diese  arbeiten wie bereits in Kapitel \ref{chap:neuro} und \ref{chap:lif} beschrieben ebenfalls anders als in den üblichen Modellen künstlicher neuronaler Netze.
 	
-	Die Schwierigkeit dieser Aufgabenstellung besteht darin, geeignete Parameter für jede Nervenzelle sowie für jede Synapse und Gap-Junction zu finden, sodass das Netz korrekt und zuverlässig auf interpretierte Signale aus der Umwelt reagiert und entsprechend durch den Agenten eine Aktion wählt, welche eine möglichst hohe Belohnung nach sich zieht. Bezogen auf Abbildung \ref{fig:rl_chart} stellt die Umwelt unsere Simulationsumgebung des inversen Pendels (\texttt{OpenAI Gym - CartPolev0}) dar. Diese nimmt eine Aktion (FWD oder REV) pro Simulationsschritt an und gibt entsprechend einen Observationsvektor $\textbf{o}$ aus, welcher durch den Interpreter übersetzt wird. Der aktuelle Zustand $x$ wird durch die vier Sensorneuronen \textit{PVD, PLM, AVM} ud \textit{ALM} entsprechend interpretiert und in das neuronale Netz eingegeben.
+	Die Schwierigkeit dieser Aufgabenstellung besteht darin, geeignete Parameter für jede Nervenzelle sowie für jede Synapse und Gap-Junction zu finden, sodass das Netz korrekt und zuverlässig auf interpretierte Signale aus der Umwelt reagiert und entsprechend durch den Agenten eine Aktion wählt, welche eine möglichst hohe Belohnung nach sich zieht. Bezogen auf Abbildung \ref{fig:rl_chart} stellt die Umwelt unsere Simulationsumgebung des inversen Pendels (OpenAI Gym - \texttt{CartPolev0}) dar. Diese nimmt eine Aktion (FWD oder REV) pro Simulationsschritt an und gibt entsprechend einen Observationsvektor $\textbf{o}$ aus, welcher durch den Interpreter übersetzt wird. Der aktuelle Zustand $x$ wird durch die vier Sensorneuronen PVD, PLM, AVM und ALM entsprechend interpretiert und in das neuronale Netz eingegeben.
 
 % ***
 \section{Verschiedene Suchalgorithmen}
@@ -75,7 +75,7 @@
 	\label{subsec:gen_alg}
 		Die Anwendung genetischer Algorithmen im Bereich des \textit{Reinforcement Learning} ist ebenfalls schon seit einiger Zeit bekannt und führt in den richtigen Situationen zu zufriedenstellenden Ergebnissen.
 		
-		Der Grundstein dieser Optimierungsverfahren wurde von Holland et al. in seinem Werk \glqq Adaption in Natural and Artificial Systems\grqq{} \cite{Holland1992} gelegt. Basierend auf den bereits von Darwin\cite{Darwin1859} beobachteten Phänomenen der Natur, setzen genetische Algorithmen bei dem Ansatz \glqq Survival of the Fittest\grqq{} an. Grundsätzlich kann die Vorgehensweise genetischer Algorithmen wie folgt dargestellt werden \cite{Goldberg1989}:
+		Der Grundstein dieser Optimierungsverfahren wurde von Holland et al. in seinem Werk \glqq Adaption in Natural and Artificial Systems\grqq{} \cite{Holland1992} gelegt. Basierend auf den bereits von Darwin \cite{Darwin1859} beobachteten Phänomenen der Natur, setzen genetische Algorithmen bei dem Ansatz \glqq Survival of the Fittest\grqq{} an. Grundsätzlich kann die Vorgehensweise genetischer Algorithmen wie folgt dargestellt werden \cite{Goldberg1989}:
 		\begin{itemize}
 			\item Die erste Generation an Parametern wird zufällig initialisiert. Gleich der Random-Search Methode werden über eine Gleichverteilung verschiedene Parameter erzeugt.
 			\item Es werden Simulationen mit den Parametern der ersten Generation gefahren. Die entsprechende Güte wird anhand des Rewards festgelegt.
@@ -94,7 +94,7 @@
 		\end{figure}
 		Wie in Abbildung \ref{fig:gen_chart} anschaulich dargestellt, verringert sich mit jeder Generation der Parameterraum und die Simulation konvergiert optimaler Weise zu einem globalen Maximum. Dieses hängt jedoch stark von der Anzahl der Selektionen sowie der gewählten Varianz bei Mutation ab. Hier ist ein optimaler Trade-Off zwischen Rechenleistung und Simulationsdauer zu finden.
 		
-		Wie nachfolgend in Kapitel \ref{chap:imp} beschrieben, findet die Anwendung genetischer Algorithmen auf das vorgestellte biologische Netzwerk statt.
+		Wie in Kapitel \ref{chap:imp} beschrieben, findet die Anwendung genetischer Algorithmen auf das vorgestellte biologische Netzwerk statt.
 	
 	\subsection{Q-Learning}
 	\label{subsec:rl_qlearning}
@@ -117,7 +117,7 @@
 		berechnen. Diese spiegeln die erwartete, diskontierte Belohnung bei Ausführung einer Aktion $a$ mit Zustand $x$ und der darauf folgenden Vorgehensweise $\pi$ wieder. Zusammenfassend kann durch die Methode des Q-Learning eine optimale Vorgehensweise des Agenten erzielt werden, wenn die entsprechenden Q-Values der optimalen Vorgehensweise gefunden bzw. erlernt werden.
 	
 	\subsection{Gradient Policies}
-		Eine weitere Möglichkeit, Probleme durch \textit{Reinforcement Learning} zu lösen, ist die Anwendung sog. \glqq Gradient Policies\grqq{}. Dies stellt ein klassisches Optimierungsproblem dar und fordert in erster Linie ebenfalls eine Markov Umgebung.
+		Eine weitere Möglichkeit, Probleme durch \textit{Reinforcement Learning} zu lösen, ist die Anwendung sog. \textit{Gradient Policies}. Dies stellt ein klassisches Optimierungsproblem dar und fordert in erster Linie ebenfalls eine Markov Umgebung.
 		
 		Es wird eine gegebene Vorgehensweise $\pi_\theta(x,a)$ mit Parametern $\theta$ angenommen. Ziel ist es, die optimalen Parameter $\theta$ zu finden, um die Belohnung zu maximieren. Um die Qualität der Vorgehensweise $\pi_\theta$ zu messen, wird
 		\begin{align}
@@ -147,7 +147,7 @@
 			Membranpotential		& $C_m$				& Kapazität der Zellmembran			& $[1\text{ mF}, 1\text{ F}]$						 \\ 
 			Membranpotential	 	& $G_{Leak}$		& Leitwert der Zellmembran			& $[50\text{ mS}, 5\text{ S}]$						 \\
 			Membranpotential	 	& $U_{Leak}$		& Ruhepotential der Zellmembran		& $[-90\text{ mV}, 0\text{ mV}]$						 \\
-			Synapsenstrom			& $E_{Excitatory}$	& pos. Beeinflussung des Membranpotentials	& $[0\text{ mV}]$							 \\
+			Synapsenstrom			& $E_{Excitatory}$	& pos. Beeinflussung des Membranpotentials	& $0\text{ mV}$							 \\
 			Synapsenstrom			& $E_{Inhibitory}$	& neg. Beeinflussung des Membranpotentials		& $[-90\text{ mV}]$							 \\ 
 			Synapsenstrom			& $\mu$				& Erwartungswert (Modelle)			& $[-40\text{ mV}]$							 \\
 			Synapsenstrom			& $\sigma$			& Standardabweichung (Modell)		& $[0.05, 0.5]$						 \\ 
@@ -158,7 +158,7 @@
 		\caption{Grenzen der essentiellen Parameter im biologischen neuronalen Netz.}
 		\label{tab:rl_parameter}
 	\end{table}
-	Die gegebenen Grenzen folgen aus \cite{WormLevelRL} und \cite{SimCE} und sind durch Calcium und Potassiummengen im Nervensystem des \textit{C. Elegans} verbunden.
+	Die gegebenen Grenzen folgen aus \cite{WormLevelRL} und \cite{SimCE} und sind durch Calcium und Potassiummengen im Nervensystem des \textit{C. Elegans} errechnet worden.
 
 %%% Local Variables: 
 %%% mode: latex
