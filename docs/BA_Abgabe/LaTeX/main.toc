@@ -39,15 +39,15 @@
 \contentsline {chapter}{\numberline {6}Performance \& Auswertung}{41}{chapter.6}
 \contentsline {section}{\numberline {6.1}Performance implementierter Algorithmen}{41}{section.6.1}
 \contentsline {section}{\numberline {6.2}Limitationen und Alternativen von Algorithmen}{43}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Analyse bereits bestehender Algotithmen}{43}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Alternative Such- und Optimierungsalgorithmen}{43}{subsection.6.2.2}
+\contentsline {subsection}{\numberline {6.2.1}Analyse bereits bestehender Algorithmen}{43}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Alternative Such- und Optimierungsalgorithmen}{44}{subsection.6.2.2}
 \contentsline {chapter}{\numberline {7}Zusammenfassung und Ausblick}{45}{chapter.7}
 \contentsline {section}{\numberline {7.1}Zusammenfassung}{45}{section.7.1}
 \contentsline {section}{\numberline {7.2}Ausblick}{46}{section.7.2}
-\contentsline {chapter}{\numberline {A}UML-Diagramme wichtiger Algorithmen}{47}{appendix.A}
-\contentsline {section}{\numberline {A.1}\texttt {Random-Search}}{47}{section.A.1}
-\contentsline {section}{\numberline {A.2}\texttt {Genetic Algorithm}}{48}{section.A.2}
-\contentsline {section}{\numberline {A.3}\texttt {Weights}}{49}{section.A.3}
-\contentsline {chapter}{\numberline {B}Datenblatt Programm: TW Circuit}{51}{appendix.B}
-\contentsline {chapter}{\numberline {C}Parameter mit guten Simulationsergebnissen}{53}{appendix.C}
-\contentsline {chapter}{Literaturverzeichnis}{57}{appendix*.35}
+\contentsline {chapter}{\numberline {A}UML-Diagramme wichtiger Algorithmen}{49}{appendix.A}
+\contentsline {section}{\numberline {A.1}\texttt {Random-Search}}{49}{section.A.1}
+\contentsline {section}{\numberline {A.2}\texttt {Genetic Algorithm}}{50}{section.A.2}
+\contentsline {section}{\numberline {A.3}\texttt {Weights}}{51}{section.A.3}
+\contentsline {chapter}{\numberline {B}Datenblatt Programm: TW Circuit}{53}{appendix.B}
+\contentsline {chapter}{\numberline {C}Parameter mit guten Simulationsergebnissen}{55}{appendix.C}
+\contentsline {chapter}{Literaturverzeichnis}{59}{appendix*.35}

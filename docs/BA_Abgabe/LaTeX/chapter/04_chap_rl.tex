@@ -5,16 +5,16 @@
 % ****
 %
 
-	Reinforcement Learning (kurz: RL) kann als einer der drei großen Bereiche des Maschine Learning interpretiert werden. Neben den Bereichen \textit{Supervised-} und  \textit{Unsupervised Learning} deckt es ein weites Spektrum an Anwendungsfeldern ab.
+	\textit{Reinforcement Learning} (kurz: RL) kann als einer der drei großen Bereiche des \textit{Machine Learning} interpretiert werden. Neben den Bereichen \textit{Supervised-} und  \textit{Unsupervised Learning} deckt es ein weites Spektrum an Anwendungsfeldern ab.
 	
-	Die grundsätzliche Vorgehensweise im Reinforcement Learning ist simpel: Ein Agent ist in der Lage, eine Simulation oder ein Spiel zu bedienen. Seine Aktion beeinflusst eine gut bekannte Umwelt bzw. Simulationsumgebung. Die Ergebnisse dieser Aktion werden durch das Beobachten der Umwelt bzw. der Simulation interpretiert und eingeschätzt. Der Lernprozess erfolgt, indem der Agent durch die Interpretierung der Observation und einer Belohnung eine Aktion tätigt, welche diese maximieren soll. Durch die immer größer werdende Datenbasis fällt es dem Agenten mit fortgeschrittener Simulation immer leichter, die \glqq richtigen\grqq{} Aktionen zu treffen, um die maximale Belohnung zu erhalten.
+	Die grundsätzliche Vorgehensweise im \textit{Reinforcement Learning} ist simpel: Ein Agent ist in der Lage eine Simulation oder ein Spiel zu bedienen. Seine Aktion beeinflusst eine gut bekannte Umwelt bzw. Simulationsumgebung. Die Ergebnisse dieser Aktion werden durch das Beobachten der Umwelt bzw. der Simulation interpretiert und eingeschätzt. Der Lernprozess erfolgt, indem der Agent durch die Interpretierung der Observation und einer Belohnung eine Aktion tätigt, welche diese maximieren soll. Durch die immer größer werdende Datenbasis fällt es dem Agenten mit fortgeschrittener Simulation immer leichter, die \glqq richtigen\grqq{} Aktionen zu treffen, um die maximale Belohnung zu erhalten.
 	
 
 % ***
 \section{Reinforcement Learning - eine Abwandlung des Deep Learning}
 \label{sec:rl_dl}
 % ***
-	Deep Learning hat in den letzten Jahren immer mehr an Relevanz gewonnen. Obwohl der Grundstein dieser Algorithmen und Vorgehensweisen bereits Ende des 19. Jahrhunderts gelegt wurde, fehlte es damals sowohl an Rechenleistung, als auch an hoch parallelen Rechenstrukturen. In der Theorie ist das Konstrukt des Deep Learning in der Lage, bei gegebenen Berechnungsmodellen mit multiplen verbundenen Ebenen Strukturen in großen Datenmengen zu erkennen. Durch heute verfügbare Rechenleistungen können Strukturen ein beliebig hohes Abstraktionslevel aufweisen. Anwendungsbereiche für Deep Learning bewegen sich meist im Bereich der Bild- oder Spracherkennung und Klassifizierung, breiten sich jedoch auch auf weitere Bereiche wie Medizin (Pharmazie, Genom-Entschlüsselung) oder Wirtschaft (Kunden-Kaufverhalten, Logistik) aus. Dabei zeichnet einen guten Deep Learning Algorithmus die Fähigkeit aus, sog. Raw-Files (unbearbeitete Signale wie bspw. Audio-Dateien oder Bilder) ohne Vorwissen auf die gewünschten Daten zu untersuchen und zu klassifizieren, ohne aufwendige Filter, Feature-Vektoren oder andere Mittel zur Vorklassifikation.
+	Deep Learning hat in den letzten Jahren immer mehr an Relevanz gewonnen. Obwohl der Grundstein dieser Algorithmen und Vorgehensweisen bereits Ende des 19. Jahrhunderts gelegt wurde, fehlte es damals sowohl an Rechenleistung, als auch an hoch parallelen Rechenstrukturen. In der Theorie ist das Konstrukt des Deep Learning in der Lage, bei gegebenen Berechnungsmodellen mit multiplen verbundenen Ebenen, Strukturen in großen Datenmengen zu erkennen. Durch heute verfügbare Rechenleistungen können Strukturen ein beliebig hohes Abstraktionslevel aufweisen. Anwendungsbereiche für Deep Learning bewegen sich meist im Bereich der Bild- oder Spracherkennung und Klassifizierung, breiten sich jedoch auch auf weitere Bereiche wie Medizin (Pharmazie, Genom-Entschlüsselung) oder Wirtschaft (Kunden-Kaufverhalten, Logistik) aus. Dabei zeichnet einen guten Deep Learning Algorithmus die Fähigkeit aus, sog. Raw-Files (unbearbeitete Signale wie bspw. Audio-Dateien oder Bilder) ohne Vorwissen auf die gewünschten Daten zu untersuchen und zu klassifizieren, ohne aufwendige Filter, Feature-Vektoren oder andere Mittel zur Vorklassifikation.
 	
 	\textit{Supervised Learning} (zu Deutsch: überwachtes Lernen) bildet die Grundlage und wurde in den Anfängen der künstlichen Intelligenz eingesetzt. Ein Algorithmus lernt aus gegebenen Paaren von Ein- und Ausgängen eine Funktion, welche nach mehrmaligen Trainingsläufen Assoziationen herstellen soll und auf neue Eingaben passende Ausgaben liefert \cite{DeepLearning}.
 	
@@ -25,7 +25,7 @@
 		\centering
 		\def\svgwidth{12cm}
 		\input{figures/chap_rl/RL_Chart.pdf_tex}
-		\caption{Graphische Darstellung des Reinforcement Learning Algorithmus.}
+		\caption{Graphische Darstellung des \textit{Reinforcement Learning} Algorithmus.}
 		\label{fig:rl_chart}
 	\end{figure}
 	Der Agent beginnt mit einer anfangs willkürlich gewählten Aktion und beeinflusst damit die Umwelt bzw. die Simulation. Durch einen Interpreter ist es möglich, wichtige Messgrößen (inverses Pendel: Winkel $\varphi$ oder Winkelgeschwindigkeit $\dot{\varphi}$) zu messen und in einen Observationsvektor $\textbf{o}$ zu schreiben. Dieser kann ausgelesen werden und den aktuellen Zustand $x$ nach der erfolgten Aktion liefern. Dazu wird durch ein anfangs definiertes Lohn-System eine vereinbarte Belohnung geliefert, welcher die Performance der Simulation widerspiegelt. Der Agent besitzt nun diese Informationen und entscheidet aufgrund des gegebenen Zustandes sowie der Belohnung, welche Aktion als nächstes getätigt werden soll. In der Theorie wird so die Belohnung mit jeder erfolgreichen Episode höher und der Agent ist in der Lage gewisse Parameter der Simulation entsprechend des jeweiligen Observationsparameters anzupassen.
@@ -44,11 +44,11 @@
 \section{Anwendung auf Modelle neuronaler Netze}
 \label{sec:rl_neuro}
 % ***
-	Reinforcement Learning findet klassischerweise Anwendung durch Deep Learning Algorithmen auf künstlich erstellten neuronalen Netzen mit vielen s.g. \glqq Hidden Layers\grqq{} (Ebenen zwischen Ein- und Ausgang mit hoher Anzahl an Neuronen) statt. Variiert werden in einem solchen Netz lediglich die jeweiligen Gewichte der Synapsen zwischen den Neuronen. Synapsen sind darüber hinaus einfache Mittel zur Informationsübertragung und haben keine weiteren Eigenschaften oder zeigen kein eigenes Verhalten.
+	\textit{Reinforcement Learning} findet klassischerweise Anwendung durch Deep Learning Algorithmen auf künstlich erstellten neuronalen Netzen mit vielen s.g. \glqq Hidden Layers\grqq{} (Ebenen zwischen Ein- und Ausgang mit hoher Anzahl an Neuronen) statt. Variiert werden in einem solchen Netz lediglich die jeweiligen Gewichte der Synapsen zwischen den Neuronen. Synapsen sind darüber hinaus einfache Mittel zur Informationsübertragung und haben keine weiteren Eigenschaften oder zeigen kein eigenes Verhalten.
 	
 	Das hier vorliegende neuronale Netzwerk ist jedoch gänzlich anders aufgebaut. Nervenzellen werden durch Potenziale beschrieben und integrieren anliegende Informationen auf. Synapsen können verschiedener Art sein und entsprechend hemmend sowie erregend wirken. Sowohl Nervenzellen als auch Synapsen (und Gap-Junctions) haben verschiedene Parameter, welche gewisse Aktionen im neuronalen Netz verursachen können.
 	
-	Daher wird die Methode des Reinforcement Learning auf biologische neuronale Netze abgewandelt, um diese auf Probleme der Regelungstechnik anzuwenden. Folglich befassen wir uns mit einem neuronalen Netz, welches eine Ebene mit vier Neuronen aufweist. Diese  arbeiten wie bereits in Kapitel \ref{chap:neuro} und \ref{chap:lif} beschrieben ebenfalls anders als in den üblichen Modellen künstlicher neuronaler Netze.
+	Daher wird die Methode des \textit{Reinforcement Learning} auf biologische neuronale Netze abgewandelt, um diese auf Probleme der Regelungstechnik anzuwenden. Folglich befassen wir uns mit einem neuronalen Netz, welches eine Ebene mit vier Neuronen aufweist. Diese  arbeiten wie bereits in Kapitel \ref{chap:neuro} und \ref{chap:lif} beschrieben ebenfalls anders als in den üblichen Modellen künstlicher neuronaler Netze.
 	
 	Die Schwierigkeit dieser Aufgabenstellung besteht darin, geeignete Parameter für jede Nervenzelle sowie für jede Synapse und Gap-Junction zu finden, sodass das Netz korrekt und zuverlässig auf interpretierte Signale aus der Umwelt reagiert und entsprechend durch den Agenten eine Aktion wählt, welche eine möglichst hohe Belohnung nach sich zieht. Bezogen auf Abbildung \ref{fig:rl_chart} stellt die Umwelt unsere Simulationsumgebung des inversen Pendels (\texttt{OpenAI Gym - CartPolev0}) dar. Diese nimmt eine Aktion (FWD oder REV) pro Simulationsschritt an und gibt entsprechend einen Observationsvektor $\textbf{o}$ aus, welcher durch den Interpreter übersetzt wird. Der aktuelle Zustand $x$ wird durch die vier Sensorneuronen \textit{PVD, PLM, AVM} ud \textit{ALM} entsprechend interpretiert und in das neuronale Netz eingegeben.
 
@@ -56,24 +56,24 @@
 \section{Verschiedene Suchalgorithmen}
 \label{sec:rl_alt}
 % ***
-	Die Wahl des geeigneten Suchalgorithmus ist immer von der Beschaffenheit der Problemstellung abhängig. Klassische Probleme mit Anwendung des Reinforcement Learning auf künstliche neuronale Netze nutzen Algorithmen wie Q-Learning, Policies (Epsilon-Greedy, Gradient-Decend und -Acend) oder genetische Algorithmen. Diese sind hoch spezialisiert und suchen nach Maxima der gegebenen Funktion, um den Fehler zu reduzieren. Bei einer großen Zahl an Parametern, welche untereinander noch korreliert sein können, kommt oft der einfache, jedoch gleichzeitig sehr effektive \glqq Random-Search\grqq{} Algorithmus zum Einsatz.
+	Die Wahl des geeigneten Suchalgorithmus ist immer von der Beschaffenheit der Problemstellung abhängig. Klassische Probleme mit Anwendung des \textit{Reinforcement Learning} auf künstliche neuronale Netze nutzen Algorithmen wie Q-Learning, \textit{Policies} (Epsilon-Greedy, Gradient-Decend und -Acend) oder genetische Algorithmen. Diese sind hoch spezialisiert und suchen nach Maxima der gegebenen Funktion, um den Fehler zu reduzieren. Bei einer großen Zahl an Parametern, welche untereinander noch korreliert sein können, kommt oft der einfache, jedoch gleichzeitig sehr effektive \glqq Random-Search\grqq{} Algorithmus zum Einsatz.
 	
-	Grundsätzlich sei noch zu erwähnen, dass konventionelle Such- bzw. Optimierungsalgorithmen innerhalb des Reinforcement Learning ein Markov-Entscheidungsproblem voraussetzen. 
-	\begin{remark}[Markow Eigenschaft und Umgebung]
-		Als Markow-Eigenschaft\footnote{Nach Andrei Markow (1856 - 1922)} bezeichnet man, wie stark ein stochastischer Prozess von der eigenen Vergangenheit abhängt. Diese Bedingung erlaubt es, Markow-Prozesse zu beschreiben.
+	Grundsätzlich sei noch zu erwähnen, dass konventionelle Such- bzw. Optimierungsalgorithmen innerhalb des \textit{Reinforcement Learning} ein Markov-Entscheidungsproblem voraussetzen. 
+	\begin{remark}[Markov Eigenschaft und Umgebung]
+		Als Markov Eigenschaft\footnote{Nach Andrei Markov (1856 - 1922)} bezeichnet man, wie stark ein stochastischer Prozess von der eigenen Vergangenheit abhängt. Diese Bedingung erlaubt es, Markov-Prozesse zu beschreiben.
 		
-		Durch eine Markow-Umgebung ist es möglich, aus einer begrenzten Anzahl an vergangenen Zuständen die Wahrscheinlichkeit für das Eintreten zukünftiger Ereignisse durch selbst gewählte Aktionen vorherzusagen. \cite{SilverRL}
+		Durch eine Markov Umgebung ist es möglich, aus einer begrenzten Anzahl an vergangenen Zuständen die Wahrscheinlichkeit für das Eintreten zukünftiger Ereignisse durch selbst gewählte Aktionen vorherzusagen. \cite{SilverRL}
 	\end{remark}
 	
 	\subsection{Random-Search}
 	\label{subsec:rl_rs}
-		Gewisse Probleme in der Domäne des Reinforcement Learning erfordern einen verallgemeinerten Ansatz zum Finden von optimalen Parametern. Das hier vorliegende Problem bietet durch eine große Anzahl an Parametern eine Vielzahl an lokalen Maxima in der Belohnungsfunktion und bereitet daher den meisten zielgerichteten Algorithmen Probleme bei der Anwendung. Ein Anpassen an die geforderten Umstände ist im Grunde möglich, erfordert jedoch einen hohen Rechenaufwand und führt unter Umständen zu keiner Verbesserung der Ergebnisse. Daher wird die Methode des Random-Search angewendet.
+		Gewisse Probleme in der Domäne des \textit{Reinforcement Learning} erfordern einen verallgemeinerten Ansatz zum Finden von optimalen Parametern. Das hier vorliegende Problem bietet durch eine große Anzahl an Parametern eine Vielzahl an lokalen Maxima in der Belohnungsfunktion und bereitet daher den meisten zielgerichteten Algorithmen Probleme bei der Anwendung. Ein Anpassen an die geforderten Umstände ist im Grunde möglich, erfordert jedoch einen hohen Rechenaufwand und führt unter Umständen zu keiner Verbesserung der Ergebnisse. Daher wird die Methode des Random-Search angewendet.
 		
 		Wie bereits kurz in Kapitel \ref{chap:einleitung} erwähnt, werden Parameter für die Simulation in vorher festgelegten Grenzen durch eine Gleichverteilung erzeugt. Diese werden auf eine Simulation angewendet und die Performance wird anhand der Belohnung ausgewertet. Durch ein simples High Score System werden Parameter mit guter Belohnung gespeichert, schlechte Simulationen werden verworfen. Durch den Einsatz von genügend Rechenleistung und langen Simulationszeiten können Parameter mit guten Simulationseigenschaften gefunden werden (siehe Anhang \ref{app:parameter}).
 	
 	\subsection{Genetische Algorithmen}
 	\label{subsec:gen_alg}
-		Die Anwendung genetischer Algorithmen im Bereich des Reinforcement Learning ist ebenfalls schon seit einiger Zeit bekannt und führt in den richtigen Situationen zu zufriedenstellenden Ergebnissen.
+		Die Anwendung genetischer Algorithmen im Bereich des \textit{Reinforcement Learning} ist ebenfalls schon seit einiger Zeit bekannt und führt in den richtigen Situationen zu zufriedenstellenden Ergebnissen.
 		
 		Der Grundstein dieser Optimierungsverfahren wurde von Holland et al. in seinem Werk \glqq Adaption in Natural and Artificial Systems\grqq{} \cite{Holland1992} gelegt. Basierend auf den bereits von Darwin\cite{Darwin1859} beobachteten Phänomenen der Natur, setzen genetische Algorithmen bei dem Ansatz \glqq Survival of the Fittest\grqq{} an. Grundsätzlich kann die Vorgehensweise genetischer Algorithmen wie folgt dargestellt werden \cite{Goldberg1989}:
 		\begin{itemize}
@@ -94,11 +94,11 @@
 		\end{figure}
 		Wie in Abbildung \ref{fig:gen_chart} anschaulich dargestellt, verringert sich mit jeder Generation der Parameterraum und die Simulation konvergiert optimaler Weise zu einem globalen Maximum. Dieses hängt jedoch stark von der Anzahl der Selektionen sowie der gewählten Varianz bei Mutation ab. Hier ist ein optimaler Trade-Off zwischen Rechenleistung und Simulationsdauer zu finden.
 		
-		Wie nachfolgend in Kapitel \ref{chap:imp} beschrieben findet die Anwendung genetischer Algorithmen auf das vorgestellte biologische Netzwerk statt.
+		Wie nachfolgend in Kapitel \ref{chap:imp} beschrieben, findet die Anwendung genetischer Algorithmen auf das vorgestellte biologische Netzwerk statt.
 	
 	\subsection{Q-Learning}
 	\label{subsec:rl_qlearning}
-		Die Methode des Q-Learnings wurde zuerst von Watkins \cite{Watkins1992} definiert und vorgestellt. Voraussetzung um diese Algorithmen anzuwenden ist eine kontrollierte Markov Umgebung. Ziel der Q-Learning Methode ist es, die Qualität der getätigten Aktionen bei unterschiedlichen Simulationsbedingungen zu verbessern. Dabei wird ein Agent eingesetzt, welcher lernt, in einer Markow-Umgebung optimal zu handeln, indem die Konsequenzen der Aktionen sofort zurückgeführt, analysiert und verarbeitet werden. Dem Agenten ist zu jedem Zeitpunkt der Simulation die Umwelt unbekannt.
+		Die Methode des Q-Learnings wurde zuerst von Watkins \cite{Watkins1992} definiert und vorgestellt. Voraussetzung um diese Algorithmen anzuwenden, ist eine kontrollierte Markov Umgebung. Ziel der Q-Learning Methode ist es, die Qualität der getätigten Aktionen bei unterschiedlichen Simulationsbedingungen zu verbessern. Dabei wird ein Agent eingesetzt, welcher lernt, in einer Markov Umgebung optimal zu handeln, indem die Konsequenzen der Aktionen sofort zurückgeführt, analysiert und verarbeitet werden. Dem Agenten ist zu jedem Zeitpunkt der Simulation die Umwelt unbekannt.
 		
 		Unmittelbar nach einer getätigten Aktion $a$ erhält der Agent neben dem Zustand $x$ (ausgewählte Messgrößen wie bspw. der Winkel des inversen Pendels $\varphi$) die Belohnung $R_x(\pi(x))$. Aus diesen Informationen lässt sich der Wert $V^\pi$ des erhaltenen Zustandes $x$ berechnen:
 		\begin{align}
@@ -117,7 +117,7 @@
 		berechnen. Diese spiegeln die erwartete, diskontierte Belohnung bei Ausführung einer Aktion $a$ mit Zustand $x$ und der darauf folgenden Vorgehensweise $\pi$ wieder. Zusammenfassend kann durch die Methode des Q-Learning eine optimale Vorgehensweise des Agenten erzielt werden, wenn die entsprechenden Q-Values der optimalen Vorgehensweise gefunden bzw. erlernt werden.
 	
 	\subsection{Gradient Policies}
-		Eine weitere Möglichkeit, Probleme durch Reinforcement Learning zu lösen, ist die Anwendung sog. \glqq Gradient Policies\grqq{}. Dies stellt ein klassisches Optimierungsproblem dar und fordert in erster Linie ebenfalls eine Markow-Umgebung.
+		Eine weitere Möglichkeit, Probleme durch \textit{Reinforcement Learning} zu lösen, ist die Anwendung sog. \glqq Gradient Policies\grqq{}. Dies stellt ein klassisches Optimierungsproblem dar und fordert in erster Linie ebenfalls eine Markov Umgebung.
 		
 		Es wird eine gegebene Vorgehensweise $\pi_\theta(x,a)$ mit Parametern $\theta$ angenommen. Ziel ist es, die optimalen Parameter $\theta$ zu finden, um die Belohnung zu maximieren. Um die Qualität der Vorgehensweise $\pi_\theta$ zu messen, wird
 		\begin{align}

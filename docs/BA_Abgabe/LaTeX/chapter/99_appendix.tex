@@ -23,12 +23,12 @@
 	\label{app:UML_GA}
 	% ***
 	\enlargethispage{2\baselineskip}
-	Die folgende Abbildung \ref{fig:uml_weights} stellt den genutzten Algorithmus \texttt{Genetic\_Algorithm} qualitativ in einem Programmablaufplan vor.
+	Die folgende Abbildung \ref{fig:uml_ga} stellt den genutzten Algorithmus \texttt{Genetic\_Algorithm} qualitativ in einem Programmablaufplan vor.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=14cm]{figures/appendix/uml_ga.pdf}
 		\caption{UML Diagramm des Algorithmus \texttt{Genetic\_Algorithm}.}
-		\label{fig:uml_weights}
+		\label{fig:uml_ga}
 	\end{figure}
 	
 	% ***
@@ -122,7 +122,7 @@
 		\boldsymbol{w} &= \begin{bmatrix}w_A & w_B\end{bmatrix}^T = \begin{bmatrix}w_1 & \dots & w_{16}\end{bmatrix}^T,\\
 		\boldsymbol{\hat{w}} &= \begin{bmatrix}\hat{w}_1 & \hat{w}_{2}\end{bmatrix}^T.
 	\end{align}
-	Gewichte der Synapsen ($\boldsymbol{\sigma}$, $\boldsymbol{w}$) und Gap-Junctions ($\boldsymbol{\hat{w}}$) werden anhand der Transitionsmatrizen \eqref{eq:mat_A} und \ref{eq:mat_B} aus Abschnitt \ref{sec:lif_imp} in Vektorschreibweise dargestellt:
+	Gewichte der Synapsen ($\boldsymbol{\sigma}$, $\boldsymbol{w}$) und Gap-Junctions ($\boldsymbol{\hat{w}}$) werden anhand der Transitionsmatrizen \eqref{eq:mat_A} und \eqref{eq:mat_B} aus Abschnitt \ref{sec:lif_imp} in Vektorschreibweise dargestellt:
 	\begin{align}
 		\boldsymbol{g} &= \begin{bmatrix}g_A & g_B\end{bmatrix}^T = \begin{bmatrix}g_1 & \dots & g_{18}\end{bmatrix}^T.
 	\end{align}
@@ -145,7 +145,7 @@
 				\renewcommand{\arraystretch}{1.5}
 				\emph{Zeitstempel} 		& \emph{Algorithmus}		& \emph{Belohnung}	& \emph{Simulation (Dauer, Anz.)} 	& \emph{Parameter}		 \\\midrule
 				
-				20180817\_01-56-01		& \texttt{Random-Search} - Parameter	& 131			& 12h, ca. 1 Mio. Sim.		& Parameter der Nervenzellen \newline
+				20180817\_01-56-01		& \texttt{Random-Search} - Parameter	& 200			& 12h, ca. 1 Mio. Sim.		& Parameter der Nervenzellen \newline
 				$\boldsymbol{C_m} = \begin{bmatrix}0.01, 0.01, 0.01, 0.01\end{bmatrix}^T$,\newline
 				$\boldsymbol{G_{Leak}} = \begin{bmatrix}1.42, 0.63, 1.42, 0.63\end{bmatrix}^T$,\newline
 				$\boldsymbol{U_{Leak}} = \begin{bmatrix}-63.2, -62.2, -63.2, -62.2\end{bmatrix}^T.$ \vspace{0.1cm} \newline

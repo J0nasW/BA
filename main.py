@@ -94,7 +94,7 @@ def load_parameter():
         vis_time = eg.integerbox("Dauer der Simulation (in Sek.):","TW Circuit")
         vs.main(parameter_dir, int(vis_time))
     elif reply == choices[1]:
-        parameter_dir = "parameter_dumps/20180817_01-56-01_rs2_v2_131.hkl"
+        parameter_dir = "parameter_dumps/20180817_01-56-01_rs2_v2_200.hkl"
         vis_time = eg.integerbox("Dauer der Simulation (in Sek.):","TW Circuit")
         vs.main(parameter_dir, int(vis_time))
 

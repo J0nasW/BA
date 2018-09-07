@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.7.17)  6 SEP 2018 22:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.7.17)  7 SEP 2018 09:31
 entering extended mode
 **./main.tex
 (main.tex
@@ -1513,9 +1513,6 @@ Package hyperref Warning: Option `pdfpagelabels' has already been used,
 
 LaTeX Warning: Label `app:UML_RS' multiply defined.
 
-
-LaTeX Warning: Label `fig:uml_weights' multiply defined.
-
 )
 \openout1 = `main.aux'.
 
@@ -1979,7 +1976,7 @@ File: figures/chap_lif/Simple_LIF.pdf Graphic file (type pdf)
 <use figures/chap_lif/Simple_LIF.pdf>
 Package pdftex.def Info: figures/chap_lif/Simple_LIF.pdf  used on input line 83
 .
-(pdftex.def)             Requested size: 398.33858pt x 203.93352pt.
+(pdftex.def)             Requested size: 426.79134pt x 218.50253pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1998,13 +1995,13 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 102.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 109.
+(babel)             in language  on input line 108.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 109.
+(babel)             in language  on input line 108.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 109.
+(babel)             in language  on input line 108.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 109.
+(babel)             in language  on input line 108.
  [15 <./figures/chap_lif/Simple_LIF.pdf>]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 121.
@@ -2558,26 +2555,26 @@ Package babel Info: Redefining ngerman shorthand "~
 File: figures/chap_implement/ga_neuron.pdf Graphic file (type pdf)
 <use figures/chap_implement/ga_neuron.pdf>
 Package pdftex.def Info: figures/chap_implement/ga_neuron.pdf  used on input li
-ne 137.
+ne 138.
 (pdftex.def)             Requested size: 312.9803pt x 156.28017pt.
 <figures/chap_implement/ga_synapse.pdf, id=835, 1110.06725pt x 554.3109pt>
 File: figures/chap_implement/ga_synapse.pdf Graphic file (type pdf)
 <use figures/chap_implement/ga_synapse.pdf>
 Package pdftex.def Info: figures/chap_implement/ga_synapse.pdf  used on input l
-ine 143.
+ine 144.
 (pdftex.def)             Requested size: 312.9803pt x 156.28017pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 148.
+(babel)             in language  on input line 149.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 148.
+(babel)             in language  on input line 149.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 151.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 151.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 151.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 151.
  [32 <./figures/chap_implement/ga_neuron.pdf> <./figures/chap_implement/ga_syna
 pse.pdf
 
@@ -2585,92 +2582,92 @@ pdfTeX warning: pdflatex.exe (file ./figures/chap_implement/ga_synapse.pdf): PD
 F inclusion: multiple pdfs with page group included in a single page
 >]
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 155.
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 156.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 155.
+(babel)             in language  on input line 156.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 155.
+(babel)             in language  on input line 156.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mathsurround' on input line 155.
+(hyperref)                removing `\mathsurround' on input line 156.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 155.
+(hyperref)                removing `\z@' on input line 156.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 155.
+(hyperref)                removing `superscript' on input line 156.
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <5.94997> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 176.
-LaTeX Font Info:    Calculating math sizes for size <5.94997> on input line 176
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 177.
+LaTeX Font Info:    Calculating math sizes for size <5.94997> on input line 177
 .
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.16495> not available
-(Font)              size <5> substituted on input line 176.
+(Font)              size <5> substituted on input line 177.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <2.97498> not available
-(Font)              size <5> substituted on input line 176.
+(Font)              size <5> substituted on input line 177.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.16495> not available
-(Font)              size <5> substituted on input line 176.
+(Font)              size <5> substituted on input line 177.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <2.97498> not available
-(Font)              size <5> substituted on input line 176.
+(Font)              size <5> substituted on input line 177.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.16495> not available
-(Font)              size <5> substituted on input line 176.
+(Font)              size <5> substituted on input line 177.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <2.97498> not available
-(Font)              size <5> substituted on input line 176.
+(Font)              size <5> substituted on input line 177.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 176.
+(babel)             in language  on input line 177.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 176.
+(babel)             in language  on input line 177.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 176.
+(babel)             in language  on input line 177.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 176.
+(babel)             in language  on input line 177.
 [33]
 <figures/chap_implement/GCP.png, id=877, 272.81924pt x 168.63pt>
 File: figures/chap_implement/GCP.png Graphic file (type png)
 <use figures/chap_implement/GCP.png>
-Package pdftex.def Info: figures/chap_implement/GCP.png  used on input line 194
+Package pdftex.def Info: figures/chap_implement/GCP.png  used on input line 195
 .
 (pdftex.def)             Requested size: 199.16928pt x 123.10916pt.
 <figures/chap_implement/GCP_2.png, id=878, 272.81924pt x 168.63pt>
 File: figures/chap_implement/GCP_2.png Graphic file (type png)
 <use figures/chap_implement/GCP_2.png>
 Package pdftex.def Info: figures/chap_implement/GCP_2.png  used on input line 2
-02.
+03.
 (pdftex.def)             Requested size: 199.16928pt x 123.10916pt.
 
-Overfull \hbox (2.43333pt too wide) in paragraph at lines 190--208
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 191--209
 []$ $[]$
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 209.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 209.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 209.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 209.
 [34 <./figures/chap_implement/GCP.png (PNG copy)> <./figures/chap_implement/GCP
 _2.png (PNG copy)>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 212.
+(babel)             in language  on input line 213.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 212.
+(babel)             in language  on input line 213.
  (figures/chap_implement/cartpole.pdf_tex
 <figures/chap_implement/cartpole.pdf, id=893, page=1, 569.05513pt x 213.39566pt
 >
@@ -2681,44 +2678,44 @@ put line 56.
 (pdftex.def)             Requested size: 341.43306pt x 128.04164pt.
 )
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 236.
+(babel)             in language  on input line 237.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 236.
+(babel)             in language  on input line 237.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 236.
+(babel)             in language  on input line 237.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 236.
+(babel)             in language  on input line 237.
  [35]
 (figures/chap_implement/cartpole_FWD_REV.pdf_tex
-<figures/chap_implement/cartpole_FWD_REV.pdf, id=901, page=1, 569.05513pt x 213
+<figures/chap_implement/cartpole_FWD_REV.pdf, id=900, page=1, 569.05513pt x 213
 .39566pt>
 File: figures/chap_implement/cartpole_FWD_REV.pdf Graphic file (type pdf)
 <use figures/chap_implement/cartpole_FWD_REV.pdf, page 1>
 Package pdftex.def Info: figures/chap_implement/cartpole_FWD_REV.pdf , page1 us
 ed on input line 56.
 (pdftex.def)             Requested size: 341.43306pt x 128.04164pt.
-<figures/chap_implement/cartpole_FWD_REV.pdf, id=902, page=2, 569.05513pt x 213
+<figures/chap_implement/cartpole_FWD_REV.pdf, id=901, page=2, 569.05513pt x 213
 .39566pt>
 File: figures/chap_implement/cartpole_FWD_REV.pdf Graphic file (type pdf)
 <use figures/chap_implement/cartpole_FWD_REV.pdf, page 2>
 Package pdftex.def Info: figures/chap_implement/cartpole_FWD_REV.pdf , page2 us
 ed on input line 58.
 (pdftex.def)             Requested size: 341.43306pt x 128.04164pt.
-<figures/chap_implement/cartpole_FWD_REV.pdf, id=903, page=3, 569.05513pt x 213
+<figures/chap_implement/cartpole_FWD_REV.pdf, id=902, page=3, 569.05513pt x 213
 .39566pt>
 File: figures/chap_implement/cartpole_FWD_REV.pdf Graphic file (type pdf)
 <use figures/chap_implement/cartpole_FWD_REV.pdf, page 3>
 Package pdftex.def Info: figures/chap_implement/cartpole_FWD_REV.pdf , page3 us
 ed on input line 60.
 (pdftex.def)             Requested size: 341.43306pt x 128.04164pt.
-<figures/chap_implement/cartpole_FWD_REV.pdf, id=904, page=4, 569.05513pt x 213
+<figures/chap_implement/cartpole_FWD_REV.pdf, id=903, page=4, 569.05513pt x 213
 .39566pt>
 File: figures/chap_implement/cartpole_FWD_REV.pdf Graphic file (type pdf)
 <use figures/chap_implement/cartpole_FWD_REV.pdf, page 4>
 Package pdftex.def Info: figures/chap_implement/cartpole_FWD_REV.pdf , page4 us
 ed on input line 62.
 (pdftex.def)             Requested size: 341.43306pt x 128.04164pt.
-<figures/chap_implement/cartpole_FWD_REV.pdf, id=905, page=5, 569.05513pt x 213
+<figures/chap_implement/cartpole_FWD_REV.pdf, id=904, page=5, 569.05513pt x 213
 .39566pt>
 File: figures/chap_implement/cartpole_FWD_REV.pdf Graphic file (type pdf)
 <use figures/chap_implement/cartpole_FWD_REV.pdf, page 5>
@@ -2727,13 +2724,13 @@ ed on input line 64.
 (pdftex.def)             Requested size: 341.43306pt x 128.04164pt.
 )
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 264.
+(babel)             in language  on input line 265.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 264.
+(babel)             in language  on input line 265.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 264.
+(babel)             in language  on input line 265.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 264.
+(babel)             in language  on input line 265.
  [36 <./figures/chap_implement/cartpole.pdf> <./figures/chap_implement/cartpole
 _FWD_REV.pdf
 
@@ -2756,7 +2753,7 @@ f): PDF inclusion: multiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex.exe (file ./figures/chap_implement/cartpole_FWD_REV.pd
 f): PDF inclusion: multiple pdfs with page group included in a single page
 >] (figures/chap_implement/cartpole_observation.pdf_tex
-<figures/chap_implement/cartpole_observation.pdf, id=915, page=1, 569.05513pt x
+<figures/chap_implement/cartpole_observation.pdf, id=914, page=1, 569.05513pt x
  213.39566pt>
 File: figures/chap_implement/cartpole_observation.pdf Graphic file (type pdf)
 <use figures/chap_implement/cartpole_observation.pdf, page 1>
@@ -2765,60 +2762,56 @@ Package pdftex.def Info: figures/chap_implement/cartpole_observation.pdf , page
 (pdftex.def)             Requested size: 341.43306pt x 128.04164pt.
 )
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 275.
+(babel)             in language  on input line 276.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 275.
-<figures/chap_implement/plot_membranpot_1.pdf, id=920, 1387.58403pt x 710.41411
+(babel)             in language  on input line 276.
+<figures/chap_implement/plot_membranpot_1.pdf, id=918, 1387.58403pt x 710.41411
 pt>
 File: figures/chap_implement/plot_membranpot_1.pdf Graphic file (type pdf)
 <use figures/chap_implement/plot_membranpot_1.pdf>
 Package pdftex.def Info: figures/chap_implement/plot_membranpot_1.pdf  used on 
-input line 283.
+input line 284.
 (pdftex.def)             Requested size: 426.79134pt x 218.50253pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 286.
+(babel)             in language  on input line 287.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 286.
+(babel)             in language  on input line 287.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 286.
+(babel)             in language  on input line 287.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 286.
+(babel)             in language  on input line 287.
  [37 <./figures/chap_implement/cartpole_observation.pdf>]
-<figures/chap_implement/plot_synstrom_1.pdf, id=930, 1387.58403pt x 710.41411pt
+<figures/chap_implement/plot_synstrom_1.pdf, id=928, 1387.58403pt x 710.41411pt
 >
 File: figures/chap_implement/plot_synstrom_1.pdf Graphic file (type pdf)
 <use figures/chap_implement/plot_synstrom_1.pdf>
 Package pdftex.def Info: figures/chap_implement/plot_synstrom_1.pdf  used on in
-put line 290.
+put line 291.
 (pdftex.def)             Requested size: 426.79134pt x 218.50253pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 296.
+(babel)             in language  on input line 297.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 296.
+(babel)             in language  on input line 297.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 296.
+(babel)             in language  on input line 297.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 296.
+(babel)             in language  on input line 297.
  [38 <./figures/chap_implement/plot_membranpot_1.pdf> <./figures/chap_implement
 /plot_synstrom_1.pdf
 
 pdfTeX warning: pdflatex.exe (file ./figures/chap_implement/plot_synstrom_1.pdf
 ): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<figures/chap_implement/plot_action.pdf, id=1007, 1387.58403pt x 710.41411pt>
+<figures/chap_implement/plot_action.pdf, id=1005, 1387.58403pt x 710.41411pt>
 File: figures/chap_implement/plot_action.pdf Graphic file (type pdf)
 <use figures/chap_implement/plot_action.pdf>
 Package pdftex.def Info: figures/chap_implement/plot_action.pdf  used on input 
-line 301.
+line 303.
 (pdftex.def)             Requested size: 426.79134pt x 218.50253pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 308.
+(babel)             in language  on input line 310.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 308.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 312.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 312.
+(babel)             in language  on input line 310.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 314.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2833,9 +2826,13 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 316.
  [39 <./figures/chap_implement/plot_action.pdf>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 318.
+(babel)             in language  on input line 316.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 318.
+(babel)             in language  on input line 316.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 320.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 320.
 )
 (chapter/06_chap_ergebnisse.tex
 Package babel Info: Redefining ngerman shorthand "|
@@ -2896,18 +2893,19 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 75.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 83.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 83.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 85.
+(babel)             in language  on input line 83.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 85.
+(babel)             in language  on input line 83.
+[43]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 85.
+(babel)             in language  on input line 83.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 85.
-[43]) (chapter/07_chap_zusammenfassung.tex
+(babel)             in language  on input line 83.
+) (chapter/07_chap_zusammenfassung.tex
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 3.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2942,7 +2940,15 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 24.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 24.
-) (chapter/99_appendix.tex
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 36.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 36.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 36.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 36.
+ [46]) (chapter/99_appendix.tex
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 4.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2951,7 +2957,19 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 4.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 4.
- [46]
+ [47]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 4.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 4.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 4.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 4.
+ [48
+
+
+]
 Anhang A.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 4.
@@ -2963,7 +2981,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 10.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 10.
-<figures/appendix/uml_rs.pdf, id=1112, 640.3925pt x 623.32875pt>
+<figures/appendix/uml_rs.pdf, id=1120, 640.3925pt x 623.32875pt>
 File: figures/appendix/uml_rs.pdf Graphic file (type pdf)
 <use figures/appendix/uml_rs.pdf>
 Package pdftex.def Info: figures/appendix/uml_rs.pdf  used on input line 16.
@@ -2980,16 +2998,13 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 26.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 26.
-[47
-
-
- <./figures/appendix/uml_rs.pdf
+[49 <./figures/appendix/uml_rs.pdf
 
 pdfTeX warning: pdflatex.exe (file ./figures/appendix/uml_rs.pdf): PDF inclusio
 n: invalid other resource which is no dict (key 'ProcSets', type <array>); igno
 red.
 >]
-<figures/appendix/uml_ga.pdf, id=1139, 640.3925pt x 929.4725pt>
+<figures/appendix/uml_ga.pdf, id=1148, 640.3925pt x 929.4725pt>
 File: figures/appendix/uml_ga.pdf Graphic file (type pdf)
 <use figures/appendix/uml_ga.pdf>
 Package pdftex.def Info: figures/appendix/uml_ga.pdf  used on input line 29.
@@ -2998,7 +3013,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 35.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 35.
-<figures/appendix/uml_w.pdf, id=1141, 640.3925pt x 623.32875pt>
+<figures/appendix/uml_w.pdf, id=1150, 640.3925pt x 623.32875pt>
 File: figures/appendix/uml_w.pdf Graphic file (type pdf)
 <use figures/appendix/uml_w.pdf>
 Package pdftex.def Info: figures/appendix/uml_w.pdf  used on input line 41.
@@ -3011,7 +3026,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 44.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 44.
- [48 <./figures/appendix/uml_ga.pdf
+ [50 <./figures/appendix/uml_ga.pdf
 
 pdfTeX warning: pdflatex.exe (file ./figures/appendix/uml_ga.pdf): PDF inclusio
 n: invalid other resource which is no dict (key 'ProcSets', type <array>); igno
@@ -3025,7 +3040,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 48.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 48.
- [49 <./figures/appendix/uml_w.pdf
+ [51 <./figures/appendix/uml_w.pdf
 
 pdfTeX warning: pdflatex.exe (file ./figures/appendix/uml_w.pdf): PDF inclusion
 : invalid other resource which is no dict (key 'ProcSets', type <array>); ignor
@@ -3039,7 +3054,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 48.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 48.
- [50
+ [52
 
 
 ]
@@ -3179,7 +3194,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 106.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 106.
-[51]
+[53]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 106.
 Package babel Info: Redefining ngerman shorthand "~
@@ -3188,7 +3203,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 106.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 106.
- [52
+ [54
 
 
 ]
@@ -3197,7 +3212,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 106.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 106.
-<figures/appendix/Neural_Net_v3_num_syn.pdf, id=1215, 752.8125pt x 752.8125pt>
+<figures/appendix/Neural_Net_v3_num_syn.pdf, id=1223, 752.8125pt x 752.8125pt>
 File: figures/appendix/Neural_Net_v3_num_syn.pdf Graphic file (type pdf)
 <use figures/appendix/Neural_Net_v3_num_syn.pdf>
 Package pdftex.def Info: figures/appendix/Neural_Net_v3_num_syn.pdf  used on in
@@ -3211,7 +3226,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 136.
-[53]) (main.bbl
+[55]) (main.bbl
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
@@ -3220,7 +3235,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
- [54 <./figures/appendix/Neural_Net_v3_num_syn.pdf>]
+ [56 <./figures/appendix/Neural_Net_v3_num_syn.pdf>]
 Overfull \hbox (17.52805pt too wide) in paragraph at lines 1--1
 [] \OT1/cmr/m/n/10.95 = [][]$.| 
  []
@@ -3243,7 +3258,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
-[55
+[57
 
 
 
@@ -3256,7 +3271,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
- [56
+ [58
 
 
 
@@ -3303,7 +3318,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 66.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 66.
-[57]
+[59]
 Underfull \hbox (badness 5548) in paragraph at lines 67--70
 []\OT1/cmr/m/n/10.95 Rojas R (1996) Theo-rie der neu-ro-na-len Net-ze: Ei-ne sy
 s-te-ma-ti-sche Einf[]uhrung
@@ -3336,7 +3351,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 221.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 221.
- [58]
+ [60]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 221.
 Package babel Info: Redefining ngerman shorthand "~
@@ -3345,14 +3360,14 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 221.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 221.
- [59]
+ [61]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 223.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 223.
  (main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 223.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 223.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 56529D48FA8CCE4E4EEF387B97E09B32;3987.
+(rerunfilecheck)             Checksum: 421F7AB044898F2E7C629BA84F1DBCF7;3987.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -3366,10 +3381,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 56067 strings out of 492973
- 1262011 string characters out of 3135932
- 1486395 words of memory out of 3000000
- 58901 multiletter control sequences out of 15000+200000
+ 56070 strings out of 492973
+ 1262041 string characters out of 3135932
+ 1486550 words of memory out of 3000000
+ 58903 multiletter control sequences out of 15000+200000
  550325 words of font info for 93 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  137i,21n,177p,1622b,2691s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -3402,9 +3417,9 @@ nts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
 tt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Prog
 ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (65 pages, 1410409 bytes).
+Output written on main.pdf (67 pages, 1414505 bytes).
 PDF statistics:
- 1446 PDF objects out of 1728 (max. 8388607)
- 277 named destinations out of 1000 (max. 500000)
+ 1455 PDF objects out of 1728 (max. 8388607)
+ 278 named destinations out of 1000 (max. 500000)
  737 words of extra memory for PDF output out of 10000 (max. 10000000)
 

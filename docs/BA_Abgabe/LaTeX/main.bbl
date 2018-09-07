@@ -8,10 +8,10 @@
   \urlstyle{rm}\Url}\fi
 \providecommand{\eprint}[2][]{\url{#2}}
 
-\bibitem[{Brockman et~al(????)Brockman, Cheung, Pettersson, Schneider,
+\bibitem[{Brockman et~al(2016)Brockman, Cheung, Pettersson, Schneider,
   Schulman, Tang, and Zaremba}]{Brockman2016}
 Brockman G, Cheung V, Pettersson L, Schneider J, Schulman J, Tang J, Zaremba W
-  (????) Openai gym \eprint{http://arxiv.org/abs/1606.01540v1}
+  (2016) Openai gym \eprint{http://arxiv.org/abs/1606.01540v1}
 
 \bibitem[{Chalfie et~al(1985)Chalfie, Sulston, White, Southgate, Thomson, and
   Brenner}]{CElegans}
