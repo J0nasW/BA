@@ -1,0 +1,40 @@
+%
+% ****
+\chapter{Zusammenfassung \& Ausblick}
+\label{chap:zsm}
+% ****
+%
+	Dieses Kapitel schließt mit einer Zusammenfassung und einem Ausblick die Arbeit ab. Durch den modularen Aufbau des Programms und der Erarbeitung grundlegender Themen fällt der Ausblick sehr ausführlich aus.
+
+% ***
+\section{Zusammenfassung}
+\label{sec:erg_zsm}
+% ***
+	In Zeiten neuer Denkweisen und unkonventioneller Herangehensweisen an bestehende Probleme findet die Anwendung neuronaler Netze und künstlicher Intelligenzen immer mehr Anklang in fast allen Bereichen des Alltags und der Wissenschaft. Neue Theorien und Lernalgorithmen lassen hoch parallele Rechenkonstrukte lernen und nutzen diese Methoden, um komplexe Aufgabenstellungen zu lösen. Diese Arbeit untersucht zum einen die Grundzüge des \textit{Deep Learning} mit Schwerpunkt auf \textit{Reinforcement Learning}, wendet diese Erkenntnisse jedoch auf unkonventionellem Wege auf bereits bestehende neuronale Netze biologischer Lebensformen an. Dieser Ansatz wurde noch nicht oft untersucht und bietet eine neue Möglichkeit, von der Evolution zu lernen und besser als bereits bestehende Systeme zu werden.
+	
+	Dies erfordert sowohl ein sehr genaues und umfassendes Verständnis von biologischen und chemischen Prozessen in neuronalen Netzen sowie medizinische Grundlagen, als auch eine ausgereifte Modellierung, welche diese Prozesse effizient und mit hoher Genauigkeit simulativ nachbilden kann. Darüber hinaus benötigt es gute Lernalgorithmen, um unbekannte Parameter und Assoziationen in neuronalen Netzen zu finden und diese auszubilden.
+	
+	Prozesse innerhalb neuronaler Netze wurden bereits gut erforscht und dokumentiert. Daher konnte hier auf eine große Wissensdatenbank zurückgegriffen werden, um formulare Zusammenhänge für Größen wie Synapsenströme und Membranpotentiale herzuleiten \cite{NeuronalDynamics}. Dies ist für den Simulator von großer Bedeutung, da somit die Signalverläufe und Feuer-Events dargestellt werden können. Wie anhand der Abbildungen \ref{fig:plot_membr} und \ref{fig:plot_synstrom} zu sehen ist, liefert das \textit{LIF} - Modell eine sehr genaue und zuverlässige Simulation der Nervenzellen. Voraussetzung für eine realitätsnahe Simulation sind jedoch stimmige Parameter in jeder einzelnen Nervenzelle und Synapse bzw. Gap-Junction. Diese Parameter wurden durch Suchalgorithmen und langen Simulationsläufe gefunden und zeigen letztendlich den ursprünglichen Reflex des Wurms \textit{C. Elegans}: \textit{Touch-Withdrawal} (zu Deutsch: Rückwärtsbewegung bei Berührung). Des weiteren wurde der Simulator ausgebaut, um ein gegebenes Netzwerk zur Regelung dynamischer Systeme zu nutzen. Auch dies konnte mit Erfolg nachgewiesen werden, wie in Anhang \ref{app:parameter} zu sehen ist.
+	
+	Zusammenfassend zeigt dieses Thema durch Kombination verschiedener Bereiche der Wissenschaft eine neue Herangehensweise an bereits bestehende Probleme der Regelungstechnik auf. Durch die Aktualität der genutzten Werkzeuge und Informationsquellen entstand eine Implementierung, welche durch das Einsetzen des \textit{Touch-Withdrawal Neuronal Circuit} \cite{WormLevelRL} erfolgreich in der Lage war, dynamische Systeme in der Regelungstechnik zu stabilisieren.
+	
+	Nichtsdestotrotz gibt es nach wie vor viele Baustellen und Erweiterungsmöglichkeiten. Das Regeln des inversen Pendels ist weiterhin durch kleine Unstimmigkeiten schwierig und bricht in manchen Simulationen ab. Dies ist auf die Auswahl der Parameter sowie des Designs der bisher implementierten Suchalgorithmen zurückzuführen. Auch das selbst erstellte, symmetrische neuronale Netz (nach Abbildung \ref{fig:nn_new}) kann durch Erweiterungen nochmals optimiert werden.
+
+% ***
+\section{Ausblick}
+\label{sec:erg_ausblick}
+% ***
+	Die Anwendung des \textit{Reinforcement Learning} oder generell des \textit{Deep Learning} in Bereichen der Regelungstechnik ist noch sehr neu. Besonders der Ansatz, ein existierendes, biologisches neuronales Netz zur Steuerung dynamischer Systeme zu verwenden, wurde in Fachkreisen noch nicht sehr oft dokumentiert. Daher basiert diese Arbeit auf sehr viel Grundlagenforschung zu Nervensystemen des Wurms \textit{C. Elegans} \cite{CElegans} sowie der Methoden des \textit{Reinforcement Learning} \cite{DeepLearning} \cite{Russell2016}, um eine Brücke zwischen diesen Themen zu schlagen. Es wird ein ein grundlegendes Verständnis über die Prozesse biologischer neuronaler Netze und dessen Implementierung in einen Simulator dargestellt.
+	
+	Schon die Berechnungsmodelle der Synapsenströme und Membranpotentiale sind vereinfacht dargestellt. Wie in dem Buch Neuronal Dynamics \cite{NeuronalDynamics} zu lesen ist, bietet das \textit{LIF} - Modell zwar präzise und zuverlässige Verhaltenssimulationen der Nervenzellen, hat jedoch an anderen Stellen Nachteile, wie in Abschnitt \ref{sec:lif_lim} beschrieben ist.
+	
+	Weitergehend sollen Parameter und Gewichte für das neuronale Netz gefunden werden, um eine korrekte und stabile Simulation zu erhalten. Dies ist bisher nur durch die Methode Random-Search und genetischen Algorithmen geschehen. Durch lange Simulationszeiten auf effizienten Rechnern wurden Parametersätze ermittelt, welche eine zuverlässige Regelung des inversen Pendels gewährleisten. Die Anwendung des genetischen Algorithmus führt ebenfalls zu hohen Belohnungen bereits nach kurzen Simulationszeiten (5 - 10 Minuten), diese treten jedoch selten auf, da meist in ein lokales Maximum der Belohnungsfunktion konvergiert wird (siehe Abschnitt \ref{subsec:imp_ga}). Weitere Suchalgorithmen (beschrieben in Abschnitt \ref{sec:rl_alt}) könnten durch große Anpassungen ebenfalls Anwendung in der Suche nach passenden Parametern finden.
+	
+	Das Framework des Simulators ist bisher mit dem Projekt gewachsen. Obwohl immer stets auf den universellen und modularen Aufbau geachtet wurde, könnte der Simulator noch allgemeiner implementiert sein und eine größere Anzahl an Funktionen aufweisen. Eine Implementierung als Paket in Python mit Verfügbarkeit über PyPI\footnote{www.pypi.org - Python Package Index} könnte ebenfalls realisiert werden.
+	
+	Abschließend wurde durch diese Arbeit ein Grundstein gelegt, welcher grundsätzliche Informationen zu den Aspekten biologischer neuronaler Netze, neuronaler Dynamik, und Algorithmen des \textit{Reinforcement Learning} bietet. Darüber hinaus kann der Simulator \texttt{TW Circuit} aufgrund des modularen Aufbaus beliebig erweitert werden. Ein Funktionsbeweis liefert die Simulation des inversen Pendels \texttt{CartPole\_v0} aus dem Paket OpenAI Gym, welche mit Erfolg durch eine Belohnung von 200 bestanden wurde (siehe Parameter in Anhang \ref{app:parameter}).
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End: 

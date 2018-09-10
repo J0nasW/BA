@@ -1,4 +1,4 @@
-\begin{thebibliography}{19}
+\begin{thebibliography}{21}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -8,16 +8,21 @@
   \urlstyle{rm}\Url}\fi
 \providecommand{\eprint}[2][]{\url{#2}}
 
-\bibitem[{Brockman et~al(????)Brockman, Cheung, Pettersson, Schneider,
+\bibitem[{Brockman et~al(2016)Brockman, Cheung, Pettersson, Schneider,
   Schulman, Tang, and Zaremba}]{Brockman2016}
 Brockman G, Cheung V, Pettersson L, Schneider J, Schulman J, Tang J, Zaremba W
-  (????) Openai gym \eprint{http://arxiv.org/abs/1606.01540v1}
+  (2016) Openai gym \eprint{http://arxiv.org/abs/1606.01540v1}
 
 \bibitem[{Chalfie et~al(1985)Chalfie, Sulston, White, Southgate, Thomson, and
   Brenner}]{CElegans}
 Chalfie M, Sulston JE, White JG, Southgate E, Thomson JN, Brenner S (1985) The
   neural circuit for touch sensitivity in caenorhabditis elegans. The Journal
   of Neuroscience 5(4):956--964
+
+\bibitem[{Darwin(1859)}]{Darwin1859}
+Darwin C (1859) On the Origin of Species by Means of Natural Selection. Murray,
+  London,
+  \urlprefix\url{https://www.bibsonomy.org/bibtex/2d70d713c717fb28384fb073c9f6dfbc2/neilernst}
 
 \bibitem[{Goldberg(1989)}]{Goldberg1989}
 Goldberg DE (1989) Genetic Algorithms in Search, Optimization, and Machine
@@ -44,6 +49,9 @@ Hunter JD (2007) Matplotlib: A 2d graphics environment. Computing in Science
 \bibitem[{Lechner et~al(2017)Lechner, Grosu, and Hasani}]{WormLevelRL}
 Lechner M, Grosu R, Hasani RM (2017) Worm-level control through search-based
   reinforcement learning
+
+\bibitem[{Lechner et~al(2018)Lechner, M.~Hasani, and Grosu}]{NeuralPolicies}
+Lechner M, M~Hasani R, Grosu R (2018) Neuronal circuit policies
 
 \bibitem[{LeCun et~al(2015)LeCun, Bengio, and Hinton}]{DeepLearning}
 LeCun Y, Bengio Y, Hinton G (2015) Deep learning. Nature 521:436,

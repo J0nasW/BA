@@ -1,22 +1,35 @@
 \appendix
 %
 % ***
-\chapter{UML-Diagramme wichtiger Algorithmen}
+\chapter{Programmablaufpläne}
 \label{app:UML}
 % ***
 %
 
 	% ***
-	\section{\texttt{RandomSearch}}
+	\section{\texttt{Random-Search}}
 	\label{app:UML_RS}
 	% ***
-		Die folgende Abbildung \ref{fig:uml_rs} stellt den genutzten Algorithmus \texttt{RandomSearch} qualitativ in einem Programmablaufplan vor.
+		Die folgende Abbildung \ref{fig:uml_rs} stellt den genutzten Algorithmus \texttt{Random-Search} qualitativ in einem Programmablaufplan vor.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=14cm]{figures/appendix/uml_rs.pdf}
-			\caption{UML Diagramm des Algorithmus \texttt{RandomSearch}.}
+			\caption{UML Diagramm des Algorithmus \texttt{Random-Search}.}
 			\label{fig:uml_rs}
 		\end{figure}
+	
+	% ***
+	\section{\texttt{Genetic Algorithm}}
+	\label{app:UML_GA}
+	% ***
+	\enlargethispage{2\baselineskip}
+	Die folgende Abbildung \ref{fig:uml_ga} stellt den genutzten Algorithmus \texttt{Genetic\_Algorithm} qualitativ in einem Programmablaufplan vor.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=14cm]{figures/appendix/uml_ga.pdf}
+		\caption{UML Diagramm des Algorithmus \texttt{Genetic\_Algorithm}.}
+		\label{fig:uml_ga}
+	\end{figure}
 	
 	% ***
 	\section{\texttt{Weights}}
@@ -32,7 +45,7 @@
 
 %
 % ***
-\chapter{Datenblatt Programm: TW Circuit}
+\chapter{Datenblatt Simulator: TW Circuit}
 % ***
 %
 \label{app:datenblatt}
@@ -53,7 +66,7 @@
 			\item OpenAI Gym
 			\subitem Simulationsumgebung \texttt{CartPole\_v0}
 			\item \texttt{hickle}
-			\subitem Performantes Speichern im HDF5-Format
+			\subitem Performantes Speichern im HDF-5-Format
 			\item \texttt{os, time, datetime}
 		\end{itemize}
 	\end{mybox}
@@ -90,7 +103,7 @@
 \end{minipage}
 %
 % ***
-\chapter{Parameter mit guten Simulationsergebnissen}
+\chapter{Parameter \& Simulationsergebnisse}
 % ***
 %
 \label{app:parameter}
@@ -99,19 +112,19 @@
 	Folgende Konvention wird eingehalten, um die Ergebnisse anschaulich darzustellen:\\
 	Parameter der Nervenzellen:
 	\begin{align}
-		\boldsymbol{C_m} &= \begin{pmatrix}C_{AVA} & C_{AVD} & C_{PVC} & C_{AVB}\end{pmatrix},\\
-		\boldsymbol{G_{Leak}} &= \begin{pmatrix}G_{AVA} & G_{AVD} & G_{PVC} & G_{AVB}\end{pmatrix},\\
-		\boldsymbol{U_{Leak}} &= \begin{pmatrix}U_{AVA} & U_{AVD} & U_{PVC} & U_{AVB}\end{pmatrix}.
+		\boldsymbol{C_m} &= \begin{bmatrix}C_{AVA} & C_{AVD} & C_{PVC} & C_{AVB}\end{bmatrix}^T,\\
+		\boldsymbol{G_{Leak}} &= \begin{bmatrix}G_{AVA} & G_{AVD} & G_{PVC} & G_{AVB}\end{bmatrix}^T,\\
+		\boldsymbol{U_{Leak}} &= \begin{bmatrix}U_{AVA} & U_{AVD} & U_{PVC} & U_{AVB}\end{bmatrix}^T.
 	\end{align}
 	Parameter der Synapsen und Gap-Junctions  werden anhand der Transitionsmatrizen \eqref{eq:mat_A} und \eqref{eq:mat_B} aus Abschnitt \ref{sec:lif_imp} in Vektorschreibweise dargestellt:
 	\begin{align}
-		\boldsymbol{\sigma} &= \begin{pmatrix}\sigma_A & \sigma_B\end{pmatrix} = \begin{pmatrix}\sigma_1 & \dots & \sigma_{16}\end{pmatrix},\\
-		\boldsymbol{w} &= \begin{pmatrix}w_A & w_B\end{pmatrix} = \begin{pmatrix}w_1 & \dots & w_{16}\end{pmatrix},\\
-		\boldsymbol{\hat{w}} &= \begin{pmatrix}\hat{w}_1 & \hat{w}_{2}\end{pmatrix}.
+		\boldsymbol{\sigma} &= \begin{bmatrix}\sigma_A & \sigma_B\end{bmatrix}^T = \begin{bmatrix}\sigma_1 & \dots & \sigma_{16}\end{bmatrix}^T,\\
+		\boldsymbol{w} &= \begin{bmatrix}w_A & w_B\end{bmatrix}^T = \begin{bmatrix}w_1 & \dots & w_{16}\end{bmatrix}^T,\\
+		\boldsymbol{\hat{w}} &= \begin{bmatrix}\hat{w}_1 & \hat{w}_{2}\end{bmatrix}^T.
 	\end{align}
-	Gewichte der Synapsen ($\boldsymbol{\sigma}$, $\boldsymbol{w}$) und Gap-Junctions ($\boldsymbol{\hat{w}}$) werden anhand der Transitionsmatrizen \eqref{eq:mat_A} und \ref{eq:mat_B} aus Abschnitt \ref{sec:lif_imp} in Vektorschreibweise dargestellt:
+	Gewichte der Synapsen ($\boldsymbol{\sigma}$, $\boldsymbol{w}$) und Gap-Junctions ($\boldsymbol{\hat{w}}$) werden anhand der Transitionsmatrizen \eqref{eq:mat_A} und \eqref{eq:mat_B} aus Abschnitt \ref{sec:lif_imp} in Vektorschreibweise dargestellt:
 	\begin{align}
-		\boldsymbol{g} &= \begin{pmatrix}g_A & g_B\end{pmatrix} = \begin{pmatrix}g_1 & \dots & g_{18}\end{pmatrix}.
+		\boldsymbol{g} &= \begin{bmatrix}g_A & g_B\end{bmatrix}^T = \begin{bmatrix}g_1 & \dots & g_{18}\end{bmatrix}^T.
 	\end{align}
 	Weitere Parameter und Einheiten sind der Tabelle \ref{tab:rl_parameter} zu entnehmen. In Abbildung \ref{fig:erg_rs_flow} werden den Synapsen des bekannten neuronalen Netzes Nummerierungen hinzugefügt, um die Parameter der Synapsen und Gap-Junctions zuweisen zu können.
 	\begin{figure}[H]
@@ -122,6 +135,7 @@
 	\end{figure}
 
 	\afterpage{%
+		\enlargethispage{2\baselineskip}
 		\clearpage% Flush earlier floats (otherwise order might not be correct)
 		\thispagestyle{empty}% empty page style (?)
 		\begin{landscape}% Landscape page
@@ -131,26 +145,26 @@
 				\renewcommand{\arraystretch}{1.5}
 				\emph{Zeitstempel} 		& \emph{Algorithmus}		& \emph{Belohnung}	& \emph{Simulation (Dauer, Anz.)} 	& \emph{Parameter}		 \\\midrule
 				
-				20180817\_01-56-01		& \texttt{RandomSearch} - Parameter	& 131			& 12h, ca. 1 Mio. Simulationen		& Parameter der Nervenzellen \newline
-				$\boldsymbol{C_m} = \begin{pmatrix}0.01, 0.01, 0.01, 0.01\end{pmatrix}$,\newline
-				$\boldsymbol{G_{Leak}} = \begin{pmatrix}1.42, 0.63, 1.42, 0.63\end{pmatrix}$,\newline
-				$\boldsymbol{U_{Leak}} = \begin{pmatrix}-63.2, -62.2, -63.2, -62.2\end{pmatrix}.$ \vspace{0.2cm} \newline
+				\textbf{20180817\_01-56-01}		& \texttt{Random-Search} - Parameter	& \textbf{200}			& 12h, ca. 1 Mio. Sim.		& Parameter der Nervenzellen \newline
+				$\boldsymbol{C_m} = \begin{bmatrix}0.01, 0.01, 0.01, 0.01\end{bmatrix}^T$,\newline
+				$\boldsymbol{G_{Leak}} = \begin{bmatrix}1.42, 0.63, 1.42, 0.63\end{bmatrix}^T$,\newline
+				$\boldsymbol{U_{Leak}} = \begin{bmatrix}-63.2, -62.2, -63.2, -62.2\end{bmatrix}^T.$ \vspace{0.1cm} \newline
 				Parameter der Synapsen \& Gap-Junctions \newline
-				$\boldsymbol{\sigma} = \begin{pmatrix}0.16, 0.49, 0.15, 0.29, 0.16, 0.49, 0.15, 0.29,\\ 0.13, 0.39, 0.17, 0.06, 0.13, 0.39, 0.17, 0.06\end{pmatrix}$,\newline
-				$\boldsymbol{w} = \begin{pmatrix}0.97, 1.57, 1.48, 1.28, 0.97, 1.57, 1.48, 1.28,\\ 1.71, 1.45, 0.78, 2.84, 1.71, 1.45, 0.78, 2.84\end{pmatrix}$,\newline
-				$\boldsymbol{\hat{w}} = \begin{pmatrix}1.84, 1.84\end{pmatrix}$.\vspace{0.5cm}\\
+				$\boldsymbol{\sigma} = \begin{bmatrix}0.16, 0.49, 0.15, 0.29, 0.16, 0.49, 0.15, 0.29,\\ 0.13, 0.39, 0.17, 0.06, 0.13, 0.39, 0.17, 0.06\end{bmatrix}^T$,\newline
+				$\boldsymbol{w} = \begin{bmatrix}0.97, 1.57, 1.48, 1.28, 0.97, 1.57, 1.48, 1.28,\\ 1.71, 1.45, 0.78, 2.84, 1.71, 1.45, 0.78, 2.84\end{bmatrix}^T$,\newline
+				$\boldsymbol{\hat{w}} = \begin{bmatrix}1.84, 1.84\end{bmatrix}^T$.\vspace{0.5cm}\\
 				
-				20180817\_13-56-01		& \texttt{Weights} - Gewichte		& 200			& 12h, ca. 400.000 Simulationen		& Gewichte der Synapsen \newline
-				$\boldsymbol{g} = \begin{pmatrix}0.94, 0.96, 0.95, 0.14, 0.94, 0.96, 0.95, 0.14, 0.75,\\ 0.45, 0.54, 0.21, 0.97, 0.75, 0.45, 0.54, 0.21, 0.97\end{pmatrix}$.\vspace{0.5cm}\\
+				20180817\_13-56-01		& \texttt{Weights} - Gewichte		& 200			& 12h, ca. 400.000 Sim.		& Gewichte der Synapsen \newline
+				$\boldsymbol{g} = \begin{bmatrix}0.94, 0.96, 0.95, 0.14, 0.94, 0.96, 0.95, 0.14, 0.75,\\ 0.45, 0.54, 0.21, 0.97, 0.75, 0.45, 0.54, 0.21, 0.97\end{bmatrix}^T$.\vspace{0.5cm}\\
 				
-				20180905\_14-19-10		& \texttt{Genetic\_Algorithm} - Parameter& 200			& 1:30 Min, ca. 50 Tsd. Simulationen		& Parameter der Nervenzellen \newline
-				$\boldsymbol{C_m} = \begin{pmatrix}0.04, 0.58, 0.58, 0.04\end{pmatrix}$,\newline
-				$\boldsymbol{G_{Leak}} = \begin{pmatrix}0.75, 0.30, 0.30, 0.75\end{pmatrix}$,\newline
-				$\boldsymbol{U_{Leak}} = \begin{pmatrix}-58.7, -55.6, -55.6, -58.7\end{pmatrix}.$ \vspace{0.2cm} \newline
+				20180905\_14-19-10		& \texttt{Genetic\_Algorithm} - Parameter& 200			& 1:30 Min, ca. 50 Tsd. Sim.		& Parameter der Nervenzellen \newline
+				$\boldsymbol{C_m} = \begin{bmatrix}0.04, 0.58, 0.58, 0.04\end{bmatrix}^T$,\newline
+				$\boldsymbol{G_{Leak}} = \begin{bmatrix}0.75, 0.30, 0.30, 0.75\end{bmatrix}^T$,\newline
+				$\boldsymbol{U_{Leak}} = \begin{bmatrix}-58.7, -55.6, -55.6, -58.7\end{bmatrix}^T.$ \vspace{0.1cm} \newline
 				Parameter der Synapsen \& Gap-Junctions \newline
-				$\boldsymbol{\sigma} = \begin{pmatrix}0.17, 0.37, 0.42, 0.15, 0,15 0.42, 0.37, 0.17,\\ 0.26, 0.27, 0.46, 0.20, 0.20, 0.46, 0.27, 0.26\end{pmatrix}$,\newline
-				$\boldsymbol{w} = \begin{pmatrix}0.31, 0.18, 2.45, 0.93, 0,93 2.45, 0.18, 0.31,\\ 0.97, 1.21, 1.25, 0.53, 0.53, 1.25, 1.21, 0.97\end{pmatrix}$,\newline
-				$\boldsymbol{\hat{w}} = \begin{pmatrix}2.40, 2.40\end{pmatrix}$.\vspace{0.5cm}\\
+				$\boldsymbol{\sigma} = \begin{bmatrix}0.17, 0.37, 0.42, 0.15, 0,15 0.42, 0.37, 0.17,\\ 0.26, 0.27, 0.46, 0.20, 0.20, 0.46, 0.27, 0.26\end{bmatrix}^T$,\newline
+				$\boldsymbol{w} = \begin{bmatrix}0.31, 0.18, 2.45, 0.93, 0,93 2.45, 0.18, 0.31,\\ 0.97, 1.21, 1.25, 0.53, 0.53, 1.25, 1.21, 0.97\end{bmatrix}^T$,\newline
+				$\boldsymbol{\hat{w}} = \begin{bmatrix}2.40, 2.40\end{bmatrix}^T$.\vspace{0.1cm}\\
 				
 				\bottomrule
 				\hline

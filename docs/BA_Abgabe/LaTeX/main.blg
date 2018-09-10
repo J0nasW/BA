@@ -5,7 +5,6 @@ Too many commas in name 1 of "Wulfram Gerstner, Werner M. Kistler, Richard Naud,
 while executing---line 1571 of file lrt_thesis.bst
 Too many commas in name 1 of "Wulfram Gerstner, Werner M. Kistler, Richard Naud, Liam Paninski" for entry NeuronalDynamics
 while executing---line 1571 of file lrt_thesis.bst
-Warning--empty year in Brockman2016; set to ????
 `journal' is a missing field, not a string, for entry Brockman2016
 while executing---line 1650 of file lrt_thesis.bst
 Warning--empty journal in Brockman2016
@@ -15,10 +14,13 @@ Warning--empty journal in SimCE
 `journal' is a missing field, not a string, for entry WormLevelRL
 while executing---line 1650 of file lrt_thesis.bst
 Warning--empty journal in WormLevelRL
+`journal' is a missing field, not a string, for entry NeuralPolicies
+while executing---line 1650 of file lrt_thesis.bst
+Warning--empty journal in NeuralPolicies
 Warning--missing institution in Neumann1945
 Warning--empty note in SilverRL
 Too many commas in name 1 of "Wulfram Gerstner, Werner M. Kistler, Richard Naud, Liam Paninski" for entry NeuronalDynamics
 while executing---line 1650 of file lrt_thesis.bst
 Too many commas in name 1 of "Wulfram Gerstner, Werner M. Kistler, Richard Naud, Liam Paninski" for entry NeuronalDynamics
 while executing---line 1650 of file lrt_thesis.bst
-(There were 7 error messages)
+(There were 8 error messages)

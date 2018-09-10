@@ -54,11 +54,11 @@
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{figures/chap_implement/cartpole_FWD_REV.pdf}}%
-    \put(0.58060537,0.13331571){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Action: 1\end{tabular}}}}%
+    \put(0.58060537,0.13331571){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Aktion: 1\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{figures/chap_implement/cartpole_FWD_REV.pdf}}%
     \put(0.62727966,0.1846575){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}FWD\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{figures/chap_implement/cartpole_FWD_REV.pdf}}%
-    \put(0.29355223,0.13362017){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Action: 0\end{tabular}}}}%
+    \put(0.29355223,0.13362017){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Aktion: 0\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{figures/chap_implement/cartpole_FWD_REV.pdf}}%
     \put(0.34302697,0.1846119){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}REV\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{figures/chap_implement/cartpole_FWD_REV.pdf}}%
