@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.7.28)  6 SEP 2018 10:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.7.28)  11 SEP 2018 15:35
 entering extended mode
 **./presentation_BA_JW.tex
 (presentation_BA_JW.tex
@@ -1159,10 +1159,432 @@ File: p2e-pdftex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
 \@tdF=\dimen271
 \defaultlinewidth=\dimen272
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\multimedia.sty"
-Package: multimedia 2012/05/02 ver 0.02
-\mm@movie=\count364
+("C:\Program Files\MiKTeX 2.9\tex\latex\media9\media9.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty"
+Package: expl3 2018-06-14 L3 programming layer (loader) 
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3-code.tex"
+Package: expl3 2018-06-14 L3 programming layer (code)
+\c_max_int=\count364
+\l_tmpa_int=\count365
+\l_tmpb_int=\count366
+\g_tmpa_int=\count367
+\g_tmpb_int=\count368
+\g__kernel_prg_map_int=\count369
+\c_log_iow=\count370
+\l_iow_line_count_int=\count371
+\l__iow_line_target_int=\count372
+\l__iow_one_indent_int=\count373
+\l__iow_indent_int=\count374
+\c_zero_dim=\dimen273
+\c_max_dim=\dimen274
+\l_tmpa_dim=\dimen275
+\l_tmpb_dim=\dimen276
+\g_tmpa_dim=\dimen277
+\g_tmpb_dim=\dimen278
+\c_zero_skip=\skip97
+\c_max_skip=\skip98
+\l_tmpa_skip=\skip99
+\l_tmpb_skip=\skip100
+\g_tmpa_skip=\skip101
+\g_tmpb_skip=\skip102
+\c_zero_muskip=\muskip12
+\c_max_muskip=\muskip13
+\l_tmpa_muskip=\muskip14
+\l_tmpb_muskip=\muskip15
+\g_tmpa_muskip=\muskip16
+\g_tmpb_muskip=\muskip17
+\l_keys_choice_int=\count375
+\l__intarray_loop_int=\count376
+\c__intarray_sp_dim=\dimen279
+\g__intarray_font_int=\count377
+\c__fp_leading_shift_int=\count378
+\c__fp_middle_shift_int=\count379
+\c__fp_trailing_shift_int=\count380
+\c__fp_big_leading_shift_int=\count381
+\c__fp_big_middle_shift_int=\count382
+\c__fp_big_trailing_shift_int=\count383
+\c__fp_Bigg_leading_shift_int=\count384
+\c__fp_Bigg_middle_shift_int=\count385
+\c__fp_Bigg_trailing_shift_int=\count386
+\c__kernel_randint_max_int=\count387
+\g__fp_array_int=\count388
+\l__fp_array_loop_int=\count389
+\l__sort_length_int=\count390
+\l__sort_min_int=\count391
+\l__sort_top_int=\count392
+\l__sort_max_int=\count393
+\l__sort_true_max_int=\count394
+\l__sort_block_int=\count395
+\l__sort_begin_int=\count396
+\l__sort_end_int=\count397
+\l__sort_A_int=\count398
+\l__sort_B_int=\count399
+\l__sort_C_int=\count400
+\l__tl_analysis_normal_int=\count401
+\l__tl_analysis_index_int=\count402
+\l__tl_analysis_nesting_int=\count403
+\l__tl_analysis_type_int=\count404
+\l__regex_internal_a_int=\count405
+\l__regex_internal_b_int=\count406
+\l__regex_internal_c_int=\count407
+\l__regex_balance_int=\count408
+\l__regex_group_level_int=\count409
+\l__regex_mode_int=\count410
+\c__regex_cs_in_class_mode_int=\count411
+\c__regex_cs_mode_int=\count412
+\l__regex_catcodes_int=\count413
+\l__regex_default_catcodes_int=\count414
+\c__regex_catcode_D_int=\count415
+\c__regex_catcode_S_int=\count416
+\c__regex_catcode_L_int=\count417
+\c__regex_catcode_O_int=\count418
+\c__regex_catcode_A_int=\count419
+\c__regex_all_catcodes_int=\count420
+\l__regex_show_lines_int=\count421
+\l__regex_min_state_int=\count422
+\l__regex_max_state_int=\count423
+\l__regex_left_state_int=\count424
+\l__regex_right_state_int=\count425
+\l__regex_capturing_group_int=\count426
+\l__regex_min_pos_int=\count427
+\l__regex_max_pos_int=\count428
+\l__regex_curr_pos_int=\count429
+\l__regex_start_pos_int=\count430
+\l__regex_success_pos_int=\count431
+\l__regex_curr_char_int=\count432
+\l__regex_curr_catcode_int=\count433
+\l__regex_last_char_int=\count434
+\l__regex_case_changed_char_int=\count435
+\l__regex_curr_state_int=\count436
+\l__regex_step_int=\count437
+\l__regex_min_active_int=\count438
+\l__regex_max_active_int=\count439
+\l__regex_replacement_csnames_int=\count440
+\l__regex_match_count_int=\count441
+\l__regex_min_submatch_int=\count442
+\l__regex_submatch_int=\count443
+\l__regex_zeroth_submatch_int=\count444
+\g__regex_trace_regex_int=\count445
+\c_empty_box=\box60
+\l_tmpa_box=\box61
+\l_tmpb_box=\box62
+\g_tmpa_box=\box63
+\g_tmpb_box=\box64
+\l__box_top_dim=\dimen280
+\l__box_bottom_dim=\dimen281
+\l__box_left_dim=\dimen282
+\l__box_right_dim=\dimen283
+\l__box_top_new_dim=\dimen284
+\l__box_bottom_new_dim=\dimen285
+\l__box_left_new_dim=\dimen286
+\l__box_right_new_dim=\dimen287
+\l__box_internal_box=\box65
+\l__coffin_internal_box=\box66
+\l__coffin_internal_dim=\dimen288
+\l__coffin_offset_x_dim=\dimen289
+\l__coffin_offset_y_dim=\dimen290
+\l__coffin_x_dim=\dimen291
+\l__coffin_y_dim=\dimen292
+\l__coffin_x_prime_dim=\dimen293
+\l__coffin_y_prime_dim=\dimen294
+\c_empty_coffin=\box67
+\l__coffin_aligned_coffin=\box68
+\l__coffin_aligned_internal_coffin=\box69
+\l_tmpa_coffin=\box70
+\l_tmpb_coffin=\box71
+\l__coffin_display_coffin=\box72
+\l__coffin_display_coord_coffin=\box73
+\l__coffin_display_pole_coffin=\box74
+\l__coffin_display_offset_dim=\dimen295
+\l__coffin_display_x_dim=\dimen296
+\l__coffin_display_y_dim=\dimen297
+\g__file_internal_ior=\read3
+\l__coffin_bounding_shift_dim=\dimen298
+\l__coffin_left_corner_dim=\dimen299
+\l__coffin_right_corner_dim=\dimen300
+\l__coffin_bottom_corner_dim=\dimen301
+\l__coffin_top_corner_dim=\dimen302
+\l__coffin_scaled_total_height_dim=\dimen303
+\l__coffin_scaled_width_dim=\dimen304
+\l__seq_internal_a_int=\count446
+\l__seq_internal_b_int=\count447
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3pdfmode.def"
+File: l3pdfmode.def 2018-06-14 v L3 Experimental driver: PDF mode
+\l__driver_color_stack_int=\count448
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\l3keys2e\l3keys2e.sty"
+Package: l3keys2e 2018-05-12 LaTeX2e option processing using LaTeX3 keys
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty"
+Package: xparse 2018-05-12 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count449
+\g__xparse_grabber_int=\count450
+\l__xparse_m_args_int=\count451
+\l__xparse_mandatory_args_int=\count452
+\l__xparse_v_nesting_int=\count453
+)
+Package: media9 2018/06/07 v0.93 acrobat-9/X compatible media
+\g_mix_pkgresizeflag_int=\count454
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\media9\pdfbase.sty"
+Package: pdfbase 2018/06/07 v0.24 driver independent access to low-level PDF fe
+atures
+\g_pbs_page_int=\count455
+\g_pbs_oc_int=\count456
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ocgx2\ocgbase.sty"
+Package: ocgbase 2018/06/07 v0.14 support package for ocgx2.sty
+\g_ocgbase_nd_int=\count457
+)
+\l_mix_poster_box=\box75
+\g_mix_wd_dim=\dimen305
+\g_mix_ht_dim=\dimen306
+\g_mix_dp_dim=\dimen307
+\g_mix_rmcnt_int=\count458
+\l_mix_viewcnt_int=\count459
+\g@mix@page@int=\count460
+\g_mix_resizeflag_int=\count461
+\l_mix_lineno_int=\count462
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \addmediapath with sig. 'm' on line 804.
+.................................................
+\l_mix_pbtn_box=\box76
+\mix@btn@dim=\dimen308
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \includemedia with sig. 'O{}mm' on line 1212.
+.................................................
+\g_mix_mbtncnt_int=\count463
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \mediabutton with sig. 'O{}m' on line 2418.
+.................................................
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\circuitikz\circuitikz.sty"
+Package: circuitikz 2017/05/28{} The CircuiTikz circuit drawing package version
+ 0.8.3
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+librarycalc.code.tex"
+File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.1a (rcs-revision 1.9)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryarrows.code.t
+ex"
+File: pgflibraryarrows.code.tex 2013/09/23 v3.0.1a (rcs-revision 1.16)
+\arrowsize=\dimen309
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\circuitikz\pgfcirc.defines.tex"
+\pgf@circ@res@up=\dimen310
+\pgf@circ@res@down=\dimen311
+\pgf@circ@res@zero=\dimen312
+\pgf@circ@res@left=\dimen313
+\pgf@circ@res@right=\dimen314
+\pgf@circ@res@other=\dimen315
+\pgf@circ@res@step=\dimen316
+\pgf@circ@res@temp=\dimen317
+\pgfstartlinewidth=\dimen318
+\pgf@circ@Rlen=\dimen319
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\circuitikz\pgfcircutils.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\circuitikz\pgfcircshapes.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\circuitikz\pgfcircmonopoles.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\circuitikz\pgfcircbipoles.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\circuitikz\pgfcirctripoles.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\circuitikz\pgfcircquadpoles.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\circuitikz\pgfcirclabel.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\circuitikz\pgfcircvoltage.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\circuitikz\pgfcirccurrent.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\circuitikz\pgfcircflow.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\circuitikz\pgfcircpath.tex"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\forest\forest.sty"
+Package: forest 2017/07/14 v2.1.5 Drawing (linguistic) trees
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+libraryshapes.code.tex"
+File: tikzlibraryshapes.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+libraryshapes.geometric.code.tex"
+File: tikzlibraryshapes.geometric.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1
+)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\shapes\pgflibraryshapes
+.geometric.code.tex"
+File: pgflibraryshapes.geometric.code.tex 2008/06/26 v3.0.1a (rcs-revision 1.1)
+
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+libraryshapes.misc.code.tex"
+File: tikzlibraryshapes.misc.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\shapes\pgflibraryshapes
+.misc.code.tex"
+File: pgflibraryshapes.misc.code.tex 2013/07/18 v3.0.1a (rcs-revision 1.5)
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+libraryshapes.symbols.code.tex"
+File: tikzlibraryshapes.symbols.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\shapes\pgflibraryshapes
+.symbols.code.tex"
+File: pgflibraryshapes.symbols.code.tex 2013/09/11 v3.0.1a (rcs-revision 1.6)
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+libraryshapes.arrows.code.tex"
+File: tikzlibraryshapes.arrows.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\shapes\pgflibraryshapes
+.arrows.code.tex"
+File: pgflibraryshapes.arrows.code.tex 2008/06/26 v3.0.1a (rcs-revision 1.1)
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+libraryshapes.callouts.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\shapes\pgflibraryshapes
+.callouts.code.tex"))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+libraryshapes.multipart.code.tex"
+File: tikzlibraryshapes.multipart.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1
+)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\shapes\pgflibraryshapes
+.multipart.code.tex"
+File: pgflibraryshapes.multipart.code.tex 2010/01/07 v3.0.1a (rcs-revision 1.2)
+
+\pgfnodepartlowerbox=\box77
+\pgfnodeparttwobox=\box78
+\pgfnodepartthreebox=\box79
+\pgfnodepartfourbox=\box80
+\pgfnodeparttwentybox=\box81
+\pgfnodepartnineteenbox=\box82
+\pgfnodeparteighteenbox=\box83
+\pgfnodepartseventeenbox=\box84
+\pgfnodepartsixteenbox=\box85
+\pgfnodepartfifteenbox=\box86
+\pgfnodepartfourteenbox=\box87
+\pgfnodepartthirteenbox=\box88
+\pgfnodeparttwelvebox=\box89
+\pgfnodepartelevenbox=\box90
+\pgfnodeparttenbox=\box91
+\pgfnodepartninebox=\box92
+\pgfnodeparteightbox=\box93
+\pgfnodepartsevenbox=\box94
+\pgfnodepartsixbox=\box95
+\pgfnodepartfivebox=\box96
+)))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+libraryfit.code.tex"
+File: tikzlibraryfit.code.tex 2013/07/12 v3.0.1a (rcs-revision 1.5)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryintersections
+.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryfpu.code.tex"
+)
+\pgf@intersect@solutions=\count464
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\pgfopts\pgfopts.sty"
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+\pgfopts@list@add@a@toks=\toks46
+\pgfopts@list@add@b@toks=\toks47
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\elocalloc\elocalloc.sty"
+Package: elocalloc 2016/12/15 v0.03 local allocation for LaTeX 2015+ (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\environ\environ.sty"
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\trimspaces\trimspaces.sty"
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\inlinedef\inlinedef.sty"
+Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
+\ID@toks=\toks48
+\ID@count=\count465
+)
+\ID@usercommands=\toks49
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \useforestlibrary with sig. 's O{} m' on line 166.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \ProvidesForestLibrary with sig. 'm O{}' on line 176.
+.................................................
+\safeloop@depth=\count466
+\safeRKloop@depth=\count467
+\forest@temp@dimen=\dimen320
+\forest@temp@count=\count468
+\forest@n=\count469
+\forest@temp@global@count=\count470
+\forest@temp@toks=\toks50
+\forest@temparray@M=\count471
+\forest@temparray@N=\count472
+\forest@global@temparray@M=\count473
+\forest@global@temparray@N=\count474
+\forest@isnum@count=\count475
+\forest@isdim@nonintpart=\count476
+\forest@isdim@dimen=\dimen321
+\forest@sort@m=\count477
+\forest@sort@k=\count478
+\forest@sort@p=\count479
+\bracket@content=\toks51
+\bracket@afterthought=\toks52
+\forest@node@maxid=\count480
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \forestdebugtypeouttrees with sig. 'o' on line 2303.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \forestdebugtypeouttree with sig. 'd() O{\forest@cn }' on
+. line 2348.
+.................................................
+\forest@process@left@M=\count481
+\forest@process@left@N=\count482
+\forest@process@right@M=\count483
+\forest@process@right@N=\count484
+\forest@process@saved@M=\count485
+\forest@process@saved@N=\count486
+\forest@process@result@M=\count487
+\forest@process@result@N=\count488
+\forest@process@n=\count489
+\forest@nodewalk@branch@toks=\toks53
+\forest@nodewalk@shortsteps@resolution=\toks54
+\forest@do@dynamics=\toks55
+\forest@box=\box97
+\forest@xg=\dimen322
+\forest@yg=\dimen323
+\forest@xs=\dimen324
+\forest@ys=\dimen325
+\forest@pi@toks=\toks56
+\forest@segment@toks=\toks57
+\forest@PIi@toks=\toks58
+\forest@PIii@toks=\toks59
+\forest@copy@in=\read4
+\forest@copy@out=\write7
+.................................................
+. LaTeX info: "xparse/define-environment"
+. 
+. Defining environment 'forest' with sig. 'D(){}' on line 8510.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \Forest with sig. 's D(){} m' on line 8515.
+.................................................
+\forest@externalize@max@outer@n=\count490
+\forest@externalize@inner@n=\count491
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\forest\forest-lib-edges.sty"
+Package: forest-lib-edges 2016/12/05 v0.1.1
+)
+\Size=\skip103
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 
@@ -1190,25 +1612,25 @@ File: german.lbx 2018/03/04 v3.11 biblatex localization (PK/MW)
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count365
-\@quotereset=\count366
+\@quotelevel=\count492
+\@quotereset=\count493
 (presentation_BA_JW.aux)
 \openout1 = `presentation_BA_JW.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1246,17 +1668,17 @@ LaTeX Font Info:    ... okay on input line 40.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count367
-\scratchdimen=\dimen273
-\scratchbox=\box60
-\nofMPsegments=\count368
-\nofMParguments=\count369
-\everyMPshowfont=\toks46
-\MPscratchCnt=\count370
-\MPscratchDim=\dimen274
-\MPnumerator=\count371
-\makeMPintoPDFobject=\count372
-\everyMPtoPDFconversion=\toks47
+\scratchcounter=\count494
+\scratchdimen=\dimen326
+\scratchbox=\box98
+\nofMPsegments=\count495
+\nofMParguments=\count496
+\everyMPshowfont=\toks60
+\MPscratchCnt=\count497
+\MPscratchDim=\dimen327
+\MPnumerator=\count498
+\makeMPintoPDFobject=\count499
+\everyMPtoPDFconversion=\toks61
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -1271,8 +1693,8 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
 ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box61
-Package hyperref Info: Link coloring OFF on input line 40.
+\AtBeginShipoutBox=\box99
+Package hyperref Info: Link coloring OFF on input line 111.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1280,15 +1702,15 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count373
+\c@section@level=\count500
 )
-LaTeX Info: Redefining \ref on input line 40.
-LaTeX Info: Redefining \pageref on input line 40.
-LaTeX Info: Redefining \nameref on input line 40.
+LaTeX Info: Redefining \ref on input line 111.
+LaTeX Info: Redefining \pageref on input line 111.
+LaTeX Info: Redefining \nameref on input line 111.
 
 (presentation_BA_JW.out) (presentation_BA_JW.out)
-\@outlinefile=\write7
-\openout7 = `presentation_BA_JW.out'.
+\@outlinefile=\write8
+\openout8 = `presentation_BA_JW.out'.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-basic-dictionary-
@@ -1315,7 +1737,7 @@ Dictionary: translator-numbers-dictionary, Language: English
 y-English.dict"
 Dictionary: translator-theorem-dictionary, Language: English 
 ) ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 40.
+LaTeX Info: Redefining \selectfont on input line 111.
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -1325,30 +1747,30 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'presentation_BA_JW.bbl' found.
 
 (presentation_BA_JW.bbl)
-Package biblatex Info: Reference section=0 on input line 40.
-Package biblatex Info: Reference segment=0 on input line 40.
+Package biblatex Info: Reference section=0 on input line 111.
+Package biblatex Info: Reference segment=0 on input line 111.
  (presentation_BA_JW.nav)
-Overfull \hbox (1.17432pt too wide) detected at line 40
+Overfull \hbox (1.17432pt too wide) detected at line 111
 []  
  []
 
-<tf_siegel.png, id=14, 695.09123pt x 694.27922pt>
+<tf_siegel.png, id=12, 695.09123pt x 694.27922pt>
 File: tf_siegel.png Graphic file (type png)
 <use tf_siegel.png>
-Package pdftex.def Info: tf_siegel.png  used on input line 46.
+Package pdftex.def Info: tf_siegel.png  used on input line 117.
 (pdftex.def)             Requested size: 149.54776pt x 149.37697pt.
-<cau_hochhaus_opacity.png, id=16, 1606.0pt x 546.04pt>
+<cau_hochhaus_opacity.png, id=14, 1606.0pt x 546.04pt>
 File: cau_hochhaus_opacity.png Graphic file (type png)
 <use cau_hochhaus_opacity.png>
-Package pdftex.def Info: cau_hochhaus_opacity.png  used on input line 46.
+Package pdftex.def Info: cau_hochhaus_opacity.png  used on input line 117.
 (pdftex.def)             Requested size: 466.12016pt x 158.48206pt.
 
-Overfull \hbox (28.45273pt too wide) in paragraph at lines 46--46
+Overfull \hbox (28.45273pt too wide) in paragraph at lines 117--117
 [][][]  
  []
 
 
-Overfull \vbox (5.69046pt too high) detected at line 46
+Overfull \vbox (5.69046pt too high) detected at line 117
  []
 
 [1
@@ -1356,47 +1778,47 @@ Overfull \vbox (5.69046pt too high) detected at line 46
 {C:/Users/Jonas/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/Jo
 nas/Documents/miktex/localtexmf/tex/latex/figures/tf_siegel.png> <C:/Users/Jona
 s/Documents/miktex/localtexmf/tex/latex/figures/cau_hochhaus_opacity.png>]
+<figures/folie_1/bnn.pdf, id=28, 501.875pt x 501.875pt>
+File: figures/folie_1/bnn.pdf Graphic file (type pdf)
+<use figures/folie_1/bnn.pdf>
+Package pdftex.def Info: figures/folie_1/bnn.pdf  used on input line 145.
+(pdftex.def)             Requested size: 128.0374pt x 128.03386pt.
+<figures/folie_1/rl.pdf, id=29, 501.875pt x 501.875pt>
+File: figures/folie_1/rl.pdf Graphic file (type pdf)
+<use figures/folie_1/rl.pdf>
+Package pdftex.def Info: figures/folie_1/rl.pdf  used on input line 145.
+(pdftex.def)             Requested size: 128.0374pt x 128.03386pt.
+<figures/folie_1/cartpole.pdf, id=30, 501.875pt x 501.875pt>
+File: figures/folie_1/cartpole.pdf Graphic file (type pdf)
+<use figures/folie_1/cartpole.pdf>
+Package pdftex.def Info: figures/folie_1/cartpole.pdf  used on input line 145.
+(pdftex.def)             Requested size: 128.0374pt x 128.03386pt.
+
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
  []
 
 [2
 
-]
-LaTeX Font Info:    Try loading font information for OML+cmbrm on input line 75
-.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\cmbright\omlcmbrm.fd"
-File: omlcmbrm.fd 2005/04/13 v8.1 (WaS)
-)
-LaTeX Font Info:    Try loading font information for OMS+cmbrs on input line 75
-.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\cmbright\omscmbrs.fd"
-File: omscmbrs.fd 2005/04/13 v8.1 (WaS)
-)
-LaTeX Font Info:    Try loading font information for T1+cmtl on input line 75.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\cmbright\t1cmtl.fd"
-File: t1cmtl.fd 2005/04/13 v8.1 (WaS)
-)
-
-pdfTeX warning: pdflatex.exe (file ./figures/Orig_TW_Circuit.pdf): PDF inclusio
-n: found PDF version <1.6>, but at most version <1.5> allowed
-<figures/Orig_TW_Circuit.pdf, id=39, 159.1516pt x 150.49425pt>
-File: figures/Orig_TW_Circuit.pdf Graphic file (type pdf)
-<use figures/Orig_TW_Circuit.pdf>
-Package pdftex.def Info: figures/Orig_TW_Circuit.pdf  used on input line 75.
-(pdftex.def)             Requested size: 130.88284pt x 123.77118pt.
-<figures/Neural_Net_v3_plain.pdf, id=40, 752.8125pt x 752.8125pt>
-File: figures/Neural_Net_v3_plain.pdf Graphic file (type pdf)
-<use figures/Neural_Net_v3_plain.pdf>
-Package pdftex.def Info: figures/Neural_Net_v3_plain.pdf  used on input line 75
-.
-(pdftex.def)             Requested size: 136.5733pt x 136.56868pt.
-
-Overfull \vbox (0.4877pt too high) detected at line 75
- []
-
+ <./figures/folie_1/bnn.pdf> <./figures/folie_1/rl.pdf> <./figures/folie_1/cart
+pole.pdf>]
+File: figures/folie_1/bnn.pdf Graphic file (type pdf)
+<use figures/folie_1/bnn.pdf>
+Package pdftex.def Info: figures/folie_1/bnn.pdf  used on input line 168.
+(pdftex.def)             Requested size: 128.0374pt x 128.03386pt.
+<icons/003-arrow.pdf, id=85, 50.1875pt x 50.1875pt>
+File: icons/003-arrow.pdf Graphic file (type pdf)
+<use icons/003-arrow.pdf>
+Package pdftex.def Info: icons/003-arrow.pdf  used on input line 168.
+(pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
+File: icons/003-arrow.pdf Graphic file (type pdf)
+<use icons/003-arrow.pdf>
+Package pdftex.def Info: icons/003-arrow.pdf  used on input line 168.
+(pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
+File: icons/003-arrow.pdf Graphic file (type pdf)
+<use icons/003-arrow.pdf>
+Package pdftex.def Info: icons/003-arrow.pdf  used on input line 168.
+(pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
 
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
@@ -1404,28 +1826,65 @@ Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 
 [3
 
- <./figures/Orig_TW_Circuit.pdf> <./figures/Neural_Net_v3_plain.pdf
+ <./icons/003-arrow.pdf>]
+<figures/folie_2/neuron_is.pdf, id=101, 569.05513pt x 284.52756pt>
+File: figures/folie_2/neuron_is.pdf Graphic file (type pdf)
+<use figures/folie_2/neuron_is.pdf>
+Package pdftex.def Info: figures/folie_2/neuron_is.pdf  used on input line 188.
 
-pdfTeX warning: pdflatex.exe (file ./figures/Neural_Net_v3_plain.pdf): PDF incl
-usion: multiple pdfs with page group included in a single page
->]
+(pdftex.def)             Requested size: 199.16928pt x 99.58179pt.
+
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
  []
 
 [4
 
-]
+ <./figures/folie_2/neuron_is.pdf>]
+<figures/folie_3/synapse_is.pdf, id=116, 569.05513pt x 213.39566pt>
+File: figures/folie_3/synapse_is.pdf Graphic file (type pdf)
+<use figures/folie_3/synapse_is.pdf>
+Package pdftex.def Info: figures/folie_3/synapse_is.pdf  used on input line 208
+.
+(pdftex.def)             Requested size: 227.62204pt x 85.35675pt.
+
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
  []
 
 [5
 
-]
+ <./figures/folie_3/synapse_is.pdf>]
+LaTeX Font Info:    Font shape `T1/cmbr/m/it' in size <10> not available
+(Font)              Font shape `T1/cmbr/m/sl' tried instead on input line 235.
+<icons/motor_neuron.pdf, id=137, 93.64215pt x 81.09648pt>
+File: icons/motor_neuron.pdf Graphic file (type pdf)
+<use icons/motor_neuron.pdf>
+Package pdftex.def Info: icons/motor_neuron.pdf  used on input line 235.
+(pdftex.def)             Requested size: 22.00012pt x 19.05272pt.
+<icons/sensor_neuron.pdf, id=138, 67.22375pt x 58.2175pt>
+File: icons/sensor_neuron.pdf Graphic file (type pdf)
+<use icons/sensor_neuron.pdf>
+Package pdftex.def Info: icons/sensor_neuron.pdf  used on input line 235.
+(pdftex.def)             Requested size: 22.00012pt x 19.05281pt.
+<icons/inter_neuron.pdf, id=139, 32.12pt x 32.12pt>
+File: icons/inter_neuron.pdf Graphic file (type pdf)
+<use icons/inter_neuron.pdf>
+Package pdftex.def Info: icons/inter_neuron.pdf  used on input line 235.
+(pdftex.def)             Requested size: 22.00012pt x 22.00058pt.
+<figures/nn_with_worm.pdf, id=140, 1003.75pt x 1217.54875pt>
+File: figures/nn_with_worm.pdf Graphic file (type pdf)
+<use figures/nn_with_worm.pdf>
+Package pdftex.def Info: figures/nn_with_worm.pdf  used on input line 235.
+(pdftex.def)             Requested size: 156.49014pt x 189.81422pt.
 
-LaTeX Font Warning: Font shape `T1/cmtl/bx/n' undefined
-(Font)              using `T1/cmtl/m/n' instead on input line 111.
+Overfull \hbox (7.90709pt too wide) detected at line 235
+[][][][][][][][][]  [][] [][][][][][][]
+ []
+
+
+LaTeX Font Warning: Font shape `T1/cmbr/bx/it' undefined
+(Font)              using `T1/cmbr/bx/n' instead on input line 235.
 
 
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
@@ -1434,7 +1893,44 @@ Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 
 [6
 
-]
+ <./icons/motor_neuron.pdf> <./icons/sensor_neuron.pdf> <./icons/inter_neuron.p
+df> <./figures/nn_with_worm.pdf>]
+\@mybox=\box100
+\@myboxht=\dimen328
+
+Underfull \hbox (badness 10000) in paragraph at lines 295--295
+
+ []
+
+LaTeX Font Info:    Try loading font information for OML+cmbrm on input line 29
+5.
+("C:\Program Files\MiKTeX 2.9\tex\latex\cmbright\omlcmbrm.fd"
+File: omlcmbrm.fd 2005/04/13 v8.1 (WaS)
+)
+LaTeX Font Info:    Try loading font information for OMS+cmbrs on input line 29
+5.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\cmbright\omscmbrs.fd"
+File: omscmbrs.fd 2005/04/13 v8.1 (WaS)
+)
+\@mybox=\box101
+\@myboxht=\dimen329
+
+Underfull \hbox (badness 1286) in paragraph at lines 295--295
+[]\T1/cmbr/m/n/10 Berechnung der Synapsen- und Gap-Junction-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 295--295
+
+ []
+
+
+Overfull \hbox (7.90709pt too wide) detected at line 295
+[][][][][][][][][]  [][] [][][][][][][]
+ []
+
+
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
  []
@@ -1442,27 +1938,61 @@ Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 [7
 
 ]
-\openout4 = `presentation_BA_JW.vrb'.
+<icons/001-plus.pdf, id=217, 50.1875pt x 50.1875pt>
+File: icons/001-plus.pdf Graphic file (type pdf)
+<use icons/001-plus.pdf>
+Package pdftex.def Info: icons/001-plus.pdf  used on input line 324.
+(pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
+File: icons/001-plus.pdf Graphic file (type pdf)
+<use icons/001-plus.pdf>
+Package pdftex.def Info: icons/001-plus.pdf  used on input line 324.
+(pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
+File: icons/001-plus.pdf Graphic file (type pdf)
+<use icons/001-plus.pdf>
+Package pdftex.def Info: icons/001-plus.pdf  used on input line 324.
+(pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
+File: icons/001-plus.pdf Graphic file (type pdf)
+<use icons/001-plus.pdf>
+Package pdftex.def Info: icons/001-plus.pdf  used on input line 324.
+(pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
+<icons/002-minus.pdf, id=218, 50.1875pt x 50.1875pt>
+File: icons/002-minus.pdf Graphic file (type pdf)
+<use icons/002-minus.pdf>
+Package pdftex.def Info: icons/002-minus.pdf  used on input line 324.
+(pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
+File: icons/002-minus.pdf Graphic file (type pdf)
+<use icons/002-minus.pdf>
+Package pdftex.def Info: icons/002-minus.pdf  used on input line 324.
+(pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
+File: icons/002-minus.pdf Graphic file (type pdf)
+<use icons/002-minus.pdf>
+Package pdftex.def Info: icons/002-minus.pdf  used on input line 324.
+(pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
 
- (presentation_BA_JW.vrb
-\@mybox=\box62
-\@myboxht=\dimen275
-)
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
  []
 
 [8
 
-]
-\openout4 = `presentation_BA_JW.vrb'.
+ <./icons/001-plus.pdf> <./icons/002-minus.pdf>]
+File: figures/folie_1/rl.pdf Graphic file (type pdf)
+<use figures/folie_1/rl.pdf>
+Package pdftex.def Info: figures/folie_1/rl.pdf  used on input line 347.
+(pdftex.def)             Requested size: 128.0374pt x 128.03386pt.
+File: icons/003-arrow.pdf Graphic file (type pdf)
+<use icons/003-arrow.pdf>
+Package pdftex.def Info: icons/003-arrow.pdf  used on input line 347.
+(pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
+File: icons/003-arrow.pdf Graphic file (type pdf)
+<use icons/003-arrow.pdf>
+Package pdftex.def Info: icons/003-arrow.pdf  used on input line 347.
+(pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
+File: icons/003-arrow.pdf Graphic file (type pdf)
+<use icons/003-arrow.pdf>
+Package pdftex.def Info: icons/003-arrow.pdf  used on input line 347.
+(pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
 
- (presentation_BA_JW.vrb
-\@mybox=\box63
-\@myboxht=\dimen276
-\@mybox=\box64
-\@myboxht=\dimen277
-)
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
  []
@@ -1470,15 +2000,18 @@ Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 [9
 
 ]
+<figures/RL_Chart_pres.pdf, id=249, 569.05513pt x 213.39566pt>
+File: figures/RL_Chart_pres.pdf Graphic file (type pdf)
+<use figures/RL_Chart_pres.pdf>
+Package pdftex.def Info: figures/RL_Chart_pres.pdf  used on input line 376.
+(pdftex.def)             Requested size: 227.62204pt x 85.35675pt.
 
-LaTeX Warning: Citation 'fliess:95' on page 10 undefined on input line 248.
+Overfull \hbox (35.56725pt too wide) in paragraph at lines 376--376
+ [] 
+ []
 
-
-LaTeX Font Warning: Font shape `T1/cmbr/bx/n' in size <7> not available
-(Font)              Font shape `T1/cmbr/sb/n' tried instead on input line 248.
-
-\@mybox=\box65
-\@myboxht=\dimen278
+LaTeX Font Info:    Font shape `T1/cmbr/m/it' in size <9> not available
+(Font)              Font shape `T1/cmbr/m/sl' tried instead on input line 376.
 
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
@@ -1491,30 +2024,28 @@ Overfull \hbox (1.42506pt too wide) has occurred while \output is active
 
 [10
 
-]
-
-LaTeX Warning: Citation 'fliess:95' on page 11 undefined on input line 248.
-
-\@mybox=\box66
-\@myboxht=\dimen279
-
+ <./figures/RL_Chart_pres.pdf>]
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
  []
 
 
 Overfull \hbox (1.42506pt too wide) has occurred while \output is active
-[]\T1/cmbr/sb/n/6 10 
+[]\T1/cmbr/sb/n/6 11 
  []
 
 [11
 
 ]
+LaTeX Font Info:    Try loading font information for T1+cmtl on input line 415.
 
-LaTeX Warning: Citation 'fliess:95' on page 12 undefined on input line 248.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\cmbright\t1cmtl.fd"
+File: t1cmtl.fd 2005/04/13 v8.1 (WaS)
+)
 
-\@mybox=\box67
-\@myboxht=\dimen280
+LaTeX Font Warning: Font shape `T1/cmtl/bx/n' undefined
+(Font)              using `T1/cmtl/m/n' instead on input line 415.
+
 
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
@@ -1522,35 +2053,343 @@ Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 
 
 Overfull \hbox (1.42506pt too wide) has occurred while \output is active
-[]\T1/cmbr/sb/n/6 10 
+[]\T1/cmbr/sb/n/6 12 
  []
 
 [12
 
+] (figures/gen_alg.pdf_tex
+<figures/gen_alg.pdf, id=283, page=1, 569.05513pt x 426.79132pt>
+File: figures/gen_alg.pdf Graphic file (type pdf)
+<use figures/gen_alg.pdf, page 1>
+Package pdftex.def Info: figures/gen_alg.pdf , page1 used on input line 57.
+(pdftex.def)             Requested size: 179.25244pt x 134.43997pt.
+<figures/gen_alg.pdf, id=284, page=2, 569.05513pt x 426.79132pt>
+File: figures/gen_alg.pdf Graphic file (type pdf)
+<use figures/gen_alg.pdf, page 2>
+Package pdftex.def Info: figures/gen_alg.pdf , page2 used on input line 62.
+(pdftex.def)             Requested size: 179.25244pt x 134.43997pt.
+<figures/gen_alg.pdf, id=285, page=3, 569.05513pt x 426.79132pt>
+File: figures/gen_alg.pdf Graphic file (type pdf)
+<use figures/gen_alg.pdf, page 3>
+Package pdftex.def Info: figures/gen_alg.pdf , page3 used on input line 65.
+(pdftex.def)             Requested size: 179.25244pt x 134.43997pt.
+)
+Overfull \hbox (1.17432pt too wide) has occurred while \output is active
+[]  
+ []
+
+
+Overfull \hbox (1.42506pt too wide) has occurred while \output is active
+[]\T1/cmbr/sb/n/6 13 
+ []
+
+[13
+
+ <./figures/gen_alg.pdf> <./figures/gen_alg.pdf
+
+pdfTeX warning: pdflatex.exe (file ./figures/gen_alg.pdf): PDF inclusion: multi
+ple pdfs with page group included in a single page
+> <./figures/gen_alg.pdf
+
+pdfTeX warning: pdflatex.exe (file ./figures/gen_alg.pdf): PDF inclusion: multi
+ple pdfs with page group included in a single page
+>]
+File: figures/folie_1/cartpole.pdf Graphic file (type pdf)
+<use figures/folie_1/cartpole.pdf>
+Package pdftex.def Info: figures/folie_1/cartpole.pdf  used on input line 468.
+(pdftex.def)             Requested size: 128.0374pt x 128.03386pt.
+File: icons/003-arrow.pdf Graphic file (type pdf)
+<use icons/003-arrow.pdf>
+Package pdftex.def Info: icons/003-arrow.pdf  used on input line 468.
+(pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
+File: icons/003-arrow.pdf Graphic file (type pdf)
+<use icons/003-arrow.pdf>
+Package pdftex.def Info: icons/003-arrow.pdf  used on input line 468.
+(pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
+File: icons/003-arrow.pdf Graphic file (type pdf)
+<use icons/003-arrow.pdf>
+Package pdftex.def Info: icons/003-arrow.pdf  used on input line 468.
+(pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
+
+Overfull \hbox (1.17432pt too wide) has occurred while \output is active
+[]  
+ []
+
+
+Overfull \hbox (1.42506pt too wide) has occurred while \output is active
+[]\T1/cmbr/sb/n/6 14 
+ []
+
+[14
+
 ]
-LaTeX Font Info:    Try loading font information for U+mvs on input line 252.
+Overfull \hbox (1.17432pt too wide) has occurred while \output is active
+[]  
+ []
+
+
+Overfull \hbox (1.42506pt too wide) has occurred while \output is active
+[]\T1/cmbr/sb/n/6 15 
+ []
+
+[15
+
+] (figures/cartpole_with_ann.pdf_tex
+<figures/cartpole_with_ann.pdf, id=310, page=1, 569.05513pt x 569.05513pt>
+File: figures/cartpole_with_ann.pdf Graphic file (type pdf)
+<use figures/cartpole_with_ann.pdf, page 1>
+Package pdftex.def Info: figures/cartpole_with_ann.pdf , page1 used on input li
+ne 56.
+(pdftex.def)             Requested size: 184.9429pt x 184.94072pt.
+<figures/cartpole_with_ann.pdf, id=311, page=2, 569.05513pt x 569.05513pt>
+File: figures/cartpole_with_ann.pdf Graphic file (type pdf)
+<use figures/cartpole_with_ann.pdf, page 2>
+Package pdftex.def Info: figures/cartpole_with_ann.pdf , page2 used on input li
+ne 58.
+(pdftex.def)             Requested size: 184.9429pt x 184.94072pt.
+<figures/cartpole_with_ann.pdf, id=312, page=3, 569.05513pt x 569.05513pt>
+File: figures/cartpole_with_ann.pdf Graphic file (type pdf)
+<use figures/cartpole_with_ann.pdf, page 3>
+Package pdftex.def Info: figures/cartpole_with_ann.pdf , page3 used on input li
+ne 60.
+(pdftex.def)             Requested size: 184.9429pt x 184.94072pt.
+<figures/cartpole_with_ann.pdf, id=313, page=4, 569.05513pt x 569.05513pt>
+File: figures/cartpole_with_ann.pdf Graphic file (type pdf)
+<use figures/cartpole_with_ann.pdf, page 4>
+Package pdftex.def Info: figures/cartpole_with_ann.pdf , page4 used on input li
+ne 62.
+(pdftex.def)             Requested size: 184.9429pt x 184.94072pt.
+)
+Overfull \vbox (17.43712pt too high) detected at line 544
+ []
+
+
+Overfull \hbox (1.17432pt too wide) has occurred while \output is active
+[]  
+ []
+
+
+Overfull \hbox (1.42506pt too wide) has occurred while \output is active
+[]\T1/cmbr/sb/n/6 16 
+ []
+
+[16
+
+ <./figures/cartpole_with_ann.pdf> <./figures/cartpole_with_ann.pdf
+
+pdfTeX warning: pdflatex.exe (file ./figures/cartpole_with_ann.pdf): PDF inclus
+ion: multiple pdfs with page group included in a single page
+> <./figures/cartpole_with_ann.pdf
+
+pdfTeX warning: pdflatex.exe (file ./figures/cartpole_with_ann.pdf): PDF inclus
+ion: multiple pdfs with page group included in a single page
+> <./figures/cartpole_with_ann.pdf
+
+pdfTeX warning: pdflatex.exe (file ./figures/cartpole_with_ann.pdf): PDF inclus
+ion: multiple pdfs with page group included in a single page
+>]
+<figures/gcp.png, id=324, 1806.75pt x 467.7475pt>
+File: figures/gcp.png Graphic file (type png)
+<use figures/gcp.png>
+Package pdftex.def Info: figures/gcp.png  used on input line 564.
+(pdftex.def)             Requested size: 227.62204pt x 58.92506pt.
+
+Overfull \hbox (1.17432pt too wide) has occurred while \output is active
+[]  
+ []
+
+
+Overfull \hbox (1.42506pt too wide) has occurred while \output is active
+[]\T1/cmbr/sb/n/6 17 
+ []
+
+[17
+
+ <./figures/gcp.png>]
+Overfull \hbox (1.17432pt too wide) has occurred while \output is active
+[]  
+ []
+
+
+Overfull \hbox (1.42506pt too wide) has occurred while \output is active
+[]\T1/cmbr/sb/n/6 18 
+ []
+
+[18
+
+]<<VPlayer.swf>><<video/20180910_Render_MP4.mp4>>
+Overfull \vbox (2.76706pt too high) detected at line 598
+ []
+
+
+Overfull \hbox (1.17432pt too wide) has occurred while \output is active
+[]  
+ []
+
+
+Overfull \hbox (1.42506pt too wide) has occurred while \output is active
+[]\T1/cmbr/sb/n/6 19 
+ []
+
+[19
+
+]
+Overfull \hbox (1.17432pt too wide) has occurred while \output is active
+[]  
+ []
+
+
+Overfull \hbox (1.42506pt too wide) has occurred while \output is active
+[]\T1/cmbr/sb/n/6 20 
+ []
+
+[20
+
+]
+Overfull \hbox (1.17432pt too wide) has occurred while \output is active
+[]  
+ []
+
+
+Overfull \hbox (1.42506pt too wide) has occurred while \output is active
+[]\T1/cmbr/sb/n/6 21 
+ []
+
+[21
+
+]
+Overfull \hbox (1.17432pt too wide) has occurred while \output is active
+[]  
+ []
+
+
+Overfull \hbox (1.42506pt too wide) has occurred while \output is active
+[]\T1/cmbr/sb/n/6 22 
+ []
+
+[22
+
+]
+\openout4 = `presentation_BA_JW.vrb'.
+
+ (presentation_BA_JW.vrb
+\@mybox=\box102
+\@myboxht=\dimen330
+)
+Overfull \hbox (1.17432pt too wide) has occurred while \output is active
+[]  
+ []
+
+
+Overfull \hbox (1.42506pt too wide) has occurred while \output is active
+[]\T1/cmbr/sb/n/6 23 
+ []
+
+[23
+
+]
+\openout4 = `presentation_BA_JW.vrb'.
+
+ (presentation_BA_JW.vrb
+\@mybox=\box103
+\@myboxht=\dimen331
+\@mybox=\box104
+\@myboxht=\dimen332
+)
+Overfull \hbox (1.17432pt too wide) has occurred while \output is active
+[]  
+ []
+
+
+Overfull \hbox (1.42506pt too wide) has occurred while \output is active
+[]\T1/cmbr/sb/n/6 24 
+ []
+
+[24
+
+]
+
+LaTeX Warning: Citation 'fliess:95' on page 25 undefined on input line 763.
+
+
+LaTeX Font Warning: Font shape `T1/cmbr/bx/n' in size <7> not available
+(Font)              Font shape `T1/cmbr/sb/n' tried instead on input line 763.
+
+\@mybox=\box105
+\@myboxht=\dimen333
+
+Overfull \hbox (1.17432pt too wide) has occurred while \output is active
+[]  
+ []
+
+
+Overfull \hbox (1.42506pt too wide) has occurred while \output is active
+[]\T1/cmbr/sb/n/6 25 
+ []
+
+[25
+
+]
+
+LaTeX Warning: Citation 'fliess:95' on page 26 undefined on input line 763.
+
+\@mybox=\box106
+\@myboxht=\dimen334
+
+Overfull \hbox (1.17432pt too wide) has occurred while \output is active
+[]  
+ []
+
+
+Overfull \hbox (1.42506pt too wide) has occurred while \output is active
+[]\T1/cmbr/sb/n/6 25 
+ []
+
+[26
+
+]
+
+LaTeX Warning: Citation 'fliess:95' on page 27 undefined on input line 763.
+
+\@mybox=\box107
+\@myboxht=\dimen335
+
+Overfull \hbox (1.17432pt too wide) has occurred while \output is active
+[]  
+ []
+
+
+Overfull \hbox (1.42506pt too wide) has occurred while \output is active
+[]\T1/cmbr/sb/n/6 25 
+ []
+
+[27
+
+]
+LaTeX Font Info:    Try loading font information for U+mvs on input line 767.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\marvosym\umvs.fd")
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
  []
 
-[13
+[28
 
 ]
-\tf@nav=\write8
-\openout8 = `presentation_BA_JW.nav'.
+\tf@nav=\write9
+\openout9 = `presentation_BA_JW.nav'.
 
-\tf@toc=\write9
-\openout9 = `presentation_BA_JW.toc'.
+\tf@toc=\write10
+\openout10 = `presentation_BA_JW.toc'.
 
-\tf@snm=\write10
-\openout10 = `presentation_BA_JW.snm'.
+\tf@snm=\write11
+\openout11 = `presentation_BA_JW.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 254.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 254.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 769.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 769.
  (presentation_BA_JW.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 254.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 254.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 769.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 769.
 Package rerunfilecheck Info: File `presentation_BA_JW.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1570,43 +2409,51 @@ Package logreq Info: Writing requests to 'presentation_BA_JW.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28208 strings out of 492973
- 539369 string characters out of 3135932
- 1013855 words of memory out of 3000000
- 31447 multiletter control sequences out of 15000+200000
- 22508 words of font info for 54 fonts, out of 3000000 for 9000
+ 57468 strings out of 492973
+ 1289014 string characters out of 3135932
+ 1814181 words of memory out of 3000000
+ 60485 multiletter control sequences out of 15000+200000
+ 553874 words of font info for 68 fonts, out of 3000000 for 9000
  1143 hyphenation exceptions out of 8191
- 60i,15n,71p,802b,2180s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 142i,18n,184p,1636b,2770s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi
 525\cmbrsy8.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public
-\cmbright\dpi600\cmbrsy10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk
-\ljfour\public\cmbright\dpi420\cmbrmb10.pk> <C:\Users\Jonas\AppData\Local\MiKTe
-X\2.9\fonts\pk\ljfour\public\cmbright\dpi600\cmbrmb10.pk> <C:\Users\Jonas\AppDa
-ta\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi525\ebsr8.pk> <C:\Users\
-Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi525\ebmr8.pk>
- <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi52
-5\cmbr8.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmb
-right\dpi600\cmbr10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
-r\public\cmbright\dpi660\ebtl10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fo
-nts\pk\ljfour\public\cmbright\dpi600\ebbx10.pk> <C:\Users\Jonas\AppData\Local\M
-iKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi600\ebtl10.pk> <C:\Users\Jonas\App
-Data\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi525\cmbrmi8.pk> <C:\Us
-ers\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi600\cmbrm
-i10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbrigh
-t\dpi450\ebsr8.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\pub
-lic\cmbright\dpi660\ebbx10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\p
-k\ljfour\public\cmbright\dpi780\ebbx10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX
-\2.9\fonts\pk\ljfour\public\cmbright\dpi600\ebmr10.pk> <C:\Users\Jonas\AppData\
-Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi600\ebmr8.pk> <C:\Users\Jon
-as\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi720\ebmr10.pk> <
-C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi720\
-ebbx10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbr
-ight\dpi1140\ebbx10.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/marvosym/marvosy
-m.pfb>
-Output written on presentation_BA_JW.pdf (13 pages, 2146457 bytes).
+\cmbright\dpi420\cmbrmb10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk
+\ljfour\public\cmbright\dpi525\ebsr8.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2
+.9\fonts\pk\ljfour\public\cmbright\dpi600\ebmr17.pk> <C:\Users\Jonas\AppData\Lo
+cal\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi540\ebtl10.pk> <C:\Users\Jona
+s\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi660\ebtl10.pk> <C
+:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi525\e
+bmr8.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbrig
+ht\dpi600\ebtl10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\p
+ublic\cmbright\dpi600\ebmo9.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\
+pk\ljfour\public\cmbright\dpi600\cmbrmb10.pk> <C:\Users\Jonas\AppData\Local\MiK
+TeX\2.9\fonts\pk\ljfour\public\cmbright\dpi600\ebmr9.pk> <C:\Users\Jonas\AppDat
+a\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi540\ebbx10.pk> <C:\Users\
+Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi375\cmbrmi8.p
+k> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi
+525\cmbr8.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\c
+mbright\dpi600\cmbrsy10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\l
+jfour\public\cmbright\dpi525\cmbrmi8.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2
+.9\fonts\pk\ljfour\public\cmbright\dpi600\cmbr10.pk> <C:\Users\Jonas\AppData\Lo
+cal\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi600\cmbrmi10.pk> <C:\Users\Jo
+nas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi600\ebmo10.pk> 
+<C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi450
+\ebsr8.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbr
+ight\dpi600\ebbx10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
+\public\cmbright\dpi660\ebbx10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fon
+ts\pk\ljfour\public\cmbright\dpi780\ebbx10.pk> <C:\Users\Jonas\AppData\Local\Mi
+KTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi600\ebmr10.pk> <C:\Users\Jonas\AppD
+ata\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi600\ebmr8.pk> <C:\Users
+\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi720\ebmr10.p
+k> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi
+720\ebbx10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\
+cmbright\dpi960\ebbx10.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/marvosym/marv
+osym.pfb>
+Output written on presentation_BA_JW.pdf (28 pages, 9885946 bytes).
 PDF statistics:
- 702 PDF objects out of 1000 (max. 8388607)
- 27 named destinations out of 1000 (max. 500000)
- 67 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1144 PDF objects out of 1200 (max. 8388607)
+ 69 named destinations out of 1000 (max. 500000)
+ 248 words of extra memory for PDF output out of 10000 (max. 10000000)
 
