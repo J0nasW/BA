@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.7.28)  11 SEP 2018 15:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.7.28)  12 SEP 2018 19:11
 entering extended mode
 **./presentation_BA_JW.tex
 (presentation_BA_JW.tex
@@ -1614,7 +1614,20 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 
 \@quotelevel=\count492
 \@quotereset=\count493
-(presentation_BA_JW.aux)
+(presentation_BA_JW.aux
+
+LaTeX Warning: Label `eq:lif' multiply defined.
+
+
+LaTeX Warning: Label `eq:lif_current_in' multiply defined.
+
+
+LaTeX Warning: Label `eq:chem_syn_current' multiply defined.
+
+
+LaTeX Warning: Label `eq:gap_syn_current' multiply defined.
+
+)
 \openout1 = `presentation_BA_JW.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
@@ -1830,9 +1843,9 @@ Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 <figures/folie_2/neuron_is.pdf, id=101, 569.05513pt x 284.52756pt>
 File: figures/folie_2/neuron_is.pdf Graphic file (type pdf)
 <use figures/folie_2/neuron_is.pdf>
-Package pdftex.def Info: figures/folie_2/neuron_is.pdf  used on input line 188.
+Package pdftex.def Info: figures/folie_2/neuron_is.pdf  used on input line 189.
 
-(pdftex.def)             Requested size: 199.16928pt x 99.58179pt.
+(pdftex.def)             Requested size: 204.85974pt x 102.42984pt.
 
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
@@ -1844,7 +1857,7 @@ Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 <figures/folie_3/synapse_is.pdf, id=116, 569.05513pt x 213.39566pt>
 File: figures/folie_3/synapse_is.pdf Graphic file (type pdf)
 <use figures/folie_3/synapse_is.pdf>
-Package pdftex.def Info: figures/folie_3/synapse_is.pdf  used on input line 208
+Package pdftex.def Info: figures/folie_3/synapse_is.pdf  used on input line 210
 .
 (pdftex.def)             Requested size: 227.62204pt x 85.35675pt.
 
@@ -1856,35 +1869,35 @@ Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 
  <./figures/folie_3/synapse_is.pdf>]
 LaTeX Font Info:    Font shape `T1/cmbr/m/it' in size <10> not available
-(Font)              Font shape `T1/cmbr/m/sl' tried instead on input line 235.
-<icons/motor_neuron.pdf, id=137, 93.64215pt x 81.09648pt>
-File: icons/motor_neuron.pdf Graphic file (type pdf)
-<use icons/motor_neuron.pdf>
-Package pdftex.def Info: icons/motor_neuron.pdf  used on input line 235.
-(pdftex.def)             Requested size: 22.00012pt x 19.05272pt.
-<icons/sensor_neuron.pdf, id=138, 67.22375pt x 58.2175pt>
+(Font)              Font shape `T1/cmbr/m/sl' tried instead on input line 237.
+<icons/sensor_neuron.pdf, id=137, 67.22375pt x 58.2175pt>
 File: icons/sensor_neuron.pdf Graphic file (type pdf)
 <use icons/sensor_neuron.pdf>
-Package pdftex.def Info: icons/sensor_neuron.pdf  used on input line 235.
+Package pdftex.def Info: icons/sensor_neuron.pdf  used on input line 237.
 (pdftex.def)             Requested size: 22.00012pt x 19.05281pt.
-<icons/inter_neuron.pdf, id=139, 32.12pt x 32.12pt>
+<icons/inter_neuron.pdf, id=138, 32.12pt x 32.12pt>
 File: icons/inter_neuron.pdf Graphic file (type pdf)
 <use icons/inter_neuron.pdf>
-Package pdftex.def Info: icons/inter_neuron.pdf  used on input line 235.
+Package pdftex.def Info: icons/inter_neuron.pdf  used on input line 237.
 (pdftex.def)             Requested size: 22.00012pt x 22.00058pt.
+<icons/motor_neuron.pdf, id=139, 93.64215pt x 81.09648pt>
+File: icons/motor_neuron.pdf Graphic file (type pdf)
+<use icons/motor_neuron.pdf>
+Package pdftex.def Info: icons/motor_neuron.pdf  used on input line 237.
+(pdftex.def)             Requested size: 22.00012pt x 19.05272pt.
 <figures/nn_with_worm.pdf, id=140, 1003.75pt x 1217.54875pt>
 File: figures/nn_with_worm.pdf Graphic file (type pdf)
 <use figures/nn_with_worm.pdf>
-Package pdftex.def Info: figures/nn_with_worm.pdf  used on input line 235.
+Package pdftex.def Info: figures/nn_with_worm.pdf  used on input line 237.
 (pdftex.def)             Requested size: 156.49014pt x 189.81422pt.
 
-Overfull \hbox (7.90709pt too wide) detected at line 235
+Overfull \hbox (12.17267pt too wide) detected at line 237
 [][][][][][][][][]  [][] [][][][][][][]
  []
 
 
 LaTeX Font Warning: Font shape `T1/cmbr/bx/it' undefined
-(Font)              using `T1/cmbr/bx/n' instead on input line 235.
+(Font)              using `T1/cmbr/bx/n' instead on input line 237.
 
 
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
@@ -1893,22 +1906,22 @@ Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 
 [6
 
- <./icons/motor_neuron.pdf> <./icons/sensor_neuron.pdf> <./icons/inter_neuron.p
+ <./icons/sensor_neuron.pdf> <./icons/inter_neuron.pdf> <./icons/motor_neuron.p
 df> <./figures/nn_with_worm.pdf>]
 \@mybox=\box100
 \@myboxht=\dimen328
 
-Underfull \hbox (badness 10000) in paragraph at lines 295--295
+Underfull \hbox (badness 10000) in paragraph at lines 297--297
 
  []
 
 LaTeX Font Info:    Try loading font information for OML+cmbrm on input line 29
-5.
+7.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\cmbright\omlcmbrm.fd"
 File: omlcmbrm.fd 2005/04/13 v8.1 (WaS)
 )
 LaTeX Font Info:    Try loading font information for OMS+cmbrs on input line 29
-5.
+7.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\cmbright\omscmbrs.fd"
 File: omscmbrs.fd 2005/04/13 v8.1 (WaS)
@@ -1916,17 +1929,17 @@ File: omscmbrs.fd 2005/04/13 v8.1 (WaS)
 \@mybox=\box101
 \@myboxht=\dimen329
 
-Underfull \hbox (badness 1286) in paragraph at lines 295--295
+Underfull \hbox (badness 1286) in paragraph at lines 297--297
 []\T1/cmbr/m/n/10 Berechnung der Synapsen- und Gap-Junction-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 295--295
+Underfull \hbox (badness 10000) in paragraph at lines 297--297
 
  []
 
 
-Overfull \hbox (7.90709pt too wide) detected at line 295
+Overfull \hbox (7.90709pt too wide) detected at line 297
 [][][][][][][][][]  [][] [][][][][][][]
  []
 
@@ -1941,32 +1954,32 @@ Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 <icons/001-plus.pdf, id=217, 50.1875pt x 50.1875pt>
 File: icons/001-plus.pdf Graphic file (type pdf)
 <use icons/001-plus.pdf>
-Package pdftex.def Info: icons/001-plus.pdf  used on input line 324.
+Package pdftex.def Info: icons/001-plus.pdf  used on input line 326.
 (pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
 File: icons/001-plus.pdf Graphic file (type pdf)
 <use icons/001-plus.pdf>
-Package pdftex.def Info: icons/001-plus.pdf  used on input line 324.
+Package pdftex.def Info: icons/001-plus.pdf  used on input line 326.
 (pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
 File: icons/001-plus.pdf Graphic file (type pdf)
 <use icons/001-plus.pdf>
-Package pdftex.def Info: icons/001-plus.pdf  used on input line 324.
+Package pdftex.def Info: icons/001-plus.pdf  used on input line 326.
 (pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
 File: icons/001-plus.pdf Graphic file (type pdf)
 <use icons/001-plus.pdf>
-Package pdftex.def Info: icons/001-plus.pdf  used on input line 324.
+Package pdftex.def Info: icons/001-plus.pdf  used on input line 326.
 (pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
 <icons/002-minus.pdf, id=218, 50.1875pt x 50.1875pt>
 File: icons/002-minus.pdf Graphic file (type pdf)
 <use icons/002-minus.pdf>
-Package pdftex.def Info: icons/002-minus.pdf  used on input line 324.
+Package pdftex.def Info: icons/002-minus.pdf  used on input line 326.
 (pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
 File: icons/002-minus.pdf Graphic file (type pdf)
 <use icons/002-minus.pdf>
-Package pdftex.def Info: icons/002-minus.pdf  used on input line 324.
+Package pdftex.def Info: icons/002-minus.pdf  used on input line 326.
 (pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
 File: icons/002-minus.pdf Graphic file (type pdf)
 <use icons/002-minus.pdf>
-Package pdftex.def Info: icons/002-minus.pdf  used on input line 324.
+Package pdftex.def Info: icons/002-minus.pdf  used on input line 326.
 (pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
 
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
@@ -1978,19 +1991,19 @@ Overfull \hbox (1.17432pt too wide) has occurred while \output is active
  <./icons/001-plus.pdf> <./icons/002-minus.pdf>]
 File: figures/folie_1/rl.pdf Graphic file (type pdf)
 <use figures/folie_1/rl.pdf>
-Package pdftex.def Info: figures/folie_1/rl.pdf  used on input line 347.
+Package pdftex.def Info: figures/folie_1/rl.pdf  used on input line 349.
 (pdftex.def)             Requested size: 128.0374pt x 128.03386pt.
 File: icons/003-arrow.pdf Graphic file (type pdf)
 <use icons/003-arrow.pdf>
-Package pdftex.def Info: icons/003-arrow.pdf  used on input line 347.
+Package pdftex.def Info: icons/003-arrow.pdf  used on input line 349.
 (pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
 File: icons/003-arrow.pdf Graphic file (type pdf)
 <use icons/003-arrow.pdf>
-Package pdftex.def Info: icons/003-arrow.pdf  used on input line 347.
+Package pdftex.def Info: icons/003-arrow.pdf  used on input line 349.
 (pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
 File: icons/003-arrow.pdf Graphic file (type pdf)
 <use icons/003-arrow.pdf>
-Package pdftex.def Info: icons/003-arrow.pdf  used on input line 347.
+Package pdftex.def Info: icons/003-arrow.pdf  used on input line 349.
 (pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
 
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
@@ -2003,15 +2016,15 @@ Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 <figures/RL_Chart_pres.pdf, id=249, 569.05513pt x 213.39566pt>
 File: figures/RL_Chart_pres.pdf Graphic file (type pdf)
 <use figures/RL_Chart_pres.pdf>
-Package pdftex.def Info: figures/RL_Chart_pres.pdf  used on input line 376.
+Package pdftex.def Info: figures/RL_Chart_pres.pdf  used on input line 379.
 (pdftex.def)             Requested size: 227.62204pt x 85.35675pt.
 
-Overfull \hbox (35.56725pt too wide) in paragraph at lines 376--376
+Overfull \hbox (35.56725pt too wide) in paragraph at lines 379--379
  [] 
  []
 
 LaTeX Font Info:    Font shape `T1/cmbr/m/it' in size <9> not available
-(Font)              Font shape `T1/cmbr/m/sl' tried instead on input line 376.
+(Font)              Font shape `T1/cmbr/m/sl' tried instead on input line 379.
 
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
@@ -2025,6 +2038,18 @@ Overfull \hbox (1.42506pt too wide) has occurred while \output is active
 [10
 
  <./figures/RL_Chart_pres.pdf>]
+<figures/Neural_Net_v3_num_syn.pdf, id=272, 752.8125pt x 752.8125pt>
+File: figures/Neural_Net_v3_num_syn.pdf Graphic file (type pdf)
+<use figures/Neural_Net_v3_num_syn.pdf>
+Package pdftex.def Info: figures/Neural_Net_v3_num_syn.pdf  used on input line 
+408.
+(pdftex.def)             Requested size: 142.26378pt x 142.26622pt.
+
+Overfull \hbox (9.3285pt too wide) detected at line 408
+[][][][][][][][][]  [][] [][][][][][][]
+ []
+
+
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
  []
@@ -2036,15 +2061,16 @@ Overfull \hbox (1.42506pt too wide) has occurred while \output is active
 
 [11
 
-]
-LaTeX Font Info:    Try loading font information for T1+cmtl on input line 415.
+ <./figures/Neural_Net_v3_num_syn.pdf>]
+LaTeX Font Info:    Try loading font information for T1+cmtl on input line 435.
 
- ("C:\Program Files\MiKTeX 2.9\tex\latex\cmbright\t1cmtl.fd"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\cmbright\t1cmtl.fd"
 File: t1cmtl.fd 2005/04/13 v8.1 (WaS)
 )
 
 LaTeX Font Warning: Font shape `T1/cmtl/bx/n' undefined
-(Font)              using `T1/cmtl/m/n' instead on input line 415.
+(Font)              using `T1/cmtl/m/n' instead on input line 435.
 
 
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
@@ -2059,17 +2085,17 @@ Overfull \hbox (1.42506pt too wide) has occurred while \output is active
 [12
 
 ] (figures/gen_alg.pdf_tex
-<figures/gen_alg.pdf, id=283, page=1, 569.05513pt x 426.79132pt>
+<figures/gen_alg.pdf, id=293, page=1, 569.05513pt x 426.79132pt>
 File: figures/gen_alg.pdf Graphic file (type pdf)
 <use figures/gen_alg.pdf, page 1>
 Package pdftex.def Info: figures/gen_alg.pdf , page1 used on input line 57.
 (pdftex.def)             Requested size: 179.25244pt x 134.43997pt.
-<figures/gen_alg.pdf, id=284, page=2, 569.05513pt x 426.79132pt>
+<figures/gen_alg.pdf, id=294, page=2, 569.05513pt x 426.79132pt>
 File: figures/gen_alg.pdf Graphic file (type pdf)
 <use figures/gen_alg.pdf, page 2>
 Package pdftex.def Info: figures/gen_alg.pdf , page2 used on input line 62.
 (pdftex.def)             Requested size: 179.25244pt x 134.43997pt.
-<figures/gen_alg.pdf, id=285, page=3, 569.05513pt x 426.79132pt>
+<figures/gen_alg.pdf, id=295, page=3, 569.05513pt x 426.79132pt>
 File: figures/gen_alg.pdf Graphic file (type pdf)
 <use figures/gen_alg.pdf, page 3>
 Package pdftex.def Info: figures/gen_alg.pdf , page3 used on input line 65.
@@ -2097,19 +2123,19 @@ ple pdfs with page group included in a single page
 >]
 File: figures/folie_1/cartpole.pdf Graphic file (type pdf)
 <use figures/folie_1/cartpole.pdf>
-Package pdftex.def Info: figures/folie_1/cartpole.pdf  used on input line 468.
+Package pdftex.def Info: figures/folie_1/cartpole.pdf  used on input line 489.
 (pdftex.def)             Requested size: 128.0374pt x 128.03386pt.
 File: icons/003-arrow.pdf Graphic file (type pdf)
 <use icons/003-arrow.pdf>
-Package pdftex.def Info: icons/003-arrow.pdf  used on input line 468.
+Package pdftex.def Info: icons/003-arrow.pdf  used on input line 489.
 (pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
 File: icons/003-arrow.pdf Graphic file (type pdf)
 <use icons/003-arrow.pdf>
-Package pdftex.def Info: icons/003-arrow.pdf  used on input line 468.
+Package pdftex.def Info: icons/003-arrow.pdf  used on input line 489.
 (pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
 File: icons/003-arrow.pdf Graphic file (type pdf)
 <use icons/003-arrow.pdf>
-Package pdftex.def Info: icons/003-arrow.pdf  used on input line 468.
+Package pdftex.def Info: icons/003-arrow.pdf  used on input line 489.
 (pdftex.def)             Requested size: 11.00006pt x 10.99992pt.
 
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
@@ -2136,32 +2162,32 @@ Overfull \hbox (1.42506pt too wide) has occurred while \output is active
 [15
 
 ] (figures/cartpole_with_ann.pdf_tex
-<figures/cartpole_with_ann.pdf, id=310, page=1, 569.05513pt x 569.05513pt>
+<figures/cartpole_with_ann.pdf, id=320, page=1, 569.05513pt x 569.05513pt>
 File: figures/cartpole_with_ann.pdf Graphic file (type pdf)
 <use figures/cartpole_with_ann.pdf, page 1>
 Package pdftex.def Info: figures/cartpole_with_ann.pdf , page1 used on input li
 ne 56.
 (pdftex.def)             Requested size: 184.9429pt x 184.94072pt.
-<figures/cartpole_with_ann.pdf, id=311, page=2, 569.05513pt x 569.05513pt>
+<figures/cartpole_with_ann.pdf, id=321, page=2, 569.05513pt x 569.05513pt>
 File: figures/cartpole_with_ann.pdf Graphic file (type pdf)
 <use figures/cartpole_with_ann.pdf, page 2>
 Package pdftex.def Info: figures/cartpole_with_ann.pdf , page2 used on input li
 ne 58.
 (pdftex.def)             Requested size: 184.9429pt x 184.94072pt.
-<figures/cartpole_with_ann.pdf, id=312, page=3, 569.05513pt x 569.05513pt>
+<figures/cartpole_with_ann.pdf, id=322, page=3, 569.05513pt x 569.05513pt>
 File: figures/cartpole_with_ann.pdf Graphic file (type pdf)
 <use figures/cartpole_with_ann.pdf, page 3>
 Package pdftex.def Info: figures/cartpole_with_ann.pdf , page3 used on input li
 ne 60.
 (pdftex.def)             Requested size: 184.9429pt x 184.94072pt.
-<figures/cartpole_with_ann.pdf, id=313, page=4, 569.05513pt x 569.05513pt>
+<figures/cartpole_with_ann.pdf, id=323, page=4, 569.05513pt x 569.05513pt>
 File: figures/cartpole_with_ann.pdf Graphic file (type pdf)
 <use figures/cartpole_with_ann.pdf, page 4>
 Package pdftex.def Info: figures/cartpole_with_ann.pdf , page4 used on input li
 ne 62.
 (pdftex.def)             Requested size: 184.9429pt x 184.94072pt.
 )
-Overfull \vbox (17.43712pt too high) detected at line 544
+Overfull \vbox (20.28256pt too high) detected at line 570
  []
 
 
@@ -2189,12 +2215,23 @@ ion: multiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex.exe (file ./figures/cartpole_with_ann.pdf): PDF inclus
 ion: multiple pdfs with page group included in a single page
 >]
-<figures/gcp.png, id=324, 1806.75pt x 467.7475pt>
+<figures/gcp.png, id=334, 1806.75pt x 467.7475pt>
 File: figures/gcp.png Graphic file (type png)
 <use figures/gcp.png>
-Package pdftex.def Info: figures/gcp.png  used on input line 564.
-(pdftex.def)             Requested size: 227.62204pt x 58.92506pt.
-
+Package pdftex.def Info: figures/gcp.png  used on input line 604.
+(pdftex.def)             Requested size: 170.71652pt x 44.1938pt.
+ (figures/gcp/gcp.pdf_tex
+<figures/gcp/gcp.pdf, id=335, page=1, 401.5pt x 501.875pt>
+File: figures/gcp/gcp.pdf Graphic file (type pdf)
+<use figures/gcp/gcp.pdf, page 1>
+Package pdftex.def Info: figures/gcp/gcp.pdf , page1 used on input line 56.
+(pdftex.def)             Requested size: 113.81102pt x 142.26239pt.
+<figures/gcp/gcp.pdf, id=336, page=2, 401.5pt x 501.875pt>
+File: figures/gcp/gcp.pdf Graphic file (type pdf)
+<use figures/gcp/gcp.pdf, page 2>
+Package pdftex.def Info: figures/gcp/gcp.pdf , page2 used on input line 58.
+(pdftex.def)             Requested size: 113.81102pt x 142.26239pt.
+)
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
  []
@@ -2206,7 +2243,22 @@ Overfull \hbox (1.42506pt too wide) has occurred while \output is active
 
 [17
 
- <./figures/gcp.png>]
+ <./figures/gcp.png> <./figures/gcp/gcp.pdf> <./figures/gcp/gcp.pdf
+
+pdfTeX warning: pdflatex.exe (file ./figures/gcp/gcp.pdf): PDF inclusion: multi
+ple pdfs with page group included in a single page
+>]
+<figures/plot_membranpot_1.pdf, id=346, 1387.58403pt x 710.41411pt>
+File: figures/plot_membranpot_1.pdf Graphic file (type pdf)
+<use figures/plot_membranpot_1.pdf>
+Package pdftex.def Info: figures/plot_membranpot_1.pdf  used on input line 619.
+
+(pdftex.def)             Requested size: 398.33858pt x 203.93352pt.
+
+Overfull \vbox (6.69798pt too high) detected at line 619
+ []
+
+
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
  []
@@ -2218,8 +2270,14 @@ Overfull \hbox (1.42506pt too wide) has occurred while \output is active
 
 [18
 
-]<<VPlayer.swf>><<video/20180910_Render_MP4.mp4>>
-Overfull \vbox (2.76706pt too high) detected at line 598
+ <./figures/plot_membranpot_1.pdf>]
+<figures/plot_action.pdf, id=399, 1387.58403pt x 710.41411pt>
+File: figures/plot_action.pdf Graphic file (type pdf)
+<use figures/plot_action.pdf>
+Package pdftex.def Info: figures/plot_action.pdf  used on input line 634.
+(pdftex.def)             Requested size: 369.88582pt x 189.37537pt.
+
+Overfull \vbox (2.97318pt too high) detected at line 634
  []
 
 
@@ -2234,7 +2292,7 @@ Overfull \hbox (1.42506pt too wide) has occurred while \output is active
 
 [19
 
-]
+ <./figures/plot_action.pdf>]<<VPlayer.swf>><<video/20180910_Render_MP4.mp4>>
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
  []
@@ -2271,12 +2329,6 @@ Overfull \hbox (1.42506pt too wide) has occurred while \output is active
 [22
 
 ]
-\openout4 = `presentation_BA_JW.vrb'.
-
- (presentation_BA_JW.vrb
-\@mybox=\box102
-\@myboxht=\dimen330
-)
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
  []
@@ -2289,14 +2341,24 @@ Overfull \hbox (1.42506pt too wide) has occurred while \output is active
 [23
 
 ]
-\openout4 = `presentation_BA_JW.vrb'.
+<figures/Neural_Net_v3_ohneLegende.pdf, id=481, 1003.75pt x 1003.75pt>
+File: figures/Neural_Net_v3_ohneLegende.pdf Graphic file (type pdf)
+<use figures/Neural_Net_v3_ohneLegende.pdf>
+Package pdftex.def Info: figures/Neural_Net_v3_ohneLegende.pdf  used on input l
+ine 715.
+(pdftex.def)             Requested size: 184.9429pt x 184.94035pt.
 
- (presentation_BA_JW.vrb
-\@mybox=\box103
-\@myboxht=\dimen331
-\@mybox=\box104
-\@myboxht=\dimen332
-)
+Overfull \hbox (14.22897pt too wide) in paragraph at lines 715--715
+ [] 
+ []
+
+<figures/Colored_neural_network.pdf, id=482, 237.49327pt x 285.595pt>
+File: figures/Colored_neural_network.pdf Graphic file (type pdf)
+<use figures/Colored_neural_network.pdf>
+Package pdftex.def Info: figures/Colored_neural_network.pdf  used on input line
+ 715.
+(pdftex.def)             Requested size: 128.0374pt x 153.97496pt.
+
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
  []
@@ -2308,17 +2370,8 @@ Overfull \hbox (1.42506pt too wide) has occurred while \output is active
 
 [24
 
-]
-
-LaTeX Warning: Citation 'fliess:95' on page 25 undefined on input line 763.
-
-
-LaTeX Font Warning: Font shape `T1/cmbr/bx/n' in size <7> not available
-(Font)              Font shape `T1/cmbr/sb/n' tried instead on input line 763.
-
-\@mybox=\box105
-\@myboxht=\dimen333
-
+ <./figures/Neural_Net_v3_ohneLegende.pdf> <./figures/Colored_neural_network.pd
+f>]
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
  []
@@ -2330,50 +2383,70 @@ Overfull \hbox (1.42506pt too wide) has occurred while \output is active
 
 [25
 
-]
-
-LaTeX Warning: Citation 'fliess:95' on page 26 undefined on input line 763.
-
-\@mybox=\box106
-\@myboxht=\dimen334
-
+]pdfTeX warning (ext4): destination with the same identifier (name{eq:lif}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.768 \end{frame}
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{eq:lif_current_in}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.768 \end{frame}
+                 
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
  []
 
 
 Overfull \hbox (1.42506pt too wide) has occurred while \output is active
-[]\T1/cmbr/sb/n/6 25 
+[]\T1/cmbr/sb/n/6 26 
  []
 
 [26
 
-]
-
-LaTeX Warning: Citation 'fliess:95' on page 27 undefined on input line 763.
-
-\@mybox=\box107
-\@myboxht=\dimen335
-
+]pdfTeX warning (ext4): destination with the same identifier (name{eq:chem_syn_
+current}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.788 \end{frame}
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{eq:gap_syn_current}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.788 \end{frame}
+                 
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
  []
 
 
 Overfull \hbox (1.42506pt too wide) has occurred while \output is active
-[]\T1/cmbr/sb/n/6 25 
+[]\T1/cmbr/sb/n/6 27 
  []
 
 [27
 
 ]
-LaTeX Font Info:    Try loading font information for U+mvs on input line 767.
+Overfull \hbox (1.17432pt too wide) has occurred while \output is active
+[]  
+ []
+
+
+Overfull \hbox (1.42506pt too wide) has occurred while \output is active
+[]\T1/cmbr/sb/n/6 28 
+ []
+
+[28
+
+]
+LaTeX Font Info:    Try loading font information for U+mvs on input line 808.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\marvosym\umvs.fd")
 Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 []  
  []
 
-[28
+[29
 
 ]
 \tf@nav=\write9
@@ -2385,11 +2458,11 @@ Overfull \hbox (1.17432pt too wide) has occurred while \output is active
 \tf@snm=\write11
 \openout11 = `presentation_BA_JW.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 769.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 769.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 810.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 810.
  (presentation_BA_JW.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 769.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 769.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 810.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 810.
 Package rerunfilecheck Info: File `presentation_BA_JW.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -2397,63 +2470,55 @@ Package rerunfilecheck Info: File `presentation_BA_JW.out' has not changed.
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were undefined references.
-
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                presentation_BA_JW
-(biblatex)                and rerun LaTeX afterwards.
+LaTeX Warning: There were multiply-defined labels.
 
 Package logreq Info: Writing requests to 'presentation_BA_JW.run.xml'.
 \openout1 = `presentation_BA_JW.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 57468 strings out of 492973
- 1289014 string characters out of 3135932
- 1814181 words of memory out of 3000000
- 60485 multiletter control sequences out of 15000+200000
- 553874 words of font info for 68 fonts, out of 3000000 for 9000
+ 57322 strings out of 492973
+ 1286232 string characters out of 3135932
+ 1814484 words of memory out of 3000000
+ 60321 multiletter control sequences out of 15000+200000
+ 554631 words of font info for 69 fonts, out of 3000000 for 9000
  1143 hyphenation exceptions out of 8191
- 142i,18n,184p,1636b,2770s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 142i,19n,184p,1636b,2770s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi
-525\cmbrsy8.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public
-\cmbright\dpi420\cmbrmb10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk
-\ljfour\public\cmbright\dpi525\ebsr8.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2
-.9\fonts\pk\ljfour\public\cmbright\dpi600\ebmr17.pk> <C:\Users\Jonas\AppData\Lo
-cal\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi540\ebtl10.pk> <C:\Users\Jona
-s\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi660\ebtl10.pk> <C
-:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi525\e
-bmr8.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbrig
-ht\dpi600\ebtl10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\p
-ublic\cmbright\dpi600\ebmo9.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\
-pk\ljfour\public\cmbright\dpi600\cmbrmb10.pk> <C:\Users\Jonas\AppData\Local\MiK
-TeX\2.9\fonts\pk\ljfour\public\cmbright\dpi600\ebmr9.pk> <C:\Users\Jonas\AppDat
-a\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi540\ebbx10.pk> <C:\Users\
-Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi375\cmbrmi8.p
-k> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi
-525\cmbr8.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\c
-mbright\dpi600\cmbrsy10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\l
-jfour\public\cmbright\dpi525\cmbrmi8.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2
-.9\fonts\pk\ljfour\public\cmbright\dpi600\cmbr10.pk> <C:\Users\Jonas\AppData\Lo
-cal\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi600\cmbrmi10.pk> <C:\Users\Jo
-nas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi600\ebmo10.pk> 
-<C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi450
-\ebsr8.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbr
-ight\dpi600\ebbx10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
-\public\cmbright\dpi660\ebbx10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fon
-ts\pk\ljfour\public\cmbright\dpi780\ebbx10.pk> <C:\Users\Jonas\AppData\Local\Mi
-KTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi600\ebmr10.pk> <C:\Users\Jonas\AppD
-ata\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi600\ebmr8.pk> <C:\Users
-\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi720\ebmr10.p
-k> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi
-720\ebbx10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\
-cmbright\dpi960\ebbx10.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/marvosym/marv
-osym.pfb>
-Output written on presentation_BA_JW.pdf (28 pages, 9885946 bytes).
+864\ebbx10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\
+cmbright\dpi600\ebmr17.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\lj
+four\public\cmbright\dpi540\ebtl10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9
+\fonts\pk\ljfour\public\cmbright\dpi660\ebtl10.pk> <C:\Users\Jonas\AppData\Loca
+l\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi525\ebmr8.pk> <C:\Users\Jonas\A
+ppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi600\ebtl10.pk> <C:\U
+sers\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi600\ebmo
+9.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\
+dpi600\cmbrmb10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\pu
+blic\cmbright\dpi600\ebmr9.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\p
+k\ljfour\public\cmbright\dpi540\ebbx10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX
+\2.9\fonts\pk\ljfour\public\cmbright\dpi375\cmbrmi8.pk> <C:\Users\Jonas\AppData
+\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi525\cmbr8.pk> <C:\Users\Jo
+nas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi600\cmbrsy10.pk
+> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi5
+25\cmbrmi8.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\
+cmbright\dpi600\cmbr10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\lj
+four\public\cmbright\dpi600\cmbrmi10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2
+.9\fonts\pk\ljfour\public\cmbright\dpi600\ebmo10.pk> <C:\Users\Jonas\AppData\Lo
+cal\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi450\ebsr8.pk> <C:\Users\Jonas
+\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi600\ebbx10.pk> <C:
+\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi660\eb
+bx10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbrig
+ht\dpi780\ebbx10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\p
+ublic\cmbright\dpi600\ebmr10.pk> <C:\Users\Jonas\AppData\Local\MiKTeX\2.9\fonts
+\pk\ljfour\public\cmbright\dpi600\ebmr8.pk> <C:\Users\Jonas\AppData\Local\MiKTe
+X\2.9\fonts\pk\ljfour\public\cmbright\dpi720\ebmr10.pk> <C:\Users\Jonas\AppData
+\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi720\ebbx10.pk> <C:\Users\J
+onas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\cmbright\dpi960\ebbx10.pk>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/marvosym/marvosym.pfb>
+Output written on presentation_BA_JW.pdf (29 pages, 10210560 bytes).
 PDF statistics:
- 1144 PDF objects out of 1200 (max. 8388607)
- 69 named destinations out of 1000 (max. 500000)
- 248 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1306 PDF objects out of 1440 (max. 8388607)
+ 83 named destinations out of 1000 (max. 500000)
+ 283 words of extra memory for PDF output out of 10000 (max. 10000000)
 

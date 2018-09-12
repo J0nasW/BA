@@ -1,8 +1,7 @@
-% Short demo for \LaTeX beamer theme with ACON style layout
-%
-% Author: Thomas Meurer <tm@tf.uni-kiel.de>
+% Author: Jonas Wilinski <stu118261@mail.uni-kiel.de>
 % Version history:
-% v0 ... 2016/12/09
+% v0 ... 2018/09/09
+% v0.1 ... 2018/09/12
 
 \documentclass[10pt,t,aspectratio=1610]{beamer}
 %\usetheme[german]{ACON} %or 
@@ -53,6 +52,7 @@
 \newcommand{\ChapterRl}{Reinforcement Learning - Lernen mit Belohnung}
 \newcommand{\ChapterCartpole}{Implementierung und Simulation des inversen Pendels}
 \newcommand{\ChapterEnd}{Zusammenfassung}
+\newcommand{\ChapterBackup}{BACKUP}
 
 % ------------------------------------
 % File Tree
@@ -161,7 +161,7 @@
 			\begin{itemize}
 				\item[\IconArrow] Nervenzellen \& Synapsen\vspace{0.6cm}
 				\item[\IconArrow] Biologisches neuronales Netzwerk\vspace{0.6cm}
-				\item[\IconArrow] Symmetrisches neuronales Netzwerk
+				\item[\IconArrow] Simulation neuronaler Dynamik
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -173,15 +173,16 @@
 	\frametitle{\ChapterBnn}
 	\framesubtitle{Biologische Nervenzellen}
 	\vspace{0.3cm}
+	Neuronale Netze biologischer Lebensformen bestehen aus Nervenzellen und Synapsen bzw. Gap-Junctions.
+	\vspace{0.2cm}
 	\begin{itemize}
-		\item Neuronale Netze biologischer Lebensformen bestehen aus Nervenzellen und Synapsen bzw. Gap-Junctions
-		\item Neuronale Nervenzellen bestehen aus Dendrit, Soma und Axon. Das Soma enthält den Zellkern und verarbeitet ankommende Informationen.
-		\item Der Dendrit dient der Reizaufnahme von Signalen anderer Nervenzellen übertragen durch Synapsen und Gap-Junctions.
-		\item Das Axon ist ein Nervenzellenfortsatz zur Weiterleitung der Signale von Soma an weitere Synapsen und Gap-Junctions.
+		\item Das \textbf{Soma} enthält den Zellkern und verarbeitet ankommende Informationen.
+		\item Der \textbf{Dendrit} dient der Reizaufnahme von Signalen anderer Nervenzellen übertragen durch Synapsen und Gap-Junctions.
+		\item Das \textbf{Axon} ist ein Nervenzellenfortsatz zur Weiterleitung der Signale von Soma an weitere Synapsen und Gap-Junctions.
 	\end{itemize}
 	\begin{figure}[H] %[!t] ...
 		\centering
-		\includegraphics[width=7cm]{figures/folie_2/neuron_is.pdf}
+		\includegraphics[width=7.2cm]{figures/folie_2/neuron_is.pdf}
 		\label{fig:neuron}
 	\end{figure}
 
@@ -194,6 +195,7 @@
 	\framesubtitle{Biologische Synapsen}
 	\vspace{0.3cm}
 	Eine Synapse dient der Informationsübertragung zwischen zwei Nervenzellen und wird in drei Kategorien unterteilt:
+	\vspace{0.2cm}
 	\begin{itemize}
 		\item Exzitatorische Synapsen (chemisch) - wirken anregend auf die postsynaptische Nervenzelle und übertragen die Informationen.
 		\item Inhibitorische Synapse (chemisch) - wirken  hemmend auf die postsynaptische Nervenzelle und übertragen die Informationen negativ.
@@ -215,15 +217,15 @@
 	\vspace{0.3cm}
 	Der \textit{Touch-Withdrawal Circuit} des \textit{C. Elegans} dient des reflexartigen Zurückschnellens bei äußeren Stimuli.
 	\begin{columns}[T,onlytextwidth]
-		\begin{column}{0.55\textwidth}
+		\begin{column}{0.58\textwidth}
 			\begin{itemize}
-				\item[\MotorNeuron] \textbf{Motor-Neuronen} sorgen für die Anregung von Muskelgruppen, um bspw. eine Vorwärtsbewegung umzusetzen.\vspace{0.3cm}
 				\item[\SensorNeuron] \textbf{Sensor-Neuronen} nehmen Signale durch äußere Stimuli auf und übersetzen diese auf Aktions-\\potentiale innerhalb des neuronalen Netzes.\vspace{0.3cm}
-				\item[\InterNeuron] \textbf{Inter-Neuronen} nehmen durch Synapsen und Gap-Junctions Akionspotentiale entgegen und summieren diese auf, bis ein Schwellwert erreicht wird - das Inter-Neuron feuert.
+				\item[\InterNeuron] \textbf{Inter-Neuronen} nehmen durch Synapsen und Gap-Junctions Akionspotentiale entgegen und summieren diese auf, bis ein Schwellwert erreicht wird und es feuert.\vspace{0.3cm}
+				\item[\MotorNeuron] \textbf{Motor-Neuronen} sorgen bei entsprechenden Feuer-Events für die Anregung von Muskelgruppen, um bspw. eine Vorwärtsbewegung umzusetzen.
 			\end{itemize}
 		\end{column}
 		\hspace{0.2cm}
-		\begin{column}{0.45\textwidth}
+		\begin{column}{0.43\textwidth}
 			\vspace{-0.7cm}
 			\begin{figure}[H] %[!t] ...
 				\centering
@@ -240,7 +242,7 @@
 	\frametitle{\ChapterBnn}
 	\framesubtitle{Neuronale Dynamik durch das Leaky Integrate and Fire - Modell}
 	\vspace{0.3cm}
-	Die neuronale Dynamik und die damit verbundenen Vorgänge im neuronalen Netz werde durch das Leaky Integrate and Fire (LIF) - Modell dargestellt.
+	Die neuronale Dynamik und die damit verbundenen Vorgänge im neuronalen Netz werde durch das \textit{Leaky Integrate and Fire (LIF)} - Modell dargestellt.
 	\begin{columns}[T,onlytextwidth]
 		\begin{column}{0.55\textwidth}
 			\vspace{0.1cm}
@@ -300,7 +302,7 @@
 	\frametitle{\ChapterBnn}
 	\framesubtitle{Motivation: Nutzung eines biologischen neuronalen Netzes}
 	\vspace{0.5cm}
-	Klassische Anwendungen neuronaler Netze stützen sich auf künstlich erstellte Konstrukte, welche durch 
+	Klassische Anwendungen des \textit{Deep Learning} durch neuronale Netze stützen sich auf künstlich erstellte Modelle. Die Nutzung bereits bestehender Netzwerke birgt einige Vorteile:
 	\vspace{0.5cm}
 	\begin{columns}[T,onlytextwidth]
 		\begin{column}{0.45\textwidth}
@@ -314,7 +316,7 @@
 		\hspace{0.2cm}
 		\begin{column}{0.45\textwidth}
 			\begin{itemize}
-				\item[\IconCon] Implementationsaufwand und Simulation aufwendig.\vspace{0.5cm}
+				\item[\IconCon] Implementationsaufwand und Simulation durch \textit{LIF}-Modell aufwendig.\vspace{0.5cm}
 				\item[\IconCon] Wenig Fachliteratur über die Verbindung von biologischen neuronalen Netzen mit Methoden des Reinforcement Learning.\vspace{0.5cm}
 				\item[\IconCon] Hohe Anzahl an zu simulierenden Parametern.\vspace{0.5cm}
 			\end{itemize}
@@ -355,6 +357,7 @@
 	\textit{Reinforcement Learning} aus dem Bereich des \textit{Deep Learning} ist eine Abwandlung des überwachten Lernens mit der Erweiterung eines Belohnungssystems.
 	\begin{columns}[T,onlytextwidth]
 		\begin{column}{0.5\textwidth}
+			\vspace{0.2cm}
 			\begin{itemize}
 			  \item Der Agent ist in der Lage, eine Aktion im gegebenen Aktionsraum zu tätigen.
 			  \item Die Aktion hat Auswirkungen auf die Umwelt bzw. Simulation, der neue Zustand der Simulation wird interpretiert und als Observationsvektor $\boldsymbol{o}$ ausgegeben.
@@ -368,7 +371,7 @@
 			\begin{figure}[H] %[!t] ...
 				\centering
 				\includegraphics[width=8cm]{figures/RL_Chart_pres.pdf}
-				\caption{Ablaufplan: \textit{Reinforcement Learning}}
+				\caption{Funktionweise des \textit{Reinforcement Learning}}
 				\label{fig:rl}
 			\end{figure}
 		\end{column}
@@ -381,12 +384,27 @@
 	\frametitle{\ChapterRl}
 	\framesubtitle{Anwendung auf das biologische Netzwerk}
 	\vspace{0.3cm}
-	Durch \textit{Reinforcement Learning} können Parameter im biologischen neuronalen Netz optimiert werden, sodass es zu Feuer-Events kommt.
-	\begin{itemize}
-		\item Um die neuronale Dynamik durch das \textit{LIF}-Modell richtig abzubilden, damit es bei äußeren Stimuli zu Feuer-Ereignissen kommt, werden insgesamt 46 Parameter simuliert.
-		\item ...
-		\item Durch verschiedene Suchalgorithmen können Parametersätze simuliert und die Performance gemessen werden.
-	\end{itemize}
+	Durch \textit{Reinforcement Learning} können Parameter im biologischen neuronalen Netz optimiert werden, sodass es zu Feuer-Events kommt und ein gegebenes System stabilisiert werden kann.
+	\vspace{0.2cm}
+	\begin{columns}[T,onlytextwidth]
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item Um die neuronale Dynamik durch das \textit{LIF}-Modell richtig abzubilden, damit es bei äußeren Stimuli zu internen Feuer-Ereignissen kommt, werden insgesamt 46 Parameter generiert und optimiert.
+				\item Die Belohnung nach jeder Episode (Simulationslauf eines bestimmten Parametersatzes) gibt Aufschluss über die Güte der generierten Parameter.
+				\item Eine nachgelagerte Optimierung durch weitere Gewichtung der Synapsen und Gap-Junctions erfolgt ebenfalls.
+			\end{itemize}
+		\end{column}
+		\hspace{1cm}
+		\begin{column}{0.45\textwidth}
+			\vspace{-0.5cm}
+			\begin{figure}[H] %[!t] ...
+				\centering
+				\includegraphics[width=5cm]{figures/Neural_Net_v3_num_syn.pdf}
+				\caption{Biologisches neuronales Netzwerk mit Synapsengewichtung.}
+				\label{fig:bnn_num}
+			\end{figure}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 % =======================
@@ -398,6 +416,7 @@
 	\begin{columns}[T,onlytextwidth]
 		\begin{column}{0.5\textwidth}
 			\btEmph{\texttt{Random-Search}}
+			\vspace{0.1cm}
 			\begin{itemize}
 				\item Parameter werden in einer gegebenen Gleichverteilung mit festen Grenzen pro Episode zufällig generiert.
 				\item Die Performance jedes Parametersatzes wird anhand der erhaltenen Belohnung gemessen.
@@ -406,6 +425,7 @@
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\btEmph{\texttt{Weights}}
+			\vspace{0.1cm}
 			\begin{itemize}
 				\item Im Gegensatz zu Random-Search wird Weights zur Optimierung des neuronalen Netzes mit bereits bestehenden Parametern verwendet.
 				\item Es werden bestehende Synapsen mit einem pro Episode zufällig gewählten Gewicht versehen, welches die Reizübertragung schwächt.
@@ -423,6 +443,7 @@
 \begin{columns}[T,onlytextwidth]
 	\begin{column}{0.5\textwidth}
 		\btEmph{\texttt{Genetische Algorithmen}}
+		\vspace{0.1cm}
 		\begin{itemize}
 			\item Die erste Generation an Parametern wird in einer gegebenen Gleichverteilung mit festen Grenzen pro Episode zufällig generiert.
 			\item Nach Durchlauf der ersten Generation werden wenige Episoden mit guter Belohnung in eine Selektion aufgenommen.
@@ -478,8 +499,12 @@
 \begin{columns}[T,onlytextwidth]
 	\begin{column}{0.7\textwidth}
 		Um die neuronale Dynamik des biologischen neuronalen Netzes zu simulieren und die Aktionen auf die Umwelt zu übertragen, wurde ein Simulator in der Programmiersprache \texttt{Python} geschrieben.
+		\vspace{0.1cm}
 		\begin{itemize}
-			\item ...
+			\item Wichtige Programmfunktonen wurden in Modulen zusammengefasst und sind uneingeschränkt aufrufbar.
+			\item Es existiert ein zentraler Punkt zum Ändern von Parametern des neuronalen Netzes sowie anderer Simulationsvariablen.
+			\item Parameter und Gewichte werden nach Simulationen mit entsprechenden Informationen gespeichert und sind plattformunabhängig aufrufbar.
+			\item Der Programmcode ist ausführlich Kommentiert und es wurde eine entsprechende Dokumentation verfasst, um den Simulator nach eigenen Anforderungen zu erweitern.
 		\end{itemize}
 	\end{column}
 	\hspace{-0.8cm}
@@ -514,33 +539,34 @@
 % =======================
 
 \begin{frame}
-\frametitle{\ChapterCartpole}
-\framesubtitle{Simulationsumgebung \texttt{CartPole\_v0}}
-\vspace{0.3cm}
-Um die Methode des \textit{Reinforcement Learning} auf biologische neuronale Netze anzuwenden, wird die Simulationsumgebung \texttt{CartPole\_v0} von OpenAi Gym gewählt.
-\begin{columns}[T,onlytextwidth]
-	\begin{column}{0.53\textwidth}
-		\begin{itemize}
-			\item Das inverse Pendel auf dem Wagen kann sich in Vorwärts- und Rückwärtsrichtung bewegen.
-			\item Pro Zeitschritt kann ein Schritt in die jeweilige Richtung erfolgen (Aktion: 0 oder 1).
-			\item Der Observationsvektor $\boldsymbol{o}$ gibt die Zustandsgrößen $\varphi$, $\dot{\varphi}$, $x$ und $\dot{x}$ wieder.
-			\item Es wird ebenfalls eine Belohnung $r$ zurückgegeben.
-			\item ...
-		\end{itemize}
-	\end{column}
-	\hspace{-0.5cm}
-	\begin{column}{0.45\textwidth}
-		\vspace{-0.6cm}
-		\begin{figure}[H] %[!t] ...
-			\centering
-			\scriptsize
-			\def\svgwidth{6.5cm}
-			\input{figures/cartpole_with_ann.pdf_tex}
-			\caption{Simulationsumgebung \texttt{CartPole\_v0}}
-			\label{fig:cartpole}
-		\end{figure}
-	\end{column}
-\end{columns}
+	\frametitle{\ChapterCartpole}
+	\framesubtitle{Simulationsumgebung \texttt{CartPole\_v0}}
+	\vspace{0.3cm}
+	Um die Methode des \textit{Reinforcement Learning} auf biologische neuronale Netze anzuwenden, wird die Simulationsumgebung \texttt{CartPole\_v0} von OpenAi Gym gewählt.
+	\vspace{0.1cm}
+	\begin{columns}[T,onlytextwidth]
+		\begin{column}{0.53\textwidth}
+			\begin{itemize}
+				\item Das inverse Pendel auf dem Wagen kann sich in Vorwärts- und Rückwärtsrichtung bewegen.
+				\item Pro Zeitschritt kann ein Schritt in die jeweilige Richtung erfolgen (Aktion: 0 oder 1).
+				\item Der Observationsvektor $\boldsymbol{o}$ gibt die Zustandsgrößen $\varphi$, $\dot{\varphi}$, $x$ und $\dot{x}$ wieder.
+				\item Es wird ebenfalls eine Belohnung $r$ zurückgegeben.
+				\item Die Ein- bzw. Ausgangsgrößen werden mit den eingangs erwähnten Sensor- und Motor-Neuronen verbunden.
+			\end{itemize}
+		\end{column}
+		\hspace{-0.5cm}
+		\begin{column}{0.45\textwidth}
+			\vspace{-0.6cm}
+			\begin{figure}[H] %[!t] ...
+				\centering
+				\scriptsize
+				\def\svgwidth{6.5cm}
+				\input{figures/cartpole_with_ann.pdf_tex}
+				\caption{Simulationsumgebung \texttt{CartPole\_v0}}
+				\label{fig:cartpole}
+			\end{figure}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 % =======================
@@ -549,18 +575,32 @@ Um die Methode des \textit{Reinforcement Learning} auf biologische neuronale Net
 	\frametitle{\ChapterCartpole}
 	\framesubtitle{Simulationsläufe: Auslagerung auf Cloud Server}
 	\vspace{0.3cm}
-	\begin{itemize}
-		\item Durch rechenintensive Simulationen mit den Algorithmen \texttt{Random-Search} und \texttt{Weights} wird ein externer Server benötigt.
-		\item Eine virtuelle Instanz in der Google Cloud Platform wurde angemietet, um Simulationszeiten über 12 Stunden zu ermöglichen.
-		\item Es wurden Simulationen mit über 10 Mio. Episoden gefahren und analysiert.
-		\item ...
-	\end{itemize}
-	\begin{figure}[H] %[!t] ...
-		\centering
-		\includegraphics[width=8cm]{figures/gcp.png}
-		\label{fig:gcp}
-	\end{figure}
-
+	Durch rechenintensive Simulationen mit den Algorithmen \texttt{Random-Search} und \texttt{Weights} wird ein externer Server mit größeren Ressourcen benötigt.
+	\vspace{0.1cm}
+	\begin{columns}[T,onlytextwidth]
+		\begin{column}{0.6\textwidth}
+			\begin{itemize}
+				\item Eine virtuelle Instanz in der Google Cloud Platform wurde angemietet, um Simulationszeiten über 12 Stunden zu ermöglichen.
+				\item Es wurden Simulationen mit über 10 Mio. Episoden gefahren und analysiert.
+				\item Die Ergebnisse dieser Simulationen werden in Form von Parameter- und Weight-\glqq Dumps\grqq{} bereitgestellt und können auf Heimrechnern visualisiert werden.
+			\end{itemize}
+			\begin{figure}[H] %[!t] ...
+				\centering
+				\includegraphics[width=6cm]{figures/gcp.png}
+				\label{fig:gcp}
+			\end{figure}
+		\end{column}
+		\hspace{-0.5cm}
+		\begin{column}{0.4\textwidth}
+			\vspace{-0.6cm}
+			\begin{figure}[H] %[!t] ...
+				\centering
+				\scriptsize
+				\def\svgwidth{4cm}
+				\input{figures/gcp/gcp.pdf_tex}
+			\end{figure}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 % =======================
@@ -569,10 +609,28 @@ Um die Methode des \textit{Reinforcement Learning} auf biologische neuronale Net
 	\frametitle{\ChapterCartpole}
 	\framesubtitle{Visualisierung der Simulationsergebnisse}
 	\vspace{0.3cm}
-	\begin{itemize}
-		\item ...
-	\end{itemize}
+	Darstellung der Membranpotentiale über eine Simulationsdauer von 10 Sekunden:
+	\vspace{-0.2cm}
+	\begin{figure}[H] %[!t] ...
+		\centering
+		\includegraphics[width=14cm]{figures/plot_membranpot_1.pdf}
+		\label{fig:memb_pot}
+	\end{figure}
+\end{frame}
 
+% =======================
+
+\begin{frame}
+	\frametitle{\ChapterCartpole}
+	\framesubtitle{Visualisierung der Simulationsergebnisse}
+	\vspace{0.3cm}
+	Darstellung der Aktion des neuronalen Netzes mit Winkel $\varphi$ des Pendels über eine Simulationsdauer von 5 Sekunden:
+	\vspace{-0.2cm}
+	\begin{figure}[H] %[!t] ...
+		\centering
+		\includegraphics[width=13cm]{figures/plot_action.pdf}
+		\label{fig:action}
+	\end{figure}
 \end{frame}
 
 % =======================
@@ -584,7 +642,6 @@ Um die Methode des \textit{Reinforcement Learning} auf biologische neuronale Net
 	Das Video zeigt das inverse Pendel, welches durch das biologische neuronale Netz und bereits trainierten Parametern stabilisiert wird.\\
 	\vspace{0.3cm}
 		\centering
-		\vspace{0.5cm}
 		\includemedia[
 		width=14cm,height=6cm,
 		activate=pageopen,
@@ -603,8 +660,10 @@ Um die Methode des \textit{Reinforcement Learning} auf biologische neuronale Net
 	\frametitle{\ChapterEnd}
 	\framesubtitle{Zusammenfassung \& Ausblick}
 	\vspace{0.3cm}
+	ABC
+	\vspace{0.1cm}
 	\begin{itemize}
-		\item ...
+		\item Die Kombination verschiedener Bereiche der Wissenschaft zeigt eine neue Herangehensweise an bereits bestehende Probleme in der Regelungstechnik.
 	\end{itemize}
 
 \end{frame}
@@ -620,146 +679,128 @@ Um die Methode des \textit{Reinforcement Learning} auf biologische neuronale Net
 
 % =======================
 
+\begin{frame}[c]
+\frametitle{\ChapterBackup}
+\centering
+{\Large \ctEmph{BACKUP}}
+
+\end{frame}
+
+% =======================
+
+\begin{frame}[c]
+\frametitle{\ChapterBackup}
+\framesubtitle{Unterschied biologisches neuronales Netz vs. künstliches neuronales Netz}
+\vspace{-0.5cm}
+\begin{columns}[T,onlytextwidth]
+	\begin{column}{0.4\textwidth}
+		\begin{figure}[H] %[!t] ...
+			\centering
+			\includegraphics[width=6.5cm]{figures/Neural_Net_v3_ohneLegende.pdf}
+			\caption{Biologisches neuronales Netz des \textit{C. Elegans}.}
+			\label{fig:bnn_celegans}
+		\end{figure}
+	\end{column}
+	\hspace{-1cm}
+	\begin{column}{0.5\textwidth}
+		\vspace{1.1cm}
+		\begin{figure}[H] %[!t] ...
+			\centering
+			\includegraphics[width=4.5cm]{figures/Colored_neural_network.pdf}
+			\caption{Modell eines künstlichen neuronalen Netzes}
+			\label{fig:model_knn}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+% =======================
+
 \begin{frame}
-  \frametitle{Formatting text}
-  \framesubtitle{Color and thickness}
 
-  \begin{itemize}
-  \item Emphasizing text  cell
-    \begin{itemize}
-    \item \texttt{\textbackslash cEmph} provides \cEmph{this text}
-    \item \texttt{\textbackslash ctEmph} provides \ctEmph{this text}
-    \item \texttt{\textbackslash tEmph} provides \tEmph{this text}
-    \item \texttt{\textbackslash bEmph} provides \bEmph{this text}
-    \item \texttt{\textbackslash btEmph} provides \btEmph{this text}
-    \end{itemize}
-  \end{itemize}  
+	\frametitle{\ChapterBackup}
+	\framesubtitle{Herleitung des Leaky Integrate and Fire - Modells (1/3)}
+	\vspace{0.3cm}
+	Um eine geeignete Differenzialgleichung herzuleiten, wird zuerst das erste Kirchhoffsche Gesetz angewendet
+	\begin{align}
+	\label{eq:lif_current}
+	I = I_R + I_C\text{.}
+	\end{align}
+	Der Strom $I_R$ ist einfach durch das Ohmsche Gesetz wie folgt zu berechnen
+	\begin{align}
+	\label{eq:lif_IR}
+	I_R = \frac{U_R}{R} = \frac{U - U_{Leak}}{R}\text{.}
+	\end{align}
+	Der Strom $I_C$ wird durch die Definition eines Kondensators $C_m = \tfrac{q}{U}$ zum kapazitiven Strom 
+	\begin{align}
+	\label{eq:lif_IC}
+	I_C = \frac{dq}{dt} = C_m \frac{dU}{dt}\text{.}
+	\end{align}
+	Hierbei steht $q$ für die elektrische Ladung und $U$ für die anliegende Spannung.\\
+	Einsetzen von \eqref{eq:lif_IR} und \eqref{eq:lif_IC} in \eqref{eq:lif_current} ergibt
+	\begin{align}
+	\label{eq:lif_I}
+	I = \frac{U - U_{Leak}}{R} + C_m\frac{dU}{dt}\text{.}
+	\end{align}
 \end{frame}
 
 % =======================
 
-\begin{frame}[fragile]
-  \frametitle{Boxes}
-  \framesubtitle{Some examples}
-
-\begin{verbatim}
-\begin{displaybox}{0.995\textwidth}
-  Example 1: use 0.995\textbackslash textwidth for full width box  
-\end{displaybox}
-\end{verbatim}
-  
-  \begin{displaybox}{0.995\textwidth}
-    % 
-    Example 1: use 0.995\textbackslash textwidth for full width box 
-    % 
-  \end{displaybox}
-  
-\begin{verbatim}
-\begin{alignbox}{0.75\textwidth} 
-  Use for math related environments including text line (blank line below)
-
-  \begin{align}
-    y = x^2
-  \end{align}
-\end{alignbox}
-\end{verbatim}
-  
-  \begin{alignbox}{0.75\textwidth}
-    Use for math related environments including text line (blank line below)
-    
-    \begin{align}
-      y = x^2
-    \end{align}
-  \end{alignbox}
-  %
+\begin{frame}
+	\frametitle{\ChapterBackup}
+	\framesubtitle{Herleitung des Leaky Integrate and Fire - Modells (2/3)}
+	\vspace{0.3cm}
+	Wird diese Gleichung mit $R$ multipliziert und umgestellt, bildet sich die folgende lineare Differenzialgleichung erster Ordnung:
+	\begin{align}
+	\label{eq:lif_nd}
+	R C_m \frac{dU}{dt} = (U_{Leak} - U) + R I\text{.}
+	\end{align}
+	Der Strom $I$ wird als Eingangsgröße verstanden und im weiteren Verlauf als $I_{in}$ betitelt. Nach Division durch $RC$ und Einführung des Leitwerts $G_{Leak} = \tfrac{1}{R}$ entsteht die gewollte Form:
+	\begin{align}
+	\label{eq:lif}
+	\frac{dU}{dt} = \frac{G_{Leak}(U_{Leak} - U) + I_{in}}{C_m}\text{.}
+	\end{align}
+	In dieser Gleichung stehen die Variablen $G_{Leak}$, $U_{Leak}$ und $C_m$ für Parameter der betrachteten Nervenzelle, während $I_{in}$ stellvertretend für alle eingehenden Ströme aus Stimuli, chemischen Synapsen und Gap-Junctions steht
+	\begin{align}
+	\label{eq:lif_current_in}
+	I_{in} = \sum_{i = 1}^{n}{I_{Stimuli}} + \sum_{i = 1}^{n}{I_{Syn}} + \sum_{i = 1}^{n}{I_{Gap}}\text{.}
+	\end{align}
 \end{frame}
 
 % =======================
 
-\begin{frame}[fragile,fragile]
-  \frametitle{Boxes}
-  \framesubtitle{Some examples}
-  
-\begin{verbatim}
-\begin{alignbox}{0.5\textwidth} 
-  \begin{align}
-    y = x^2
-  \end{align}
-\end{alignbox}
-\end{verbatim}
-  
-  \begin{alignbox}{0.5\textwidth}
-    \begin{align}
-      y = x^2
-    \end{align}
-  \end{alignbox}
-  %
-
-\begin{verbatim}
-This shows the use of an \texttt{inlinebox} environment
-\begin{inlinebox}{1cm}
-  abc
-\end{inlinebox}
-\end{verbatim}\newenvironment{onlinebox}[1]
-
-This shows the use of an \texttt{inlinebox} environment
-\begin{inlinebox}{1cm}
-  abc
-\end{inlinebox}
-
+\begin{frame}
+	\frametitle{\ChapterBackup}
+	\framesubtitle{Herleitung des Leaky Integrate and Fire - Modells (3/3)}
+	\vspace{0.3cm}
+	Die anliegenden Synapsenströme sind durch folgenden formularen Zusammenhang zu berechnen:
+	\begin{align}
+	\label{eq:chem_syn_current}
+	I_{Syn} = \frac{w}{1 + \exp^{\sigma(u_{pre} + \mu)}}(E - u_{post})\text{.}
+	\end{align}
+	Synapsenströme sind grundsätzlich von den pre- und postsynaptischen Potentialen der jeweiligen Nervenzellen $u_{pre}$ und $u_{post}$ abhängig. Weiterhin können diese chemischen Synapsen exzitatorisch oder inhibitorisch wirken. Diese Eigenschaft wird durch das sog. Nernstpotential $E\in[-90\text{ mV}, 0\text{ mV}]$ beschrieben. Weitere Größen dieser Gleichung bilden die Kreisfrequenz $w$, die Standardabweichung $\sigma$ und der Erwartungswert $\mu$.\\
+	Gap-Junctions bilden die Ausnahme, denn sie dienen als Ausgleichsglied und wirken bidirektional. Ihr Strom wird wie folgt berechnet:
+	\begin{align}
+	\label{eq:gap_syn_current}
+	I_{Gap} = \hat{w}(u_{post} - u_{pre})\text{.}
+	\end{align}
+	Für die Berechnung des Gap-Junction Stroms benötigt es ebenfalls das pre- und postsynaptische Potenzial der jeweiligen Nervenzellen $u_{pre}$ und $u_{post}$, sowie die Kreisfrequenz $\hat{w}$.
 \end{frame}
 
 % =======================
 
-\begin{frame}\frametitle{Differenzielle Flachheit}
-  \framesubtitle{Inversionsbasierte Trajektorienplanung}
-  %
-  \newcommand{\pfeil}{\VECTOR(0,0)(3,0)}
-  \newcommand{\kasten}{\polyline(0,0)(4,0)(4,3)(0,3)(0,0)}
-  %
-  \begin{itemize}
-  \item \btEmph{Differenzielle Flachheit}\sfcite{fliess:95}
-    \medskip
-    \begin{inlinebox}{0.925\textwidth}
-      Ein System $\dot{\xv[]}=\bs{f}(\xv[],\uv[])$ wird \tEmph{differenziell
-        flach} genannt, wenn ein so genannter \tEmph{flacher Ausgang}
-      $\yv[]=\bs{h}(\xv[],\uv[])$, $\dim\yv[]=\dim\uv[]$ existiert, so dass \\[1ex]
-      % 
-      \phantom{-----} 
-      $\xv =
-      \bs{\theta_{\xv[]}}\Bigl(\yv[],\dot{\yv[]},\ldots,\yv[^{(\beta)}]\Bigr)$,
-      \qquad 
-      $\uv =
-      \bs{\theta_{\uv[]}}\Bigl(\yv[],\dot{\yv[]},\ldots,\yv[^{(\beta+1)}]\Bigr)$.
-    \end{inlinebox}
-    %
-    $\Rightarrow$ \tEmph{Differenzielle Zustands-- und
-      Eingangsparametrierung} \pause\\[-1ex]
-    % 
-    \unitlength0.5cm
-    \begin{picture}(26,4)(0,1.25)
-      \linethickness{1.25pt}
-      \put(1,0){%
-        \put(10,3){\pfeil}
-        \put(13,1.5){\kasten}
-        \put(13.75,2.75){System}
-        \put(17,3){\pfeil}
-        % 
-        \put(17.5,3.5){$\xv[\cts]\to\cEmph{\xvd[\cts]=\bs{\theta_{\xv[]}}\bigl(\yvd[],\dot{\yvd[]},...\bigr)}$}
-      }
-      %
-      \put(3,3){\cEmph{\pfeil}}
-      \put(6,1.5){\cEmph{\kasten}}
-      \put(10,3){\Line(0,0)(0,0)(1,0)}
-      \put(6.15,2.75){$\bs{\theta}_{\uv[]}\bigl(\yvd[],\!\dot{\yvd[]}\!,...\bigr)$}
-      \put(10.1,3.5){$\cEmph{\uvd}=\uv$}
-      \put(3.25,3.5){\cEmph{$\yvd$}}
-    \end{picture}\pause\\
-    %
-    $\Rightarrow$ Methodische \"Ubertragung auf
-    \tEmph{verteilt--parametrische Systeme}
-  \end{itemize}
-  % 
+\begin{frame}
+	\frametitle{\ChapterBackup}
+	\framesubtitle{Aktionsraum und Übersetzungsvorschrift der Sensor-Neuronen}
+	\vspace{0.3cm}
+	Um die jeweiligen Größen durch die Sensorneuronen zu übersetzen, werden folgende Funktionen für die jeweils positive und negative Sensorneurone $S_{positiv}$ und $S_{negativ}$ angenommen:
+	\begin{align}
+	\label{eq:sensor_translation_p}
+	S_{positiv} &:= \begin{cases}-70\text{ mV} & x\leq 0\\-70\text{ mV} + \frac{50\text{ mV}}{x_{min}}x & 0 < x \leq x_{min} \\-20\text{ mV} & x > x_{max}  \end{cases}\\
+	\label{eq:sensor_translation_n}
+	S_{negativ} &:= \begin{cases}-70\text{ mV} & x\geq 0\\-70\text{ mV} + \frac{50\text{ mV}}{x_{min}}x & 0 > x \geq x_{min} \\-20\text{ mV} & x < x_{max}  \end{cases}
+	\end{align}
+	$x\in[x_{min}, x_{max}]$ ist eine messbare, dynamische Systemvariable, welche in den gegebenen Grenzen $x_{min} $ und $x_{max}$ auftritt. Lediglich eine Fallunterscheidung wird getroffen: nimmt $x$ einen positiven Wert an, wird Sensorneurone $S_{positiv}$ aktiviert, bei negativem $x$-Wert, agiert die Sensorneurone $S_{negativ}$.
 \end{frame}
 
 % =======================
