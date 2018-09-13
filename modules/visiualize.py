@@ -109,28 +109,28 @@ def arr(x, u, fire, I_all):
 def plot():
 
     #plt.rc('text', usetex=True)
-    plt.rc('font', family='serif', size=20)
+    plt.rc('font', family='serif', size=14)
 
     plt.figure(1)
     #plt.suptitle('TW Circuit Simulator for biological neural Networks', fontsize=16)
 
     plt.subplot(121)
-    plt.title('Sensory Neurons', fontsize=20)
+    plt.title('Sensory Neurons', fontsize=18)
     plt.plot(PLM, '-y', label='PLM (Phi)', linewidth=1)
     plt.plot(AVM, '-g', label='AVM (-Phi)', linewidth=1)
     plt.plot(ALM, '-r', label='ALM (Phi dot)', linewidth=1)
     plt.plot(PVD, '-b', label='PVD (-Phi dot)', linewidth=1)
-    plt.xlabel('t')
+    plt.xlabel('t in 1/10 Sek')
     plt.ylabel('u in mV')
     plt.legend(loc='upper left')
 
     plt.subplot(122)
-    plt.title('Inter Neurons', fontsize=20)
-    plt.plot(AVA, '-b', label='AVA (REV)', linewidth=0.3)
+    plt.title('Inter Neurons', fontsize=18)
+    plt.plot(AVA, '-b', label='AVA (REV)', linewidth=0.7)
     plt.plot(AVD, '-y', label='AVD (REV)', linewidth=1)
     plt.plot(PVC, '-g', label='PVC (FWD)', linewidth=1)
-    plt.plot(AVB, '-k', label='AVB (FWD)', linewidth=0.3)
-    plt.xlabel('t')
+    plt.plot(AVB, '-k', label='AVB (FWD)', linewidth=0.7)
+    plt.xlabel('t in 1/10 Sek')
     plt.ylabel('u in mV')
     plt.legend(loc='upper left')
 

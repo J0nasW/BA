@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -178,7 +178,7 @@
      id="namedview3769"
      showgrid="false"
      inkscape:zoom="1.5790283"
-     inkscape:cx="368.41926"
+     inkscape:cx="246.82549"
      inkscape:cy="151.47549"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
@@ -212,7 +212,7 @@
        x="262.57758"
        y="146.42184"
        style="font-size:15px;stroke-width:0.9375"
-       id="tspan3799">inhibitorische Synapse</tspan></text>
+       id="tspan3799">exzitatorische Synapse</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:15px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375"
@@ -234,7 +234,7 @@
        id="tspan3775-6"
        x="265.14035"
        y="76.094826"
-       style="font-size:15px;stroke-width:0.9375">exzitatorische Synapse</tspan></text>
+       style="font-size:15px;stroke-width:0.9375">inhibitorische Synapse</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:15px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375"

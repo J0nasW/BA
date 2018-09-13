@@ -4,7 +4,7 @@
 % v0.1 ... 2018/09/12
 
 \documentclass[10pt,t,aspectratio=1610]{beamer}
-%\usetheme[german]{ACON} %or 
+\usetheme[german]{ACON} %or 
 \usetheme{ACON}
 
 % We define  a command \sfcite which enables to add citations but to
@@ -176,8 +176,8 @@
 	Neuronale Netze biologischer Lebensformen bestehen aus Nervenzellen und Synapsen bzw. Gap-Junctions.
 	\vspace{0.2cm}
 	\begin{itemize}
-		\item Das \textbf{Soma} enthält den Zellkern und verarbeitet ankommende Informationen.
 		\item Der \textbf{Dendrit} dient der Reizaufnahme von Signalen anderer Nervenzellen übertragen durch Synapsen und Gap-Junctions.
+		\item Das \textbf{Soma} enthält den Zellkern und verarbeitet ankommende Informationen.
 		\item Das \textbf{Axon} ist ein Nervenzellenfortsatz zur Weiterleitung der Signale von Soma an weitere Synapsen und Gap-Junctions.
 	\end{itemize}
 	\begin{figure}[H] %[!t] ...
@@ -316,9 +316,9 @@
 		\hspace{0.2cm}
 		\begin{column}{0.45\textwidth}
 			\begin{itemize}
-				\item[\IconCon] Implementationsaufwand und Simulation durch \textit{LIF}-Modell aufwendig.\vspace{0.5cm}
+				\item[\IconCon] Implementationsaufwand für die Simulation durch \textit{LIF}-Modell hoch.\vspace{0.5cm}
 				\item[\IconCon] Wenig Fachliteratur über die Verbindung von biologischen neuronalen Netzen mit Methoden des Reinforcement Learning.\vspace{0.5cm}
-				\item[\IconCon] Hohe Anzahl an zu simulierenden Parametern.\vspace{0.5cm}
+				\item[\IconCon] Hohe Anzahl an zu simulierenden Parametern und ressourcenintensive Simulationen durch numerische Lösungsverfahren.\vspace{0.5cm}
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -389,9 +389,9 @@
 	\begin{columns}[T,onlytextwidth]
 		\begin{column}{0.5\textwidth}
 			\begin{itemize}
-				\item Um die neuronale Dynamik durch das \textit{LIF}-Modell richtig abzubilden, damit es bei äußeren Stimuli zu internen Feuer-Ereignissen kommt, werden insgesamt 46 Parameter generiert und optimiert.
+				\item Es werden insgesamt 46 Parameter generiert und optimiert, um die neuronale Dynamik richtig abzubilden.
 				\item Die Belohnung nach jeder Episode (Simulationslauf eines bestimmten Parametersatzes) gibt Aufschluss über die Güte der generierten Parameter.
-				\item Eine nachgelagerte Optimierung durch weitere Gewichtung der Synapsen und Gap-Junctions erfolgt ebenfalls.
+				\item Es erfolgt eine nachgelagerte Optimierung durch weitere Gewichtung der Synapsen und Gap-Junctions.
 			\end{itemize}
 		\end{column}
 		\hspace{1cm}
@@ -419,8 +419,10 @@
 			\vspace{0.1cm}
 			\begin{itemize}
 				\item Parameter werden in einer gegebenen Gleichverteilung mit festen Grenzen pro Episode zufällig generiert.
-				\item Die Performance jedes Parametersatzes wird anhand der erhaltenen Belohnung gemessen.
-				\item Nach Ablauf der Simulationszeit werden diejenigen Parameter gespeichert, welche die höchste Belohnung erhalten haben.
+				\item Die Güte jedes Parametersatzes wird anhand der erhaltenen Belohnung gemessen.
+				\item Nach Ablauf der Simulationszeit werden die Parameter gespeichert, welche die höchste Belohnung erhalten haben.
+				\item[\IconArrow] Erfolgswahrscheinlichkeit hoch
+				\item[\IconArrow] Ressourcenaufwand hoch
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.5\textwidth}
@@ -429,6 +431,10 @@
 			\begin{itemize}
 				\item Im Gegensatz zu Random-Search wird Weights zur Optimierung des neuronalen Netzes mit bereits bestehenden Parametern verwendet.
 				\item Es werden bestehende Synapsen mit einem pro Episode zufällig gewählten Gewicht versehen, welches die Reizübertragung schwächt.
+				\item Die Güte des Gewichtsatzes wird ebenfalls anhand der erhaltenen Belohnung gemessen.
+				\item Nach Ablauf der Simulationszeit werden die Gewichte gespeichert, welche die höchste Belohnung erhalten haben.
+				\item[\IconArrow] Erfolgswahrscheinlichkeit hoch
+				\item[\IconArrow] Ressourcenaufwand hoch
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -448,7 +454,7 @@
 			\item Die erste Generation an Parametern wird in einer gegebenen Gleichverteilung mit festen Grenzen pro Episode zufällig generiert.
 			\item Nach Durchlauf der ersten Generation werden wenige Episoden mit guter Belohnung in eine Selektion aufgenommen.
 			\item Die Grenzen der Gleichverteilung werden entsprechend der Maxima/Minima der Selektion angepasst.
-			\item Die Simulation konvergiert auf ein lokales Maximum für jeden Parameter.
+			\item Die Simulation konvergiert auf ein lokales Belohnungs-Maximum für jeden Parameter.
 		\end{itemize}
 	\end{column}
 	\begin{column}{0.45\textwidth}
@@ -501,10 +507,10 @@
 		Um die neuronale Dynamik des biologischen neuronalen Netzes zu simulieren und die Aktionen auf die Umwelt zu übertragen, wurde ein Simulator in der Programmiersprache \texttt{Python} geschrieben.
 		\vspace{0.1cm}
 		\begin{itemize}
-			\item Wichtige Programmfunktonen wurden in Modulen zusammengefasst und sind uneingeschränkt aufrufbar.
+			\item Wichtige Programmfunktonen werden in Modulen zusammengefasst und sind uneingeschränkt aufrufbar.
 			\item Es existiert ein zentraler Punkt zum Ändern von Parametern des neuronalen Netzes sowie anderer Simulationsvariablen.
 			\item Parameter und Gewichte werden nach Simulationen mit entsprechenden Informationen gespeichert und sind plattformunabhängig aufrufbar.
-			\item Der Programmcode ist ausführlich Kommentiert und es wurde eine entsprechende Dokumentation verfasst, um den Simulator nach eigenen Anforderungen zu erweitern.
+			\item Der Programmcode ist ausführlich kommentiert und es wurde eine entsprechende Dokumentation verfasst, um den Simulator nach eigenen Anforderungen zu erweitern.
 		\end{itemize}
 	\end{column}
 	\hspace{-0.8cm}
@@ -609,11 +615,11 @@
 	\frametitle{\ChapterCartpole}
 	\framesubtitle{Visualisierung der Simulationsergebnisse}
 	\vspace{0.3cm}
-	Darstellung der Membranpotentiale über eine Simulationsdauer von 10 Sekunden:
+	Darstellung der Membranpotentiale über eine Simulationsdauer von 5 Sekunden:
 	\vspace{-0.2cm}
 	\begin{figure}[H] %[!t] ...
 		\centering
-		\includegraphics[width=14cm]{figures/plot_membranpot_1.pdf}
+		\includegraphics[width=14cm]{figures/plot_membranpot_2.pdf}
 		\label{fig:memb_pot}
 	\end{figure}
 \end{frame}
@@ -658,24 +664,43 @@
 
 \begin{frame}
 	\frametitle{\ChapterEnd}
-	\framesubtitle{Zusammenfassung \& Ausblick}
+	\framesubtitle{Zusammenfassung}
 	\vspace{0.3cm}
-	ABC
-	\vspace{0.1cm}
 	\begin{itemize}
-		\item Die Kombination verschiedener Bereiche der Wissenschaft zeigt eine neue Herangehensweise an bereits bestehende Probleme in der Regelungstechnik.
+		\item Ein Simulator für neuronale Dynamik wurde zur Simulation genereller Abläufe innerhalb eines biologischen neuronalen Netzes entwickelt. 
+		\item Such- und Optimierungsalgorithmen im Bereich des \textit{Reinforcement Learning} sind implementiert worden, um die Parametersuche zu realisieren.
+		\item Die Stabilisierung des inversen Pendels kann durch richtig gefundene Parameter bzw. Gewichte gewährleistet werden.
+		\item Probleme treten in der Optimierung der Parameter sowie in der internen Verschaltung des gegebene neuronalen Netzes auf.
 	\end{itemize}
 
 \end{frame}
 
 % =======================
 
+\begin{frame}
+\frametitle{\ChapterEnd}
+\framesubtitle{Ausblick}
+	\vspace{0.3cm}
+	\begin{itemize}
+		\item Durch den modularen Aufbau des Simulators kann dieser erweitert und verbessert werden.
+		\item Die neuronale Dynamik kann durch erweiterte Modelle präziser dargestellt werden.
+		\item Das gegebene neuronale Netz des \textit{C. Elegans} könnte durch erweiterte Literaturrecherche realitätsgetreuer implementiert werden.
+		\item Weitere Simulationsumgebungen (bspw. aus OpenAI Gym) können hinzugefügt werden.
+	\end{itemize}
+\end{frame}
+
+% =======================
+
 \begin{frame}[c]
-	\frametitle{\ChapterEnd}
+	\frametitle{}
 	\centering
 	{\LARGE Vielen Dank für Ihre Aufmerksamkeit.}
 
 \end{frame}
+
+% =======================
+
+\ClosingSlide
 
 % =======================
 
@@ -804,8 +829,6 @@
 \end{frame}
 
 % =======================
-
-\ClosingSlide
 
 \end{document}
 
